@@ -10,7 +10,8 @@ The calibration result file is in \_\_log\_\_/label.csv under each mini-app fold
    * /dataset/vocalulary: The vocabularies used in data practice, include data types and data operations.
    * /dataset/privacy_2136sentences.csv: Sentences for classifier training.
    * /dataset/wechatAPIs.json: WeChat mini-app APIs, includes source and sink.
-   * /dataset/miniapp: Due to the large volume of all mini-apps, only 2998 privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
+   * /dataset/miniapp: Due to the large volume of all mini-apps, only 2998 mini-apps with privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
+   * Because github has a size limit of single file, we upload the dataset at zenodo:???.
 
 * /dfjs:
 The taint analysis data flow tool for wechat-miniapp.
