@@ -1,0 +1,61 @@
+<view class="animated fadeIn searchPage">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" size="14" type="search"></icon>
+                    <input bindconfirm="searchInputAction" bindinput="inputTyping" class="weui-search-bar__input" focus="{{inputShowed}}" placeholder="搜索您的机型" type="text" value="{{word}}"></input>
+                    <view bindtap="clearInput" class="weui-icon-clear" wx:if="{{word.length>0}}">
+                        <icon size="14" type="clear"></icon>
+                    </view>
+                </view>
+                <label bindtap="showInput" class="weui-search-bar__label" hidden="{{inputShowed}}">
+                    <icon class="weui-icon-search" size="14" type="search"></icon>
+                    <view class="weui-search-bar__text">搜索您的机型</view>
+                </label>
+            </view>
+            <view bindtap="hideInput" class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}">取消</view>
+        </view>
+    </view>
+    <view class="splitArea"></view>
+    <view wx:if="{{latestSearchShow}}">
+        <view class="popular-container">
+            <view class="popular-container-item" wx:for="{{popularData}}">
+                <view class="title">{{item.name}}</view>
+                <view class="child-body">
+                    <view bindtap="popularJump" class="child-item over" data-url="{{childItem.url}}" wx:for="{{item.items}}" wx:for-item="childItem">
+                        <view class="avatar" wx:if="{{childItem.avatar}}">
+                            <image mode="heightFix" src="{{childItem.avatar}}"></image>
+                        </view>
+                        <view class="name">{{childItem.name}}</view>
+                        <view class="label" wx:if="{{childItem.label}}">{{childItem.label}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="latestSearch" wx:if="{{searchData.length!=0}}">
+            <view class="latestSearchTitle">
+                <view class="latestSearchTitleLeft">搜索历史</view>
+                <image bindtap="historyDelate" class="latestSearchTitleRight" src="../../../img/search/delate.png"></image>
+            </view>
+            <view class="latestSearchResult">
+                <view bindtap="searchLatest" class="latestSearchResultList over" data-latestword="{{item}}" wx:if="{{index<11}}" wx:for="{{searchData}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="searchResult" wx:if="{{searchResultShow}}">
+        <view class="noResult" wx:if="{{noResultShow}}">
+            <view>搜索无结果</view>
+            <view>无相关品牌型号</view>
+        </view>
+        <view class="haveResult" wx:if="{{haveResultShow}}">
+            <view bindtap="goToDevice" class="haveResultList" data-mouldId="{{item.Id}}" data-mouldName="{{item.MouldName}}" wx:for="{{resultList}}">
+                <text style="{{item2==word2?'color:#ff7200':''}}" wx:for="{{item.searchArray}}" wx:for-item="item2" wx:key="index2">{{item2}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="refresher" wx:if="{{showRefresher}}">
+    <text>网络开小差了~</text>
+    <button bindtap="onLoad" class="refreshBtn">点击刷新</button>
+</view>

@@ -1,0 +1,650 @@
+page {
+    background: #f5f5f7;
+}
+
+.plr20 {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.p2040 {
+    padding: 40rpx 20rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.p20 {
+    padding: 20rpx;
+}
+
+.bgf {
+    background: #fff;
+}
+
+.jf {
+    justify-content: space-between;
+}
+
+.orderContainer {
+    padding: 0 20rpx 120rpx;
+    box-sizing: border-box;
+}
+
+.orderContainer.full_screen {
+    padding-bottom: 160rpx;
+}
+
+.banner {
+    margin-top: 24rpx;
+    width: 100%;
+}
+
+.proWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 10rpx;
+    height: 114rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.proWrap .proTitle {
+    color: #111;
+    font-size: 30rpx;
+}
+
+.proWrap .appledown {
+    width: 38rpx;
+    height: 38rpx;
+    transform: rotateZ(-90deg);
+}
+
+.modelShowList {
+    box-sizing: border-box;
+    background: #fff;
+    margin-top: 20rpx;
+    padding-bottom: 20rpx;
+    border-radius: 10rpx;
+}
+
+.modelShowList .showTitle {
+    padding: 40rpx 20rpx 20rpx;
+    font-size: 30rpx;
+    color: #111;
+}
+
+.modelShowList .modelContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.modelShowList .w325 {
+    width: 325rpx;
+}
+
+.modelShowList .w100p {
+    width: 100%;
+}
+
+.modelShowList .msgContainer {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 114rpx;
+    border: 1rpx solid #c8c8cc;
+    border-radius: 12rpx;
+    position: relative;
+}
+
+.modelShowList .msgContainer .imeiText {
+    position: absolute;
+    top: 0;
+    right: 20rpx;
+    z-index: 10;
+    line-height: 110rpx;
+    text-align: center;
+    background: #fff;
+    color: #007aff;
+    font-size: 24rpx;
+}
+
+.modelShowList .msgContainer .title {
+    color: #bdbdbd;
+    font-size: 20rpx;
+}
+
+.modelShowList .msgContainer .input {
+    width: 100%;
+    color: #090909;
+    font-size: 26rpx;
+    height: 33rpx;
+}
+
+.modelShowList .msgContainer .flex {
+    display: flex;
+    align-items: center;
+}
+
+.modelShowList .msgContainer .gologin {
+    color: #0071e3;
+    font-size: 26rpx;
+}
+
+.modelShowList .msgContainer .input.placeholder {
+    color: #bdbdbd;
+}
+
+.modelShowList .msgContainer .imgCode {
+    position: absolute;
+    top: 27rpx;
+    right: 20rpx;
+    width: 88rpx;
+    height: 60rpx;
+    z-index: 10;
+}
+
+.modelShowList .msgContainer .sendSms {
+    position: absolute;
+    top: 41rpx;
+    right: 20rpx;
+    color: #0071e3;
+    font-size: 26rpx;
+    z-index: 10;
+}
+
+.modelShowList .msgContainer .sendSms.disabled {
+    color: #bdbdbd;
+}
+
+.modelShowList .msgContainer .couponprice {
+    color: #007aff;
+    font-size: 24rpx;
+    position: absolute;
+    right: 60rpx;
+    top: 42rpx;
+    z-index: 10;
+}
+
+.modelShowList .msgContainer .appledown {
+    position: absolute;
+    right: 20rpx;
+    top: 38rpx;
+    width: 38rpx;
+    height: 38rpx;
+    z-index: 10;
+}
+
+.modelShowList .msgContainer .appledown.rotate {
+    transform: rotate(-90deg);
+}
+
+.modelShowList .repairWayList .repairWayWrap {
+    border: 1rpx solid #d6d6d6;
+    box-sizing: border-box;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.modelShowList .repairWayList .repairWayWrap .biaoqian {
+    position: absolute;
+    left: -1px;
+    top: -2px;
+    width: 94rpx;
+    height: 32rpx;
+}
+
+.modelShowList .repairWayList .repairWayWrap .biaoqian image {
+    width: 94rpx;
+    height: 32rpx;
+}
+
+.modelShowList .repairWayList .repairWayWrap .repairWayTitle {
+    color: #090909;
+    font-size: 24rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #c8c8cc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 66rpx;
+}
+
+.modelShowList .repairWayList .repairWayWrap .repairWayTitle .price {
+    color: #e30000;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    font-weight: 500;
+    width: 100%;
+    text-align: right;
+}
+
+.modelShowList .repairWayList .repairWayWrap .repairWayTitle .official-price {
+    color: #86868b;
+    font-size: 22rpx;
+    line-height: 30rpx;
+    font-weight: 400;
+    text-decoration: line-through;
+    width: 100%;
+    text-align: right;
+}
+
+.modelShowList .repairWayList .repairWayWrap .repairWayDes {
+    color: #8c8c90;
+    font-size: 20rpx;
+    padding-top: 20rpx;
+}
+
+.modelShowList .repairWayList .repairWayWrap .repairWayDes .desc {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.msgContainer.error {
+    border-color: #e30000;
+    background: #fff2f4;
+}
+
+button.msgContainer {
+    background: transparent;
+    outline: 0;
+    padding: 0;
+}
+
+button::after {
+    border: 0;
+}
+
+.normal {
+    color: #bdbdbd;
+}
+
+.error {
+    color: #e30000;
+}
+
+.modal {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 500;
+}
+
+.citypicker {
+    position: fixed;
+    bottom: 0;
+    z-index: 501;
+    font-size: 28rpx;
+    text-align: center;
+    transform: translateY(150%);
+    height: 300px;
+}
+
+.cityheader,.citypicker {
+    background: #fff;
+    border-radius: 4rpx 4rpx 0 0;
+    width: 100%;
+}
+
+.cityheader {
+    height: 80rpx;
+}
+
+.city-cancel {
+    float: left;
+    color: #818181;
+}
+
+.city-cancel,.city-true {
+    margin: 20rpx;
+    font-size: 28rpx;
+}
+
+.city-true {
+    float: right;
+    color: #2fb42e;
+}
+
+.modalContent {
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 600;
+    padding: 0 16rpx;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    border-radius: 4rpx 4rpx 0 0;
+}
+
+.modalTop {
+    padding: 20rpx 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.colorContainer {
+    border-radius: 10rpx;
+}
+
+.colorContainer .colorTitle {
+    color: #111;
+    font-size: 30rpx;
+}
+
+.tipContainer {
+    padding: 15rpx 20rpx;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 501;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 -5rpx 17rpx 0 rgba(0,0,0,.06);
+    display: flex;
+    justify-content: space-between;
+}
+
+.tipContainer .totalPriceWrap {
+    display: flex;
+    align-items: baseline;
+}
+
+.tipContainer .totalPriceWrap .totalPricetitle {
+    color: #111;
+    font-size: 24rpx;
+}
+
+.tipContainer .totalPriceWrap .totalprice {
+    color: #111;
+    font-size: 30rpx;
+}
+
+.tipContainer .totalPriceWrap .pricedetailtxt {
+    color: #584f4f;
+    font-size: 20rpx;
+    margin-left: 35rpx;
+}
+
+.tipContainer .totalPriceWrap .pricedetailtxt .xiala {
+    width: 18rpx;
+    height: 14rpx;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+}
+
+.tipContainer .totalPriceWrap .pricedetailtxt .xiala.active {
+    transform: rotateZ(180deg);
+}
+
+.tipContainer.full_screen {
+    padding-bottom: 50rpx;
+}
+
+.Tips_top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.Tips_top .foot_main_bottom {
+    height: 28rpx;
+    font-size: 18rpx;
+    color: #c7c0bc;
+    line-height: 28rpx;
+}
+
+.Tips_top .foot_main_bottom text {
+    color: #30a9ff;
+    font-size: 18rpx;
+}
+
+.Tips_bottom {
+    overflow: hidden;
+}
+
+.Tips {
+    height: 28rpx;
+    display: flex;
+    align-items: center;
+}
+
+.Tips .Tips_btn {
+    color: #aca3a3;
+    font-size: 22rpx;
+}
+
+.Tips .Tips_img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 28rpx;
+}
+
+.Tips .Tips_img image {
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 5rpx;
+}
+
+.Tips_content {
+    min-height: 1px;
+    font-size: 24rpx;
+    color: #ababab;
+    box-sizing: border-box;
+    margin-top: 10rpx;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: .3s;
+    position: relative;
+}
+
+.Tips_open {
+    opacity: 1;
+    height: auto;
+    transform: translateY(0);
+}
+
+.order .orderbtn {
+    width: 281rpx;
+    height: 72rpx;
+    border: 0;
+    background: #007aff;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 72rpx;
+}
+
+.typeModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 601;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+}
+
+.typeModal .repairtypeContainer {
+    padding-top: 20rpx;
+    position: absolute;
+    left: 75rpx;
+    top: 200rpx;
+    z-index: 1;
+    width: 600rpx;
+    background: #fff;
+    border-radius: 12rpx;
+}
+
+.typeModal .repairtypeContainer .modaltitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.typeModal .repairtypeContainer .modaltitle image {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    width: 38rpx;
+    height: 38rpx;
+}
+
+.typeModal .repairtypeContainer .modaltitle text {
+    font-size: 30rpx;
+    color: #090909;
+}
+
+.typeModal .repairtypeContainer .modaltip {
+    padding: 20rpx 0;
+    text-align: center;
+    color: #86868b;
+    font-size: 24rpx;
+}
+
+.addBorder {
+    border: 1rpx solid #007aff!important;
+}
+
+.IMEIModalContent {
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 600;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+    border-radius: 10px 10px 0 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+}
+
+.imei_top {
+    height: 72rpx;
+}
+
+.imei_top,.imei_top .imei_top_delete {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.imei_top .imei_top_delete {
+    padding-top: 18rpx;
+    width: 50rpx;
+}
+
+.imei_top .imei_top_delete image {
+    height: 34rpx;
+    width: 34rpx;
+}
+
+.imei_text {
+    text-align: center;
+    height: 56rpx;
+    font-size: 30rpx;
+    color: #584f4f;
+    line-height: 42rpx;
+}
+
+.imei_text text {
+    color: #ff5000;
+    font-size: 40rpx;
+}
+
+.imei_content {
+    height: 850rpx;
+    width: 100%;
+}
+
+.imei_content,.is_and,.is_ios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imei_content image {
+    width: 330rpx;
+    height: 750rpx;
+}
+
+.priceDetailWrap {
+    padding: 10rpx 35rpx;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    z-index: 500;
+    background: #fff;
+    width: 100%;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+
+.priceDetailWrap .wrap {
+    padding: 10rpx 0;
+}
+
+.priceDetailWrap .wrap .detailWrap {
+    padding: 10rpx 0;
+    justify-content: space-between;
+}
+
+.priceDetailWrap .wrap .detailWrap,.priceDetailWrap .wrap .detailWrap .des {
+    display: flex;
+    align-items: center;
+}
+
+.priceDetailWrap .wrap .detailWrap .des,.priceDetailWrap .wrap .detailWrap .des .des-name {
+    color: #111;
+    font-size: 26rpx;
+}
+
+.priceDetailWrap .wrap .detailWrap .des .biaoqian,.priceDetailWrap .wrap .detailWrap .des .biaoqian image {
+    width: 94rpx;
+    height: 32rpx;
+}
+
+.priceDetailWrap .wrap .detailWrap .model-price {
+    color: #e30000;
+    font-size: 24rpx;
+    line-height: 33rpx;
+    font-weight: 500;
+    width: 100%;
+    text-align: right;
+}
+
+.priceDetailWrap .wrap .detailWrap .official-price {
+    color: #86868b;
+    font-size: 22rpx;
+    line-height: 30rpx;
+    font-weight: 400;
+    text-decoration: line-through;
+    width: 100%;
+    text-align: right;
+}
+
+.priceDetailWrap .wrap.border {
+    border-bottom: 1rpx solid #e4e0de;
+}

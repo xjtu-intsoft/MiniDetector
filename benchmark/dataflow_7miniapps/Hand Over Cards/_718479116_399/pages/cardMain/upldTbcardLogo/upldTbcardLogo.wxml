@@ -1,0 +1,6 @@
+<view class="cropper-wrapper">
+    <canvas bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="{{cropperOpt.id}}" class="cropper" disableScroll="true" style="width:{{cropperOpt.width}}px;height:{{cropperOpt.height-50}}px;background-color: black;"></canvas>
+    <cover-view class="user">
+        <button bindtap="getCropperImage" data-title="使用">使用</button>
+    </cover-view>
+</view>

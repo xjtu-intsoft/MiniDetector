@@ -1,0 +1,61 @@
+.wiki-module-scroll {
+    margin-top: 20rpx;
+    height: 274rpx;
+}
+
+.wiki-module-wrap {
+    display: flex;
+    padding: 0 24rpx;
+}
+
+.wiki-module-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-right: 22rpx;
+}
+
+.wiki-module-item:last-child {
+    padding-right: 24rpx;
+}
+
+.wiki-module-bigImg {
+    width: 220rpx;
+    height: 220rpx;
+    border-radius: 0 0 12rpx 12rpx;
+}
+
+.wiki-module-text {
+    text-align: center;
+    line-height: 54rpx;
+    height: 54rpx;
+    color: #fff;
+    background: linear-gradient(129deg,#d73674,#6834a0);
+    font-size: 24rpx;
+    border-radius: 12rpx 12rpx 0 0;
+}
+
+.wiki-module-text image {
+    margin-left: 6rpx;
+    width: 8rpx;
+    height: 18rpx;
+}
+
+.id-form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.id-form button {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wiki-module-navigation {
+    padding: 30rpx 24rpx;
+}

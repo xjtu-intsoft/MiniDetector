@@ -1,0 +1,29 @@
+<template name="immersive">
+    <view class="immersive " style="padding-top:70rpx;background-color: {{!testImmersive?'#FFFFFF':'rgba(237,237,237,1)'}};height:110rpx;" wx:if="{{systemInfo.platform!='android'&&systemInfo.modelXS}}">
+        <view bindtap="toCardMain" class="homePage" data-sensor-index="75" style="padding:{{firstCard?'16rpx 60rpx 16rpx 20rpx':''}}">
+            <image class="microvcardlogo" src="../../../images/toHome.png" wx:if="{{!firstCard}}"></image>
+            <image class="back" src="../../../images/back.png" wx:if="{{firstCard}}"></image>
+        </view>
+        <view class="groupTitle" wx:if="{{owner['name']=='self'}}">递名片</view>
+        <view class="groupTitle" wx:if="{{owner['name']=='other'&&owner['env']=='notGroup'}}">{{singleData.name+'的名片'}}</view>
+        <view class="nullView"></view>
+    </view>
+    <view class="immersive" style="padding-top:{{systemInfo.modelX?'88rpx':'20px'}};background-color: {{!testImmersive?'#FFFFFF':'rgba(237,237,237,1)'}};" wx:if="{{systemInfo.platform!='android'&&!systemInfo.modelXS}}">
+        <view bindtap="toCardMain" class="homePage" data-sensor-index="75">
+            <image class="microvcardlogo" src="../../../images/toHome.png"></image>
+        </view>
+        <view class="groupTitle" wx:if="{{owner['name']=='self'}}">递名片</view>
+        <view class="groupTitle" wx:if="{{owner['name']=='other'&&owner['env']=='notGroup'}}">{{singleData.name+'的名片'}}</view>
+        <view class="nullView"></view>
+    </view>
+    <view class="immersive" style="padding-top:60rpx;background-color: {{!testImmersive?'#FFFFFF':'rgba(237,237,237,1)'}};" wx:if="{{systemInfo.platform=='android'}}">
+        <view bindtap="toCardMain" class="homePage" data-sensor-index="75">
+            <image class="microvcardlogo" src="../../../images/toHome.png"></image>
+        </view>
+        <view class="groupTitle" wx:if="{{owner['name']=='self'}}">递名片</view>
+        <view class="groupTitle" wx:if="{{owner['name']=='other'&&owner['env']=='notGroup'}}">{{singleData.name+'的名片'}}</view>
+        <view class="groupTitle" wx:if="{{owner['name']=='other'&&owner['env']=='group'}}">
+			{{firstCard||singleData['isDel']&&mycard['list'].length<=0&&owner['name']=='self'&&!firstCard?'制作我的名片':( owner['name']=='other'&&singleData.name||mycard['defCard']&&mycard['defCard']['name'] )+'的名片'}}</view>
+        <view class="nullView"></view>
+    </view>
+</template>

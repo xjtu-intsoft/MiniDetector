@@ -1,0 +1,55 @@
+<view style="background:#EBFDF5;  font-size:12px; padding:8px 10px; color:#666">
+    <icon color="green" size="16" style="vertical-align:middle" type="waiting"></icon> 提醒：您必须绑定手机号码，才能进行后续操作!
+</view>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">联系人</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" name="contact_name" placeholder="请输入姓名" value="{{contact_name}}"></input>
+            </view>
+            <view class="weui-cell__ft {{ckname}}">
+                <icon color="#E64340" size="18" type="warn"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">手机号</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindinput="bindKeyInput" class="weui-input" maxlength="11" name="mobile" placeholder="请输入手机号码" type="number" value="{{mobile}}"></input>
+            </view>
+            <view class="weui-cell__ft {{ckmobile}}">
+                <icon color="#E64340" size="18" type="warn"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">验证码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" maxlength="6" name="verification" placeholder="短信验证码" type="number" value="{{verifycode}}"></input>
+            </view>
+            <view class="weui-cell__ft {{ckcode}}">
+                <icon color="#E64340" size="18" type="warn"></icon>
+            </view>
+            <view class="weui-cell__ft">
+                <view bindtap="getsms" class="weui-vcode-btn{{disable?' disable':''}}">{{getcodetxt}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-btn-area">
+        <button class="weui-btn" formType="submit" type="primary">
+            <image src="/images/icon/phone.png"></image>手机登陆
+    </button>
+    </view>
+    <navigator openType="navigateBack" style="text-align:center;font-size:34rpx;color:#666;margin-top:24px;" wx:if="{{from_url=='account'}}">-- 暂不绑定 --</navigator>
+    <view class="weui-btn-area">
+        <button bindgetphonenumber="getPhoneNumber" class="weui-btn weixin" openType="getPhoneNumber">
+            <image src="/images/icon/weixin.png"></image> 微信登陆
+     </button>
+    </view>
+</form>

@@ -1,0 +1,253 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 400rpx;
+    background: var(--color-cg);
+}
+
+.text_empty {
+    color: var(--color-cd);
+    font-size: var(--font-td);
+}
+
+page {
+    background: #fff;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.movies_top,.page {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.movies_top {
+    height: 80rpx;
+    position: relative;
+    background: #fff;
+    text-align: center;
+}
+
+.movies_city {
+    z-index: 2;
+    width: 140rpx;
+    align-items: center;
+}
+
+.movies_city,.movies_hot_parent {
+    position: absolute;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.movies_hot_parent {
+    width: 100%;
+    top: 0rpx;
+    bottom: 0rpx;
+    margin: auto;
+    z-index: 1;
+}
+
+.sv {
+    flex: 1;
+}
+
+.hot_list_body,.sv {
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.hot_list_body {
+    display: flex;
+    flex-direction: column;
+}
+
+.movies_coming,.movies_hot {
+    width: 120rpx;
+    height: 80rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movies_coming {
+    margin-left: 90rpx;
+}
+
+.movies_hot_text {
+    vertical-align: middle;
+    font-size: var(--font-td);
+    line-height: 80rpx;
+    flex: 1;
+}
+
+.hot_bottom_line {
+    align-self: flex-end;
+    position: absolute;
+    bottom: 0rpx;
+    width: 120rpx;
+    height: 4rpx;
+    background-color: #f58d3a;
+}
+
+.image_parent {
+    margin-left: 24rpx;
+    margin-top: 22rpx;
+    margin-right: 18rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.image,.image_parent {
+    width: 110rpx;
+    height: 158rpx;
+}
+
+.swiper {
+    width: 100%;
+    height: 204rpx;
+}
+
+.swiper_image {
+    width: 100%;
+    height: 100;
+}
+
+.image_play {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    padding-bottom: 8rpx;
+    padding-right: 12rpx;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    width: 460rpx;
+    height: 158rpx;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.text_ellipse {
+    margin-top: 10 rpx;
+    margin-right: 10 rpx;
+    text-align: left;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.name_parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.name {
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 10rpx;
+}
+
+.threeD {
+    text-align: center;
+    height: 30rpx;
+    line-height: 30rpx;
+    vertical-align: middle;
+    background: #c5c5c5;
+    border-radius: 6rpx;
+    color: #fff;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    font-size: var(--font-tf);
+}
+
+.right {
+    width: 140rpx;
+    height: 158rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-right: 32rpx;
+    margin-top: 18rpx;
+}
+
+.right_no_rate {
+    justify-content: center;
+    margin-top: 0rpx;
+}
+
+.buy {
+    width: auto;
+    height: 80rpx;
+    color: red;
+    background-color: #fff;
+    text-align: center;
+    font-size: 30 rpx;
+    margin-top: 118rpx;
+    line-height: 80rpx;
+    border: 1 solid red;
+}
+
+.person_item_jiantou_icon {
+    width: 16rpx;
+    height: 28rpx;
+}
+
+.show_time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 24rpx;
+    background: var(--color-cg);
+    height: 34rpx;
+    box-sizing: border-box;
+}
+
+.show_time_text {
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    height: 34rpx;
+    line-height: 34rpx;
+    vertical-align: middle;
+}
+
+.btn_ticket_buy {
+    height: 60rpx;
+    color: var(--color-cb);
+    vertical-align: middle;
+    line-height: 60rpx;
+    background-color: #fff;
+    font-size: var(--font-te);
+    border-radius: 60rpx;
+    border: 1rpx solid var(--color-cb);
+    min-width: 106rpx;
+    text-align: center;
+}

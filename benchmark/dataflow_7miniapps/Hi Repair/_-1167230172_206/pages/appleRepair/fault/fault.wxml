@@ -1,0 +1,133 @@
+<view class="faultContainer">
+    <scroll-view bindscroll="scollThis" class="scrollview {{showButton?isFullSucreen?'addBigPadding':'addPadding':''}}" scrollIntoView="{{viewid}}" scrollTop="{{scrollTop}}" scrollWithAnimation="{{true}}" scrollY="{{true}}">
+        <view class="wrap">
+            <view class="bannerContainer">
+                <image class="banner" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/banner.png"></image>
+            </view>
+            <view class="mouldDetailContainer">
+                <view class="mouldWrap bgf">
+                    <view class="title">检测到您的机型</view>
+                    <view class="mouldNameWrap">
+                        <view class="mould">{{myModelName}}</view>
+                        <view bindtap="goSelectPhone" class="change">更换</view>
+                    </view>
+                    <view class="desc">现在，苹果原厂配件可享受 Apple Care 认证工程师上门服务，维修过程全程录像，隐私安全有保障。</view>
+                    <image class="" src="{{deviceInfo.src}}"></image>
+                </view>
+            </view>
+            <view class="mouldContainer fixed" wx:if="{{isPos}}">
+                <view class="mouldWrap   boxshadow">
+                    <view class="mouldName">
+                        <view class="mouldTitle">检测到您的机型</view>
+                        <view class="mould">{{myModelName}}</view>
+                    </view>
+                    <view bindtap="goSelectPhone" class="mouldChange">
+                        更换
+                        <image class="imgchange" src="../../../img/change.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="colorContainer faultSelectWrap mt20 p2040 bgf" id="fault" wx:if="{{faultList.length}}">
+                <view class="colorTitleWrap">
+                    <view class="colorTitle">选择维修故障</view>
+                    <view class="subTitle">您的iPhone需要维修哪个地方？</view>
+                </view>
+                <view class="colorList  mt20">
+                    <view bindtap="chooseFault" class="faultWrapper wrapperStyle mt20 {{item.selected?'addBorder':''}}" data-index="{{index}}" data-item="{{item}}" wx:for="{{faultList}}" wx:key="index">
+                        <view class="biaoqian">
+                            <image alt="" src="../../../img/bq-xsth.png" srcset=""></image>
+                        </view>
+                        <view class="official" wx:if="{{item.is_official_parts}}">苹果原厂</view>
+                        <view class="colorText">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="colorContainer repairSelectWrap mt20 p2040 bgf" id="repairsol" wx:if="{{faultDetailList.length}}">
+                <view class="colorTitleWrap">
+                    <view class="colorTitle">选择维修方案</view>
+                    <view class="subTitle">您的iPhone属于以下哪种情况？</view>
+                </view>
+                <view class="repairList  mt20">
+                    <view bindtap="chooseRepair" class="repairWrap wrapperStyle mt20 {{item.selected?'addBorder':''}}" data-index="{{index}}" data-item="{{item}}" wx:for="{{faultDetailList}}" wx:key="index">
+                        <view class="repairText">{{item.name}}</view>
+                        <view class="repairPrice">
+                            <view class="official" wx:if="{{item.is_official_parts*1?true:false}}">
+                                苹果原厂
+                            </view>
+                            <view class="price">优惠价：{{item.price}}</view>
+                            <view class="official-price">原价：{{item.official_price}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="colorContainer  mt20 p2040 bgf" id="colorsol" wx:if="{{colorList.length}}">
+                <view class="colorTitleWrap">
+                    <view class="colorTitle">选择机型颜色</view>
+                    <view class="subTitle">您的iPhone是哪个颜色？</view>
+                </view>
+                <view class="colorList  mt20">
+                    <view bindtap="chooseColor" class="colorWrapper wrapperStyle mt20 {{item.selected?'addBorder':''}}" data-index="{{index}}" data-item="{{item}}" wx:for="{{colorList}}" wx:key="index">
+                        <view class="color" style="background: {{item.color}}"></view>
+                        <view class="colorText">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="colorContainer repairTypeSelectWrap mt20 p2040 bgf" id="repairtype" wx:if="{{selectedRepair}}">
+                <view class="colorTitleWrap">
+                    <view class="colorTitle">选择维修方式</view>
+                    <view class="subTitle">您需要选择哪种维修方式呢？</view>
+                </view>
+                <view class="repairWayList  mt20">
+                    <view bindtap="selectWay" class="repairWayWrap p20 mt20 {{selectedWay==1?'addBorder':''}}" data-index="{{1}}">
+                        <view class="repairWayTitle">
+                            <view class="">上门维修</view>
+                            <view class="recommend">（推荐）</view>
+                        </view>
+                        <view class="repairWayDes">
+                            <view class="">免费上门 先修后付</view>
+                            <view class="">目前上门维修只支持部分城市，更多城市敬请期待</view>
+                        </view>
+                    </view>
+                    <view bindtap="selectWay" class="repairWayWrap p20 mt20 {{selectedWay==3?'addBorder':''}}" data-index="{{3}}">
+                        <view class="repairWayTitle">到店维修</view>
+                        <view class="repairWayDes">
+                            <view class="">全国联保 售后无忧</view>
+                            <view class="">下单后30分钟内致电确认信息</view>
+                        </view>
+                    </view>
+                    <view bindtap="selectWay" class="repairWayWrap p20 mt20 {{selectedWay==2?'addBorder':''}}" data-index="{{2}}">
+                        <view class="repairWayTitle">邮寄维修</view>
+                        <view class="repairWayDes">
+                            <view class="">全程录像 安全放心</view>
+                            <view class="">运费需邮寄方自行承担</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view bindtap="goOrder" class="reservation {{isFullSucreen?'addBtnPadding':''}}" id="order" wx:if="{{showButton}}">
+        <view class="button {{disabled?'disabled':''}}">{{btnText}}</view>
+    </view>
+    <movable-area class="movable-area">
+        <movable-view animation="{{false}}" class="movable-view" direction="all" x="600rpx" y="750rpx">
+            <view class="servicebtn {{istrue_scroll?'hide':''}}">
+                <image catchtap="showKf" class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/servicebtn.png"></image>
+                <view class="kuWrap {{isShowKf?'showKfWrap':''}}">
+                    <view bindtap="showPreview" class="zskf addBottomBorder">
+                        <image class="" src="../../../img/bdhrx.png"></image>
+                        <view class="">专属客服</view>
+                        <view class="miaohui">专属</view>
+                    </view>
+                    <view bindtap="makePhoncall" class="zskf">
+                        <image class="" src="../../../img/bzskf.png"></image>
+                        <view class="">客服热线</view>
+                    </view>
+                </view>
+            </view>
+        </movable-view>
+    </movable-area>
+</view>
+<view bindtap="hideModal" class="modal" wx:if="{{isShowModal}}">
+    <image class="" src="../../../img/tc.png"></image>
+</view>

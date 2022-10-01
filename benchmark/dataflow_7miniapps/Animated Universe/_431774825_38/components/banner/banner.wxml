@@ -1,0 +1,8 @@
+<view class="section">
+    <view>{{item.firstText}}</view>
+    <view class="section-text">{{item.secondText}}</view>
+    <image bindtap="goSearchPage" src="/images/search_big.png"></image>
+</view>
+<view hidden="{{hiddenSearch}}">
+    <search></search>
+</view>

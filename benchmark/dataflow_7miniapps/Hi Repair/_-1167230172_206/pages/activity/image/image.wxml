@@ -1,0 +1,3 @@
+<view class="container" style="width:100%;font-size:0">
+    <image bindtap="imgJump" class="" data-link="{{config.weapp_link}}" data-type="{{config.type}}" mode="widthFix" src="{{config.src}}" style="width:100%"></image>
+</view>

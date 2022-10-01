@@ -1,0 +1,39 @@
+<view class="image-detail">
+    <view class="image-detail-top">
+        <swiper bindchange="swiperChangeImg" class="image-detail-swiper" current="{{curIndex}}">
+            <swiper-item wx:for="{{preList}}" wx:key="{{index}}">
+                <image binderror="imgError" bindload="imgLoad" bindtap="previewImage" class="image-detail-middle" mode="aspectFit" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="image-detail-order">
+            <form bind:submit="changeImg" data-type="left" reportSubmit="true">
+                <button class="change-img-button" formType="submit" style="left:0">
+                    <image class="image-detail-left" mode="aspectFit" src="/images/icon_left_triangle.png"></image>
+                    <view>上一张</view>
+                </button>
+            </form>
+      {{curIndex+1}}/{{preList.length}}
+      <form bind:submit="changeImg" data-type="right" reportSubmit="true">
+                <button class="change-img-button" formType="submit" style="right:0">
+                    <view>下一张</view>
+                    <image class="image-detail-right" mode="aspectFit" src="/images/icon_right_triangle.png"></image>
+                </button>
+            </form>
+        </view>
+        <view class="image-detail-desc}}" wx:if="{{urlList[curIndex].desc}}">
+            <view>{{urlList[curIndex].desc}}</view>
+            <view bindtap="copy" wx:if="{{rightText}}">{{rightText}}</view>
+        </view>
+        <view class="image-detail-funs">
+            <form bind:submit="fun" data-index="{{index}}" reportSubmit="true" wx:for="{{list}}" wx:key="{{index}}">
+                <button formType="submit" openType="{{item.type||''}}">
+                    <image src="{{item.url}}"></image>
+                    <text>{{item.text}}</text>
+                </button>
+            </form>
+        </view>
+    </view>
+    <relate-recommend class="image-detail-relate-recommend" params="{{params}}"></relate-recommend>
+    <common-buttons class="image-detail-goto-index" source="{{source}}"></common-buttons>
+</view>
+<image-pop bind:closeTip="closeTip" curIndex="{{curIndex}}" isHidden="{{isHidden}}" preList="{{preList}}"></image-pop>

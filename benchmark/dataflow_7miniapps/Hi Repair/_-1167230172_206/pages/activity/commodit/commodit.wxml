@@ -1,0 +1,16 @@
+<view class="commoditContainer">
+    <view class="commoditWrapper" wx:for="{{goodslist}}" wx:key="index">
+        <view class="commodit">
+            <image class="device-avatar" mode="widthFix" src="{{item.avatar}}" wx:if="{{item.avatar}}"></image>
+            <image class="" src="{{item.src}}"></image>
+            <view class="model">{{item.mould_name}}</view>
+            <view class="fault">{{item.fault_type_detail_name}}</view>
+            <view class="price">¥{{item.price}}</view>
+            <view class="yPrice">¥{{item.official_price}}</view>
+            <view bindtap="goFalutPage" class="order" data-colorid="{{item.color_id}}" data-faultId="{{item.fault_type_id}}" data-id="{{item.mould_id}}" data-name="{{item.mould_name}}" data-rpid="{{item.rp_id}}" style="color:{{config.btn.color?config.btn.color:''}};font-size:{{config.btn.fontSize?config.btn.fontSize:''}}rpx; background:{{config.btn.backgroundColor?config.btn.backgroundColor:''}}">
+                {{config.btn.text?config.btn.text:'立即下单'}}
+            </view>
+        </view>
+    </view>
+    <image bindtap="goPage" class="seeMore" data-link="{{config.seeMore.to}}" mode="widthFix" src="{{config.seeMore.backgroundImage}}" wx:if="{{config.seeMore.show}}"></image>
+</view>

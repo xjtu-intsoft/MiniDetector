@@ -1,0 +1,226 @@
+.coupon-package-content-coupon-item {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 16rpx;
+    border-radius: 16rpx;
+}
+
+.coupon-package-content-coupon-item-guanying-bg {
+    background: #fff8ef;
+}
+
+.coupon-package-content-coupon-item-maipin-bg {
+    background: #f5f9fb;
+}
+
+.coupon-package-content-coupon-item-shangjiaquan-bg {
+    background: #f1f1f1;
+}
+
+.coupon-package-item {
+    width: 100%;
+    padding-top: 16rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.coupon-package-item-left-parent {
+    width: 194rpx;
+    height: 194rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 16rpx;
+}
+
+.coupon-package-item-bg {
+    position: absolute;
+    left: 0;
+    top: 0rpx;
+    width: 194rpx;
+    height: 178rpx;
+}
+
+.coupon-package-item-price-parent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    z-index: 0;
+    margin-top: 18rpx;
+}
+
+.coupon-package-item-priceview {
+    width: 100%;
+    line-height: 64rpx;
+    height: 64rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.coupon-package-item-dallor {
+    margin-right: 3rpx;
+    margin-top: 2rpx;
+    line-height: 32rpx;
+    font-size: var(--font-th);
+    color: #fff;
+}
+
+.coupon-package-item-price {
+    height: 100%;
+    line-height: 64rpx;
+    font-size: 54rpx;
+    font-weight: 500;
+    color: #fff;
+}
+
+.coupon-package-item-yuan {
+    margin-left: 3rpx;
+    margin-top: 4rpx;
+    line-height: 36rpx;
+    font-size: var(--font-tg);
+    color: #fff;
+}
+
+.coupon-package-item-left-desc {
+    text-align: center;
+    width: 100%;
+    height: 36rpx;
+    font-size: var(--font-tg);
+    font-weight: 500;
+    color: #fff;
+}
+
+.coupon-package-item-left-bottom-desc {
+    text-align: center;
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: var(--font-th);
+    border-radius: 16rpx;
+    padding: 0 8rpx;
+    margin-top: 14rpx;
+}
+
+.coupon-package-item-left-bottom-desc-daijin-bg {
+    background: #ffd17d;
+    color: #cf6100;
+}
+
+.coupon-package-item-left-bottom-desc-duihuan-bg {
+    background: #bed9ff;
+    color: #4d77b4;
+}
+
+.desc-font-th {
+    font-size: var(--font-th);
+    font-weight: 400;
+}
+
+.coupon-package-item-left-bottom-line-parent {
+    position: absolute;
+    bottom: 8rpx;
+    height: 8rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coupon-package-item-left-bottom-line {
+    height: 2rpx;
+    width: 182rpx;
+    margin-top: 2rpx;
+    background: #d5d5d5;
+}
+
+.width170 {
+    width: 170rpx;
+}
+
+.coupon-package-middleview {
+    width: 362rpx;
+    z-index: 1;
+    margin-left: 20rpx;
+    margin-top: 16rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 16rpx;
+}
+
+.coupon-package-middleview-desc {
+    line-height: 42rpx;
+    font-size: var(--font-tc);
+    width: 346rpx;
+    padding-right: 16rpx;
+    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.coupon-package-middleview-timeview {
+    margin-top: 15rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: var(--font-te);
+}
+
+.coupon-package-middleview-time {
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+}
+
+.coupon-package-endview {
+    display: flex;
+    z-index: 1;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 12rpx;
+}
+
+.coupon-package-warn {
+    width: 60rpx;
+    height: 60rpx;
+    align-self: flex-end;
+}
+
+.coupon-package-item-right-count {
+    font-size: var(--font-tb);
+    color: #793e02;
+    white-space: nowrap;
+}
+
+.coupon_shangjia_center {
+    justify-content: center;
+    align-items: center;
+    margin-top: 0rpx;
+    height: 178rpx;
+}
+
+.coupon_business_text {
+    color: #32bb99;
+    font-size: var(--font-tg);
+    line-height: 36rpx;
+    font-weight: 500;
+}
+
+.coupon_color {
+    color: #fff;
+}
+
+.shangjia_coupon_color {
+    color: #32bb99;
+    font-weight: 500;
+}
+
+.is_hidden {
+    display: none;
+}

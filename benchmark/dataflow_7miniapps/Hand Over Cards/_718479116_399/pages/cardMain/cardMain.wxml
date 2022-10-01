@@ -1,0 +1,116 @@
+<import src="../../temp/fillTip.wxml"></import>
+<import src="../../temp/item_skills.wxml"></import>
+<import src="../../temp/sendHigherShow.wxml"></import>
+<component-topNavigation id="topNavigation" showText="false" topBg="rgba({{isTop?'0,0,0, 0':'255,255,255,1'}})" topTitle="递名片" topType="slot" wx:if="{{systemInfo['v7.0.0']&&!(mycard['list'].length<=0&&adminStatus.isAdmin==-1)}}">
+    <view class="navigationLeft" slot="navLeft">
+        <mini-icon bindminitap="toMyPageNew" color="{{isTop?'#ffffff':'#000000'}}" icon="menu" miniStyle="height:44rpx;width:44rpx;"></mini-icon>
+        <navigator appId="wxebadf544ddae62cb" catchtap="questionnaireTap" class="nav-questionnaire" openType="navigate" path="pages/survey/index?sid=7553434&hash=9284" style="color:{{isTop?'#ffffff':'#000000'}}" target="miniProgram" version="release">
+            <mini-icon color="{{isTop?'#ffffff':'#000000'}}" icon="questionnaire" miniStyle="height:36rpx;width:36rpx;"></mini-icon>
+            <text style="margin-left:10rpx;">问卷投票</text>
+        </navigator>
+    </view>
+    <view slot="navTitle" style="color:{{isTop?'#ffffff':'#000000'}};text-align:center;">递名片</view>
+</component-topNavigation>
+<component-topNavigation id="topNavigation" position="center" titleColor="#fff" topBg="rgba(0,0,0, 0)" topTitle="递名片" topType="blankCardmain" wx:if="{{systemInfo['v7.0.0']&&mycard['list'].length<=0&&adminStatus.isAdmin==-1}}"></component-topNavigation>
+<component-popover wx:if="{{isSencePromise}}"></component-popover>
+<component-fullFirstEnter bindcloseFirstInFromHowenter="closeFirstInFromHowenter" pageFlag="{{showGuideCardmain}}" wx:if="{{showFirstInFromHowenter||showGuideCardmain}}"></component-fullFirstEnter>
+<component-upbox bindcloseCon="closeCon" cardList="{{cardList}}" textAlign="left" title="选择首页默认名片" wx:if="{{cardList.show}}">
+    <view slot="card">
+        <view catch:tap="selectCard" class="card-item {{index==0?'active':'notActive'}}" data-id="{{item.id}}" wx:if="{{cardList.show}}" wx:for="{{mycard['list']}}" wx:key="{{item}}">
+            <image class="item-heng" src="{{picPre+item.userpic+'?'+freshNum}}" wx:if="{{item.hengshu!='shu'}}"></image>
+            <view class="item-shu" wx:if="{{item.hengshu=='shu'}}">
+                <image src="{{picPre+item.userpic+'?'+freshNum}}"></image>
+            </view>
+            <view class="item-con">
+                <view class="con-name">
+                    <view class="name">{{item.name}}</view>
+                </view>
+                <view class="con-company">
+                    <image class="isCertified" src="/images/cdetails/vlog.png" wx:if="{{item.certified&&item.certified['isCertified']==true}}"></image>
+                    <view class="c">{{item.company}}</view>
+                </view>
+                <view class="con-job">{{item.job}}</view>
+            </view>
+        </view>
+        <view bindtap="buildCardAdd" class="card-item-bottom" wx:if="{{mycard['list'].length<userMaxCardNum}}">
+            <view class="c">
+                <image class="img" src="/images/newMain/add.png"></image>
+                <view>制作新名片</view>
+            </view>
+        </view>
+    </view>
+</component-upbox>
+<component-createBusinesscard bindcloseWindow="closeWindow" bindteamInfo="teamInfo" cardList="{{matchCardList}}" choosePhone="{{chooseTeamData['phoneNumber']}}" entName="{{chooseTeamData.entName}}" entId="{{chooseTeamData['entId']}}" formTitle="完成填写" id="cardInfor" listTtile="确认选择" openType="fromTeam" paddingTop="360" pages="joinenterprise" wx:if="{{fillInformation}}"></component-createBusinesscard>
+<view wx:if="{{mycard['list'].length<=0&&adminStatus.isAdmin==-1}}">
+    <component-blanktobuild bindbuildCard="buildCard" bindmycardGetFun="mycardGetFun" bindopenVideo="openUse" showReceive="{{showReceive}}"></component-blanktobuild>
+</view>
+<view wx:if="{{mycard['list'].length<=0&&adminStatus.isAdmin==1}}">
+    <component-adminTeam adminStatus="{{adminStatus}}" bindhasSamePhoneFun="hasSamePhoneFun"></component-adminTeam>
+</view>
+<view wx:if="{{mycard['list'].length>0}}">
+    <component-newsignboard bindshowStZheZhao="showStZheZhao" id="newSignboard" mainshowTopTip="{{mainshowTopTip}}" sentenceData="{{sentenceData}}">
+        <view slot="fillTip" wx:if="{{mainshowTopTip}}"></view>
+    </component-newsignboard>
+    <view class="swiper-con" style="top:{{systemInfo.modelX?'-55':'-80'}}rpx;">
+        <template is="higher_back" data wx:if="{{showWebTemaplateClaim}}"></template>
+        <view style="padding-top:40rpx;">
+            <component-videoguideTip bindopenVideo="openUse"></component-videoguideTip>
+            <component-serviceEpiration bindcloseMsg="hideServiceEpiration" enterprisesData="{{enterprisesData}}"></component-serviceEpiration>
+            <view catch:touchmove="{{showFirstInFromHowenter||showGuideCardmain?'ss':''}}" class="card-container {{showFirstInFromHowenter||showGuideCardmain?'z-index-add':''}}">
+                <component-selectcard bindbuildCardAdd="buildCard" bindcardEdit="cardEdit" bindcodeTap="codeTap" bindselectCard="selectCard" bindswitchCard="switchCard" defCard="{{mycard['defCard']}}" defcardId="{{mycard['defCardId']}}" freshNum="{{freshNum}}" mycardList="{{mycard['list']}}" wechatMessage="{{wechatMessage}}" wx:if="{{mycard['list'].length}}">
+                    <view slot="sendBtn">
+                        <view class="mainPageButton">
+                            <form reportSubmit="true" wx:if="{{mycard['list'].length>0}}">
+                                <view class="mainPage-button" wx:if="{{getSettingMessage}}">
+                                    <view class="mainPage-tip" wx:if="{{sendcardTip}}">
+                    提示：无法正常发送名片，请关闭“微信”后台，重新进入“递名片”后尝试发送。
+                  </view>
+                                    <template is="higher_content" data wx:if="{{showWebTemaplateClaim}}"></template>
+                                    <button catch:tap="guidefunc" class="new-btn {{showWebTemaplateClaim?'z-index-add':''}}" data-id="send_able" data-name="share" data-t="pageButton" formType="submit" id="send_able" openType="share">
+                                        <view class="name">{{shareButtonContent?shareButtonContent:'发名片'}}</view>
+                                    </button>
+                                </view>
+                                <view class="mainPage-button" wx:if="{{!getSettingMessage&&!clickedFirstSend}}">
+                                    <template is="higher_content" data wx:if="{{showWebTemaplateClaim}}"></template>
+                                    <button bindgetuserinfo="getUserMessa" catch:tap="shareButtonClick" class="new-btn {{showWebTemaplateClaim?'z-index-add':''}}" data-id="send_unable" data-name="getUserInfo" data-t="pageButton" formType="submit" id="send_unable" openType="getUserInfo">
+                                        <view class="name">发名片</view>
+                                    </button>
+                                </view>
+                            </form>
+                        </view>
+                    </view>
+                </component-selectcard>
+            </view>
+        </view>
+        <template is="item_skills" data></template>
+        <view class="skills" style="margin-top:10rpx;" wx:if="{{systemInfo['platform']=='ios'}}">
+      *微信7.0.15版本关闭了苹果手机的小程序浮窗功能，请等待微信官方更新
+    </view>
+    </view>
+    <component-facebookButton></component-facebookButton>
+</view>
+<component-sendVideoGuide enterShow="{{fisrtEnterShow}}" id="sendguide" showVideo="{{showVideo}}"></component-sendVideoGuide>
+<view style="width:100%;height:110rpx;"></view>
+<component-about bindexperienceDMP="closeAboutDMP" myCard="{{mycard}}" wx:if="{{aboutDMP.show}}"></component-about>
+<import src="../../temp/public.wxml"></import>
+<template is="netError" data="{{path:'../../'}}" wx:if="{{netError.show}}"></template>
+<view class="cardCode" wx:if="{{cardCode.show}}">
+    <view class="cardCode-con">
+        <view class="cardCode-title">
+            <view>扫码保存</view>
+            <view class="viewEllipsis" style="max-width:46%;">{{cardCode.name}}</view>
+            <view>的名片</view>
+        </view>
+        <view class="user-img" wx:if="{{mycard['defCard'].customAvatar.name}}">
+            <image class="wechat" src="{{mycard['defCard'].customAvatar.url}}"></image>
+        </view>
+        <view class="user-img" wx:else>
+            <open-data class="wechat" type="userAvatarUrl"></open-data>
+        </view>
+        <image class="img" src="{{cardCode.src}}"></image>
+        <view bindtap="codeCancel" class="cardCode-cancel addColor" data-title="名片码-返回">返回</view>
+    </view>
+</view>
+<component-videoAirWindow bindiKnown="iKnown" wx:if="{{showVideoAirWindow}}"></component-videoAirWindow>
+<component-receive bindnoNeed="noNeed" bindtoReceive="toReceive" leftText="{{leftText}}" receiveText="{{receiveText}}" rightText="{{rightText}}" wx:if="{{showDelToast}}"></component-receive>
+<component-minibubble updateBubble="{{updateBubble}}"></component-minibubble>

@@ -1,0 +1,108 @@
+<modal bindcancel="modalCancel" bindconfirm="modalOk" class="modal" confirmText="确认" hidden="{{hiddenInputPass}}">
+    <view class="modal-title">会员卡支付</view>
+    <view class="modal-message">请输入卡密码，完成支付</view>
+    <view class="modal-inputview">
+        <input bindinput="cardPassInput" class="modal-input" cursorSpacing="110rpx" focus="{{!hiddenInputPass}}" password="true" placeholder="密码" type="number" value="{{cardPass}}"></input>
+    </view>
+</modal>
+<view class="findconfirm-view">
+    <view class="findconfirm-gray"></view>
+    <view bindtap="goChoseType" class="findconfirm-topview">
+        <view class="findconfirm-typetitle">取餐方式</view>
+        <view class="findconfirm-chosetightview">
+            <view class="findconfirm-choseview">
+                <image class="arrow_image {{requestData.is_delivery!=1&&requestData.is_show_time!=1&&requestData.is_takeout!='1'?'is-hidden':''}}" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+                <view class="findconfirm-chosetitle">{{selectTypeData.location}}</view>
+            </view>
+            <view class="findconfirm-chosetime {{selectTypeData.time&&selectTypeData.time.length>0?'':'is-hidden'}}">{{selectTypeData.time}}</view>
+        </view>
+    </view>
+    <view class="findconfirm-lineview margin-top-0"></view>
+    <view bindtap="goChoseAddress" class="findconfirm-topview" style="{{selectTypeData.choseType=='takeOut'?'':'display: none;'}}">
+        <view class="findconfirm-typetitle">取餐地址</view>
+        <view class="findconfirm-choseview margin-r20">
+            <image class="arrow_image" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+            <view class="findconfirm-chosetitle">{{selectTypeData.takeOutLocation}}</view>
+        </view>
+    </view>
+    <view class="findconfirm-lineview {{selectTypeData.choseType=='takeOut'?'':'is-hidden'}}"></view>
+    <view catchtap="phoneClick" class="findconfirm-topview">
+        <view class="findconfirm-phonetitle">取餐手机号</view>
+        <view class="findconfirm-phonenum {{canChangePhoneNum?'is-hidden':''}}">{{phoneNumber}}</view>
+        <input bindinput="currentInputNum" class="findconfirm-phonenum {{canChangePhoneNum?'':'is-hidden'}}" maxlength="11" placeholder="取餐手机号" type="number" value="{{phoneNumber}}"></input>
+    </view>
+    <view class="findconfirm-lineview"></view>
+    <view class="findconfirm-pay-tip {{selectTypeData.choseType=='takeOut'&&requestData.pay_tip&&requestData.pay_tip.length>0?'':'is-hidden'}}">{{requestData.pay_tip}}</view>
+    <view class="findconfirm-gray"></view>
+    <view class="findconfirm-goodsview">
+        <view class="findconfirm-goodscell" wx:for="{{currentPrice.goods}}" wx:key="findconfirm-goodscell">
+            <image class="goodscell-image" src="{{item.pic}}"></image>
+            <view class="goods-cellview-nameview-content">
+                <view class="goodscell-goodnameview">
+                    <image class="goodscell-addmoreview {{item.isAddMore?'':'is-hidden'}}" src="/images/addmore/Tag_jiajiagou_2.png"></image>
+                    <view class="goodscell-goodname">{{item.name}}</view>
+                    <image class="goodscell-huiview {{item.is_promo==1?'':'is-hidden'}}" src="/images/addmore/Tag_tehui.png"></image>
+                    <text catchtap="expandClick" class="confirmGoodcell_expand {{(item.goods_type==3||item.goods_type==2)&&item.goods_content.length>0?'':'is-hidden'}}" data-index="{{index}}">{{item.expand?'收起':'展开'}}</text>
+                </view>
+                <view class="{{item.goods_type==3||item.goods_type==2?'':'is-hidden'}}">
+                    <view class="{{!item.expand?'findfood-cellview-nameview-goodscontent-desc':'findfood-cellview-nameview-goodscontent-expand'}}">{{item.goods_content.length>0?item.goods_content:''}}</view>
+                </view>
+            </view>
+            <view class="goodscell-goodprice">¥{{item.price}}
+        <view class="goodscell-goodcount">x{{item.buyCount}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="findconfirm-lineview"></view>
+    <view class="findconfirm-bigpriceview">
+        <view class="findconfirm-priceview">
+            <view class="findconfirm-price">¥{{currentPrice.original_price}}</view>
+            <view class="findconfirm-price-title">小计</view>
+        </view>
+    </view>
+    <view class="findconfirm-gray"></view>
+    <view class="findconfirm-card-good">
+        <view bindtap="showChoseCard" class="findconfirm-cardview">
+            <view class="findconfirm-cardtitle">会员卡</view>
+            <view class="confirmorder-ticket-chosebuycard-selectcard">
+                <view class="confirmorder-ticket-selectcard-cardname">
+                    <image class="arrow_image" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+                    <view class="confirmorder-ticket-selectcard-cardname-title {{selectCard?'name-red':''}}">{{selectCard?selectCard.cinema_name:'未使用'}}</view>
+                </view>
+                <view class="confirmorder-ticket-selectcard-cardlevel {{selectCard?'':'is-hidden'}}">{{selectCard.level}}</view>
+                <view class="confirmorder-ticket-selectcard-cardbalance {{selectCard&&selectCard.balance>0?'':'is-hidden'}}">(卡余额:¥{{selectCard.balance}})</view>
+            </view>
+        </view>
+        <view class="findconfirm-lineview long"></view>
+        <view catchtap="choseGoodClick" class="findconfirm_choseGood">
+            <view class="findconfirm_choseGood_left">
+                <view class="findconfirm-cardtitle">优惠券</view>
+                <view class="findconfirm_coupon_count">{{can_use_count==0?'无可用券':selectedCount>0?'已用'+selectedCount+'张':can_use_count+'张可用'}}</view>
+            </view>
+            <view class="findconfirm_choseGood_left">
+                <view class="findconfirm-cardtitle {{currentPrice.goods_coupon_save_fee>0?'findconfirm-cardtitle_youhui':''}}">{{currentPrice.goods_coupon_save_fee&&selectedCount>0?'-¥'+currentPrice.goods_coupon_save_fee:'未使用'}}</view>
+                <image class="arrow_image" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="findconfirm-lineview long"></view>
+    <view class="findconfirm-holdview" style="height:160rpx;background: var(--color-cg);"></view>
+    <view class="findconfirm-bottomview">
+        <view class="findconfirm-lineview-long"></view>
+        <view class="findconfirm-bottomview-bottomtopview">
+            <view class="findconfirm-bottomview-refundmessage {{requestData.refundSettings.refund==0?'visibility-hidden':''}}">{{requestData.refundSettings.refund_message}}</view>
+            <view class="findconfirm-priceview">
+                <view class="findconfirm-price findconfirm-price-big">¥{{currentPrice.price}}</view>
+                <view class="findconfirm-price-title">订单总价</view>
+            </view>
+        </view>
+        <form bindsubmit="gobuy" class="findconfirm-buybtnview" reportSubmit="true">
+            <button class="findconfirm-buybtn" formType="submit">去支付</button>
+        </form>
+    </view>
+</view>
+<import src="/templates/confirmOrder/choseCard/choseCard.wxml"></import>
+<template is="chosecard" data="{{display:cardDisplay,displayAnimation:cardDisplayAnimation,cardList:cardList,selectCardIndex:selectCardIndex,scrollHeight:scrollHeight,toview:toview,cardListOpen:cardListOpen,cardStatus:cardStatus,cardPriceEntity:memberPrice}}"></template>
+<import src="/templates/find/choseCoupon/choseCoupon.wxml"></import>
+<template is="choseCoupon" data="{{isShow:isShow,isShowAnimation:isShowAnimation,couponLists:couponLists,selectCard:selectCard,nomemberPrice:nomemberPrice,memberPrice:memberPrice,isCouponSelected:isCouponSelected,inputCouponNum:inputCouponNum,goSelfCoupon:goSelfCoupon,couponList:couponList,couponBottomShow:couponBottomShow,offLineCanUseCount:offLineCanUseCount,offlineNoCanUseCount:offlineNoCanUseCount,nooffLineCouponItemTitle:nooffLineCouponItemTitle,noUseItemTitle:noUseItemTitle,canUseSelfCount:canUseSelfCount}}"></template>
+<protocol-dialog bindagree="agree" bindnot_agree="not_agree" class="{{showUserProtocol?'is-hidden':''}}"></protocol-dialog>

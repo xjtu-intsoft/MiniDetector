@@ -1,0 +1,1 @@
+<view bindtap="_tap" class="m-icon {{iconClass}} mini-class" data-mark="{{mark}}" style="background-image:url(\"{{backgroundImage}}\");{{miniStyle}}"></view>

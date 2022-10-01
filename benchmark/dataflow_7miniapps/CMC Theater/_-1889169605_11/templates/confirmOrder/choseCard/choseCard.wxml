@@ -1,0 +1,36 @@
+<template name="chosecard">
+    <view catchtouchstart="hiddenChoseCard" class="chosecard-mask {{displayAnimation?'':'chosecard-show'}}" hidden="{{!display}}"></view>
+    <import src="/templates/cardcell/cardcell.wxml"></import>
+    <view catchtouchmove="nouse" class="chosecard-upview {{displayAnimation?'chosecard-viewup':''}}" hidden="{{!display}}">
+        <view class="chosecard-topview">
+            <view class="chosecard-topview-title">选择会员卡</view>
+            <image bindtap="addcard" class="chosecard-topview-addcard {{cardList.length>0&&selectCardIndex==-1?'':'chosecard-topview-addcard-hidden'}}" src="/images/addmore/add.png"></image>
+        </view>
+        <view bindtap="addcard" class="chosecard-addcard {{cardList.length>0?'is-hidden':''}}" style="height: {{scrollHeight}}rpx;">
+            <image class="chosecard-addcardimg" src="/images/orderPay/wodehuiyuanka_img_tianjiahuiyuanka.png"></image>
+        </view>
+        <scroll-view class="chosecard-upview-cardlist {{cardList.length>0?'':'is-hidden'}}" scrollTop="{{toview}}" scrollY="{{cardListOpen}}" style="height: {{scrollHeight}}rpx;">
+            <view class="big-scrollview" style="height: {{scrollHeight+10}}rpx;"></view>
+            <view bindtap="selectcard" class="chosecard-cardlist-cell {{index==0?'chosecard-cardlist-firstcell':''}} {{index<=selectCardIndex&&index!=0?'chosecard-cellup':''}} {{index==selectCardIndex+1&&selectCardIndex>-1?'chosecard-celldown':''}}" data-index="{{index}}" wx:for="{{cardList}}" wx:key="id">
+                <template is="cardcell" data="{{carditem:item}}"></template>
+            </view>
+        </scroll-view>
+        <view class="chosecard-buttomview {{selectCardIndex==-1?'':'chosecard-buttomview-hidden'}}">
+            <view bindtap="deleateCard" class="chosecard-buttomview-chosebtn">放弃使用</view>
+        </view>
+        <view class="chosecard-selectbuttomview {{selectCardIndex==-1?'chosecard-selectbuttomview-hidden':''}}">
+            <view class="lineview {{cardStatus.canuse?'':'vis-hidden'}}"></view>
+            <view class="chosecard-selectbuttomview-topview {{cardStatus.canuse?'':'vis-hidden'}}">
+                <view class="chosecard-selectbuttomview-pricemessage">{{cardPriceEntity.refund_settings.refund_message}}</view>
+                <view class="chosecard-selectbuttomview-totalprice">
+                    <view class="chosecard-selectbuttomview-totalprice-title">订单总价：</view>
+                    <view class="chosecard-selectbuttomview-totalprice-price">¥{{cardPriceEntity.newTotalPrice}}</view>
+                </view>
+            </view>
+            <view class="chosecard-selectbuttomview-btns">
+                <view bindtap="goChange" class="chosecard-selectbuttomview-gochangebtn {{cardStatus.showRecharge?'':'is-hidden'}}">去充值</view>
+                <view bindtap="{{cardStatus.canuse?'choseCard':'nouse'}}" class="chosecard-selectbuttomview-usecardbtn {{cardStatus.showRecharge?'':'usecardbtn-big'}} {{cardStatus.canuse?'':'usecardbtn-black'}}">{{cardStatus.showPayBtnTitle}}</view>
+            </view>
+        </view>
+    </view>
+</template>

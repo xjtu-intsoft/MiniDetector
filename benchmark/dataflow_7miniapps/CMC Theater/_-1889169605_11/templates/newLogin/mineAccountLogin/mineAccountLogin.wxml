@@ -1,0 +1,42 @@
+<template name="mineAccountLogin">
+    <view class="mineAccountLogin-view">
+        <image class="mineAccountLogin-view-logo" src="/images/configimage/denglu_logo.png"></image>
+        <form bindsubmit="{{accountLoginPhoneNum.length>=11&&accountLoginPassWord.length>0?'accountLoginBtnClick':'nouse'}}" class="mineAccountLogin-view-inputs">
+            <view class="mineAccountLogin-phonenum">
+                <input bindinput="showAccountLoginPhoneNum" class="phonenum-input" maxlength="11" name="phonenum" placeholder="手机号" placeholderStyle="color:#c5c5c5" type="number" value="{{accountLoginPhoneNum}}"></input>
+                <view bindtap="accountClearPhoneMum" class="mineAccountLogin-clear">
+                    <icon class="clear-icon" size="14" type="clear"></icon>
+                </view>
+            </view>
+            <view class="mineAccountLogin-line"></view>
+            <view class="mineAccountLogin-safecode {{loginCodeUrl.length?'':'is-hidden'}}">
+                <view class="mineAccountLogin-safecodeview">
+                    <input class="mineAccountLogin-safecodeview-input" name="safecode" placeholder="安全验证码" placeholderStyle="color:#c5c5c5" type="number"></input>
+                    <image catchtap="upDateLoginSafeCode" class="mineAccountLogin-safecodeview-image" data-codeurl="{{loginCodeUrl}}" src="{{loginCodeUrl}}"></image>
+                </view>
+                <view class="mineAccountLogin-line"></view>
+            </view>
+            <view class="mineAccountLogin-password">
+                <input bindinput="showAccountLoginPassWord" class="password-input" name="password" password="{{!showPassWord}}" placeholder="密码" placeholderStyle="color:#c5c5c5" value="{{accountLoginPassWord}}"></input>
+                <view bindtap="accountShowPassWord" class="mineAccountLogin-showPass">
+                    <image class="show-icon" src="{{!showPassWord?'/images/codeLogin/mima_xianshi.png':'/images/codeLogin/mima_yincang.png'}}"></image>
+                </view>
+            </view>
+            <view class="mineAccountLogin-line"></view>
+            <button class="mineAccountLogin-loginBtn {{accountLoginPhoneNum.length>=11&&accountLoginPassWord.length>0?'':'mineAccountLogin-loginBtn-nouse'}}" formType="submit">
+                登录
+            </button>
+        </form>
+        <view class="mineAccountLogin-bottomView">
+            <view class="user_protocol_parent">
+              登录即同意
+              <text catchtap="showUserProtocol" class="user_protocol_show">《用户协议》</text>
+              和
+              <text catchtap="showPolicy" class="user_protocol_show">《隐私政策》</text>
+            </view>
+            <view bindtap="showCodeLogin" class="mineAccountLogin-changeCodeLoginBtn" hidden="{{seatLogin}}">
+                验证码登录
+            </view>
+        </view>
+    </view>
+</template>

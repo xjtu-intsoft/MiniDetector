@@ -1,0 +1,14 @@
+<text class="current-phone">当前手机号{{oldPhone}}</text>
+<form bindsubmit="onSubmit">
+    <form bindsubmit="onSendSms">
+        <input hidden="true" name="token" value="{{token}}"></input>
+        <view class="item">
+            <input class="item-input" name="phone" placeholder="请输入新手机号"></input>
+        </view>
+        <view class="item">
+            <input class="item-input" name="smsCode" placeholder="请输入验证码"></input>
+            <button class="item-sms-code main-color main-border-color" formType="submit">{{codeStr}}</button>
+        </view>
+    </form>
+    <button class="btn-main" formType="submit">确定</button>
+</form>

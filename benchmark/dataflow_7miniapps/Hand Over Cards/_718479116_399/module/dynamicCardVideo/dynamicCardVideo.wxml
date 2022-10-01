@@ -1,0 +1,22 @@
+<view class="dynamicCard" style="{{videocontainerHeight?'height:'+videocontainerHeight:';'}}" wx:if="{{ifShow}}">
+    <view class="dynamicCard-container {{layOut?'dynamicLayOut':'dynamicIn'}}">
+        <video loop autoplay="true" bindended="_playEnd" bindplay="_play" bindprogress="_pro" bindtimeupdate="_update" bindwaiting="_waiting" controls="{{false}}" id="cardVideo" objectFit="cover" showCenterPlayBtn="{{false}}" showPlayBtn="{{false}}" src="{{cardData['vcardVideo']}}" style="height:1500rpx;width:750rpx;top:50%;margin-top:-750rpx;"></video>
+    </view>
+    <view bindtap="_packup" class="videoPackup" wx:if="{{saveHave&&tagShow}}">
+        <image src="../../images/video-packup.png"></image>
+        <text>收起</text>
+    </view>
+    <view class="videoPackup-save" wx:if="{{!saveHave&&tagShow}}">
+        <view class="videoPackup-save-left">
+            <view class="videoPackup-avatar">
+                <image src="{{avatar.avatarurl?avatar.avatarurl:anonymous}}"></image>
+        {{avatar.nickname}}
+      </view>
+            <view class="saveTip">您好，这是我的名片，请惠存！</view>
+        </view>
+        <form bindsubmit="_saveCard" reportSubmit="true">
+            <button formType="submit" loading="{{loading}}">保存名片</button>
+        </form>
+    </view>
+    <view class="videoLoading" wx:if="{{videoLoading&&platform=='ios'}}"></view>
+</view>

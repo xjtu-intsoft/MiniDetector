@@ -1,0 +1,73 @@
+<view class="findgood-detailview-pictureview">
+    <swiper class="findgood-pictureview-swiper" indicatorDots="true">
+        <swiper-item class="findgood-pictureview-swiperitem" wx:for="{{detailData.detail_pic}}" wx:key="findgood-pictureview-swiperitem">
+            <image class="swiperitem-view" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="findgood-detailview-nameview">
+    <view class="findgood-detailview-huiview {{detailData.havePromo&&!detailData.isAddMore?'':'is-hidden'}}">
+        <view class="detailview-huiview-firstview">
+            <image class="detailview-huiview-huiimage" src="/images/addmore/tehui_bg.png"></image>
+            <view class="detailview-huiview-hui">特惠 ¥</view>
+            <view class="detailview-huiview-price">{{detailData.showPrice}}</view>
+            <view class="detailview-huiview-middleview">
+                <view class="detailview-huiview-middleitem is-linethrough" style="font-size: var(--font-te);">¥{{detailData.price}}</view>
+                <view class="detailview-huiview-middleitem {{detailData.inventory<=0||detailData.inventory>5?'is-hidden':''}}" style="font-size: var(--font-tf);">仅剩{{detailData.inventory}}份</view>
+            </view>
+        </view>
+        <view class="detailview-huiview-huimessage {{detailData.promo_num!=0?'':'is-hidden'}}">限购{{detailData.promo_num}}份{{detailData.goods_type==3?'':'，超出数量以原价计算'}}</view>
+    </view>
+    <view class="findgood-nameview-name">{{detailData.name}}</view>
+    <view catchtap="nothing" class="findfood-foodcell-priceview {{cartKey=='shopCart'&&detailData.havePromo&&!detailData.isAddMore?'is-hidden':''}}">
+        <view class="findfood-foodcell-price {{detailData.havePromo&&!detailData.isAddMore?'v-hidden':''}}">
+            <view class="findfood-foodcell-showprice">¥{{detailData.showPrice}}</view>
+            <view class="findfood-foodcell-count {{detailData.inventory<=0||detailData.inventory>5?'is-hidden':''}}">仅剩{{detailData.inventory}}份</view>
+        </view>
+        <view catchtap="optionGoodsClick" class="option_goods_chose {{detailData.goods_type=='3'?'':'is-hidden'}}" data-goodid="{{detailData.id}}" data-index="{{index}}">
+            <text class="option_goods_num {{detailData.buyCount<=0?'is-hidden':''}}">{{detailData.buyCount}}</text>
+            <text class="option_goods_text">可自选</text>
+        </view>
+        <view class="findfood-foodcell-chosegoods {{cartKey=='shopCart'||detailData.goods_type=='3'?'is-hidden':''}}">
+            <image bindtap="clickgoodsadd" class="findfood-chosegoods-addbtn" data-fooditem="{{detailData}}" src="/images/addmore/add.png"></image>
+            <view class="findfood-chosegoods-countlable {{detailData.buyCount<=0?'is-hidden':''}}">{{detailData.buyCount}}</view>
+            <image bindtap="clickgoodsdel" class="findfood-chosegoods-delbtn {{detailData.buyCount<=0?'is-hidden':''}}" data-fooditem="{{detailData}}" src="/images/addmore/jian.png"></image>
+        </view>
+    </view>
+    <view class="findfood-foodcell-addmoreview {{detailData.havePromo&&detailData.isAddMore?'':'is-hidden'}}">
+        <image class="findfood-foodcell-addmoreimage" mode="aspectFit" src="/images/addmore/Tag_jiajiagou_1.png"></image>
+        <view class="findfood-foodcell-addmoremessage">{{detailData.promo_msg}}</view>
+    </view>
+</view>
+<view class="lineview"></view>
+<view class="findgood-detailview-desview">
+    <view class="findgood-desview-destitle">商品简介</view>
+    <view class="findshop-desview-destail">{{detailData.intro}}</view>
+</view>
+<view class="findfood-ball {{ballOne.ballMove?'':'is-hidden'}} {{ballOne.ballAnimation?'findfood-ball-animation':''}}" style="margin-top:{{ballOne.ballY}}rpx;margin-left:{{ballOne.ballX}}rpx;"></view>
+<view class="findfood-ball {{ballTwo.ballMove?'':'is-hidden'}} {{ballTwo.ballAnimation?'findfood-ball-animation':''}}" style="margin-top:{{ballTwo.ballY}}rpx;margin-left:{{ballTwo.ballX}}rpx;"></view>
+<view class="findfood-ball {{ballThree.ballMove?'':'is-hidden'}} {{ballThree.ballAnimation?'findfood-ball-animation':''}}" style="margin-top:{{ballThree.ballY}}rpx;margin-left:{{ballThree.ballX}}rpx;"></view>
+<view class="findfood-ball {{ballFour.ballMove?'':'is-hidden'}} {{ballFour.ballAnimation?'findfood-ball-animation':''}}" style="margin-top:{{ballFour.ballY}}rpx;margin-left:{{ballFour.ballX}}rpx;"></view>
+<view class="findfood-ball {{ballFive.ballMove?'':'is-hidden'}} {{ballFive.ballAnimation?'findfood-ball-animation':''}}" style="margin-top:{{ballFive.ballY}}rpx;margin-left:{{ballFive.ballX}}rpx;"></view>
+<view class="findgood-detailview-shopcartview {{cartKey=='shopCart'?'':'is-hidden'}}">
+    <view bindtap="goShopCart" class="findgood-shopcartview-showcart">
+        <view class="longline"></view>
+        <image class="findgood-shopcartview-cartimage" src="/images/shop/shangcheng_xiangqing_icon_gouwuche.png">
+            <view class="findgood-shopcartview-redcountview {{totalCount>0?'':'is-hidden'}}">{{totalCount}}</view>
+        </image>
+        <view class="findgood-shopcartview-carttitle">购物车</view>
+    </view>
+    <view bindtap="addShopCart" class="findgood-shopcartview-addcart" data-shopitem="{{detailData}}">加入购物车</view>
+</view>
+<import src="/templates/find/findfoodCart/findfoodCart.wxml"></import>
+<template is="findfoodCart" data="{{display:display,displayAnimation:displayAnimation,cartGoods:cartGoods,cartFood_id:cartFood_id}}"></template>
+<view class="findfood-foodcartview {{cartKey=='shopCart'?'is-hidden':''}}">
+    <view class="findfood-cartview">
+        <view catchtap="clickcart" class="findfood-cart">
+            <view class="findfood-redcount {{totalCount>0?'':'is-hidden'}}">{{totalCount}}</view>
+            <image class="findfood-cartimage" src="{{cartGoods.length<=0?'/images/shop/canyin_gouwuche_weixuanze.png':'/images/shop/canyin_gouwuche.png'}}"></image>
+        </view>
+        <view class="findfood-price">¥{{totalPrice}}</view>
+    </view>
+    <view catchtap="gobuy" class="findfood-gobuy {{cartGoods.length<=0?'findfood-gobuy-cannotuse':''}}">去结算</view>
+</view>

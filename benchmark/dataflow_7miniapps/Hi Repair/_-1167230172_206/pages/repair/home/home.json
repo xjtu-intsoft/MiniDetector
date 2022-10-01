@@ -1,0 +1,21 @@
+{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff",
+    "navigationBarTitleText": "手机维修",
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "navbar": "../../Component/navbar/navbar",
+        "swiperbanner": "./swiperbanner/swiperbanner",
+        "icon": "./icon/icon",
+        "activity": "./activity/activity",
+        "bannerimg": "./bannerimg/bannerimg",
+        "devices": "./devices/devices",
+        "quickorder": "./quickorder/quickorder",
+        "store": "./store/store",
+        "imgtab": "./imgtab/imgtab",
+        "appraise": "./appraise/appraise",
+        "flashsale": "./flashsale/flashsale",
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

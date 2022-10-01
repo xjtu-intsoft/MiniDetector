@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "component-newCardDetail": "../../../module/newCardDetail/newCardDetail",
+        "mini-icon": "../../../components/icon/icon",
+        "mini-button": "../../../components/button/button",
+        "mini-message": "../../../components/message/message",
+        "mini-popover": "../../../components/popover/popover",
+        "mini-actionsheet": "../../../components/actionsheet/actionsheet",
+        "mini-bulletLayer": "../../../components/bulletLayer/bulletLayer",
+        "mini-navigation": "../../../components/navigation/navigation"
+    },
+    "navigationBarTitleText": "名片详情"
+}

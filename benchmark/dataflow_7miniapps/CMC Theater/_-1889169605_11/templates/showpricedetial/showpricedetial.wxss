@@ -1,0 +1,216 @@
+.showpricedetial-mask {
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.showpricedetial-show {
+    opacity: 0;
+}
+
+.showpricedetial-upview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 0rpx;
+    background-color: #fff;
+    transition: height .3s;
+}
+
+.upview-up {
+    height: 638rpx;
+}
+
+.showpricedetial-upview-title {
+    width: 100%;
+    height: 104rpx;
+    line-height: 104rpx;
+    text-align: center;
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+}
+
+.showpricedetial-upview-image {
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20rpx;
+}
+
+.showpricedetial-scrollview {
+    width: 100%;
+    height: 290rpx;
+}
+
+.sv_height {
+    height: 480rpx;
+}
+
+.showpricedetial-upview-buttom {
+    width: 100%;
+    height: 165rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upview-buttomtop {
+    width: 100%;
+    height: 70rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.upview-buttomtop-backticket {
+    overflow: hidden;
+    width: 440rpx;
+    margin-left: 22rpx;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    line-height: 70rpx;
+    height: 70rpx;
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+    flex-direction: column;
+}
+
+.upview-buttomtop-backticket,.upview-buttomtop-price {
+    display: flex;
+    justify-content: center;
+}
+
+.upview-buttomtop-price {
+    margin-right: 22rpx;
+    font-size: var(--font-td);
+    line-height: 68rpx;
+    flex-direction: row;
+    align-items: center;
+}
+
+.upview-buttomtop-price-price {
+    color: var(--color-ce);
+    font-size: var(--font-tb);
+    margin-right: 5rpx;
+}
+
+.upview-buttom-backbtn {
+    height: 74rpx;
+    line-height: 74rpx;
+    margin-top: 5rpx;
+    text-align: center;
+    width: 706rpx;
+    background-color: var(--color-cb);
+    color: #fff;
+    font-size: var(--font-tc);
+    border-radius: 8rpx;
+}
+
+.showpricedetial-scrollview-bg {
+    width: 100%;
+}
+
+.showpricedetial-scrollview-header {
+    width: 100%;
+    height: 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 32rpx;
+}
+
+.showpricedetial-scrollview-headrect {
+    margin-top: -2rpx;
+    width: 6rpx;
+    height: 18rpx;
+    margin-left: 22rpx;
+    background-color: var(--color-ci);
+}
+
+.showpricedetial-scrollview-headname {
+    height: 100%;
+    width: 560rpx;
+    line-height: 40rpx;
+    margin-left: 16rpx;
+    font-size: var(--font-td);
+}
+
+.showpricedetial-scrollview-headprice {
+    height: 100%;
+    width: 132rpx;
+    line-height: 40rpx;
+    font-size: var(--font-td);
+    color: var(--color-cd);
+    text-align: right;
+    margin-right: 25rpx;
+}
+
+.showpricedetial-scrollview-cell {
+    height: 40rpx;
+    font-size: var(--font-td);
+    display: flex;
+    flex-direction: row;
+    padding-left: 22rpx;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 16rpx;
+    align-items: center;
+    width: 100%;
+}
+
+.showpricedetial-cell-single-good {
+    height: 34rpx;
+    margin-top: 10rpx;
+}
+
+.showpricedetial-scrollview-cell-title {
+    height: 100%;
+    color: var(--color-cd);
+    max-width: 470rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 5rpx;
+    font-size: var(--font-td);
+}
+
+.showpricedetial-title-single-good {
+    font-size: var(--font-te);
+}
+
+.showpricedetial-scrollview-cell-count {
+    width: 100rpx;
+    text-align: right;
+    position: absolute;
+    right: 135rpx;
+    font-size: var(--font-td);
+}
+
+.showpricedetial-scrollview-cell-price {
+    width: 135rpx;
+    text-align: right;
+    position: absolute;
+    right: 25rpx;
+    font-size: var(--font-td);
+}
+
+.is-red {
+    color: var(--color-ce);
+}
+
+.is-black {
+    color: var(--color-cc);
+}
+
+.showpricedetial-lineview {
+    width: 100%;
+    height: 1rpx;
+    margin-bottom: 6rpx;
+    background-color: var(--color-ch);
+}

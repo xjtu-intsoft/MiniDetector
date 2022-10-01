@@ -1,0 +1,79 @@
+.dialog_page {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.dialog_content,.dialog_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog_content {
+    width: 666rpx;
+    border-radius: 10rpx;
+    background: #fff;
+    justify-content: flex-start;
+}
+
+.dialog_card_level {
+    margin-top: 50rpx;
+    color: var(--color-cc);
+    size: var(--font-tc);
+}
+
+.dialog_card_num {
+    color: var(--color-cc);
+    size: var(--font-tb);
+    margin-bottom: 36rpx;
+    font-weight: 500;
+    font-family: PingFangSC-Semibold;
+}
+
+.one_code {
+    margin-top: 48rpx;
+    width: 580rpx;
+    height: 124rpx;
+}
+
+.two_code {
+    margin-top: 48rpx;
+    width: 360rpx;
+    height: 360rpx;
+}
+
+.dialog_card_remind {
+    height: 72rpx;
+    line-height: 72rpx;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    border-radius: 0 0 10rpx 10rpx;
+    margin: 52rpx auto 0;
+    color: var(--color-cd);
+    size: var(--font-td);
+    background: var(--color-cg);
+}
+
+.dialog_card_remind_no_radius {
+    border-radius: 0 0 0 0;
+}
+
+.dialog_card_delete {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+}
+
+.dialog_card_delete_text {
+    flex: 1;
+    text-align: center;
+    size: var(--font-td);
+    color: #000;
+}
+
+.dialog_red {
+    color: var(--color-ce);
+}

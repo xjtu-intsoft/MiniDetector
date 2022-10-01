@@ -1,0 +1,170 @@
+.mine-couponcell {
+    width: 680rpx;
+    margin-left: 35rpx;
+    height: 174rpx;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding-top: 20rpx;
+    z-index: 2;
+}
+
+.mine-couponcell-bgimg {
+    width: 680rpx;
+    height: 174rpx;
+    position: absolute;
+    z-index: -1;
+}
+
+.mine-couponcell-startview {
+    width: 180rpx;
+    text-align: right;
+    color: #fff;
+}
+
+.couponcell-startview-pricetop,.mine-couponcell-startview {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.couponcell-startview-pricetop,.couponcell-startview-priceview {
+    justify-content: center;
+}
+
+.couponcell-startview-priceview {
+    width: 100%;
+    line-height: 64rpx;
+    height: 64rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.couponcell-startview-dallor {
+    margin-right: 3rpx;
+    margin-top: 2rpx;
+    line-height: 32rpx;
+    font-size: var(--font-th);
+}
+
+.couponcell-startview-price {
+    height: 100%;
+    line-height: 64rpx;
+    font-size: 54rpx;
+    font-weight: 500;
+}
+
+.couponcell-startview-yuan {
+    margin-left: 3rpx;
+    margin-top: 4rpx;
+    line-height: 36rpx;
+    font-size: var(--font-tg);
+    font-weight: 500;
+}
+
+.couponcell-startview-desc {
+    text-align: center;
+    width: 100%;
+    height: 36rpx;
+    font-size: var(--font-tg);
+    font-weight: 500;
+}
+
+.desc-font-th {
+    font-size: var(--font-th);
+    font-weight: 400;
+}
+
+.couponcell-startview-message {
+    height: 40rpx;
+    line-height: 40rpx;
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-th);
+    flex-shrink: 0;
+}
+
+.mine-couponcell-middleview {
+    width: 430rpx;
+    height: 100%;
+}
+
+.couponcell-middleview-desc {
+    height: 87rpx;
+    line-height: 87rpx;
+    font-size: var(--font-tg);
+    text-indent: 20rpx;
+}
+
+.couponcell-middleview-timeview {
+    margin-top: 15rpx;
+    height: 72rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.couponcell-middleview-time {
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: var(--font-tf);
+    text-indent: 20rpx;
+    color: var(--color-cd);
+}
+
+.couponcell-middleview-new {
+    margin-left: 10rpx;
+    width: 26rpx;
+    background-color: var(--color-cb);
+    color: #fff;
+    border-radius: 4rpx;
+}
+
+.couponcell-middleview-expire-desc,.couponcell-middleview-new {
+    height: 26rpx;
+    line-height: 26rpx;
+    text-align: center;
+    font-size: var(--font-tf);
+}
+
+.couponcell-middleview-expire-desc {
+    margin-left: 30rpx;
+    color: #fe4632;
+}
+
+.middelView-nousecolor {
+    color: var(--color-ci);
+}
+
+.mine-couponcell-endview {
+    width: 75rpx;
+    height: 100%;
+    display: flex;
+}
+
+.couponcell-endimage {
+    position: absolute;
+    width: 75rpx;
+    height: 175rpx;
+    z-index: -1;
+}
+
+.couponcell-icon {
+    position: absolute;
+    margin-left: -20rpx;
+    width: 95rpx;
+    height: 95rpx;
+}
+
+.couponcell-warn {
+    position: absolute;
+    width: 60rpx;
+    height: 60rpx;
+    margin-top: 115rpx;
+    margin-left: 15rpx;
+}
+
+.is-hidden {
+    display: none;
+}

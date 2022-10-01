@@ -1,0 +1,87 @@
+<view style="height:100%;position:relative;">
+    <canvas canvasId="imageCanvas" class="public-canvas" style="width: {{canvasWidth}}px;height:{{canvasHeight}}px;"></canvas>
+    <view class="contentView">
+        <view class="addText-nosend-images" wx:if="{{!hasSendImage}}">
+            <button bindgetuserinfo="getUserInfo" class="addText-authorise" openType="getUserInfo">
+                <image src="/images/send_image.png"></image>
+                <view>点击授权</view>
+            </button>
+        </view>
+        <view class="editingContent" wx:else>
+            <image bindload="editImageLoaded" class="editImage" mode="aspectFit" src="{{url}}"></image>
+            <view class="add-text-mova">
+                <movable-area style="height: {{imageShowHeight}}px; width: {{imageShowWidth}}px;">
+                    <movable-view animation="{{animation}}" bindchange="inputPositionChaged" direction="all" hidden="{{!url}}" style="width: {{movableWidth}}px; height: {{movableHeight}}px;" x="{{movableX}}" y="{{movableY}}">
+                        <input bindblur="inputBlur" bindfocus="focus" bindinput="inputChange" focus="{{inputFocus}}" hidden="{{!inputFocus}}" placeholder="输入文字" style="width: {{inputWidth}}px; font-size:{{inputTextSize}}px;height: {{inputHeight}}px;line-height:{{inputHeight}}px; " value="{{inputText}}"></input>
+                        <image bindtap="clearText" class="addText-clear" hidden="{{!inputFocus||!inputText}}" src="/images/addText_clear.png"></image>
+                        <label bindtap="textTaped" class="add-text-label" hidden="{{inputFocus}}" style="width:{{showTextWidth}}px; height: {{movableHeight}}px;line-height:{{movableHeight}}px; background:{{selectedBackground.bgColor}}; font-size:{{showTextSize}}px; {{selectedFontColor.textColorStyle}};color:{{fontColor}};">{{showText}} 
+            </label>
+                    </movable-view>
+                </movable-area>
+            </view>
+        </view>
+        <view class="addText-change-photo">
+            <button bindtap="changePhoto">
+                <image src="/images/top_arrow.png"></image>
+        换照片
+      </button>
+        </view>
+        <view class="fontArea">
+            <view class="leftArea">
+                <view class="vRedLine"></view>
+                <text class="leftText">字体大小</text>
+            </view>
+            <view class="rightArea">
+                <view class="fontSizeBoxWraper" style="{{item.style}}" wx:for="{{fontSizeData}}" wx:key="{{index}}">
+                    <view bindtap="fontSizeSelected" class="fontSizeBox" data-clickedfontsize="{{item}}" data-index="{{index}}">{{item.text}}</view>
+                </view>
+            </view>
+            <view class="placeholderArea"></view>
+        </view>
+        <view class="backgroundArea">
+            <view class="leftArea">
+                <view class="vRedLine"></view>
+                <text class="leftText">背景颜色</text>
+            </view>
+            <view class="rightArea">
+                <view class="bgColorBoxWraper" style="{{item.style}}" wx:for="{{backgroundData}}" wx:key="{{index}}">
+                    <view class="bgColorBox">
+                        <image bindtap="bgColorSelected" class="bgColorImage" data-clickedbgcolor="{{item}}" data-index="{{index}}" mode="aspectFill" src="{{index==0?'/images/bg_opacity@2x.png':''}}" style="{{item.background}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="placeholderArea"></view>
+        </view>
+        <view class="fontColorArea">
+            <view class="leftArea">
+                <view class="vRedLine"></view>
+                <text class="leftText">字体颜色</text>
+            </view>
+            <view class="fontColorRightArea">
+                <view class="fontColorBoxWrapper" style="{{item.style}}" wx:for="{{fontColorData}}" wx:key="{{index}}">
+                    <view bindtap="fontColorSelected" class="fontColorBox" data-clickedfontcolor="{{item}}" data-index="{{index}}" style="{{item.textColorStyle}}">文</view>
+                </view>
+            </view>
+            <view class="placeholderArea"></view>
+        </view>
+        <view bindtap="addTextToImage" class="addText-compound">生成表情并保存</view>
+        <view class="UserAgreementView" wx:if="{{needShowUserAgreement}}">
+            <view class="UserAgreementViewBorder">
+                <scroll-view class="UserAgreementScrollView" scrollY="true">
+                    <text class="UserAgreementScrollView-text1">使用协议</text>
+                    <text class="UserAgreementScrollView-text2" style="">动图宇宙是全球最大的中文动图搜索引擎，本程序是一个可以搜索，查找和自制表情的软件。在这里可以找到最新最热的表情，也可以快速自定义表情。是微信聊天，斗图的制胜法宝，带你装X带你飞。
+          法律声明：
+          1，部分表情来自网络，其版权归原作者/版权方所有。由于一些图片几次经过转载，导致原作者信息不详，若原作者/版权方有异议，请及时反馈，我们会尽快处理。
+          2，用户明确了解并同意：关于本协议服务，动图宇宙不提供任何种类的明示或暗示担保或条件，包括但不限于商业适售性、特定用途适用性等。您对本协议软件及相关服务的使用行为必须自行承担相应风险。
+          3，用户明确了解并同意，利用本软件制作的表情或其他内容，用户应遵守国家法律法规、维护公序良俗，保护他人合法权益，动图宇宙在能力范围内尽最大的努力按照相关法律法规进行判断和规避，但并不保证动图宇宙判断完全与司法机关、行政机关的判断一致，如因此产生的后果用户已经理解并同意自行承担。
+          </text>
+                </scroll-view>
+                <view bindtap="closeUserAgreement" class="AgreeButton">
+                    <text>同意</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<canvas canvasId="judgeCanvas" class="judge-canvas"></canvas>
+<image-pop bind:closeTip="closeTip" curIndex="0" isHidden="{{isHidden}}" preList="{{previewImageArr}}"></image-pop>

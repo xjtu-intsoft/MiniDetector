@@ -1,0 +1,83 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/answer/start",
+        "pages/answer/index",
+        "pages/answertop/index",
+        "pages/turntable/turntable",
+        "pages/upgrade/index",
+        "pages/success/success",
+        "pages/shops/shops",
+        "pages/login/login",
+        "pages/account/index",
+        "pages/equipment/equipment",
+        "pages/userinfo/index",
+        "pages/deviceadd/index",
+        "pages/deviceedit/index",
+        "pages/auth/info",
+        "pages/phonenumber/phonenumber",
+        "pages/report/report",
+        "pages/followme/followme",
+        "pages/followmewho/followmewho",
+        "pages/colles/colles",
+        "pages/talents/talents",
+        "pages/integral/integral",
+        "pages/myissue/myissue",
+        "pages/activity/activity",
+        "pages/dealt/dealt",
+        "pages/question/question",
+        "pages/accountpoint/index",
+        "pages/recharge/recharge",
+        "pages/privacy/index",
+        "pages/kanjia/kanjia"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#3399ff",
+        "backgroundColor": "#3399ff",
+        "navigationBarTitleText": "998二手挖机圈",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "color": "#000",
+        "selectedColor": "#3399ff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "text": "买车",
+                "pagePath": "pages/index/index",
+                "iconPath": "images/icon/wj4.png",
+                "selectedIconPath": "images/icon/wj1.png"
+            },
+            {
+                "text": "卖车",
+                "pagePath": "pages/deviceadd/index",
+                "iconPath": "images/icon/wj3.png",
+                "selectedIconPath": "images/icon/wj2.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/account/index",
+                "iconPath": "images/icon/head1.png",
+                "selectedIconPath": "images/icon/head3.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 40000,
+        "connectSocket": 20000,
+        "uploadFile": 40000,
+        "downloadFile": 40000
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wx80fa06cbfef250cb",
+        "wx260f67efde427995",
+        "wx11ce91a935d2996a",
+        "wx30c6f5b9064d3c66",
+        "wx41e9d8b0b1126275",
+        "wxeaefb304f2517fdb",
+        "wx77df0f3ae5462867",
+        "wxef9d5df67965027a",
+        "wxfe7e918bfb47b8b2"
+    ]
+}

@@ -1,0 +1,38 @@
+.stream-layout {
+    display: flex;
+    margin: 24rpx;
+}
+
+.stream-layout>view {
+    flex: 1;
+}
+
+.stream-layout-left {
+    margin-right: 10rpx;
+}
+
+.stream-layout image {
+    margin-bottom: -10rpx;
+    width: 100%;
+    border-radius: 20rpx;
+}
+
+.stream-layout-item {
+    margin-bottom: 16rpx;
+}
+
+.stream-layout-item1 {
+    background: #272935;
+    border-radius: 12rpx;
+    padding-bottom: 18rpx;
+}
+
+.stream-layout-text {
+    margin: 16rpx 20rpx 0;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

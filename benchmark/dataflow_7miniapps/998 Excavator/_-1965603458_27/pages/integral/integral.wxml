@@ -1,0 +1,78 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <view bindtap="tabClick" class="weui-navbar__item {{activeIndex==index?'weui-bar__item_on':''}}" id="{{index}}" wx:for="{{tabs}}" wx:key="*this">
+                    <view class="weui-navbar__title">{{item}}</view>
+                </view>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex!=0}}">
+                    <view class="share_page" style="background:#F4F4F4;">
+                        <view class="weui-cell" style="background:#fff;margin-bottom:20rpx;">
+                            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                                <image src="{{userInfo.avatars}}" style="width: 50px; height: 50px; display: block;border-radius: 50%;"></image>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view style="font-size:32rpx;">{{userInfo.username}}</view>
+                                <view style="font-size: 13px;color: #888888;">带来了{{shared_last}}人围观</view>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <image catchtap="share_explain" class="explain" src="/images/icon/question.png"></image>
+                            </view>
+                        </view>
+                        <navigator class="weui-cells weui-cells_after-title" hoverClass="none" url="/pages/userinfo/index?id={{item.customer_id}}" wx:for="{{ranking_last}}">
+                            <view class="weui-cell">
+                                <view class="top_num" style="{{item.num==1?'color:red;':''||item.num==2?'color:#F96015;':''||item.num==3?'color:pink;':''}}">{{item.num}}</view>
+                                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                                    <image src="{{item.avatars}}" style="width: 50px; height: 50px; display: block;border-radius: 50%;"></image>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view style="font-size:30rpx;">{{item.username}}</view>
+                                    <view style="font-size: 13px;color: #888888;">带来了{{item.total}}人围观</view>
+                                </view>
+                                <view class="weui-cell__ft">
+                                    <view catchtap="follow" class="guanzhu {{item.atten?'top_current':''}}" data-atten="{{item.atten}}" data-userId="{{item.customer_id}}">{{item.atten?'已关注':'+ 关注'}}</view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex!=1}}">
+                    <view class="share_page" style="background:#F4F4F4;">
+                        <view class="weui-cell" style="background:#fff;margin-bottom:20rpx;">
+                            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                                <image src="{{userInfo.avatars}}" style="width: 50px; height: 50px; display: block;border-radius: 50%;"></image>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <view style="font-size:32rpx;">{{userInfo.username}}</view>
+                                <view style="font-size: 13px;color: #888888;">带来了{{shared}}人围观</view>
+                            </view>
+                            <view class="weui-cell__ft">
+                                <button class="share_go" openType="share">我要冲榜</button>
+                                <image catchtap="share_explain" class="explain" src="/images/icon/question.png"></image>
+                            </view>
+                        </view>
+                        <navigator class="weui-cells weui-cells_after-title" hoverClass="none" url="/pages/userinfo/index?id={{item.customer_id}}" wx:for="{{ranking}}">
+                            <view class="weui-cell">
+                                <view class="top_num" style="{{item.num==1?'color:red;':''||item.num==2?'color:#F96015;':''||item.num==3?'color:pink;':''}}">{{item.num}}</view>
+                                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                                    <image src="{{item.avatars}}" style="width: 50px; height: 50px; display: block;border-radius: 50%;"></image>
+                                </view>
+                                <view class="weui-cell__bd">
+                                    <view style="font-size:30rpx;">{{item.username}}</view>
+                                    <view style="font-size: 13px;color: #888888;">带来了{{item.total}}人围观</view>
+                                </view>
+                                <view class="weui-cell__ft">
+                                    <view catchtap="follow" class="guanzhu {{item.atten?'top_current':''}} {{item.customer_id==customer_id?'hide':''}}" data-atten="{{item.atten}}" data-userId="{{item.customer_id}}">{{item.atten?'已关注':'+ 关注'}}</view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="share_"> --- 每周日24点更新 --- </view>

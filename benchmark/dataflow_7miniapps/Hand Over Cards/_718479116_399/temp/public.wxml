@@ -1,0 +1,18 @@
+<template name="shareModal">
+    <view bindtap="shareModalClick" style="position:fixed;height:100%;width:100%;background-color:rgba(0,0,0,0.7);z-index:20;top:0;">
+        <view catchtap="aa" style="position:absolute;top:40%;;width:560rpx;left:50%;margin-left:-280rpx;border-radius:8rpx;background-color:white;">
+            <view style="height:50rpx;font-size:36rpx;color:rgba(17,17,17,1);line-height:50rpx;text-align:center;padding:26rpx 0 28rpx 0; ">提示</view>
+            <view style="font-size:30rpx;color:rgba(136,136,136,1);line-height:40rpx;width:90%;text-align:center;margin-left:5%;">{{content}}</view>
+            <button bindtap="shareModalButton" openType="share" style="margin-top:30rpx;height:100rpx;font-size:36rpx;font-weight:bold;color:#3F51B5;line-height:100rpx;border-top:1px solid #E5E5E5;background-color:white;">发送名片</button>
+        </view>
+    </view>
+</template>
+<template name="netError">
+    <view catchtouchmove="ss" class="netError">
+        <view class="netError-con">
+            <image class="netError-image" src="{{path+'images/netError.png'}}"></image>
+            <view class="netError-tip">抱歉！网络连接错误</view>
+            <button bindtap="againRequest" class="netError-butt addColor addBorder">重新加载</button>
+        </view>
+    </view>
+</template>

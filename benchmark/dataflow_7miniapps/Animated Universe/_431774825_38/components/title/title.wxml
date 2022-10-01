@@ -1,0 +1,19 @@
+<view class="title" wx:if="{{showItem.useNew}}">
+    <image class="lf-img" mode="widthFix" src="{{showItem.leftIcon.url}}" style="width:{{showItem.leftIcon.width}}rpx;height:{{showItem.leftIcon.height}}rpx" wx:if="{{showItem.leftIcon}}"></image>
+    <text class="title-text" style="font-size:{{showItem.leftText.size}}rpx">{{showItem.leftText.text}}</text>
+    <text bindtap="rtTextClick" class="rt-text" style="{{showItem.rightText.style||''}}">{{showItem.rightText.text}}</text>
+</view>
+<view class="title" wx:elif="{{showItem.ipHome}}">
+    <image class="lf-img" mode="widthFix" src="{{showItem.leftIcon.url}}" style="width:{{showItem.leftIcon.width}}rpx;height:{{showItem.leftIcon.height}}rpx" wx:if="{{showItem.leftIcon}}"></image>
+    <text class="title-text-ip" style="font-size:{{showItem.leftText.size}}rpx">{{showItem.leftText.text}}</text>
+    <image src="{{showItem.leftSecondIcon.url}}" style="{{showItem.leftSecondIcon.layout}}" wx:if="{{showItem.leftSecondIcon}}"></image>
+</view>
+<view class="title" wx:else>
+    <image class="lf-img" mode="widthFix" src="{{showItem.leftIcon.url}}" style="width:{{showItem.leftIcon.width}}rpx;height:{{showItem.leftIcon.height}}rpx" wx:if="{{showItem.leftIcon}}"></image>
+    <text class="title-text" style="right:{{showItem.rightText?166:38}}rpx">{{showItem.leftText.text}}</text>
+    <text class="rt-text" style="{{showItem.rightText.style||''}}" wx:if="{{showItem.rightText}}">{{showItem.rightText.text}}</text>
+    <image bindtap="rtClick" class="rt-img" mode="widthFix" src="{{showItem.rightIcon.url}}" style="width:{{showItem.rightIcon.width}}rpx;height:{{showItem.rightIcon.height}}rpx" wx:if="{{showItem.rightIcon}}"></image>
+    <form bind:submit="submitFormId" reportSubmit="true" wx:if="{{showItem.rightText}}">
+        <button bindtap="rtClick" class="title-button" formType="submit" style="font-size:{{showItem.rightText.size}}rpx"></button>
+    </form>
+</view>

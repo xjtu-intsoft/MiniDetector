@@ -1,0 +1,98 @@
+<view class="selfContainer">
+    <view class="userInfoWrap">
+        <view class="userinfo">
+            <view class="avatarWrap">
+                <open-data type="userAvatarUrl" wx:if="{{isLogin}}"></open-data>
+                <image class="avatar" src="./images/touxiang.png" wx:else></image>
+            </view>
+            <open-data class="please-login" type="userNickName" wx:if="{{isLogin}}"></open-data>
+            <text bindtap="goToLogin" class="please-login" wx:else>Hi {{holderName}}</text>
+        </view>
+        <view class="msg-wrap">
+            <view class="msg-wrap-left">
+                <view bindtap="myOrder" class="msg">
+                    <view class="num">{{orders_count}}</view>
+                    <view class="title">我的订单</view>
+                </view>
+                <view bindtap="myCoupon" class="msg">
+                    <view class="num">{{coupons_count}}</view>
+                    <view class="title">优惠券</view>
+                </view>
+            </view>
+            <view bindtap="showPreview" class="msg-btn">
+                <image class="erweima" src="./images/erweima.png"></image>
+                <view class="title">专属客服</view>
+            </view>
+        </view>
+        <image class="bg" mode="heightFix" src="./images/bg2.png"></image>
+    </view>
+    <view class="self_model_container" wx:if="{{deviceInfo}}">
+        <view class="self_model_container_main">
+            <view class="titleWrap">
+                <view class="title">测一测，你的手机值多少钱</view>
+                <view bindtap="changeModel" class="changemodel">
+                    其他机型
+                    <image class="" src="../../../img/select.png"></image>
+                </view>
+            </view>
+            <view class="model_recycle_info_wrap">
+                <image class="" src="{{deviceInfo.src}}"></image>
+                <view class="info_wrap">
+                    <view class="price">
+                        <view class="model_name">
+                            <text class="self">本机</text>{{deviceInfo.name}}<text class="tag">限时加价12%</text>
+                        </view>
+                        <view class="price_max">最高可卖
+                            <view>¥<text>{{deviceInfo.avg_price}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="btn_wrap">
+                        <view bindtap="getPrice" class="test_price" data-mid="{{deviceInfo.id}}" data-name="{{deviceInfo.name}}">
+                            加价回收
+                            </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="plr20">
+        <scroll-view scrollX style="width: 100%;white-space: nowrap;">
+            <image bindtap="tiaozhuan" class="banner" data-type="repair" mode="heightFix" src="https://image.hiweixiu.com/web-template/cjwxj.png" style="margin-right:20rpx"></image>
+            <image bindtap="tiaozhuan" class="banner" data-type="recycle" mode="heightFix" src="https://image.hiweixiu.com/web-template/cjhxy.png"></image>
+        </scroll-view>
+    </view>
+    <view class="listWrap plr20">
+        <view bindtap="goPersonalAddress" class="list">
+            <image class="icon" src="./images/address.png"></image>
+            <view class="listTitle">地址管理</view>
+        </view>
+        <view bindtap="myHelpCenter" class="list">
+            <image class="icon" src="./images/help.png"></image>
+            <view class="listTitle">帮助中心</view>
+        </view>
+        <view bindtap="goToStoreAddress" class="list">
+            <image class="icon" src="./images/shoplocation.png"></image>
+            <view class="listTitle">门店地址</view>
+        </view>
+        <view bindtap="myFeedback" class="list">
+            <image class="icon" src="./images/comment.png"></image>
+            <view class="listTitle">来评一评</view>
+        </view>
+        <view bindtap="aboutUs" class="list">
+            <image class="icon" src="./images/aboutus.png"></image>
+            <view class="listTitle">关于我们</view>
+        </view>
+        <view bindtap="goSetting" class="list">
+            <image class="icon" src="./images/setting.png"></image>
+            <view class="listTitle">设置</view>
+        </view>
+    </view>
+    <view class="officialWrap">
+        <image bindtap="showPreviewGou" class="gou" src="https://image.hiweixiu.com/web-template/grzx0yg.gif"></image>
+        <image class="official" src="./images/logo.png"></image>
+    </view>
+</view>
+<view bindtap="hideModal" class="modal" wx:if="{{isShowModal}}">
+    <image class="" src="../../../img/tc.png"></image>
+</view>

@@ -1,0 +1,44 @@
+.article-lines {
+    position: relative;
+    height: 34rpx;
+}
+
+.article-line-left,.article-line-right {
+    position: absolute;
+    top: 16rpx;
+    width: 280rpx;
+    height: 4rpx;
+    background: #3a3a49;
+}
+
+.article-line-left {
+    left: 0;
+}
+
+.article-line-right {
+    right: 0;
+}
+
+.article-lines-text image {
+    position: absolute;
+    width: 10rpx;
+    height: 34rpx;
+}
+
+.article-lines-left-image {
+    left: 308rpx;
+}
+
+.article-lines-right-image {
+    right: 308rpx;
+}
+
+.article-lines-text text {
+    position: absolute;
+    width: 100%;
+    font-size: 24rpx;
+    white-space: nowrap;
+    height: 34rpx;
+    line-height: 34rpx;
+    text-align: center;
+}

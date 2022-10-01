@@ -1,0 +1,49 @@
+<view class="coupon_package_parent">
+    <view class="{{order.order_status=='3'?'countdown_time':'order_remind_parent'}}">
+        <text class="{{order.order_status=='3'?'countdown_time_text':'order_remind_text'}}">{{order.order_status=='3'?'支付剩余时间 '+countDownTime:order.order_remind}}</text>
+    </view>
+    <view class="coupon_details_parent">
+        <image class="img" mode="aspectFill" src="{{order.img_url}}"></image>
+        <view class="coupon_info">
+            <text class="coupon_name">{{order.coupon_name}}</text>
+            <view class="coupon_desc_parent">
+                <text class="coupon_desc">{{order.coupon_desc}}</text>
+            </view>
+        </view>
+        <text class="coupon_price">¥{{order.price}}</text>
+        <text class="coupon_num">x{{order.total_goods_num}}</text>
+    </view>
+    <view class="coupon_total_price_parent">
+        <text class="coupon_total_text">订单总价</text>
+        <text class="coupon_total_price">¥{{order.total_price}}</text>
+    </view>
+    <view class="coupon_order_info">
+        <text class="coupon_title">订单信息</text>
+        <view class="h_line" style="margin-bottom:16rpx;"></view>
+        <text class="coupon_title_text">订单状态：{{order.order_status_desc}}</text>
+        <text class="coupon_title_text  {{order.order_status=='3'?'is-hidden':''}}">订单编号：{{order.order_num}}</text>
+        <text class="coupon_title_text">下单时间：{{order.create_time}}</text>
+        <text class="coupon_title_text">手机号码：{{order.mobile}}</text>
+        <view style="height:16rpx;"></view>
+        <text class="coupon_refund_remind {{order.order_status=='3'?'is-hidden':''}}">{{order.order_refund_remind}}</text>
+    </view>
+    <view bindtap="callPhone" class="phone">
+    订单异常可致电影城：
+    <text style="color:var(--color-cb)">{{order.tel}}</text>
+    </view>
+    <view class="unfinished_pay_parent {{order.order_status=='3'?'':'is-hidden'}}">
+        <text catchtap="cancelOrder" class="unfinished_cancel">取消订单</text>
+        <text catchtap="orderPay" class="unfinished_pay">去支付</text>
+    </view>
+</view>
+<view class="card_status {{order.order_status=='1'&&isShow?'':'hidden_view'}}">
+    <view catchtouchmove="move" class="card_status_bg"></view>
+    <view class="card_status_body">
+        <image class="card_status_img" src="/images/coupon_package/order_coupon_package_success_icon.png"></image>
+        <text class="card_status_text_success">券包购买成功！</text>
+        <text class="card_status_text1">已放置于"我的-优惠券"中</text>
+        <text catchtap="goCouponList" class="card_status_buy_ticket">查看我的优惠券</text>
+        <text catchtap="goBuyTicket" class="card_status_see_cards">去购票</text>
+    </view>
+    <image catchtap="closeClick" class="closebtn" src="/images/common/close.png"></image>
+</view>

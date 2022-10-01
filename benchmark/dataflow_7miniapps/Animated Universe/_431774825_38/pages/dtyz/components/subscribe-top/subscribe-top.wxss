@@ -1,0 +1,30 @@
+.subscribe-top {
+    display: flex;
+}
+
+.subscribe-top-paragraph {
+    width: 584rpx;
+}
+
+.subscribe-top-viewAll {
+    display: flex;
+    align-items: center;
+    line-height: 40rpx;
+    font-size: 24rpx;
+}
+
+.subscribe-top-viewAll image {
+    margin-left: 8rpx;
+    width: 14rpx;
+}
+
+.subscribe-top-topText {
+    line-height: 56rpx;
+    font-size: 40rpx;
+}
+
+.subscribe-top-bottomText {
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #939393;
+}

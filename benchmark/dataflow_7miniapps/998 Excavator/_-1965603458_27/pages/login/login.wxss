@@ -1,0 +1,8 @@
+@import "../../__wuBaseWxss__/10.wxss";
+
+.weui-vcode-btn {
+    background: none;
+    border: none;
+    border-left: 1px solid #ddd;
+    border-radius: 0;
+}

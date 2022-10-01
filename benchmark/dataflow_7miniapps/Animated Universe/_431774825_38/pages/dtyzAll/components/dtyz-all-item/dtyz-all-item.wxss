@@ -1,0 +1,29 @@
+.dtyz-all-item {
+    display: flex;
+    align-items: center;
+}
+
+.dtyz-all-item-image {
+    margin-right: 22rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+
+.dtyz-all-item-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 64rpx;
+    width: 264rpx;
+}
+
+.dtyz-all-item-texts text:nth-child(1) {
+    font-size: 32rpx;
+    line-height: 44rpx;
+}
+
+.dtyz-all-item-texts text:nth-child(2) {
+    font-size: 24rpx;
+    line-height: 34rpx;
+}

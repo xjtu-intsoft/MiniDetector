@@ -1,0 +1,20 @@
+<scroll-view class="sv" scrollX="true">
+    <view class="sv_item_parent" wx:for="{{times}}">
+        <view class="sv_item">
+            <text class="day" wx:if="{{index%2==0}}">今
+天</text>
+            <view class="time_info">
+                <text>02：30</text>
+                <text>国语</text>
+                <text>￥1</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<text>mx = {{mx}} my = {{my}}</text>
+<view class="move">
+    <view bindtouchend="end" bindtouchmove="move" bindtouchstart="start" class="move_item" style="transform: translate({{mx}}px,{{my}}px)"></view>
+</view>
+<text catchtap="canvasHandler" data-scale="0">点击操作缩小 canvas</text>
+<text catchtap="canvasHandler" data-scale="1">点击操作放大 canvas</text>
+<canvas animation="{{animationData}}" canvasId="seats" style="background:green;width:300px; height:200px;"></canvas>

@@ -1,0 +1,239 @@
+{
+    "pages": [
+        "pages/cardMain/cardMain",
+        "pages/cardAll/howEnter/howEnter",
+        "pages/mainPage/assistant/assistant",
+        "pages/cardMain/cropCard/cropCard",
+        "pages/cardMain/upldTbcardLogo/upldTbcardLogo",
+        "pages/cardMain/upldTbcardLogoNew/upldTbcardLogo",
+        "pages/cardMain/cropLogo/cropLogo",
+        "pages/cardMain/businessPhotoCrop/businessPhotoCrop",
+        "pages/cardMain/showInvoice/showInvoice",
+        "pages/cardMain/editInvoice/editInvoice",
+        "pages/cardMain/homePage/homePage",
+        "pages/cardMain/buildHomePage/buildHomePage",
+        "pages/cardMain/product/product",
+        "pages/cardAll/enterShow/enterShow",
+        "pages/cardAll/batchReceive/batchReceive",
+        "pages/cardAll/batchReceiveShow/batchReceiveShow",
+        "pages/cardAll/batchShare/batchShare",
+        "pages/cardAll/paperCardEdit/paperCardEdit",
+        "pages/customePages/imagesShow/imagesShow",
+        "pages/customePages/imagesShowMinimalist/imagesShowMinimalist",
+        "pages/customePages/cardShow/cardShow",
+        "pages/cardWall/cardWall",
+        "pages/cardWall/stickCard/stickCard",
+        "pages/update/update",
+        "pages/cardMain/addrMatchNew/addrMatch",
+        "pages/cardMain/formMinimalistAddr/formMinimalistAddr",
+        "pages/cardsFolder/cardsFolder",
+        "pages/cardMain/webcardEdit/webcardEdit",
+        "pages/cardMain/showCard/showCard",
+        "pages/cardMain/whitePaper/whitePaper",
+        "pages/cardMain/formMinimalistIndustry/formMinimalistIndustry",
+        "pages/subpackagePage/webview/webview",
+        "pages/cardMain/newShowCard/newShowCard",
+        "pages/cardMain/dailySentence/dailySentence",
+        "pages/company/company"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTitleText": "递名片",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#FFFFFF"
+    },
+    "tabBar": {
+        "selectedColor": "#2979FF",
+        "color": "#333333",
+        "list": [
+            {
+                "pagePath": "pages/cardMain/cardMain",
+                "text": "首页",
+                "iconPath": "images/tabbar/cardMain-f.png",
+                "selectedIconPath": "images/tabbar/cardMain-t.png"
+            },
+            {
+                "pagePath": "pages/cardWall/cardWall",
+                "text": "助手",
+                "iconPath": "images/tabbar/helper-f.png",
+                "selectedIconPath": "images/tabbar/helper-t.png"
+            },
+            {
+                "pagePath": "pages/cardsFolder/cardsFolder",
+                "text": "名片夹",
+                "iconPath": "images/tabbar/cardMy-f.png",
+                "selectedIconPath": "images/tabbar/cardMy-t.png"
+            },
+            {
+                "pagePath": "pages/company/company",
+                "text": "企业版",
+                "iconPath": "images/tabbar/company-f.png",
+                "selectedIconPath": "images/tabbar/company-t.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 8000,
+        "downloadFile": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000
+    },
+    "subPackages": [
+        {
+            "root": "pages/companyManage/",
+            "name": "companyManage",
+            "pages": [
+                "webLogin/webLogin",
+                "inviteBinding/inviteBinding",
+                "inviteBindingWechat/inviteBindingWechat",
+                "phonereceiveCard/phonereceiveCard",
+                "enterBindingWechat/enterBindingWechat",
+                "officialBindingSuccess/officialBindingSuccess",
+                "bindingWechatStatus/bindingWechatStatus",
+                "previewVideoCard/previewVideoCard",
+                "constructor/constructor",
+                "teamList/teamList",
+                "teamNotClaim/teamNotClaim",
+                "batchProduction/batchProduction",
+                "coreTeam/coreTeam",
+                "changeAdmin/changeAdmin",
+                "changeAdminScanCode/changeAdminScanCode",
+                "changeAdminScanCodeFail/changeAdminScanCodeFail",
+                "shareCardlibrary/shareCardlibrary",
+                "shareCardlibraryDetail/shareCardlibraryDetail",
+                "shareCardstore/shareCardstore",
+                "coreTeamDetail/coreTeamDetail",
+                "notClaimCardDetail/notClaimCardDetail",
+                "searchPage/searchPage",
+                "createTeam/createTeam",
+                "dynamicList/dynamicList",
+                "joinenterprise/joinenterprise",
+                "joinenterpriseClaim/joinenterpriseClaim",
+                "addrMatch/addrMatch",
+                "configurationStyle/configurationStyle",
+                "configurationChangeStyle/configurationChangeStyle",
+                "pcTemplatePreview/pcTemplatePreview",
+                "serviceIntro/serviceIntro",
+                "miniWeb/miniWeb",
+                "miniWebDemo/miniWebDemo",
+                "miniWebDetail/miniWebDetail",
+                "miniWebDetailPreview/miniWebDetailPreview",
+                "miniWebEdit/miniWebEdit",
+                "miniWebProductionEdit/miniWebProductionEdit",
+                "miniWebIndustryEdit/miniWebIndustryEdit",
+                "miniWebPhotoPreview/miniWebPhotoPreview",
+                "miniWebCropBackground/miniWebCropBackground",
+                "expirationReminder/expirationReminder",
+                "createdPcTemplate/createdPcTemplate",
+                "webModelPageScanClaim/webModelPageScanClaim",
+                "webModelPageScanPreview/webModelPageScanPreview",
+                "servicePay/servicePay",
+                "paySuccess/paySuccess",
+                "serviceAgreement/serviceAgreement",
+                "loginSuc/loginSuc",
+                "teamSetting/teamSetting",
+                "shareTmp/shareTmp",
+                "buyRecords/buyRecords",
+                "waitingPay/waitingPay",
+                "fillTikect/fillTikect",
+                "shareEnter/shareEnter",
+                "waitGiftshare/waitGiftshare",
+                "cardInformationForm/cardInformationForm",
+                "cardInformationEdit/cardInformationEdit",
+                "cardEntrySuccess/cardEntrySuccess",
+                "entrySuccess/entrySuccess",
+                "companyRights/companyRights"
+            ]
+        },
+        {
+            "root": "pages/cardMy/",
+            "name": "cardMy",
+            "pages": [
+                "cardMy",
+                "help/help",
+                "about/about",
+                "userProtocol/userProtocol"
+            ]
+        },
+        {
+            "root": "miniUI/",
+            "name": "miniUI",
+            "pages": [
+                "main/main",
+                "icon/icon",
+                "button/button",
+                "message/message",
+                "popover/popover",
+                "bulletLayer/bulletLayer",
+                "actionsheet/actionsheet",
+                "navigation/navigation"
+            ]
+        },
+        {
+            "root": "pages/subpackagePage/assistant/",
+            "name": "assistant",
+            "pages": [
+                "invoice/invoice"
+            ]
+        },
+        {
+            "root": "pages/subpackagePage/cardFolder/",
+            "name": "cardOcr",
+            "pages": [
+                "manyCardImg/manyCardImg",
+                "lastGrowth/lastGrowth",
+                "currentGrowth/currentGrowth",
+                "searchPage/searchPage",
+                "cardCamera/cardCamera",
+                "ocrFolder/ocrFolder",
+                "ocrEdit/ocrEdit"
+            ]
+        },
+        {
+            "root": "pages/subpackagePage/cardWall/",
+            "name": "supCardWall",
+            "pages": [
+                "innerCardDetail/innerCardDetail",
+                "newWallBuild/newWallBuild"
+            ]
+        },
+        {
+            "root": "pages/mainPage/cardMain/",
+            "name": "editCard",
+            "pages": [
+                "cardFormEdit/cardFormEdit",
+                "cardTempEdit/cardTempEdit",
+                "cardFormBuild/cardFormBuild"
+            ]
+        },
+        {
+            "root": "pages/testPage/",
+            "name": "useInTest",
+            "pages": [
+                "test/test",
+                "testTool/testTool",
+                "scanCode/scanCode",
+                "svg/svg"
+            ]
+        },
+        {
+            "root": "pages/cardFirEnter/",
+            "name": "cardFirEnter",
+            "pages": [
+                "cardFirEnter"
+            ]
+        },
+        {
+            "root": "pages/channels/",
+            "name": "channels",
+            "pages": [
+                "bindingSeller/bindingSeller"
+            ]
+        }
+    ],
+    "navigateToMiniProgramAppIdList": [
+        "wx4d70579bfaefd959",
+        "wx6885acbedba59c14",
+        "wxebadf544ddae62cb"
+    ]
+}

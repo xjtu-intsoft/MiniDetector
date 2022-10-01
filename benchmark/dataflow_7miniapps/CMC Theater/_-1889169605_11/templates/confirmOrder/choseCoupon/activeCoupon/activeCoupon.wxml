@@ -1,0 +1,39 @@
+<template name="activeCoupon">
+    <view>
+        <scroll-view scrollY class="chosecoupon-upview-couponlist" style="height: {{couponScrollHeight}}rpx;">
+            <view class="big-scrollview" style="height: {{couponScrollHeight+10}}rpx;"></view>
+            <view style="height:20rpx;"></view>
+            <block wx:for="{{couponList}}" wx:key="coupon_id">
+                <import src="/templates/confirmOrder/choseCoupon/activeCoupon/onlineCouponItem.wxml"></import>
+                <view bindtap="couponClick" class="chosecoupon-couponcell" data-index="{{index}}">
+                    <template is="online_coupon_item" data="{{onlineCoupon:item,isMine:false,isDetails:false,index:index,offLineCanUseCount:offLineCanUseCount,nooffLineCouponItemTitle:nooffLineCouponItemTitle,isNoUse:item.isNoUse}}"></template>
+                </view>
+            </block>
+            <view class="{{isFromFind?'is-hidden':''}}" style="height: 180rpx;"></view>
+        </scroll-view>
+        <view class="chosecoupon-selectbuttomview {{couponBottomShow?'':'chosecoupon-selectbuttomview-hidden'}}">
+            <view class="lineview"></view>
+            <view class="chosecoupon-selectbuttomview-topview">
+                <view class="chosecoupon-selectbuttomview-pricemessage">
+                    <text class="chosecoupon_offline_subsidy">{{couponPriceEntity.detailedPriceTitle.length>0?couponPriceEntity.detailedPriceTitle:''}}</text>
+                    <view class="chosecoupon_offline_need_coupon {{couponPriceEntity.offline_coupon_notice.need?'':'is-hidden'}}">
+                        <text class="chosecoupon_offline_need_coupon_text">还需 </text>
+                        <text class="text_red">{{couponPriceEntity.offline_coupon_notice.need}}</text>
+                        <text class="chosecoupon_offline_need_coupon_text">张</text>
+                        <text class="text_red">{{couponPriceEntity.offline_coupon_notice.coupon_name}}</text>
+                    </view>
+                </view>
+                <view class="chosecoupon-selectbuttomview-totalprice">
+                    <view class="chosecoupon-selectbuttomview-totalprice-title">订单总价：</view>
+                    <view class="chosecoupon-selectbuttomview-totalprice-price">¥{{couponPriceEntity.newTotalPrice}}</view>
+                </view>
+            </view>
+            <view class="chosecoupon-selectbuttomview-btn">
+                <view bindtap="choseCoupon" class="chosecoupon-selectbuttomview-usecouponbtn {{couponPriceEntity.warning?'chosecoupon_opacity':''}}">{{couponPriceEntity.offLineCouponOKText}}</view>
+            </view>
+        </view>
+        <view class="chosecoupon-deleateBottomview {{couponBottomShow?'chosecoupon-deleateBottomview-hidden':''}}">
+            <view bindtap="deleCoupon" class="chosecoupon-deleateBtn">放弃使用</view>
+        </view>
+    </view>
+</template>

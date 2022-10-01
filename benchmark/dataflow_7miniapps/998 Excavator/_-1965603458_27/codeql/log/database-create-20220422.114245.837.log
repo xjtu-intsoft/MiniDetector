@@ -1,0 +1,590 @@
+[2022-04-22 11:42:45] This is codeql database create codeql --language=javascript
+[2022-04-22 11:42:45] Log file was started late.
+[2022-04-22 11:42:46] [PROGRESS] database create> Initializing database at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql.
+[2022-04-22 11:42:47] Running plumbing command: codeql database init --language=javascript --source-root=D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27 --allow-missing-source-root=false --allow-already-existing -- D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql
+[2022-04-22 11:42:47] [PROGRESS] database init> Resolving extractor javascript.
+[2022-04-22 11:42:47] Calling plumbing command: codeql resolve languages --format=json
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Scanning for codeql-extractor.yml from D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\.codeqlmanifest.json
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\cpp\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\csharp\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\csv\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\go\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\html\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\java\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\properties\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\python\codeql-extractor.yml.
+[2022-04-22 11:42:47] [DETAILS] resolve languages> Parsing D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\xml\codeql-extractor.yml.
+[2022-04-22 11:42:47] Plumbing command codeql resolve languages completed:
+                      {
+                        "cpp" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\cpp"
+                        ],
+                        "csharp" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\csharp"
+                        ],
+                        "csv" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\csv"
+                        ],
+                        "go" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\go"
+                        ],
+                        "html" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\html"
+                        ],
+                        "java" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\java"
+                        ],
+                        "javascript" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\javascript"
+                        ],
+                        "properties" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\properties"
+                        ],
+                        "python" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\python"
+                        ],
+                        "xml" : [
+                          "D:\\WORK\\2020\\MiniProgram\\Paper\\codeql\\codeql-home\\codeql\\xml"
+                        ]
+                      }
+[2022-04-22 11:42:47] [DETAILS] database init> Found candidate extractor root for javascript: D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript.
+[2022-04-22 11:42:47] [PROGRESS] database init> Successfully loaded extractor JavaScript (javascript) from D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript.
+[2022-04-22 11:42:47] [PROGRESS] database init> Created CodeQL database at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql.
+[2022-04-22 11:42:47] Plumbing command codeql database init completed.
+[2022-04-22 11:42:47] [PROGRESS] database create> Running build command: []
+[2022-04-22 11:42:47] Running plumbing command: codeql database trace-command --working-dir=D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27 --index-traceless-dbs --no-db-cluster -- D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql
+[2022-04-22 11:42:47] Using autobuild script D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\autobuild.cmd.
+[2022-04-22 11:42:47] [PROGRESS] database trace-command> Running command in D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27: [D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\autobuild.cmd]
+[2022-04-22 11:42:48] [build-stdout] Single-threaded extraction.
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\accountpoint\index.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\accountpoint\index.js (351 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\account\index.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\account\index.js (102 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\activity\activity.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\activity\activity.js (43 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\answertop\index.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\answertop\index.js (31 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\answer\index.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\answer\index.js (95 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\answer\start.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\answer\start.js (25 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\auth\info.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\auth\info.js (10 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\catalog\index.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\catalog\index.js (5 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\colles\colles.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\colles\colles.js (50 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\correlation\correlation.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\correlation\correlation.js (31 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\dealt\dealt.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\dealt\dealt.js (12 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\deviceaddq\index.js
+[2022-04-22 11:42:51] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\deviceaddq\index.js (99 ms)
+[2022-04-22 11:42:51] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\deviceadd\index.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\deviceadd\index.js (116 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\deviceedit\index.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\deviceedit\index.js (96 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\equipment\equipment.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\equipment\equipment.js (73 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\followmewho\followmewho.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\followmewho\followmewho.js (10 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\followme\followme.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\followme\followme.js (9 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\index\index.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\index\index.js (177 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\integral\integral.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\integral\integral.js (34 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\kanjia\kanjia.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\kanjia\kanjia.js (16 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\login\login.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\login\login.js (16 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\myissue\myissue.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\myissue\myissue.js (44 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\phonenumber\phonenumber.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\phonenumber\phonenumber.js (30 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\privacy\index.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\privacy\index.js (5 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\question\question.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\question\question.js (9 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\recharge\recharge.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\recharge\recharge.js (13 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\report\report.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\report\report.js (11 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\shops\shops.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\shops\shops.js (13 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\success\success.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\success\success.js (35 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\talents\talents.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\talents\talents.js (5 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\turntable\turntable.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\turntable\turntable.js (26 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\upgrade\index.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\upgrade\index.js (19 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\userinfo\index.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\pages\userinfo\index.js (42 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\app.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\app.js (35 ms)
+[2022-04-22 11:42:52] [build-stderr] No externs trap cache found
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es2016.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es2016.js (19 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es2017.js
+[2022-04-22 11:42:52] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es2017.js (12 ms)
+[2022-04-22 11:42:52] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es3.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es3.js (147 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es5.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es5.js (28 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es6.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es6.js (93 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es6_collections.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\es6_collections.js (14 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\intl.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\intl.js (15 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\proxy.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\es\proxy.js (3 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\bdd.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\bdd.js (9 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\jquery-3.2.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\jquery-3.2.js (140 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\should.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\should.js (17 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\vows.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\lib\vows.js (18 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\assert.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\assert.js (13 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\assert_legacy.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\assert_legacy.js (3 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\buffer.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\buffer.js (14 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\child_process.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\child_process.js (71 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\cluster.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\cluster.js (72 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\console.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\console.js (12 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\constants.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\constants.js (118 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\crypto.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\crypto.js (61 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\dgram.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\dgram.js (12 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\dns.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\dns.js (17 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\domain.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\domain.js (6 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\events.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\events.js (8 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\fs.js
+[2022-04-22 11:42:53] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\fs.js (127 ms)
+[2022-04-22 11:42:53] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\globals.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\globals.js (107 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\http.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\http.js (33 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\https.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\https.js (12 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\module.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\module.js (5 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\net.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\net.js (27 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\os.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\os.js (15 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\path.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\path.js (19 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\process.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\process.js (2 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\punycode.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\punycode.js (5 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\querystring.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\querystring.js (7 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\readline.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\readline.js (13 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\repl.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\repl.js (10 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\stream.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\stream.js (60 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\string_decoder.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\string_decoder.js (4 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\sys.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\sys.js (2 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\timers.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\timers.js (7 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\tls.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\tls.js (31 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\tty.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\tty.js (8 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\url.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\url.js (7 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\util.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\util.js (16 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\v8.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\v8.js (4 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\vm.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\vm.js (11 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\zlib.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\nodejs\zlib.js (25 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\jsshell.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\jsshell.js (33 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\rhino.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\rhino.js (5 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\spidermonkey.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\spidermonkey.js (4 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\v8.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\vm\v8.js (5 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\chrome.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\chrome.js (26 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\fetchapi.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\fetchapi.js (26 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\fileapi.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\fileapi.js (41 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\flash.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\flash.js (11 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_css.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_css.js (13 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_dom.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_dom.js (39 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_event.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_event.js (28 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_ext.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_ext.js (2 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_xml.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\gecko_xml.js (3 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\html5.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\html5.js (211 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_css.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_css.js (14 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_dom.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_dom.js (56 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_event.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_event.js (13 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_vml.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\ie_vml.js (3 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\intl.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\intl.js (10 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\iphone.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\iphone.js (7 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\mediasource.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\mediasource.js (11 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\page_visibility.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\page_visibility.js (2 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\streamsapi.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\streamsapi.js (23 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\url.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\url.js (12 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_anim_timing.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_anim_timing.js (5 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_batterystatus.js
+[2022-04-22 11:42:54] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_batterystatus.js (3 ms)
+[2022-04-22 11:42:54] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_css.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_css.js (109 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_css3d.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_css3d.js (8 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_device_sensor_event.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_device_sensor_event.js (5 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom1.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom1.js (49 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom2.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom2.js (101 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom3.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom3.js (37 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom4.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_dom4.js (3 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_elementtraversal.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_elementtraversal.js (6 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_encoding.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_encoding.js (5 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_event.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_event.js (25 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_event3.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_event3.js (4 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_gamepad.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_gamepad.js (4 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_geolocation.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_geolocation.js (6 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_indexeddb.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_indexeddb.js (42 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_midi.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_midi.js (17 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_navigation_timing.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_navigation_timing.js (19 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_permissions.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_permissions.js (10 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_pointer_events.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_pointer_events.js (11 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_range.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_range.js (17 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_requestidlecallback.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_requestidlecallback.js (4 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_rtc.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_rtc.js (102 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_screen_orientation.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_screen_orientation.js (6 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_selectors.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_selectors.js (5 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_serviceworker.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_serviceworker.js (26 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_touch_event.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_touch_event.js (9 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_webcrypto.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_webcrypto.js (16 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_xml.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\w3c_xml.js (18 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webgl.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webgl.js (161 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_css.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_css.js (59 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_dom.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_dom.js (15 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_event.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_event.js (2 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_notifications.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_notifications.js (10 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_usercontent.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webkit_usercontent.js (2 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webstorage.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\webstorage.js (6 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\whatwg_encoding.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\whatwg_encoding.js (4 ms)
+[2022-04-22 11:42:55] [build-stdout] Extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\window.js
+[2022-04-22 11:42:55] [build-stdout] Done extracting D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\tools\data\externs\web\window.js (6 ms)
+[2022-04-22 11:42:55] Plumbing command codeql database trace-command completed.
+[2022-04-22 11:42:55] [PROGRESS] database create> Finalizing database at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql.
+[2022-04-22 11:42:56] Running plumbing command: codeql database finalize --mode=normal --keep-temporary --no-db-cluster -- D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql
+[2022-04-22 11:42:56] [PROGRESS] database finalize> Running TRAP import for CodeQL database at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql...
+[2022-04-22 11:42:56] Running plumbing command: codeql dataset import --dbscheme=D:\WORK\2020\MiniProgram\Paper\codeql\codeql-home\codeql\javascript\semmlecode.javascript.dbscheme -- D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\db-javascript D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\trap\javascript
+[2022-04-22 11:42:56] Clearing disk cache since the version file D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\db-javascript\default\cache\version does not exist
+[2022-04-22 11:42:56] Tuple pool not found. Clearing relations with cached strings
+[2022-04-22 11:42:56] Trimming disk cache at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\db-javascript\default\cache in mode brutal.
+[2022-04-22 11:42:56] Sequence stamp origin is -6464617371840830839
+[2022-04-22 11:42:56] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2022-04-22 11:42:56] Unpausing evaluation
+[2022-04-22 11:42:56] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2022-04-22 11:42:56] Unpausing evaluation
+[2022-04-22 11:42:56] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2022-04-22 11:42:56] Unpausing evaluation
+[2022-04-22 11:42:56] Trimming completed (26ms): Purged everything.
+[2022-04-22 11:42:57] Scanning for files in D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\trap\javascript
+[2022-04-22 11:42:57] Importing es2016.js.trap.gz (1 of 145)
+[2022-04-22 11:42:57] Importing es2017.js.trap.gz (2 of 145)
+[2022-04-22 11:42:57] Importing es3.js.trap.gz (3 of 145)
+[2022-04-22 11:42:57] Importing es5.js.trap.gz (4 of 145)
+[2022-04-22 11:42:57] Importing es6.js.trap.gz (5 of 145)
+[2022-04-22 11:42:57] Importing es6_collections.js.trap.gz (6 of 145)
+[2022-04-22 11:42:57] Importing intl.js.trap.gz (7 of 145)
+[2022-04-22 11:42:57] Importing proxy.js.trap.gz (8 of 145)
+[2022-04-22 11:42:57] Importing bdd.js.trap.gz (9 of 145)
+[2022-04-22 11:42:57] Importing jquery-3.2.js.trap.gz (10 of 145)
+[2022-04-22 11:42:57] Importing should.js.trap.gz (11 of 145)
+[2022-04-22 11:42:57] Importing vows.js.trap.gz (12 of 145)
+[2022-04-22 11:42:57] Importing assert.js.trap.gz (13 of 145)
+[2022-04-22 11:42:57] Importing assert_legacy.js.trap.gz (14 of 145)
+[2022-04-22 11:42:57] Importing buffer.js.trap.gz (15 of 145)
+[2022-04-22 11:42:57] Importing child_process.js.trap.gz (16 of 145)
+[2022-04-22 11:42:57] Importing cluster.js.trap.gz (17 of 145)
+[2022-04-22 11:42:57] Importing console.js.trap.gz (18 of 145)
+[2022-04-22 11:42:57] Importing constants.js.trap.gz (19 of 145)
+[2022-04-22 11:42:57] Importing crypto.js.trap.gz (20 of 145)
+[2022-04-22 11:42:58] Importing dgram.js.trap.gz (21 of 145)
+[2022-04-22 11:42:58] Importing dns.js.trap.gz (22 of 145)
+[2022-04-22 11:42:58] Importing domain.js.trap.gz (23 of 145)
+[2022-04-22 11:42:58] Importing events.js.trap.gz (24 of 145)
+[2022-04-22 11:42:58] Importing fs.js.trap.gz (25 of 145)
+[2022-04-22 11:42:58] Importing globals.js.trap.gz (26 of 145)
+[2022-04-22 11:42:58] Importing http.js.trap.gz (27 of 145)
+[2022-04-22 11:42:58] Importing https.js.trap.gz (28 of 145)
+[2022-04-22 11:42:58] Importing module.js.trap.gz (29 of 145)
+[2022-04-22 11:42:58] Importing net.js.trap.gz (30 of 145)
+[2022-04-22 11:42:58] Importing os.js.trap.gz (31 of 145)
+[2022-04-22 11:42:58] Importing path.js.trap.gz (32 of 145)
+[2022-04-22 11:42:58] Importing process.js.trap.gz (33 of 145)
+[2022-04-22 11:42:58] Importing punycode.js.trap.gz (34 of 145)
+[2022-04-22 11:42:58] Importing querystring.js.trap.gz (35 of 145)
+[2022-04-22 11:42:58] Importing readline.js.trap.gz (36 of 145)
+[2022-04-22 11:42:58] Importing repl.js.trap.gz (37 of 145)
+[2022-04-22 11:42:58] Importing stream.js.trap.gz (38 of 145)
+[2022-04-22 11:42:58] Importing string_decoder.js.trap.gz (39 of 145)
+[2022-04-22 11:42:58] Importing sys.js.trap.gz (40 of 145)
+[2022-04-22 11:42:58] Importing timers.js.trap.gz (41 of 145)
+[2022-04-22 11:42:58] Importing tls.js.trap.gz (42 of 145)
+[2022-04-22 11:42:58] Importing tty.js.trap.gz (43 of 145)
+[2022-04-22 11:42:58] Importing url.js.trap.gz (44 of 145)
+[2022-04-22 11:42:58] Importing util.js.trap.gz (45 of 145)
+[2022-04-22 11:42:58] Importing v8.js.trap.gz (46 of 145)
+[2022-04-22 11:42:58] Importing vm.js.trap.gz (47 of 145)
+[2022-04-22 11:42:58] Importing zlib.js.trap.gz (48 of 145)
+[2022-04-22 11:42:58] Importing jsshell.js.trap.gz (49 of 145)
+[2022-04-22 11:42:58] Importing rhino.js.trap.gz (50 of 145)
+[2022-04-22 11:42:58] Importing spidermonkey.js.trap.gz (51 of 145)
+[2022-04-22 11:42:58] Importing v8.js.trap.gz (52 of 145)
+[2022-04-22 11:42:58] Importing chrome.js.trap.gz (53 of 145)
+[2022-04-22 11:42:58] Importing fetchapi.js.trap.gz (54 of 145)
+[2022-04-22 11:42:58] Importing fileapi.js.trap.gz (55 of 145)
+[2022-04-22 11:42:58] Importing flash.js.trap.gz (56 of 145)
+[2022-04-22 11:42:58] Importing gecko_css.js.trap.gz (57 of 145)
+[2022-04-22 11:42:58] Importing gecko_dom.js.trap.gz (58 of 145)
+[2022-04-22 11:42:58] Importing gecko_event.js.trap.gz (59 of 145)
+[2022-04-22 11:42:58] Importing gecko_ext.js.trap.gz (60 of 145)
+[2022-04-22 11:42:58] Importing gecko_xml.js.trap.gz (61 of 145)
+[2022-04-22 11:42:58] Importing html5.js.trap.gz (62 of 145)
+[2022-04-22 11:42:58] Importing ie_css.js.trap.gz (63 of 145)
+[2022-04-22 11:42:58] Importing ie_dom.js.trap.gz (64 of 145)
+[2022-04-22 11:42:58] Importing ie_event.js.trap.gz (65 of 145)
+[2022-04-22 11:42:58] Importing ie_vml.js.trap.gz (66 of 145)
+[2022-04-22 11:42:58] Importing intl.js.trap.gz (67 of 145)
+[2022-04-22 11:42:58] Importing iphone.js.trap.gz (68 of 145)
+[2022-04-22 11:42:58] Importing mediasource.js.trap.gz (69 of 145)
+[2022-04-22 11:42:58] Importing page_visibility.js.trap.gz (70 of 145)
+[2022-04-22 11:42:58] Importing streamsapi.js.trap.gz (71 of 145)
+[2022-04-22 11:42:58] Importing url.js.trap.gz (72 of 145)
+[2022-04-22 11:42:58] Importing w3c_anim_timing.js.trap.gz (73 of 145)
+[2022-04-22 11:42:58] Importing w3c_batterystatus.js.trap.gz (74 of 145)
+[2022-04-22 11:42:58] Importing w3c_css.js.trap.gz (75 of 145)
+[2022-04-22 11:42:58] Importing w3c_css3d.js.trap.gz (76 of 145)
+[2022-04-22 11:42:58] Importing w3c_device_sensor_event.js.trap.gz (77 of 145)
+[2022-04-22 11:42:58] Importing w3c_dom1.js.trap.gz (78 of 145)
+[2022-04-22 11:42:58] Importing w3c_dom2.js.trap.gz (79 of 145)
+[2022-04-22 11:42:58] Importing w3c_dom3.js.trap.gz (80 of 145)
+[2022-04-22 11:42:58] Importing w3c_dom4.js.trap.gz (81 of 145)
+[2022-04-22 11:42:58] Importing w3c_elementtraversal.js.trap.gz (82 of 145)
+[2022-04-22 11:42:58] Importing w3c_encoding.js.trap.gz (83 of 145)
+[2022-04-22 11:42:58] Importing w3c_event.js.trap.gz (84 of 145)
+[2022-04-22 11:42:58] Importing w3c_event3.js.trap.gz (85 of 145)
+[2022-04-22 11:42:58] Importing w3c_gamepad.js.trap.gz (86 of 145)
+[2022-04-22 11:42:58] Importing w3c_geolocation.js.trap.gz (87 of 145)
+[2022-04-22 11:42:58] Importing w3c_indexeddb.js.trap.gz (88 of 145)
+[2022-04-22 11:42:58] Importing w3c_midi.js.trap.gz (89 of 145)
+[2022-04-22 11:42:58] Importing w3c_navigation_timing.js.trap.gz (90 of 145)
+[2022-04-22 11:42:58] Importing w3c_permissions.js.trap.gz (91 of 145)
+[2022-04-22 11:42:58] Importing w3c_pointer_events.js.trap.gz (92 of 145)
+[2022-04-22 11:42:58] Importing w3c_range.js.trap.gz (93 of 145)
+[2022-04-22 11:42:58] Importing w3c_requestidlecallback.js.trap.gz (94 of 145)
+[2022-04-22 11:42:58] Importing w3c_rtc.js.trap.gz (95 of 145)
+[2022-04-22 11:42:58] Importing w3c_screen_orientation.js.trap.gz (96 of 145)
+[2022-04-22 11:42:58] Importing w3c_selectors.js.trap.gz (97 of 145)
+[2022-04-22 11:42:58] Importing w3c_serviceworker.js.trap.gz (98 of 145)
+[2022-04-22 11:42:58] Importing w3c_touch_event.js.trap.gz (99 of 145)
+[2022-04-22 11:42:59] Importing w3c_webcrypto.js.trap.gz (100 of 145)
+[2022-04-22 11:42:59] Importing w3c_xml.js.trap.gz (101 of 145)
+[2022-04-22 11:42:59] Importing webgl.js.trap.gz (102 of 145)
+[2022-04-22 11:42:59] Importing webkit_css.js.trap.gz (103 of 145)
+[2022-04-22 11:42:59] Importing webkit_dom.js.trap.gz (104 of 145)
+[2022-04-22 11:42:59] Importing webkit_event.js.trap.gz (105 of 145)
+[2022-04-22 11:42:59] Importing webkit_notifications.js.trap.gz (106 of 145)
+[2022-04-22 11:42:59] Importing webkit_usercontent.js.trap.gz (107 of 145)
+[2022-04-22 11:42:59] Importing webstorage.js.trap.gz (108 of 145)
+[2022-04-22 11:42:59] Importing whatwg_encoding.js.trap.gz (109 of 145)
+[2022-04-22 11:42:59] Importing window.js.trap.gz (110 of 145)
+[2022-04-22 11:42:59] Importing app.js.trap.gz (111 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (112 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (113 of 145)
+[2022-04-22 11:42:59] Importing activity.js.trap.gz (114 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (115 of 145)
+[2022-04-22 11:42:59] Importing start.js.trap.gz (116 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (117 of 145)
+[2022-04-22 11:42:59] Importing info.js.trap.gz (118 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (119 of 145)
+[2022-04-22 11:42:59] Importing colles.js.trap.gz (120 of 145)
+[2022-04-22 11:42:59] Importing correlation.js.trap.gz (121 of 145)
+[2022-04-22 11:42:59] Importing dealt.js.trap.gz (122 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (123 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (124 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (125 of 145)
+[2022-04-22 11:42:59] Importing equipment.js.trap.gz (126 of 145)
+[2022-04-22 11:42:59] Importing followme.js.trap.gz (127 of 145)
+[2022-04-22 11:42:59] Importing followmewho.js.trap.gz (128 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (129 of 145)
+[2022-04-22 11:42:59] Importing integral.js.trap.gz (130 of 145)
+[2022-04-22 11:42:59] Importing kanjia.js.trap.gz (131 of 145)
+[2022-04-22 11:42:59] Importing login.js.trap.gz (132 of 145)
+[2022-04-22 11:42:59] Importing myissue.js.trap.gz (133 of 145)
+[2022-04-22 11:42:59] Importing phonenumber.js.trap.gz (134 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (135 of 145)
+[2022-04-22 11:42:59] Importing question.js.trap.gz (136 of 145)
+[2022-04-22 11:42:59] Importing recharge.js.trap.gz (137 of 145)
+[2022-04-22 11:42:59] Importing report.js.trap.gz (138 of 145)
+[2022-04-22 11:42:59] Importing shops.js.trap.gz (139 of 145)
+[2022-04-22 11:42:59] Importing success.js.trap.gz (140 of 145)
+[2022-04-22 11:42:59] Importing talents.js.trap.gz (141 of 145)
+[2022-04-22 11:42:59] Importing turntable.js.trap.gz (142 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (143 of 145)
+[2022-04-22 11:42:59] Importing index.js.trap.gz (144 of 145)
+[2022-04-22 11:42:59] Importing sourceLocationPrefix.trap.gz (145 of 145)
+[2022-04-22 11:42:59] Merging 1 fragment for files.
+[2022-04-22 11:42:59] Merging 1 fragment for folders.
+[2022-04-22 11:42:59] Merging 1 fragment for containerparent.
+[2022-04-22 11:42:59] Merging 3 fragments for locations_default.
+[2022-04-22 11:42:59] Merging 4 fragments for hasLocation.
+[2022-04-22 11:42:59] Merging 1 fragment for extraction_data.
+[2022-04-22 11:42:59] Merging 1 fragment for scopes.
+[2022-04-22 11:42:59] Merging 1 fragment for comments.
+[2022-04-22 11:42:59] Merging 1 fragment for indentation.
+[2022-04-22 11:42:59] Merging 1 fragment for numlines.
+[2022-04-22 11:42:59] Merging 2 fragments for tokeninfo.
+[2022-04-22 11:42:59] Merging 1 fragment for next_token.
+[2022-04-22 11:42:59] Merging 1 fragment for jsdoc.
+[2022-04-22 11:42:59] Merging 1 fragment for jsdoc_tags.
+[2022-04-22 11:42:59] Merging 1 fragment for jsdoc_tag_descriptions.
+[2022-04-22 11:42:59] Merging 1 fragment for jsdoc_tag_names.
+[2022-04-22 11:42:59] Merging 1 fragment for jsdoc_type_exprs.
+[2022-04-22 11:42:59] Merging 1 fragment for toplevels.
+[2022-04-22 11:42:59] Merging 1 fragment for stmts.
+[2022-04-22 11:42:59] Merging 1 fragment for stmt_containers.
+[2022-04-22 11:43:00] Merging 1 fragment for exprs.
+[2022-04-22 11:43:00] Merging 1 fragment for enclosing_stmt.
+[2022-04-22 11:43:00] Merging 1 fragment for expr_containers.
+[2022-04-22 11:43:00] Merging 1 fragment for literals.
+[2022-04-22 11:43:00] Merging 1 fragment for variables.
+[2022-04-22 11:43:00] Merging 1 fragment for bind.
+[2022-04-22 11:43:00] Merging 1 fragment for scopenodes.
+[2022-04-22 11:43:00] Merging 1 fragment for scopenesting.
+[2022-04-22 11:43:00] Merging 1 fragment for decl.
+[2022-04-22 11:43:00] Merging 1 fragment for is_arguments_object.
+[2022-04-22 11:43:00] Merging 1 fragment for entry_cfg_node.
+[2022-04-22 11:43:00] Merging 1 fragment for exit_cfg_node.
+[2022-04-22 11:43:00] Merging 2 fragments for successor.
+[2022-04-22 11:43:00] Merging 1 fragment for is_externs.
+[2022-04-22 11:43:00] Merging 1 fragment for filetype.
+[2022-04-22 11:43:00] Merging 1 fragment for extraction_time.
+[2022-04-22 11:43:00] Merging 1 fragment for jsdoc_prefix_qualifier.
+[2022-04-22 11:43:00] Merging 1 fragment for jsdoc_errors.
+[2022-04-22 11:43:00] Merging 1 fragment for jsdoc_record_field_name.
+[2022-04-22 11:43:00] Merging 1 fragment for jsdoc_has_new_parameter.
+[2022-04-22 11:43:00] Merging 1 fragment for properties.
+[2022-04-22 11:43:00] Merging 1 fragment for regexpterm.
+[2022-04-22 11:43:00] Merging 1 fragment for regexp_const_value.
+[2022-04-22 11:43:00] Merging 1 fragment for guard_node.
+[2022-04-22 11:43:00] Merging 1 fragment for is_module.
+[2022-04-22 11:43:00] Merging 1 fragment for is_nodejs.
+[2022-04-22 11:43:00] Merging 1 fragment for array_size.
+[2022-04-22 11:43:00] Merging 1 fragment for is_greedy.
+[2022-04-22 11:43:00] Merging 1 fragment for is_capture.
+[2022-04-22 11:43:00] Merging 1 fragment for range_quantifier_lower_bound.
+[2022-04-22 11:43:00] Merging 1 fragment for range_quantifier_upper_bound.
+[2022-04-22 11:43:00] Merging 1 fragment for sourceLocationPrefix.
+[2022-04-22 11:43:00] Saving string and id pools to disk.
+[2022-04-22 11:43:00] Finished importing trap files.
+[2022-04-22 11:43:00] Pausing evaluation to close the cache at sequence stamp o+3
+[2022-04-22 11:43:00] The disk cache is freshly trimmed; leave it be.
+[2022-04-22 11:43:00] Unpausing evaluation
+[2022-04-22 11:43:00] Plumbing command codeql dataset import completed.
+[2022-04-22 11:43:00] [PROGRESS] database finalize> TRAP import complete (4.3s).
+[2022-04-22 11:43:00] Running plumbing command: codeql database cleanup --mode=normal --keep-temporary -- D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql
+[2022-04-22 11:43:00] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2022-04-22 11:43:00] [PROGRESS] database cleanup> TRAP files cleaned up (37ms).
+[2022-04-22 11:43:00] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2022-04-22 11:43:00] [PROGRESS] database cleanup> Scratch directory cleaned up (0ms).
+[2022-04-22 11:43:00] Running plumbing command: codeql dataset cleanup --mode=normal -- D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\db-javascript
+[2022-04-22 11:43:00] [PROGRESS] dataset cleanup> Cleaning up dataset in D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\db-javascript.
+[2022-04-22 11:43:00] Trimming disk cache at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql\db-javascript\default\cache in mode normal.
+[2022-04-22 11:43:00] Sequence stamp origin is -6464617353764498042
+[2022-04-22 11:43:00] Pausing evaluation to zealously trim disk at sequence stamp o+0
+[2022-04-22 11:43:00] Unpausing evaluation
+[2022-04-22 11:43:00] Trimming completed (1ms): Trimmed disposable data from cache.
+[2022-04-22 11:43:00] Pausing evaluation to close the cache at sequence stamp o+1
+[2022-04-22 11:43:00] The disk cache is freshly trimmed; leave it be.
+[2022-04-22 11:43:00] Unpausing evaluation
+[2022-04-22 11:43:00] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2022-04-22 11:43:00] Plumbing command codeql dataset cleanup completed.
+[2022-04-22 11:43:00] Plumbing command codeql database cleanup completed with status 0.
+[2022-04-22 11:43:00] Plumbing command codeql database finalize completed.
+[2022-04-22 11:43:00] [PROGRESS] database create> Successfully created database at D:\WORK\2022\论文相关\benchmark\miniapp\998二手挖机圈\_-1965603458_27\codeql.
+[2022-04-22 11:43:00] Terminating normally.

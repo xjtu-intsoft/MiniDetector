@@ -1,0 +1,18 @@
+<view class="warranty_container">
+    <view class="warranty_wrap">
+        <view class="warranty_bg {{index+1==warrantyInfo.length?'noborder':''}}" wx:for="{{warrantyInfo}}" wx:key="index">
+            <image class="warranty_image" src="{{item.warranty_period_number==2?'../../../img/wx_personal/zhibao.png':item.warranty_period_number==1?'../../../img/wx_personal/zhibaooutdate.png':'../../../img/wx_personal/zhibaonone.png'}}"></image>
+            <view class="warranty_info">
+                <view class="name">{{item.fault_type_detail}}</view>
+                <view class="time" wx:if="{{item.warranty_period_number!=0}}">
+                    <view class="title">质保时间</view>
+                    <view class="timeinfo {{item.warranty_period_number==1?'active':''}}">{{item.warranty_time}}</view>
+                </view>
+                <view class="time" wx:else>
+                    <view class="title">本故障无质保</view>
+                </view>
+            </view>
+            <image class="outdate" src="../../../img/wx_personal/outdate.png" wx:if="{{item.warranty_period_number==1}}"></image>
+        </view>
+    </view>
+</view>

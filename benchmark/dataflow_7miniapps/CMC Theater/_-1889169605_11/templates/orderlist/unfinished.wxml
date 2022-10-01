@@ -1,0 +1,59 @@
+<template name="unfinished">
+    <view class="order_unfinished" style="display:{{isUnFinished?'none':'flex'}}">
+        <text class="unfinised_text" hidden="{{hasUnFinishingOrder}}">暂无待支付订单</text>
+        <view catchtap="itemClick" class="order_unfinished_info" data-bean="{{unFinishedOrder}}" style="display:{{hasUnFinishingOrder?'flex':'none'}}">
+            <view class="h_line"></view>
+            <view class="order_title_parent">
+                <text class="cinema_name">{{unFinishedOrder.cinema_name}}</text>
+                <text class="order_status {{item.order_status=='1'||item.order_status=='7'?'':'order_status_red'}}">{{unFinishedOrder.order_status_desc}}</text>
+            </view>
+            <view class="h_line"></view>
+            <view class="order_info">
+                <view class="image_parent movie_list_bg">
+                    <image class="image" id="{{unFinishedOrder.id}}" mode="aspectFill" src="{{unFinishedOrder.movie_img_url}}"></image>
+                </view>
+                <view class="order_info_child">
+                    <view class="name_seats">
+                        <text class="name">{{unFinishedOrder.movie_name}}</text>
+                        <text class="movies_count">{{unFinishedOrder.ticket_size}}张</text>
+                    </view>
+                    <text class="date">{{unFinishedOrder.tempTime}}</text>
+                    <text class="hall_name">{{unFinishedOrder.hall_name}}</text>
+                </view>
+            </view>
+            <view class="order_goods" style="display:{{unFinishedOrder.noGoods?'none':'flex'}}">
+                <text class="order_good_text">食</text>
+                <text class="goods_count" wx:if="{{unFinishedOrder.goods_data.length>0}}">{{unFinishedOrder.goodInfos}}</text>
+                <text class="order_ticket_goods_all_size">共{{unFinishedOrder.total_goods_num}}份</text>
+            </view>
+            <view class="h_line" style="margin-top:36rpx;margin-left:24rpx"></view>
+            <view class="order_status_parent">
+                <view class="order_money_parent">
+                    <text class="order_total">订单总价:</text>
+                    <text catchtap="itemClick" class="order_total_value_unfinished" data-bean="{{unFinishedOrder}}">¥{{pm.money(unFinishedOrder.total_money)}}</text>
+                </view>
+            </view>
+            <view class="border-b border-t"></view>
+            <view style="width:100%;height:24rpx;background:var(--color-cg)"></view>
+        </view>
+    </view>
+</template>
+<wxs module="seatWXS">
+var count = (function(seats) {
+    var strSeat = seats + "";
+    var size = strSeat.split(",").length;
+    return (size)
+});
+module.exports = ({
+    count: count,
+});
+</wxs>
+<wxs module="pm">
+var money = (function(total_money) {
+    var temp = total_money + "";
+    return (parseFloat(temp))
+});
+module.exports = ({
+    money: money,
+});
+</wxs>

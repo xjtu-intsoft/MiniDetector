@@ -1,0 +1,8 @@
+<view class="build">
+    <view class="build-con">
+        <view class="item {{steps>=1?'active':''}}">① 领取我的名片</view>
+        <view class="item {{steps>1?'active':''}}">② 了解使用方法</view>
+        <view class="item {{steps>2?'active':''}}">③ 发送名片</view>
+    </view>
+    <image class=" img {{steps=='1'?'img1':steps=='2'?'img2':'img3'}}  " src="/images/build/arrow-{{steps=='1'?'1':steps=='2'?'2':'3'}}.png"></image>
+</view>

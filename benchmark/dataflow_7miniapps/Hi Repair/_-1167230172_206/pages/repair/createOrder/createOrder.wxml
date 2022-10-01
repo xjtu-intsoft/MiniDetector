@@ -1,0 +1,372 @@
+<view class="create_order_main" wx:if="{{!pageLoading}}">
+    <view class="top_tab">
+        <view bindtap="chooseWay" class="top_tab_item {{category=='1'?'active':''}}" data-index="1">
+            <text>上门维修</text>
+        </view>
+        <view bindtap="chooseWay" class="top_tab_item {{category=='3'?'active':''}}" data-index="3">
+            <text>到店维修</text>
+        </view>
+        <view bindtap="chooseWay" class="top_tab_item {{category=='2'?'active':''}}" data-index="2">
+            <text>邮寄维修</text>
+        </view>
+    </view>
+    <view class="form_shadow">
+        <view class="address">
+            <view bindtap="addAddress" class="no_address" wx:if="{{noDefaultAddress}}">
+                <view class="icon">
+                    <image src="./image/add_icon.png"></image>
+                </view>
+                <view class="no_address_text">添加地址</view>
+            </view>
+            <view bindtap="selectAddress" class="has_address" wx:else>
+                <view class="address_main over">
+                    <view class="user_address over">
+                        {{defaultAddress.province_name+defaultAddress.city_name+defaultAddress.district_name+defaultAddress.address}}
+                    </view>
+                    <view class="user_info">
+                        <view class="user_name over">{{defaultAddress.user_name}}</view>
+                        <view class="user_phone over">{{defaultAddress.mobile}}</view>
+                    </view>
+                </view>
+                <view class="address_arrow arrow"></view>
+            </view>
+            <view>
+                <view wx:if="{{!canGetTime&&category==1&&!noDefaultAddress}}"></view>
+                <view style="margin:0 auto;height:4rpx;width:694rpx;" wx:else>
+                    <image src="./image/line.png" style="width:694rpx;height:4rpx;display:block;"></image>
+                </view>
+            </view>
+        </view>
+        <view class="door_repair" wx:if="{{category==1}}">
+            <view bindtap="timeUp" class="can_door_repair" wx:if="{{canGetTime||noDefaultAddress}}">
+                <view class="time_main">
+                    <view class="time_main_choosed" wx:if="{{timeIschoose}}">
+                        <view>预约上门</view>
+                        <view>{{timeChoosedTxt}}</view>
+                    </view>
+                    <view class="gray" wx:else>请选择上门时间</view>
+                </view>
+                <view class="time_arrow arrow"></view>
+            </view>
+        </view>
+        <view class="post_shop" wx:if="{{category==2||category==3}}">
+            <view bindtap="centerUp" class="repair_center" wx:if="{{category!=1}}">
+                <view class="center_main">
+                    <view wx:if="{{centerIschoose}}">{{centerChoosedTxt}}</view>
+                    <view class="gray" wx:else>请选择维修中心</view>
+                </view>
+                <view class="center_arrow arrow"></view>
+            </view>
+            <view class="repair_center_detail" wx:if="{{centerIschoose&&category!=1}}">
+                <view class="repair_center_detail_main">
+                    <view class="repair_center_detail_main_text">
+                        <view>{{centerList[centerIndex].address}}</view>
+                        <view>联系电话：{{centerList[centerIndex].tel}}</view>
+                    </view>
+                    <view class="repair_center_detail_main_img">
+                        <view bindtap="goCenter" data-address="{{centerList[centerIndex].address}}" data-lat="{{centerList[centerIndex].lat}}" data-lng="{{centerList[centerIndex].lng}}" data-name="{{centerList[centerIndex].name}}">
+                            <image src="./image/map.png"></image>
+                        </view>
+                        <view bindtap="callCenter" data-phone="{{centerList[centerIndex].tel}}">
+                            <image src="./image/dh.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="repair_imei" wx:if="{{category==2}}">
+                <view class="repair_imei_main">
+                    <input bindinput="setIMEI" placeholder="请输入IMEI码" placeholderStyle="color:#c7c0bc;" value="{{imei}}"></input>
+                </view>
+                <view bindtap="imeiUp" class="repair_imei_btn">获取IMEI</view>
+            </view>
+        </view>
+        <view class="way_remark" wx:if="{{canGetTime||noDefaultAddress}}">
+            <view bindtap="showInput" class="text {{remark?'':'gray'}}" wx:if="{{!(detailBgShow||isModelShow||!inputShow)}}">
+                {{remark?remark:'请输入备注（选填）'}}
+            </view>
+            <textarea autoHeight="true" bindblur="hideInput" bindinput="setRemark" focus="{{remark_focus}}" maxlength="100" placeholder="请输入备注（选填）" placeholderStyle="color:#C7C0BC;font-weight:400;" value="{{remark}}" wx:else></textarea>
+        </view>
+    </view>
+    <view wx:if="{{category==1}}">
+        <view class="not_can_door_repair" wx:if="{{!canGetTime&&!noDefaultAddress}}">
+            <view class="not_can_door_repair_img">
+                <image src="./image/not_support.png"></image>
+            </view>
+            <view class="not_can_door_repair_text">该地区/所选故障暂不支持上门服务</view>
+        </view>
+    </view>
+    <view class="info_main">
+        <view class="info_main_model_name">{{mouldName}}（{{colorName}}）</view>
+        <view class="hot_fault" wx:if="{{showSwiper}}">
+            <swiper autoplay="true" bindchange="cardSwiper" class="hot_fault_swiper" current="{{swiperCurrentIndex}}" duration="500" interval="5000">
+                <swiper-item class="cur" wx:if="{{item.packCouponSelected}}" wx:for="{{swiperList}}" wx:key="index">
+                    <view class="hot_fault_swiper_item">
+                        <view class="hot_main">
+                            <view class="hot_main_name">{{item.name}}</view>
+                            <view class="hot_main_price">
+                                <view class="hot_main_price_text">¥{{item.reduced_price}}</view>
+                                <view class="hot_main_price_des" style="background:{{item.style.faultBgColor}};color:{{item.style.faultFontColor}}">
+                                    {{item.discount_info}}
+                                </view>
+                            </view>
+                        </view>
+                        <view bindtap="addFault" class="hot_btn" data-discount_info="{{item.discount_info}}" data-holiday_describe="{{item.holiday_describe}}" data-holiday_manual_fee="{{item.holiday_manual_fee}}" data-holiday_name="{{item.holiday_name}}" data-index="{{index}}" data-name="{{item.name}}" data-original_price="{{item.original_price}}" data-packCouponSelected="{{item.packCouponSelected}}" data-reduced_price="{{item.reduced_price}}" data-repair_descr="{{item.repair_descr}}" data-rp_id="{{item.rp_id}}" data-style="{{item.style}}">
+                            超值加购
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class="dots">
+                <view class="dot{{index==cardCur?' active':''}}" wx:if="{{item.packCouponSelected}}" wx:for="{{swiperList}}" wx:key="index"></view>
+            </view>
+        </view>
+        <view class="choosed_fault">
+            <view class="choosed_fault_item_body" wx:for="{{selectedFault}}" wx:key="index">
+                <view class="choosed_fault_item">
+                    <view bindtap="deleteCouponFault" class="choosed_fault_item_cancel" data-rp_id="{{item.rp_id}}" wx:if="{{item.original_price&&item.discount_info}}">
+                        <image src="./image/delete_icon.png"></image>
+                    </view>
+                    <view class="choosed_fault_item_main">
+                        <view class="choosed_fault_item_main_name">{{item.name}}
+                            <image class="" mode="heightFix" src="{{ele}}" style="height:28rpx;margin-right:16rpx;font-size:0;vertical-align: -7rpx;width:auto;" wx:if="{{ele}}" wx:for="{{item.avatar}}" wx:for-item="ele"></image>
+                        </view>
+                        <view bindtap="showFaultDetail" class="choosed_fault_item_main_des {{item.active?'active':''}}" data-active="{{item.active}}" data-index="{{index}}" style="max-width:350rpx;" wx:if="{{item.original_price&&item.discount_info}}">
+                            {{item.repair_descr}}
+                        </view>
+                        <view bindtap="showFaultDetail" class="choosed_fault_item_main_des {{item.active?'active':''}}" data-active="{{item.active}}" data-index="{{index}}" wx:else>
+                            {{item.repair_descr}}
+                        </view>
+                    </view>
+                    <view class="">
+                        <view class="choosed_fault_item_price">
+                            <image class="underlined_maker" src="{{item.underlined_maker}}" style="width:41rpx;height:52rpx;margin-top:10rpx;" wx:if="{{item.is_show_underlined_price}}"></image>
+                            <view class="priceWrap">
+                                <view class="" style="color:{{item.is_show_underlined_price?'#FF5000':''}};font-weight:{{item.is_show_underlined_price?'600':'400'}}">
+                                    ¥{{isWarranty?item.honai_price:item.price}}
+                                </view>
+                                <view class="underlined_price" wx:if="{{item.is_show_underlined_price}}">
+                                    ¥{{item.underlined_price}}
+                                </view>
+                            </view>
+                        </view>
+                        <view class="pack_discount" wx:if="{{item.original_price&&item.discount_info}}">
+                            <view class="pack_discount_text" style="background:{{item.style.tipBgColor}};color:{{item.style.tipFontColor}}">
+                                {{item.style.tip}}</view>
+                            <view class="pack_discount_price">¥{{item.original_price}}</view>
+                        </view>
+                        <view bindtap="showModel" class="choosed_fault_item_price fontstyle" data-text="{{item.holiday_describe}}" wx:if="{{item.holiday_manual_fee*1}}">
+                            <text>{{item.holiday_name}}¥</text>
+                            {{item.holiday_manual_fee}}
+                            <image class="" src="./image/shuom.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="repair_coupon" wx:if="{{is_warrantable=='0'&&couponCount!=0}}">
+        <view bindtap="goToCoupon" class="coupon_main" wx:if="{{city_coupon==null}}">
+            <view wx:if="{{couponIsChoose}}">{{couponData.coupon_name}}</view>
+            <view class="gray" wx:else>使用优惠券</view>
+            <view class="couponHiB_yh_r" wx:if="{{couponIsChoose}}">
+                <text>-¥</text>
+                {{couponData.discount}}
+            </view>
+            <view class="quancount" wx:else>{{couponCount}}张可用</view>
+        </view>
+        <view class="coupon_main" wx:else>
+            <view>{{city_coupon.coupon_name}}</view>
+            <view class="couponHiB_yh_r">
+                <text>-¥</text>
+                {{city_coupon.price}}
+            </view>
+        </view>
+        <view class="coupon_arrow arrow"></view>
+    </view>
+    <view class="{{isFullSucreen?'full_screen':''}} Tips_bottom">
+        <view class="Tips_top">
+            <view class="foot_main_bottom">
+                提交订单即同意
+                <text bindtap="toUserAgreement">《Hi维修服务条款》</text>
+            </view>
+            <view bindtap="tipsOpen" class="Tips">
+                <view class="Tips_img ">
+                    <image src="./image/tips-solid.png"></image>
+                </view>
+                <view class="Tips_btn">温馨提示</view>
+            </view>
+        </view>
+        <view class="Tips_content {{tipsShow?'Tips_open':''}}">
+            <view wx:for="{{wenXinTiShi}}" wx:key="index">{{item}}</view>
+        </view>
+    </view>
+    <view bindtap="detailBgDown" catchtouchmove="ture" class="detail_bg {{detailBgShow?'hide':''}}" wx:if="{{detailBgShow}}"></view>
+    <view class="foot ">
+        <view class="foot_content {{isFullSucreen?'fix-Full-button':''}}">
+            <view class="foot_main">
+                <view bindtap="showDetailBg" class="foot_main_top">
+                    <view class="foot_main_top_total">合计</view>
+                    <view class="foot_main_top_price">
+                        <text>¥</text>
+                        {{payPrice?payPrice:''}}
+                    </view>
+                    <view class="foot_main_top_discount" wx:if="{{total_discount>0}}">
+                        已优惠<text>¥{{total_discount}}</text>
+                    </view>
+                    <view class="foot_main_top_detail" wx:if="{{payPrice}}">
+                        <view class="foot_main_top_detail_text">明细</view>
+                        <view class="foot_main_top_detail_arrow {{detailBgShow?'rotate':''}}">
+                            <image src="./image/top_arrow.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view style="position:relative;">
+                <view bindtap="createOrder" class="foot_btn {{!canGetTime?category==1?!noDefaultAddress?'gray':'1':'2':'3'}}">
+                    提交订单
+                </view>
+                <image animation="{{orderAnimation}}" src="https://pic.hiweixiu.com/images/miniprogram/weapp/repair/xxhf.gif" style="width:240rpx;height:212rpx;position:absolute;bottom:78rpx;left:0rpx;" wx:if="{{createOrderShow}}"></image>
+            </view>
+        </view>
+        <view class="dialog_middle">
+            <view class="detail_dialog {{detailBgShow?'detail_dialog_show':''}} {{detailFaultMore?'':'more'}}">
+                <view class="fault_content {{detailFaultMore?'':'more'}}">
+                    <view class="priceInfo_sum fault-item" wx:for="{{selectedFault}}" wx:key="index">
+                        <view class="choosed_fault_item_main">
+                            <view class="choosed_fault_item_main_name">{{item.name}}<image class="" mode="heightFix" src="{{ele}}" style="height:28rpx;margin-right:16rpx;font-size:0;vertical-align: -5rpx;width:auto;" wx:if="{{ele}}" wx:for="{{item.avatar}}" wx:for-item="ele"></image>
+                            </view>
+                        </view>
+                        <view class="">
+                            <view class="choosed_fault_item_price">
+                                <image class="underlined_maker" src="{{item.underlined_maker}}" style="width:41rpx;height:52rpx;margin-top:10rpx;" wx:if="{{item.is_show_underlined_price}}"></image>
+                                <view class="priceWrap">
+                                    <view class="" style="color:{{item.is_show_underlined_price?'#FF5000':''}};font-weight:{{item.is_show_underlined_price?'600':'400'}}">
+                                        ¥{{isWarranty?item.honai_price:item.price}}
+                                    </view>
+                                    <view class="underlined_price" wx:if="{{item.is_show_underlined_price}}">
+                                        ¥{{item.underlined_price}}
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="pack_discount" wx:if="{{item.original_price&&item.discount_info}}">
+                                <view class="pack_discount_text" style="background:{{item.style.tipBgColor}};color:{{item.style.tipFontColor}}">
+                                    {{item.style.tip}}</view>
+                                <view class="pack_discount_price">¥{{item.original_price}}</view>
+                            </view>
+                            <view bindtap="showModel" class="choosed_fault_item_price fontstyle" data-text="{{item.holiday_describe}}" wx:if="{{item.holiday_manual_fee*1}}">
+                                <text>{{item.holiday_name}}¥</text>
+                                {{item.holiday_manual_fee}}
+                                <image class="" src="./image/shuom.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="detail_fault_btn" wx:if="{{selectedFault.length>3}}">
+                    <view bindtap="showDetailMore" class="detail_fault_btn_main {{detailFaultMore?'':'roate'}}">
+                        <view class="detail_fault_btn_main_text">
+                            {{detailFaultMore?'展开更多':'收起'}}
+                        </view>
+                        <image src="./image/tips_arrow.png"></image>
+                    </view>
+                </view>
+                <view class="price_content">
+                    <view class="line 1" wx:if="{{underlined_discount>0||discount>0}}"></view>
+                    <view class="priceInfo_sum ff5" wx:if="{{underlined_discount>0}}">
+                        <view class="priceInfo_sum_txt">直降立减</view>
+                        <view class="priceInfo_sum_num">-<text>¥</text>{{underlined_discount}}</view>
+                    </view>
+                    <view class="priceInfo_sum ff5" wx:if="{{discount>0}}">
+                        <view class="priceInfo_sum_txt">优惠</view>
+                        <view class="priceInfo_sum_num">-<text>¥</text>{{discount}}</view>
+                    </view>
+                    <view class="priceInfo_sum ff5" wx:if="{{recommend_fault_discounts_price>0}}">
+                        <view class="priceInfo_sum_txt">加购优惠</view>
+                        <view class="priceInfo_sum_num">
+                            -<text>¥</text>{{recommend_fault_discounts_price?recommend_fault_discounts_price:0}}
+                        </view>
+                    </view>
+                    <view class="line"></view>
+                    <view class="priceInfo_sum">
+                        <view class="priceInfo_sum_txt">上门费</view>
+                        <view class="priceInfo_sum_num">+<text>¥</text>{{visit_fee}}</view>
+                    </view>
+                    <view class="priceInfo_sum" wx:if="{{manual_fee*1}}">
+                        <view class="priceInfo_sum_txt">{{holidayName}}</view>
+                        <view class="priceInfo_sum_num">+<text>¥</text>{{manual_fee}}</view>
+                    </view>
+                    <view class="line"></view>
+                    <view class="priceInfo_sum ff5">
+                        <view class="priceInfo_sum_txt">实际支付</view>
+                        <view class="priceInfo_sum_num">
+                            <text>¥</text>{{payPrice}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="popDown" catchtouchmove="ture" class="modalBg {{isModelShow?'hide':''}}" wx:if="{{isModelShow}}"></view>
+<view animation="{{timeAnimation}}" catchtouchmove="ture" class="modalContent">
+    <view class="modalTop">
+        <view class="modalTitle">请选择预约时间</view>
+        <view bindtap="confirmTime" class="confirmBtn">完成</view>
+    </view>
+    <view class="center_list">
+        <picker-view bindchange="timeChange" indicatorStyle="height: 60rpx;" style="width: 100%; height: 420rpx;text-align:center;font-size:28rpx;" value="{{timeval}}">
+            <picker-view-column>
+                <view style="line-height: 60rpx" wx:for="{{dateList}}" wx:key="index">
+                    {{item.date}}
+                </view>
+            </picker-view-column>
+            <picker-view-column>
+                <view style="line-height: 60rpx" wx:for="{{periods}}" wx:key="index">
+                    {{item.start_time}}-{{item.next_time}}
+                </view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
+<view animation="{{centerAnimation}}" catchtouchmove="ture" class="modalContent">
+    <view class="modalTop">
+        <view class="modalTitle">请选择维修中心</view>
+        <view bindtap="confirmCenter" class="confirmBtn">完成</view>
+    </view>
+    <view class="center_list">
+        <picker-view bindchange="centerChange" indicatorStyle="height: 60rpx;" style="width: 100%; height: 420rpx;text-align:center;font-size:28rpx;" value="{{value}}">
+            <picker-view-column>
+                <view style="line-height: 60rpx" wx:for="{{centerList}}" wx:key="index">
+                    {{item.name}}
+                </view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
+<view animation="{{imeiAnimation}}" catchtouchmove="ture" class="modalContent">
+    <view class="imei_top">
+        <view bindtap="popDown" class="imei_top_delete">
+            <image src="./image/delete_icon.png"></image>
+        </view>
+    </view>
+    <view class="imei_text">
+        拨号键盘输入xx这些
+        <text>“*#06#”</text>
+        会立即弹窗IMEI码
+    </view>
+    <view class="imei_content">
+        <view class="is_ios">
+            <image src="https://pic.hiweixiu.com/hiweixiu-app/images/imei_demo.gif"></image>
+        </view>
+    </view>
+</view>
+<view catchtouchmove="ture" class="tipsmodel" wx:if="{{showTipData}}">
+    <view class="title">{{tipData.title}}</view>
+    <view class="tip_content">{{tipData.content}}</view>
+    <view bindtap="continueOrder" class="continue">继续</view>
+</view>
+<view class="tipsModal" wx:if="{{showTipModal}}">
+    <view class="tipsWrap">
+        <view class="tiptitle">服务费说明</view>
+        <text class="tipcontent">{{tipsText}}</text>
+        <view bindtap="closeModalShow" class="closebtn">确认</view>
+    </view>
+</view>

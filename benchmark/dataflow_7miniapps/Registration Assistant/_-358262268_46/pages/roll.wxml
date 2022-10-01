@@ -1,0 +1,25 @@
+<view>
+    <view class="noData" wx:if="{{list.length===0}}">
+        <view>
+            <image mode="scaleToFill" src="../img/noData.svg"></image>
+        </view>
+        <text>暂无数据</text>
+    </view>
+    <block wx:else>
+        <view class="weui-panel weui-panel_access" wx:for="{{list}}" wx:key="key">
+            <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{item.avatarUrl}}"></image>
+                </view>
+                <view class="weui-cell__bd">
+                    <view>昵称：{{item.nickName}}</view>
+                    <view wx:if="{{index===1}}" wx:for="{{item.setIdentity}}" wx:key="key">{{item.name}}：{{item.value}}</view>
+                    <view class="small" wx:if="{{index===1}}" wx:for="{{item.identity}}" wx:key="key">{{item.name}}：{{item.value}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="button-sp-area fixed-btn" wx:if="{{index===1}}">
+            <button bindtap="handleJump" class="weui-btn">下载表格</button>
+        </view>
+    </block>
+</view>

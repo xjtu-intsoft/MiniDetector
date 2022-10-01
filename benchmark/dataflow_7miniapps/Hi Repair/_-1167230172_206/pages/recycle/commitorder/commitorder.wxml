@@ -1,0 +1,274 @@
+<view class="commitorder_container  {{isFullSucreen?'addpaddingbottom':''}}">
+    <view class="commitorder_type_container">
+        <view class="title">
+            当前估价机型：
+            <text class="">{{faultPrice.model_info.name}}</text>
+        </view>
+        <view class="priceWrapper">
+            <view class="price">
+                <text class="sym">¥</text>
+                <text class="num">{{faultPrice.recycle_info.price}}</text>
+            </view>
+            <view bindtap="rePrice" class="reprice">重新询价</view>
+        </view>
+    </view>
+    <view class="tipsContainer">
+        <view class="tipWrapper">
+            <view class="tip">
+                <view class="free">免费手机数据清除计划</view>
+                <view class="det">保障您的数据安全，让您后顾无忧</view>
+            </view>
+            <view class="price">¥50</view>
+        </view>
+        <view bindtap="goZengzhiquan" class="zengzhi_container">
+            <view class="tip" wx:if="{{!voucherInfo}}">使用增值券</view>
+            <view class="tip used_voucher" wx:else>已使用增值券</view>
+            <view class="quancount">
+                <view class="count" wx:if="{{!voucherInfo}}">{{zengzhiquanCount}}张券</view>
+                <view class="count" wx:else>+¥{{voucherInfo.add_price}}</view>
+                <image class="arrowright" src="../../../img/arrowright.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="orderContainer">
+        <view class="orderTypeWrapper">
+            <view bindtap="changeOrderType" class="orderType {{typeIndex==index?'active':''}}" data-index="{{index}}" wx:for="{{orderTypeList}}" wx:key="index">
+                <view class="type">
+                    {{item.name}}
+                    <view class="bottomSym" wx:if="{{typeIndex==index}}"></view>
+                </view>
+            </view>
+        </view>
+        <view class="reseverTimeWrapperBg addBorder">
+            <view class="reseverTimeWrapper addWidth" wx:if="{{typeIndex==2}}">
+                <view class="reseverTimeFlex">
+                    <view class="reseverTime">
+                        <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/sfintro.png"></image>
+                        <view class="time active">顺丰免费收件</view>
+                    </view>
+                    <view bindtap="showYfsm" class="yfsm">
+                        <view class="">运费说明</view>
+                        <view class="wenhao">?</view>
+                    </view>
+                </view>
+                <view class="" style="color: #584F4F; font-size: 24rpx;margin-top: 15rpx;">寄送地址：上海市静安区梅园路228号企业广场609室</view>
+            </view>
+        </view>
+        <view bindtap="goAddress" class="addressWrapper" wx:if="{{typeIndex!=1}}">
+            <view class="addressW">
+                <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/dw.png"></image>
+                <view class="addressInfo" wx:if="{{!isAddress}}">
+                    {{typeIndex==0?'添加上门地址':'添加取件地址'}}
+                </view>
+                <view class="addressInfo" wx:else>
+                    <view class="address">
+                        {{defaultAddress.province_name}}{{defaultAddress.city_name}}{{defaultAddress.district_name}}{{defaultAddress.address}}
+                    </view>
+                    <view class="user">
+                        <view class="name">{{defaultAddress.user_name}}</view>
+                        <view class="tel">{{defaultAddress.mobile}}</view>
+                    </view>
+                </view>
+            </view>
+            <image class="rightRow" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/right.png"></image>
+        </view>
+        <view class="addressWrapper" wx:if="{{typeIndex==1}}">
+            <view class="addressW">
+                <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/dw.png"></image>
+                <view bindtap="getLocation" class="addressInfo" wx:if="{{!locationAuth&&!nearByRepairCenter&&denyAuth==2}}">
+                    点击授权位置信息
+                </view>
+                <view bindtap="reseverTimeModal" class="addressInfo" data-isShow="1" data-showShop="1" wx:if="{{!locationAuth&&!nearByRepairCenter&&denyAuth==0}}">
+                    选择门店
+                </view>
+                <view class="addressInfo" wx:if="{{nearByRepairCenter}}">
+                    <view class="address">{{nearByRepairCenter.name}}</view>
+                    <view class="user" wx:if="{{nearByRepairCenter.nearDistance}}">
+                        <view class="distance">距离{{nearByRepairCenter.nearDistance}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="selectOtherWrapper">
+                <view bindtap="reseverTimeModal" class="selectOther" data-isShow="1" data-showShop="1" wx:if="{{nearByRepairCenter}}">
+                    选择其他门店
+                </view>
+                <image class="rightRow" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/right.png"></image>
+            </view>
+        </view>
+        <view class="addressBg">
+            <image src="../../../img/addressbg.png"></image>
+        </view>
+        <view class="reseverTimeWrapperBg">
+            <view bindtap="reseverTimeModal" class="reseverTimeWrapper addFlex" data-isShow="1" wx:if="{{orderTypeList[0].active&&typeIndex==0||typeIndex==1}}">
+                <view class="reseverTime">
+                    <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/yysj.png"></image>
+                    <view class="time {{reserveTimeText?'active':''}}">
+                        {{reserveTimeText?reserveTimeText:typeIndex==0?'添加上门时间':'添加到店时间'}}
+                    </view>
+                </view>
+                <image class="rightRow" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/right.png"></image>
+            </view>
+        </view>
+        <view class="reseverTimeWrapperBg">
+            <view bindtap="reseverTimeModal" class="reseverTimeWrapper addFlex {{typeIndex==1?'addBorder':''}}" data-isShow="1" wx:if="{{typeIndex==2}}">
+                <view class="reseverTime">
+                    <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/yysj.png"></image>
+                    <view class="time {{SFTimeText?'active':''}}">
+                        {{SFTimeText?SFTimeText:'添加取件时间'}}
+                    </view>
+                </view>
+                <image class="rightRow" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/right.png"></image>
+            </view>
+        </view>
+        <view class="notSupportWrapper" wx:if="{{!orderTypeList[0].active&&typeIndex==0}}">
+            <image class="" src="../../repair/createOrder/image/not_support.png"></image>
+            <view class="">该地区暂不支持上门服务</view>
+        </view>
+    </view>
+    <view class="contactWrapper">
+        <view class="contactTitleWrapper">
+            <view class="titleWrapper">
+                <view class="colorbg"></view>
+                <view class="title">收款方式</view>
+                <view class="contactTips">
+                    <view class="">现只支持</view>
+                    <view class="color">支付宝</view>
+                    <view class="">收款</view>
+                </view>
+            </view>
+            <view bindtap="luruAli" class="keyLuru" wx:if="{{typeIndex!=1}}">一键录入</view>
+        </view>
+        <view class="aliInfo">
+            <view class="addpadding border">
+                <input bindinput="inputChange" class="" data-type="name" placeholder="请填写支付宝绑定的真实姓名" placeholderStyle="font-size: 26rpx;color: #C7C0BC;" value="{{aliName}}"></input>
+            </view>
+        </view>
+        <view class="aliInfo">
+            <view class="addpadding">
+                <input bindinput="inputChange" class="" data-type="account" placeholder="请填写支付宝账号" placeholderStyle="font-size: 26rpx;color: #C7C0BC;" value="{{aliAccount}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="tiaokuan">
+        <view class="">*提交订单即同意</view>
+        <view bindtap="goUserXieyi" class="">《Hi回收服务条款》</view>
+    </view>
+    <view class="reserverTimeModalContainer" wx:if="{{showReseverTime}}">
+        <view class="modalContainer" wx:if="{{!showRules}}">
+            <view class="" wx:if="{{typeIndex==0||typeIndex==1&&!isShowShop}}">
+                <view class="title">
+                    {{typeIndex==0?'预约上门时间':'预约到店时间'}}
+                    <image bindtap="reseverTimeModal" class="" data-isShow="0" src="../../../img/wx_recycle/close.png"></image>
+                </view>
+                <view class="dateTimeWrapper">
+                    <scroll-view class="dateWrapper" scrollY="true">
+                        <view bindtap="changeDate" class="{{item.active?'active':''}} datetime date" data-index="{{index}}" wx:for="{{dateList}}" wx:key="index">
+                            {{item.date}}
+                        </view>
+                    </scroll-view>
+                    <scroll-view class="timeWrapper" scrollY="true">
+                        <view class="datetime time" wx:for="{{periods}}" wx:key="index">
+                            <view bindtap="changeTime" class="{{item.active?'active':''}} timeInfo" data-index="{{index}}" data-item="{{item}}">
+                                <view class="">{{item.start_time}} - {{item.next_time}}</view>
+                                <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/selected.png" wx:if="{{item.active}}"></image>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            <view class="" wx:if="{{typeIndex==1&&isShowShop}}">
+                <view class="title">
+                    Hi维修门店选择
+                    <image bindtap="reseverTimeModal" class="" data-isShow="0" src="../../../img/wx_recycle/close.png"></image>
+                </view>
+                <view class="dateTimeWrapper">
+                    <scroll-view class="shopSelectWrapper" scrollY="true">
+                        <view bindtap="changeCity" class="{{item.active?'active':''}} datetime date" data-index="{{index}}" wx:for="{{wxCenterCityList}}" wx:key="index">
+                            {{item.province_name}}
+                        </view>
+                    </scroll-view>
+                    <scroll-view class="timeWrapper" scrollY="true">
+                        <view bindtap="selectShop" class="shopWrapper" data-index="{{index}}" data-item="{{item}}" wx:for="{{wxCenterShopList}}" wx:key="index">
+                            <view class="shopInfo">
+                                <view class="centerName">
+                                    <view class="name">{{item.name}}</view>
+                                    <view class="dis" wx:if="{{item.nearDistance}}">
+                                        距离{{item.nearDistance}}
+                                    </view>
+                                </view>
+                                <view class="address">{{item.address}}</view>
+                                <view class="serviceTime">营业时间：{{item.service_time}}</view>
+                            </view>
+                            <image class="selected" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/selectedfault.png" wx:if="{{item.active}}"></image>
+                            <view class="noSelect" wx:else></view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            <view class="" wx:if="{{typeIndex==2}}">
+                <view class="title">
+                    添加取件时间
+                    <image bindtap="reseverTimeModal" class="" data-isShow="0" src="../../../img/wx_recycle/close.png"></image>
+                </view>
+                <view class="dateTimeWrapper">
+                    <scroll-view class="dateWrapper" scrollY="true">
+                        <view bindtap="changeSFDate" class="{{item.active?'active':''}} datetime date" data-index="{{index}}" wx:for="{{SFDateList}}" wx:key="index">
+                            {{item.date}}
+                        </view>
+                    </scroll-view>
+                    <scroll-view class="timeWrapper" scrollY="true">
+                        <view class="datetime time" wx:for="{{SFTimeList}}" wx:key="index">
+                            <view bindtap="changeSFTime" class="{{item.active?'active':''}} timeInfo" data-index="{{index}}" data-item="{{item}}">
+                                <view class="">{{item.start_time}} - {{item.stop_time}}</view>
+                                <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/selected.png" wx:if="{{item.active}}"></image>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            <view class="btnwrap">
+                <view bindtap="confirmSelected">确定</view>
+            </view>
+        </view>
+        <view class="rulesContainer" wx:else>
+            <view class="title">
+                包邮规则
+                <image bindtap="reseverTimeModal" class="" data-isShow="0" src="../../../img/wx_recycle/close.png"></image>
+            </view>
+            <view class="tableWrapper">
+                <view class="table">
+                    <view class="tableTitle addp">快递回收包邮规则</view>
+                    <view class="tableIntr addp">
+                        <view class="">回收品类</view>
+                        <view class="">寄付快递</view>
+                    </view>
+                    <view class="typeRule">
+                        <view class="type">
+                            <view class="addp">笔记本</view>
+                            <view class="addp">其他品类：手机、平板、手表等</view>
+                        </view>
+                        <view class="rule addp">上海市内最高承担13元运费，上海市外最高承担18元运费</view>
+                    </view>
+                </view>
+                <view class="ruleInfo">
+                    <view class="">
+                        *超出Hi回收承担上限部分的运费由用户承担，回收完成打款会扣除运费差价。快递包装费用、快递保价费用不在Hi回收承担范围内
+                    </view>
+                    <view class="">其他由用户自行承担运费的情况：</view>
+                    <view class="">1、山寨机、高仿机、丢失模式机器、机器有密码但无法提供、iCloud账户未注销。</view>
+                    <view class="">2、如果在Hi回收未对机器进行验货时，用户申请退货。</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="commitbtn_container {{isFullSucreen?'fix-Full-button':''}}">
+        <view class="commit_price_wrap">
+            <view class="tip">预估回收价：</view>
+            <view class="price">
+                <view class="sym">¥</view>
+                <view class="count">{{totalPrice}}</view>
+            </view>
+        </view>
+        <view bindtap="commitOrder" class="btn">立即提交</view>
+    </view>
+</view>

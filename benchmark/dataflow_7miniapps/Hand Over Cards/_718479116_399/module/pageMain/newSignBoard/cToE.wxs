@@ -1,0 +1,92 @@
+var daysCnE = [({
+    cn: "星期日",
+    en: "Sunday",
+}), ({
+    cn: "星期一",
+    en: "Monday",
+}), ({
+    cn: "星期二",
+    en: "Tuesday",
+}), ({
+    cn: "星期三",
+    en: "Wednesday",
+}), ({
+    cn: "星期四",
+    en: "Thursday",
+}), ({
+    cn: "星期五",
+    en: "Friday",
+}), ({
+    cn: "星期六",
+    en: "Saturday",
+})];
+var newdaysCnE = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var monthCnE = [({
+    cn: "01",
+    en: "Jan",
+}), ({
+    cn: "02",
+    en: "Feb",
+}), ({
+    cn: "03",
+    en: "Mar",
+}), ({
+    cn: "04",
+    en: "Apr",
+}), ({
+    cn: "05",
+    en: "May",
+}), ({
+    cn: "06",
+    en: "Jun",
+}), ({
+    cn: "07",
+    en: "Jul",
+}), ({
+    cn: "08",
+    en: "Aug",
+}), ({
+    cn: "09",
+    en: "Sep",
+}), ({
+    cn: "10",
+    en: "Oct",
+}), ({
+    cn: "11",
+    en: "Nov",
+}), ({
+    cn: "12",
+    en: "Dec",
+})];
+var getWeek = (function(day) {
+    var days = day.split(".");
+    var i = getDate(days[(0)], days[(1)] - 1, days[(2)]).getDay();
+    return (newdaysCnE[((nt_3 = (i), null == nt_3 ? undefined : 'number' === typeof nt_3 ? nt_3 : "" + nt_3))])
+});
+var getMonth = (function(day) {
+    if (!day) {
+        return
+    };
+    var today = monthCnE.filter((function(item) {
+        return (item.cn == day.split(".")[(1)])
+    }));
+    return (today[(0)].en)
+});
+var getYear = (function(day) {
+    if (!day) {
+        return
+    };
+    return (day.split(".")[(0)])
+});
+var getDay = (function(day) {
+    if (!day) {
+        return
+    };
+    return (day.split(".")[(2)])
+});
+module.exports = ({
+    getDay: getDay,
+    getMonth: getMonth,
+    getYear: getYear,
+    getWeek: getWeek,
+});

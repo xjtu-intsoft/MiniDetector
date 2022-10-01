@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "登录",
+    "usingComponents": {
+        "protocol-dialog": "/templates/dialog/protocol_dialog/protocol-dialog"
+    }
+}

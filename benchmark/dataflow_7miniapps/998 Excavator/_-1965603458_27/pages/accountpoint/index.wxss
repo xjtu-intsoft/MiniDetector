@@ -1,0 +1,211 @@
+@import "../../__wuBaseWxss__/10.wxss";
+
+@import "../activity/activity.wxss";
+
+.phead {
+    font-size: 12px;
+    background: #3392ff;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.phead label {
+    font-size: 24px;
+    border-top: 1px solod #fff;
+    border-bottom: 1px solod #fff;
+}
+
+.weui-cell__ft_in-access label {
+    font-size: 0.5em;
+}
+
+.date {
+    font-size: 0.6em;
+    color: #ccc;
+}
+
+.weui-cell__bd label {
+    font-size: 0.8em;
+    color: #ccc;
+}
+
+.clearfix::after,.clearfix::before {
+    content: ".";
+    clear: both;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.integral_sum {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background: #F2A900;
+    margin: 0 auto;
+}
+
+.integral_sum>view:nth-child(1) {
+    font-size: 26rpx;
+    margin-top: 46rpx;
+}
+
+.integral_sum>view:nth-child(2) {
+    font-size: 48rpx;
+}
+
+.weui-navbar {
+    border: none;
+}
+
+.weui-navbar__title>image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+}
+
+.integral_bill {
+    padding: 20px 10px;
+    border-bottom: 1px solid #ccc;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+}
+
+.integral_bill>view:nth-child(1) {
+    float: left;
+    color: #888;
+    font-size: 30rpx;
+}
+
+.integral_bill>view:nth-child(2) {
+    float: right;
+    font-size: 40rpx;
+    margin-top: 10rpx;
+}
+
+.integral_how>image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-top: -5rpx;
+}
+
+.integral_how {
+    font-size: 30rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 25rpx;
+}
+
+.classname {
+    width: 452rpx;
+    height: 400rpx;
+    margin: 20% auto;
+    color: #888;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.classname image {
+    width: 250rpx;
+    height: 250rpx;
+}
+
+.recharge {
+    width: 200rpx;
+    height: 70rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: #1aad19;
+    border-radius: 50rpx;
+    line-height: 70rpx;
+    margin: 20rpx auto;
+}
+
+.titile_ {
+    border-left: 4px solid #1aad19;
+    font-size: 30rpx;
+    padding-left: 15rpx;
+}
+
+.goods {
+    width: 45%;
+    padding: 15rpx;
+}
+
+.goods_box {
+    overflow: hidden;
+}
+
+.goods_box .goods {
+    float: left;
+}
+
+.goods>image {
+    width: 100%;
+    height: 220rpx;
+}
+
+.goods_msg {
+    font-size: 26rpx;
+}
+
+.consume {
+    color: #888;
+    font-size: 26rpx;
+}
+
+.convert {
+    width: 100%;
+    height: 60rpx;
+    color: #fff;
+    background: #1aad19;
+    border-radius: 8rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin: 10rpx auto;
+}
+
+.convert_ {
+    width: 100%;
+    height: 60rpx;
+    color: #fff;
+    background: #9ED99D;
+    border-radius: 8rpx;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin: 10rpx auto;
+}
+
+.banzheng {
+    border-left: 4px solid #1aad19;
+    font-size: 30rpx;
+    padding-left: 15rpx;
+}
+
+.share_box {
+    display: flex;
+}
+
+.share_box>view {
+    flex: 1;
+}
+
+.btn-recharge {
+    line-height: 70rpx!important;
+    font-size: 26rpx!important;
+    background: #fff!important;
+    color: #888!important;
+}
+
+.rule {
+    text-align: center;
+}
+
+.rule>text {
+    color: #222!important;
+}

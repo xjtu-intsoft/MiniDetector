@@ -1,0 +1,33 @@
+.noConnections {
+    width: 100%;
+    margin-top: 200rpx;
+}
+
+.noConnectionsCon {
+    margin: 0 auto;
+}
+
+.noConnectionsCon,.noConnectionsCon image {
+    width: 258rpx;
+    height: 258rpx;
+}
+
+.noConnectionsTip {
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #999;
+    line-height: 34rpx;
+    text-align: center;
+}
+
+.noConnectionsOp {
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #2979ff;
+}

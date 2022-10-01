@@ -1,0 +1,25 @@
+<template name="mineSafeCode">
+    <view class="mineSafeCode-view">
+        <view class="mineSafeCode-topview">
+            <view bindtap="showCodeLogin" class="mineSafeCode-view-backbtn">
+                <image class="mineSafeCode-backbtnImage" src="/images/codeLogin/Nav_fanhui.png"></image>
+                <view class="mineSafeCode-backbtnTitle">返回</view>
+            </view>
+            <image class="mineSafeCode-view-logo" src="/images/configimage/denglu_logo.png"></image>
+            <view style="width: 100rpx;"></view>
+        </view>
+        <view bindtap="updateSafeCode" class="mineSafeCode-safeCodeView">
+            <image class="mineSafeCode-safeCodeImage" src="{{showCodeUrl}}"></image>
+            <view class="mineSafeCode-safeCodeTitle">换一张</view>
+        </view>
+        <form bindsubmit="safeCodeSendBtnClick" class="mineSafeCode-view-inputs">
+            <view class="mineSafeCode-safeCodeNum">
+                <input class="safeCodeNum-input" name="safeCode" placeholder="请输入图形验证码" placeholderStyle="color:#c5c5c5" type="number" value="{{safeCodeStr}}"></input>
+            </view>
+            <view class="mineSafeCode-line"></view>
+            <button class="mineSafeCode-confirBtn" formType="submit">
+                确定
+            </button>
+        </form>
+    </view>
+</template>

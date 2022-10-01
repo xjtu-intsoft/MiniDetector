@@ -1,0 +1,80 @@
+.recharge_dialog_parent {
+    width: 100%;
+    height: 100%;
+}
+
+.recharge_dialog_body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0rpx;
+    background: #fff;
+    z-index: 2;
+    transition: height .3s;
+}
+
+.recharge_dialog_body_anim {
+    height: 660rpx;
+}
+
+.recharge_dialog_screen {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    overflow: hidden;
+    transition: background-color .3s;
+}
+
+.recharge_dialog_screen_anim {
+    opacity: .2;
+}
+
+.recharge_dialog_close {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.text_close {
+    width: 100%;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.image_close {
+    width: 32rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 32rpx;
+    top: 36rpx;
+}
+
+.rechage_picker {
+    width: 100%;
+    height: 432rpx;
+}
+
+.recharge_dialog_okbuy_btn {
+    width: 686rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.rechage_dialog_pick_item {
+    text-align: right;
+    line-height: 50px;
+    margin-right: 10rpx;
+}
+
+.rechage_dialog_pick_item_left {
+    text-align: left;
+    line-height: 50px;
+}

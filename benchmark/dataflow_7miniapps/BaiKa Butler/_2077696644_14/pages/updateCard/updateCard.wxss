@@ -1,0 +1,90 @@
+.head-bg {
+    width: 100%;
+    background: #fff;
+    padding-top: 43rpx;
+    padding-bottom: 18rpx;
+}
+
+.head {
+    width: 695rpx;
+    margin-left: 27rpx;
+    height: 284rpx;
+    position: relative;
+}
+
+.head-bank-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.ic-bank {
+    position: absolute;
+    top: 66rpx;
+    left: 53rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.bank-name {
+    font-size: 36rpx;
+    line-height: 40rpx;
+    display: inline-block;
+    height: 40rpx;
+    top: 66rpx;
+}
+
+.bank-name,.bank-num {
+    color: #fff;
+    position: absolute;
+    left: 140rpx;
+}
+
+.bank-num {
+    font-size: 42rpx;
+    line-height: 42rpx;
+    top: 142rpx;
+}
+
+.body {
+    margin-top: 27rpx;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    height: 91rpx;
+    position: relative;
+    background: #fff;
+}
+
+.img-item-icon {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 40rpx;
+}
+
+.item-title {
+    display: inline-block;
+    width: 100rpx;
+    font-size: 28rpx;
+    margin-left: 20rpx;
+}
+
+.item-input,.item-title {
+    height: 100%;
+    line-height: 91rpx;
+}
+
+.item-input {
+    flex: 1;
+    font-size: 26rpx;
+    margin-left: 50rpx;
+    text-align: left;
+}
+
+.item-line {
+    height: 1rpx;
+    width: 100%;
+    background: #f2f2f2;
+}

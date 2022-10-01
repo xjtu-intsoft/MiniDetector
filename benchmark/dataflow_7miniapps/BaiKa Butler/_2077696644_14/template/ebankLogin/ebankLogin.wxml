@@ -1,0 +1,28 @@
+<template name="ebankLogin">
+    <form bindsubmit="saveAccount">
+        <view class="ebank-body">
+            <view class="ebank-item">
+                <image class="img-item" mode="aspectFit" src="../../images/ic_user.png"></image>
+                <input class="ebank-item-input " name="account" placeholder="{{ebankLoginInfo.loginTypeDesc}}" value="{{loginInfo.account}}"></input>
+            </view>
+            <view class="ebank-item" hidden="{{ebankLoginInfo.isExtracode==0?true:false}}">
+                <image class="img-item" mode="aspectFit" src="../../images/ic_user.png"></image>
+                <input class="ebank-item-input " maxlength="{{ebankLoginInfo.extracodeLenth}}" name="extracode" placeholder="{{ebankLoginInfo.extracodeDesc}}" value="{{loginInfo.extracode}}"></input>
+            </view>
+            <view class="ebank-item" hidden="{{ebankLoginInfo.isPassword==0?true:false}}">
+                <image class="img-item" mode="aspectFit" src="../../images/ic_lock.png"></image>
+                <input class="ebank-item-input" name="password" placeholder="{{ebankLoginInfo.passwordDesc}}" type="password" value="{{loginInfo.password}}"></input>
+            </view>
+            <view class="agree-body">
+                <checkbox-group>
+                    <checkbox checked="{{isShowAgreement}}"></checkbox>
+                </checkbox-group>
+                <text bindtap="onAgreement" style="font-size:24rpx;">我已同意用户协议</text>
+            </view>
+            <button class="btn-main" formType="submit">确定</button>
+        </view>
+    </form>
+    <view class="ebank-bottom">
+        <text style="font-size:22rpx;">{{ebankLoginInfo.tip}}</text>
+    </view>
+</template>

@@ -1,0 +1,30 @@
+<view class="group-intro">
+    <view class="intro-top">
+        <view class="title">微信群助手可以帮我做什么？</view>
+        <view class="tip">使用本小程序可以一键生成群通讯录，激活您的每个微信群，更高效的发掘潜在合作伙伴！</view>
+    </view>
+    <view class="intro-con">
+        <view class="intro-item">
+            <image class="img-out" src="/images/cardWall/folder.png"></image>
+            <view class="in">
+                <view class="in-top">自动收纳</view>
+                <view class="in-bottom">自动收纳群友发出的“递名片”，无需翻聊天记录</view>
+            </view>
+        </view>
+        <view class="intro-item">
+            <image class="img-out" src="/images/cardWall/group.png"></image>
+            <view class="in">
+                <view class="in-top">分群查看</view>
+                <view class="in-bottom">可按照微信群名筛选查看，方便跟踪目标群内新产生的名片</view>
+            </view>
+        </view>
+        <view class="intro-item">
+            <image class="img-out" src="/images/cardWall/wechat.png"></image>
+            <view class="in">
+                <view class="in-top">添加微信</view>
+                <view class="in-bottom">对感兴趣的群友名片，可直接复制微信号，快速进入微信沟通业务环节</view>
+            </view>
+        </view>
+    </view>
+    <slot name="groupIntro"></slot>
+</view>

@@ -1,0 +1,44 @@
+<view class="container">
+    <view class="title">
+        <view bindtap="chooseTab" class="title_wrap" data-index="0">
+            <view class="{{titleIndex==0?'active':''}}">用户估价</view>
+        </view>
+        <view bindtap="chooseTab" class="title_wrap" data-index="1">
+            <view class="{{titleIndex==1?'active':''}}">工程师估价</view>
+        </view>
+    </view>
+    <scroll-view scrollY="true" style="height:{{scrollViewHeight}};white-space: nowrap;">
+        <view class="user_estimate" wx:if="{{titleIndex==0}}">
+            <view class="user_estimate_wrapper" wx:for="{{currentEstimate}}" wx:key="index">
+                <view class="border flex">
+                    <view class="name">{{item.name}}</view>
+                    <view class="detail">{{item.attr_fault_info[0]}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="user_estimate" wx:else>
+            <view class="noengineer_estimate" wx:if="{{currentEstimate.length==0?true:false}}">
+                <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/noestimate.png"></image>
+                <view class="">别急！工程师估价中…请稍等</view>
+            </view>
+            <view class="aaaa" wx:else>
+                <view class="user_estimate_wrapper" wx:for="{{currentEstimate}}" wx:key="index">
+                    <view class="border">
+                        <view class="detail_title">
+                            <view class="">{{item.title}}</view>
+                            <view class="difference" wx:if="{{item.is_diff}}">差异</view>
+                        </view>
+                        <view class="user flex">
+                            <view class="" data-item="{{item.subclass.user_estimate}}">提交情况</view>
+                            <view class="">{{item.subclass.user_estimate[0]}}</view>
+                        </view>
+                        <view class="engineer flex">
+                            <view class="">检测结果</view>
+                            <view class="">{{item.subclass.engineer_estimate[0]}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,67 @@
+<view class="bg_f8">
+    <view class="pad15_15 flex bg_f3 flex_around bg_wei " style=" background-image:url('{{background}}');">
+        <view class="flex pad_left">
+            <view class="classname">
+                <image mode="aspectFill" src="{{userifno.avatars}}" style="width:90rpx;height:90rpx; border:1px solid #fff"></image>
+            </view>
+            <view class="pad_left6">
+                <view class="f_16rpx c_ff">{{userifno.username}}</view>
+                <view class="f_14rpx c_ff pad_top6">{{userifno.province}}{{userifno.city}}</view>
+            </view>
+        </view>
+        <navigator class="flex  bg_ff member" url="/pages/upgrade/index">
+            <view class="f_12 c_f3">
+                <image class="bottom" src="/images/icon/g_{{userifno.customer_group_id}}.png" style="width:32rpx;height:32rpx;vertical-align:middle;" wx:if="{{userifno.customer_group_id>1}}"></image>
+                    {{userifno.customer_group_name}}
+              </view>
+        </navigator>
+    </view>
+    <view style="padding:20px;font-size:14px;text-align:center;" wx:if="{{device_list==''}}">该用户没有发布任何设备</view>
+    <view class="border_t1r  border_b1r mg_66">
+        <view class="flex padd_14_16 flex_around border_t1r" wx:for="{{device_list}}" wx:for-item="list" wx:key="items">
+            <view class="w_30" data-index="{{index}}">
+                <image bindtap="previewimg" data-list="{{index}}" data-src="{{list.image}}" src="{{list.image_small[0]}}" style="width:100%;height:84px;"></image>
+            </view>
+            <view class="pad_left10 w_70">
+                <button class="share" data-id="{{list.itemid}}" data-image="{{list.image[0]}}" data-price="{{list.price}}" data-title="{{list.title}}" openType="share">
+                    <image src="/images/icon/share.png"></image>
+                </button>
+                <navigator url="/pages/equipment/equipment?ids={{list.itemid}}">
+                    <view class="f_16rpx" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">{{list.title}}</view>
+                    <view class="f_14 pad_top6 c_e6" style="font-size:12px; position: relative">{{list.introduce}}
+          <image class="status" src="/images/icon/status_6.png" wx:if="{{list.status=='6'}}"></image>
+                        <image class="status" src="/images/icon/status_4.png" wx:if="{{list.status=='4'}}"></image>
+                    </view>
+                    <view class="f_14 pad_top6 c_f3 font_weight">{{list.price}}</view>
+                    <view class="f_12 pad_top6" style="color:#999;">{{list.addtime}}
+          <image src="/images/icon/yuedu.png" style="width:16px;height:16px;vertical-align:middle;"></image> 浏览{{list.hits}}次
+          </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="pr_flex">
+        <view catchtap="collections" class="classname bg_red w_25 f_34" data-colles_id="{{ret_data.data.itemid}}" wx:if="{{favorite_stur==0}}"></view>
+        <view class="classname  bg_red w_25 f_34">
+            <view bindtap="follow" class="{{bg_da}} border_1da c_00" disabled="{{cs==userinfo.customer_id?true:false}}" style="width:90%;background-color:#9DBA43;color:#fff;">
+            {{attention}}
+    </view>
+        </view>
+        <view catchtap="callout" class="classname bg_yllow w_50 f_34">
+            <image src="/images/icon/tel.png" style="width:30rpx;height:38rpx;vertical-align:text-bottom"></image> 打电话
+  </view>
+        <view bindtap="tohome" class="classname bg_red w_25 f_34">更多设备</view>
+    </view>
+</view>
+<view bindtap="hideModal" catchtouchmove="preventTouchMove" class="modal-mask" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">{{modaltitle}} <icon bindtap="delet_modal" size="24" style="float:right;" type="cancel"></icon>
+    </view>
+    <view class="modal-content">
+        <text>{{modalcontent}}</text>
+    </view>
+    <view class="modal-footer">
+        <button bindtap="onCancel" class="btn-cancel">升级会员</button>
+        <button bindtap="onConfirm" class="btn-confirm">积分充值</button>
+    </view>
+</view>

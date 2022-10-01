@@ -1,0 +1,107 @@
+.container,page {
+    background-color: #fff;
+}
+
+.pageCon {
+    margin-left: 2.7%;
+    margin-right: 2.7%;
+    width: 94.6%;
+    padding-top: 40rpx;
+}
+
+.pageCon .pageCon-title {
+    margin: 0 0 60rpx;
+    box-shadow: 0 0 14rpx 0 hsla(0,0%,73.7%,.5);
+    border-radius: 6rpx;
+    height: 204rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pageCon .pageCon-title .pageCon-title-logo {
+    height: 164rpx;
+    width: 164rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    border-radius: 6rpx;
+}
+
+.pageCon .pageCon-title .pageCon-title-detail {
+    height: 164rpx;
+    width: 68%;
+}
+
+.pageCon .pageCon-title .pageCon-title-detail view {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 28rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    color: #333;
+}
+
+.pageCon .pageCon-title .pageCon-title-detail .pageCon-title-detail-item:nth-child(1) {
+    height: 58rpx;
+    line-height: 58rpx;
+    font-size: 42rpx;
+    color: #333;
+    font-weight: 700;
+}
+
+.pageCon .pageCon-title .pageCon-title-detail .pageCon-title-detail-item:nth-child(2) {
+    margin: 24rpx 0 2rpx;
+}
+
+.pageCon .pageCon-intro,.pageCon .pageCon-mainCp {
+    margin-top: 60rpx;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageCon .pageCon-intro .pageCon-intro-title,.pageCon .pageCon-mainCp .pageCon-mainCp-title {
+    font-size: 36rpx;
+    line-height: 50rpx;
+    height: 50rpx;
+    font-weight: 700;
+}
+
+.pageCon .pageCon-intro .pageCon-intro-Con {
+    line-height: 52rpx;
+    margin-top: 12rpx;
+    word-break: break-all;
+}
+
+.pageCon .pageCon-intro .pageCon-intro-Con,.pageCon .pageCon-mainCp .pageCon-mainCp-Con {
+    box-shadow: 0 0 14rpx 0 hsla(0,0%,73.7%,.5);
+    border-radius: 6rpx;
+    padding: 20rpx;
+    font-size: 32rpx;
+    color: #555;
+}
+
+.pageCon .pageCon-mainCp .pageCon-mainCp-Con {
+    height: 136rpx;
+    line-height: 44rpx;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10rpx 0;
+}
+
+.pageCon .pageCon-mainCp .pageCon-mainCp-Con .pageCon-mainCp-Con-image {
+    width: 228rpx;
+    height: 136rpx;
+}
+
+.pageCon .pageCon-mainCp .pageCon-mainCp-Con .pageCon-mainCp-Con-view {
+    margin-left: 20rpx;
+    width: 60%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

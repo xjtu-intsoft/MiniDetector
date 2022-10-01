@@ -1,0 +1,52 @@
+.head {
+    height: 180rpx;
+}
+
+.body {
+    z-index: 20;
+    position: fixed;
+    top: 46rpx;
+    left: 27rpx;
+    right: 27rpx;
+    background: #fff;
+}
+
+.item {
+    font-size: 28rpx;
+    display: flex;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.item-title {
+    margin-left: 52rpx;
+    color: #6a6a6a;
+}
+
+.item-body {
+    flex: 1;
+    color: #000;
+    margin-right: 52rpx;
+    text-align: right;
+}
+
+.item-blank {
+    background: #f2f2f2;
+    height: 26rpx;
+    width: 100%;
+}
+
+.btn-remark {
+    flex: 1;
+    margin-right: 52rpx;
+    text-align: right;
+}
+
+.input-remark {
+    min-height: 145rpx;
+    width: 590rpx;
+    margin: 35rpx 52rpx;
+    font-size: 28rpx;
+    color: #000;
+}

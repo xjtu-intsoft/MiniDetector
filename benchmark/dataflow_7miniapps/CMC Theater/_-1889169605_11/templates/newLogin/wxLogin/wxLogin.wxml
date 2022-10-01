@@ -1,0 +1,12 @@
+<template name="wxLogin">
+    <view class="wx_login_parent">
+        <image class="mineCodeLogin-view-logo" src="/images/configimage/denglu_logo.png"></image>
+        <button bindgetphonenumber="getPhoneNumber" class="wx_login" openType="getPhoneNumber">微信一键登录</button>
+        <text catchtap="showCodeLogin" class="phone_login">手机号登录</text>
+        <view class="user_protocol_parent user_protocol_parent_wx_login_fixed">
+      登录即同意
+      <text catchtap="showUserProtocol" class="user_protocol_show">《用户协议》</text> 和
+      <text catchtap="showPolicy" class="user_protocol_show">《隐私政策》</text>
+        </view>
+    </view>
+</template>

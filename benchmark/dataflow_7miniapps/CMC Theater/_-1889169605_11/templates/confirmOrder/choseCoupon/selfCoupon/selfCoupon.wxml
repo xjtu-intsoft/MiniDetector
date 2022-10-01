@@ -1,0 +1,61 @@
+<template name="selfCoupon">
+    <scroll-view scrollY bindscrolltolower="loadMoreSelfCoupons" class="selfcoupon-couponlist" style="height: {{couponScrollHeight}}rpx;">
+        <view style="height:26rpx"></view>
+        <view bindtap="selfCouponClick" data-index="{{index}}" wx:for="{{selfCouponList}}" wx:key="id">
+            <view class="selfcoupon_item_parent">
+                <text class="selfcoupon_nouser_num" hidden="{{canUseSelfCount!=index}}">{{noUseItemTitle}}</text>
+                <view class="selfcoupon-couponcell">
+                    <image class="selfcoupon-couponcell-bgimg" src="{{item.can_use==1?item.image:item.nouse_image}}"></image>
+                    <view class="selfcoupon-cell-startview">
+                        <view class="selfcoupon-cell-pricetop">
+                            <view class="selfcoupon-startview-priceview">
+                                <view class="selfcoupon-startview-dallor {{item.coupon_type=='1'?'':'is-hidden'}}">¥</view>
+                                <view class="selfcoupon-startview-price">{{item.showPrice}}</view>
+                                <view class="selfcoupon-startview-yuan {{item.coupon_type=='2'?'':'is-hidden'}}">元</view>
+                            </view>
+                            <view class="selfcoupon-startview-desc {{item.coupon_type=='2'?'desc-font-th':''}}">{{item.face_desc.desc1}}</view>
+                        </view>
+                        <view class="selfcoupon-startview-message {{item.coupon_type=='2'?'':'is-hidden'}}">{{item.face_desc.desc2}} </view>
+                    </view>
+                    <view class="selfcoupon-cell-middleview">
+                        <text class="selfcoupon-middleview-desc {{item.can_use=='0'?'middelView-nousecolor':''}}">{{item.coupon_info}}</text>
+                        <view class="couponcell_package_name_parent">
+                            <text class="couponcell_package_name {{item.can_use=='0'?'middelView-nousecolor':''}}" style="visibility:{{item.coupon_package_name?'visible':'hidden'}}">{{item.coupon_package_name}}</text>
+                        </view>
+                        <view class="couponcell-middleview-timeview">
+                            <text class="couponcell-middleview-time {{item.can_use=='0'?'middelView-nousecolor':''}}">{{item.showTime}}</text>
+                            <view class="couponcell-middleview-new {{item.is_new==0?'visi-hidden':''}}">新</view>
+                            <text class="couponcell-middleview-expire-desc">{{item.will_be_expire_coupon_notice}}</text>
+                        </view>
+                    </view>
+                    <view class="selfcoupon-cell-endview">
+                        <image class="selfcoupon-cell-endimage" src="{{item.endImage}}"></image>
+                        <view class="selfcoupon-couponcell-choseiconview">
+                            <view class="selfcoupon-couponcell-choseicon {{item.can_use=='0'?'is-hidden':''}}">
+                                <icon class="selfcoupon-couponcell-icon" size="20" type="circle" wx:if="{{!item.isSelect}}"></icon>
+                                <icon class="selfcoupon-couponcell-icon chosecoupon-couponcell-iconselect" color="orange" size="20" type="success" wx:if="{{item.isSelect}}"></icon>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="scroll-buttomview" style="height: 180rpx;"></view>
+    </scroll-view>
+    <view class="selfcoupon-selectbuttomview {{selfCouponBottomShow?'':'selfcoupon-selectbuttomview-hidden'}}">
+        <view class="lineview"></view>
+        <view class="selfcoupon-selectbuttomview-topview">
+            <view class="selfcoupon-selectbuttomview-pricemessage">{{selfCouponPriceEntity.detailedPriceTitle.length>0?selfCouponPriceEntity.detailedPriceTitle:''}}</view>
+            <view class="selfcoupon-selectbuttomview-totalprice">
+                <view class="selfcoupon-selectbuttomview-totalprice-title">订单总价：</view>
+                <view class="selfcoupon-selectbuttomview-totalprice-price">¥{{selfCouponPriceEntity.newTotalPrice}}</view>
+            </view>
+        </view>
+        <view class="selfcoupon-selectbuttomview-btn">
+            <view bindtap="choseSelfCoupon" class="selfcoupon-selectbuttomview-usecouponbtn">确认使用</view>
+        </view>
+    </view>
+    <view class="selfcoupon-deleateBottomview {{selfCouponBottomShow?'selfcoupon-deleateBottomview-hidden':''}}">
+        <text bindtap="deleSelfCoupon" class="selfcoupon-deleateBtn">放弃使用</text>
+    </view>
+</template>

@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "Hi维修-苹果原厂配件",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

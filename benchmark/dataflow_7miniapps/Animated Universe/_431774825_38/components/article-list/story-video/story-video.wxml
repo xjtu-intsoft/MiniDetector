@@ -1,0 +1,20 @@
+<view class="story-video">
+    <view bindtap="clickStory" class="story-video-top">
+        <story-content-many class="story-video-title" item="{{item}}" margins="{{item.tag&&item.tag.length?[30,12,206,236]:[0,0,206,236]}}" rowCount="{{item.tag&&item.tag.length?3:4}}" width="202"></story-content-many>
+        <video bindended="playEndAndExit" class="story-big-img" customCache="{{false}}" hidden="{{hiddenVideo}}" id="myVideo" muted="{{mute}}" src="{{item.video_url}}"></video>
+        <image bindload="loadImg" class="story-top-image" hidden="{{!hiddenVideo}}" lazyLoad="true" mode="aspectFill" src="{{item.pictures[0].resource_url}}" style="background: {{bgColor}}"></image>
+        <view hidden="{{!hiddenVideo}}" wx:if="{{storyType==1}}">
+            <video-time time="{{randomColor.formateDuration(item.duration)}}" type="time"></video-time>
+        </view>
+        <view class="video-mute-area" hidden="{{hiddenVideo}}">
+            <view hidden="{{mute}}">
+                <video-volume catchtap="trigerMute" iconsrc="../../images/icon_volume.png"></video-volume>
+            </view>
+            <view hidden="{{!mute}}">
+                <video-volume catchtap="trigerMute" iconsrc="../../images/icon_mute.png"></video-volume>
+            </view>
+        </view>
+    </view>
+    <wiki-module bind:goWiki="goWiki" item="{{item}}"></wiki-module>
+</view>
+<wxs module="randomColor" src="../../../utils/randomColor.wxs" />

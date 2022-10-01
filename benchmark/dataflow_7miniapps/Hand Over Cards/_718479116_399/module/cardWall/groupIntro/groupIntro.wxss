@@ -1,0 +1,56 @@
+.intro-top {
+    color: #333;
+    padding: 20rpx;
+    margin-bottom: 40rpx;
+    line-height: 1;
+}
+
+.intro-top .title {
+    line-height: 66rpx;
+    font-size: 36rpx;
+    font-weight: 700;
+}
+
+.intro-top .tip {
+    line-height: 40rpx;
+    margin-top: 6rpx;
+    font-size: 28rpx;
+}
+
+.intro-con {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20rpx;
+}
+
+.intro-con .intro-item {
+    margin-bottom: 60rpx;
+    display: flex;
+    font-size: 24rpx;
+}
+
+.intro-item .img-out {
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 100rpx;
+    height: 100rpx;
+    padding: 20rpx;
+}
+
+.intro-con .in {
+    padding-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-con .in-top {
+    font-weight: 700;
+    margin: 0 0 12rpx;
+    font-size: 32rpx;
+}
+
+.intro-con .in-bottom {
+    font-size: 28rpx;
+    color: #999;
+    max-width: 546rpx;
+}

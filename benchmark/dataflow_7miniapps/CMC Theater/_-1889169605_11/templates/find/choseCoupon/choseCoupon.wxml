@@ -1,0 +1,79 @@
+<template name="choseCoupon">
+    <import src="../../confirmOrder/choseCoupon/activeCoupon/activeCoupon.wxml"></import>
+    <view hidden="{{!isShow}}">
+        <view catchtap="hideCouponClick" catchtouchend="choseCouponTouchEnd" catchtouchstart="choseCouponTouch" class="dialog_coupon_bg {{isShowAnimation?'dialog_coupon_anim':''}}"></view>
+        <view class="dialog_coupon_content {{isShowAnimation?'dialog_coupon_content_anim':''}}">
+            <view class="chosecoupon_title_add">
+                <view class="chosecoupon_title_parent">
+                    <view class="chosecoupon_title">优惠券</view>
+                    <image catchtap="closeCoupon" class="chosecoupon_title_img_close" src="/images/common/login_dialog_close.png"></image>
+                </view>
+                <view class="chosecoupon_addcoupon">
+                    <view class="chosecoupon_inputview">
+                        <input bindinput="inputCouponEvent" class="chosecoupon_inputnum" maxlength="-1" name="couponNum" placeholder="请输入优惠券码" placeholderStyle="color: #C5C5C5;font-size:28rpx;" value="{{inputCouponNum}}"></input>
+                        <view bindtap="clearInput" class="clear" hidden="{{inputCouponNum.length<=0}}">
+                            <icon size="14" style="display:flex" type="clear"></icon>
+                        </view>
+                        <image catchtap="scanQRcode" class="chosecoupon_scan_qr_code" mode="aspectFit" src="/images/coupon/coupon_scan_code.png"></image>
+                    </view>
+                    <text catchtap="addCoupon" class="chosecoupon_addbtn">添加</text>
+                </view>
+            </view>
+            <view class="chosecoupon-newtopview">
+                <view class="chosecoupon-newtopview-topview">
+                    <view bindtap="clickSelfCoupon" class="chosecoupon-newtopview-coupon {{goSelfCoupon?'chosecoupon-couponselect':''}}">优惠券{{canUseSelfCount>0?'('+canUseSelfCount+')':''}}</view>
+                    <view bindtap="clickActiveCoupon" class="chosecoupon-newtopview-coupon {{goSelfCoupon?'':'chosecoupon-couponselect'}}">线下优惠券{{offLineCanUseCount>0?'('+offLineCanUseCount+')':''}}</view>
+                </view>
+                <view class="chosecoupon-slideview {{goSelfCoupon?'':'chosecoupon-slideview-right'}}"></view>
+                <view class="chosecoupon-lineview"></view>
+            </view>
+            <view class="h_line_norma"></view>
+            <swiper bindchange="swiperChange" class="chosecoupon-swiper" current="{{goSelfCoupon?'0':'1'}}" duration="300" style="flex:1;">
+                <swiper-item class="swiper-activecoupon-item">
+                    <scroll-view scrollY bindscrolltolower="loadCoupons" style="height:600rpx;padding-bottom:4rpx;box-sizing:border-box;">
+                        <view style="width:100%;height:32rpx;"></view>
+                        <view catchtap="itemClick" class="dialog_coupon_list_item" data-bean="{{item}}" wx:for="{{couponLists}}" wx:key="dialog_coupon_list_item">
+                            <text class="selfcoupon_nouser_num {{canUseSelfCount!=index?'is-hidden':''}}">{{noUseItemTitle}}</text>
+                            <view class="dialog_coupon_list_item_child">
+                                <image class="dialog_coupon_list_item_child_bg" src="{{item.coupon_bg}}"></image>
+                                <image class="dialog_coupon_image_ticket" src="{{item.icon_img}}"></image>
+                                <view class="dialog_coupon_list_item_left">
+                                    <view class="dialog_coupon_list_item_left_price_parent" style="{{item.coupon_type=='1'?'margin-top: 32rpx':'margin-top: 18rpx'}}">
+                                        <text class="dialog_coupon_list_item_left_price">{{item.coupon_type=='1'?item.constant_price:item.replace_price}}</text>
+                                        <text class="dialog_coupon_list_item_left_unit">元</text>
+                                    </view>
+                                    <text class="dialog_coupon_list_item_left_unit {{item.youhuiDesc=='立减'?'dialog_unit_lijian':''}}">{{item.face_desc.desc1}}</text>
+                                    <text class="dialog_coupon_list_item_left_bottom_desc">{{item.face_desc.desc2}}</text>
+                                </view>
+                                <view class="dialog_coupon_list_item_right">
+                                    <text class="dialog_coupon_name {{item.can_use!='1'?'dialog_coupon_gray':''}}">{{item.coupon_info}}</text>
+                                    <view class="couponcell_package_name_parent">
+                                        <text class="couponcell_package_name {{item.can_use=='0'?'dialog_coupon_gray':''}}" style="visibility:{{item.coupon_package_name?'visible':'hidden'}}">{{item.coupon_package_name}}</text>
+                                    </view>
+                                    <view class="dialog_coupon_time_parent">
+                                        <text class="dialog_coupon_time">{{item.validate_date_start}}-{{item.validate_date_end}}</text>
+                                        <image class="dialog_coupon_new {{item.is_new!=1?'visi-hidden':''}}" src="/images/newcoupon/icon_coupon_xin.png"></image>
+                                        <view class="couponcell-middleview-expire-desc">{{item.will_be_expire_coupon_notice}}</view>
+                                    </view>
+                                    <image class="dialog_coupon_image" src="{{item.isSelected?'/images/common/wodehuiyuanka_icon_danxuan_xuanzhong.png':'/images/coupon/icon_coupon_weixuan.png'}}"></image>
+                                </view>
+                            </view>
+                            <view style="width:100%;height:32rpx;"></view>
+                        </view>
+                    </scroll-view>
+                    <view catchtap="payClick" class="dialog_coupon_bottom_parent">
+                        <view class="dialog_coupon_order_price">
+                            <text class="dialog_coupon_order_price_save" hidden="{{memberPrice.goods_coupon_save_fee<=0||nomemberPrice.goods_coupon_save_fee<=0}}">已优惠 ¥{{selectCard?memberPrice.goods_coupon_save_fee:nomemberPrice.goods_coupon_save_fee}}</text>
+                            <text class="dialog_coupon_order_price_text">订单总价:</text>
+                            <text class="dialog_coupon_order_price_value">¥{{selectCard?memberPrice.price:nomemberPrice.price}}</text>
+                        </view>
+                        <view class="dialog_coupon_bottom_pay">{{isCouponSelected?'确认选择':'放弃使用'}}</view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiper-selfcoupon-item">
+                    <template is="activeCoupon" data="{{couponScrollHeight:600,couponList:couponList,couponBottomShow:couponBottomShow,couponPriceEntity:nomemberPrice,inputNum:'inputNum',offLineCanUseCount:offLineCanUseCount,nooffLineCouponItemTitle:nooffLineCouponItemTitle,isFromFind:true}}"></template>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</template>

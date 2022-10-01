@@ -1,0 +1,1007 @@
+.showpricedetial-mask {
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.showpricedetial-show {
+    opacity: 0;
+}
+
+.showpricedetial-upview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 0rpx;
+    background-color: #fff;
+    transition: height .3s;
+}
+
+.upview-up {
+    height: 638rpx;
+}
+
+.showpricedetial-upview-title {
+    width: 100%;
+    height: 104rpx;
+    line-height: 104rpx;
+    text-align: center;
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+}
+
+.showpricedetial-upview-image {
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20rpx;
+}
+
+.showpricedetial-scrollview {
+    width: 100%;
+    height: 290rpx;
+}
+
+.sv_height {
+    height: 480rpx;
+}
+
+.showpricedetial-upview-buttom {
+    width: 100%;
+    height: 165rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upview-buttomtop {
+    width: 100%;
+    height: 70rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.upview-buttomtop-backticket {
+    overflow: hidden;
+    width: 440rpx;
+    margin-left: 22rpx;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    line-height: 70rpx;
+    height: 70rpx;
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+    flex-direction: column;
+}
+
+.upview-buttomtop-backticket,.upview-buttomtop-price {
+    display: flex;
+    justify-content: center;
+}
+
+.upview-buttomtop-price {
+    margin-right: 22rpx;
+    font-size: var(--font-td);
+    line-height: 68rpx;
+    flex-direction: row;
+    align-items: center;
+}
+
+.upview-buttomtop-price-price {
+    color: var(--color-ce);
+    font-size: var(--font-tb);
+    margin-right: 5rpx;
+}
+
+.upview-buttom-backbtn {
+    height: 74rpx;
+    line-height: 74rpx;
+    margin-top: 5rpx;
+    text-align: center;
+    width: 706rpx;
+    background-color: var(--color-cb);
+    color: #fff;
+    font-size: var(--font-tc);
+    border-radius: 8rpx;
+}
+
+.showpricedetial-scrollview-bg {
+    width: 100%;
+}
+
+.showpricedetial-scrollview-header {
+    width: 100%;
+    height: 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 32rpx;
+}
+
+.showpricedetial-scrollview-headrect {
+    margin-top: -2rpx;
+    width: 6rpx;
+    height: 18rpx;
+    margin-left: 22rpx;
+    background-color: var(--color-ci);
+}
+
+.showpricedetial-scrollview-headname {
+    height: 100%;
+    width: 560rpx;
+    line-height: 40rpx;
+    margin-left: 16rpx;
+    font-size: var(--font-td);
+}
+
+.showpricedetial-scrollview-headprice {
+    height: 100%;
+    width: 132rpx;
+    line-height: 40rpx;
+    font-size: var(--font-td);
+    color: var(--color-cd);
+    text-align: right;
+    margin-right: 25rpx;
+}
+
+.showpricedetial-scrollview-cell {
+    height: 40rpx;
+    font-size: var(--font-td);
+    display: flex;
+    flex-direction: row;
+    padding-left: 22rpx;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 16rpx;
+    align-items: center;
+    width: 100%;
+}
+
+.showpricedetial-cell-single-good {
+    height: 34rpx;
+    margin-top: 10rpx;
+}
+
+.showpricedetial-scrollview-cell-title {
+    height: 100%;
+    color: var(--color-cd);
+    max-width: 470rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 5rpx;
+    font-size: var(--font-td);
+}
+
+.showpricedetial-title-single-good {
+    font-size: var(--font-te);
+}
+
+.showpricedetial-scrollview-cell-count {
+    width: 100rpx;
+    text-align: right;
+    position: absolute;
+    right: 135rpx;
+    font-size: var(--font-td);
+}
+
+.showpricedetial-scrollview-cell-price {
+    width: 135rpx;
+    text-align: right;
+    position: absolute;
+    right: 25rpx;
+    font-size: var(--font-td);
+}
+
+.is-red {
+    color: var(--color-ce);
+}
+
+.is-black {
+    color: var(--color-cc);
+}
+
+.showpricedetial-lineview {
+    width: 100%;
+    height: 1rpx;
+    margin-bottom: 6rpx;
+    background-color: var(--color-ch);
+}
+
+.return_dialog_page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.return_dialog_bg,.return_dialog_page {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.return_dialog_bg {
+    background: #000;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.return_dialog_bg_anim {
+    opacity: .3;
+}
+
+.return_dialog_parent {
+    width: 660rpx;
+    height: 728rpx;
+    background: #fff;
+    opacity: 0;
+    border-radius: 16rpx;
+    transition: opacity .3s;
+    position: absolute;
+    z-index: 100;
+}
+
+.return_dialog_parent_anim11 {
+    opacity: 1;
+}
+
+.return_dialog_title {
+    position: relative;
+    width: 100%;
+}
+
+.return_dialog_title_text {
+    font-size: var(--font-tb);
+    color: var(--color-cc);
+    position: absolute;
+    left: 258rpx;
+    top: 32rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.return_dialog_title_close {
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    right: 8rpx;
+    top: 21rpx;
+}
+
+.return_dialog_sv {
+    width: 660rpx;
+    height: 420rpx;
+    margin-top: 146rpx;
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+    box-sizing: border-box;
+}
+
+.return_dialog_list {
+    width: 660rpx;
+}
+
+.return_dialog_item {
+    margin-bottom: 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.return_dialog_item_index {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    margin-right: 4rpx;
+}
+
+.return_dialog_item_text {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    flex: 1;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.return_dialog_item_text2,.return_dialog_item_text_index {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    height: 30rpx;
+    line-height: 30rpx;
+    vertical-align: middle;
+}
+
+.return_dialog_red_text {
+    color: var(--color-ce);
+}
+
+.return_dialog_ok {
+    background: var(--color-cb);
+    border-radius: 10rpx;
+    position: absolute;
+    bottom: 32rpx;
+    left: 32rpx;
+    right: 32rpx;
+    height: 88rpx;
+    color: var(--color-cf);
+    font-size: var(--font-tc);
+    text-align: center;
+    line-height: 88rpx;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.return_dialog_msgs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+}
+
+.page,page {
+    width: 100%;
+    height: 100%;
+}
+
+page {
+    --backwhite-img: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwYAAAABCAYAAAETLIlnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0NTNCQzk2QzAxNEIxMUU2QkExMTlFNUFBNEJERkVEMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0NTNCQzk2RDAxNEIxMUU2QkExMTlFNUFBNEJERkVEMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ1M0JDOTZBMDE0QjExRTZCQTExOUU1QUE0QkRGRUQwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjQ1M0JDOTZCMDE0QjExRTZCQTExOUU1QUE0QkRGRUQwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+H7m24gAAAF9JREFUeNpi/P//PwMUwBmjgK6AESCAGEGRwMPCLvPlz8/Ho+FB/wgAEQABxIiUE0ZzwygYMQBY8HABC57vIDZAgKFnApgCTqCCb6NBNQpGwSgYBcOq8JcFlu1PsMkBANiYHflIihU/AAAAAElFTkSuQmCC");
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-outlet {
+    margin-top: 30rpx;
+    height: 18rpx;
+}
+
+.order-outlet,.order-ticket {
+    margin-left: 22rpx;
+    width: 706rpx;
+}
+
+.order-ticket {
+    margin-top: -9rpx;
+    flex-direction: column;
+}
+
+.order-ticket,.order-ticket-desc {
+    display: flex;
+}
+
+.order-ticket-desc {
+    width: 100%;
+    flex-direction: row;
+    background-size: 100%;
+    padding-bottom: 30rpx;
+    background-image: var(--backwhite-img);
+}
+
+.order-ticket-desc-stateimage {
+    position: absolute;
+    left: 60rpx;
+    width: 152rpx;
+    height: 116rpx;
+}
+
+.order-ticket-desc-movieimage {
+    background-size: 100%;
+    background-image: var(--movie-defimage);
+    margin-top: 60rpx;
+    margin-left: 36rpx;
+    height: 200rpx;
+    width: 140rpx;
+}
+
+.order-ticket-descview {
+    margin-left: 15rpx;
+    margin-top: 45rpx;
+    width: 485rpx;
+    font-size: var(--font-te);
+    color: var(--color-cc);
+    overflow: hidden;
+}
+
+.order-ticket-descview-movie {
+    width: 100%;
+    margin-top: 15rpx;
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-ticket-descview-moviename {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.order-ticket-descview-movielange {
+    white-space: nowrap;
+    padding-top: 5rpx;
+    margin-left: 15rpx;
+    line-height: 40rpx;
+    font-weight: 500;
+    font-size: var(--font-te);
+}
+
+.order-ticket-descview-showtime {
+    margin-top: 10rpx;
+    color: var(--color-ce);
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.order-ticket-descview-showroom {
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+    white-space: wrap;
+}
+
+.order-ticket-descview-seats {
+    max-width: 100%;
+    white-space: wrap;
+}
+
+.order-ticket-descview-phone {
+    color: var(--color-cd);
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.order-ticket-descview-cinemaname {
+    max-width: 90%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.order-ticket-orderbg,.order-ticket-ordernum {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.order-ticket-orderbg {
+    background-size: 100%;
+    background-image: var(--backwhite-img);
+}
+
+.order-ticket-top-tips {
+    text-align: center;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    margin-top: 14rpx;
+}
+
+.order-ticket-qrcodeview {
+    margin-top: 37rpx;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.order-ticket-barcode {
+    width: 500rpx;
+    height: 150rpx;
+    margin: auto auto 16rpx;
+}
+
+.order-ticket-qrcode {
+    margin: auto;
+}
+
+.order-ticket-qrcode,.order-ticket-qrcode-canvas {
+    width: 360rpx;
+    height: 360rpx;
+}
+
+.order-ticket-number {
+    padding-bottom: 20rpx;
+    margin-bottom: 25rpx;
+    font-size: var(--font-te);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-ticket-number-littleHeight {
+    height: 40rpx;
+}
+
+.order-ticket-number-ordernum {
+    line-height: 40rpx;
+    align-items: center;
+    margin-left: 36rpx;
+}
+
+.order-ticket-number-getnum {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.order_code_text_left {
+    color: var(--color-cc);
+    font-size: var(--font-tg);
+    margin-right: 10rpx;
+}
+
+.order_code {
+    color: var(--color-cc);
+    font-size: 44rpx;
+}
+
+.auto-ticket {
+    height: 108rpx;
+    background-image: linear-gradient(270deg,#ffcb6d,#ff8400 99%);
+    border-radius: 29px;
+    display: flex;
+    align-items: center;
+    margin: 0 60rpx 36rpx;
+}
+
+.auto-ticket .left {
+    width: 42rpx;
+    height: 40rpx;
+    margin-left: 40rpx;
+}
+
+.auto-ticket-title {
+    margin-left: 32rpx;
+}
+
+.auto-ticket-title .title-top {
+    font-family: PingFangSC-Semibold;
+    font-size: 14px;
+    color: #fff;
+    display: block;
+}
+
+.auto-ticket-title .title-bottom {
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #fff;
+}
+
+.nil-view {
+    flex-grow: 1;
+    height: 10rpx;
+}
+
+.auto-ticket .right {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 43rpx;
+}
+
+.order-ticket-moviefoods {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-ticket-foodstitle {
+    text-indent: 36rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: var(--font-te);
+}
+
+.order-ticket-foodscell,.order-ticket-foodstitle {
+    background-size: 100%;
+    background-image: var(--backwhite-img);
+}
+
+.order-ticket-foodscell {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30rpx;
+    position: relative;
+}
+
+.order-ticket-foodscell-image {
+    margin-left: 36rpx;
+    width: 110rpx;
+    height: 110rpx;
+    background-size: 100%;
+    background-image: var(--shop-defimage);
+}
+
+.order-ticket-foodscell-describe {
+    margin-left: 20rpx;
+    max-width: 460rpx;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order-ticket-foodscell-name {
+    font-size: var(--font-tg);
+    color: var(--color-cc);
+    margin-right: 5rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 1;
+}
+
+.order-ticket-foodscell-content {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    max-width: 440rpx;
+    margin-right: 5rpx;
+    margin-top: 4rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.order-ticket-foodscell-describe-jiajiagou-tehui {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.jiajiagou_sales_list_item_icon {
+    width: 72rpx;
+    height: 26rpx;
+    margin-right: 5rpx;
+}
+
+.order-ticket-foodsnotice {
+    text-indent: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    padding-top: 10rpx;
+    padding-bottom: 20rpx;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    background-size: 100%;
+    background-image: var(--backwhite-img);
+}
+
+.order-ticket-buttomview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.order-ticket-litremember {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 75rpx;
+    background-size: 100%;
+    background-image: var(--backwhite-img);
+}
+
+.order-ticket-litremember-ticketback {
+    margin-left: 36rpx;
+    max-width: 425rpx;
+    line-height: 25rpx;
+    height: 50rpx;
+    overflow: hidden;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+    flex-direction: column;
+}
+
+.order-ticket-litremember-ticketback,.order-ticket-litremember-view {
+    display: flex;
+    justify-content: center;
+}
+
+.order-ticket-litremember-view {
+    line-height: 75rpx;
+    font-size: var(--font-td);
+    margin-right: 36rpx;
+    flex-direction: row;
+    align-items: center;
+}
+
+.order-ticket-litremember-view-price {
+    color: var(--color-ce);
+    margin-right: 5rpx;
+    font-size: var(--font-tb);
+}
+
+.order-ticket-litremember-view-arrowimg {
+    width: 22rpx;
+    height: 10rpx;
+}
+
+.order-ticket-buttomphone {
+    width: 100%;
+    height: 120rpx;
+    line-height: 90rpx;
+    text-align: center;
+    color: var(--color-cd);
+    font-size: var(--font-te);
+}
+
+.order-ticket-buttonview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 96rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-cb);
+    font-size: var(--font-tb);
+    color: #fff;
+}
+
+.order-ticket-refundBtn {
+    width: 160rpx;
+    font-size: var(--font-tg);
+    background-color: #fff;
+    margin-left: 20rpx;
+    text-align: center;
+    color: var(--color-cb);
+    z-index: 2;
+}
+
+.order-ticket-refbacbtnview {
+    display: flex;
+    flex-direction: row;
+}
+
+.order-ticket-backBtn {
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    width: 175rpx;
+    background-color: var(--color-cb);
+    color: var(--color-cf);
+    border-radius: 4rpx;
+}
+
+.order-ticket-backBtn,.order-ticket-refushBtn {
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.order-ticket-refushBtn {
+    width: 120rpx;
+    vertical-align: middle;
+    font-size: var(--font-tg);
+    color: var(--color-cb);
+    border: 2rpx solid var(--color-cb);
+    border-radius: 30rpx;
+    background: #fff;
+}
+
+.order-ticket-topimage {
+    width: 100%;
+    height: 40rpx;
+}
+
+.order-ticket-middleimage {
+    width: 100%;
+    height: 30rpx;
+}
+
+.order-ticket-endimage {
+    width: 100%;
+    height: 12rpx;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.order_price_parent {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding-left: 34rpx;
+    padding-right: 34rpx;
+    margin-top: 20rpx;
+}
+
+.order_price_item_parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 72rpx;
+}
+
+.order_price_item_parent,.order_price_left_text {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+}
+
+.order_price_look_detail_parent {
+    justify-content: space-between;
+}
+
+.order_price_look_detail,.order_price_look_detail_parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100rpx;
+}
+
+.order_price_look_detail_text {
+    font-size: var(--font-td);
+    color: var(--color-cd);
+    margin-left: 5rpx;
+}
+
+.order_price_all_money_parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+.order_price_all_money {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+}
+
+.order_price_all_money_value {
+    font-size: var(--font-tb);
+    color: #000;
+    font-weight: 500;
+    margin-right: 8rpx;
+}
+
+.return_ticket_parent {
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding-left: 34rpx;
+    padding-right: 34rpx;
+    margin-top: 16rpx;
+    padding-bottom: 30rpx;
+}
+
+.return_ticket_money,.return_ticket_parent {
+    box-sizing: border-box;
+    display: flex;
+}
+
+.return_ticket_money {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30rpx;
+}
+
+.return_ticket_hand_fee_info {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    width: 100%;
+    text-align: left;
+    margin-top: 12rpx;
+}
+
+.order_detail_body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16rpx;
+    padding-left: 34rpx;
+    padding-right: 20rpx;
+    background: #fff;
+}
+
+.order_detail_title {
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    height: 106rpx;
+    line-height: 106rpx;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.order_detail_left_text {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    margin-top: 16rpx;
+}
+
+.order_progress_parent {
+    justify-content: space-between;
+    height: 64rpx;
+    margin-bottom: 33rpx;
+    align-items: center;
+}
+
+.order_btn_type,.order_progress_parent {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+}
+
+.order_btn_type {
+    max-width: 330rpx;
+    justify-content: flex-end;
+}
+
+.order_progress {
+    height: 62rpx;
+    font-size: var(--font-tg);
+    color: var(--color-cd);
+    border: 2rpx solid var(--color-ci);
+    border-radius: 45rpx;
+    margin-right: 20rpx;
+    margin-left: 20rpx;
+    text-align: center;
+    line-height: 62rpx;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.return_ticket_remind {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    white-space: normal;
+    flex: 1;
+}
+
+.gray_8b {
+    color: var(--color-cd);
+}
+
+.options_good_expand {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    text-decoration: underline;
+    margin-left: 6rpx;
+    flex-shrink: 0;
+}
+
+.options_goods_content_expand {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    max-width: 450rpx;
+    margin-right: 5rpx;
+    margin-top: 2rpx;
+}
+
+.order_ticket_buy_num {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    position: absolute;
+    top: 114rpx;
+    right: 36rpx;
+}

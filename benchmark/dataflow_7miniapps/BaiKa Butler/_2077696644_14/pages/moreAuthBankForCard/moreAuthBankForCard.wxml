@@ -1,0 +1,22 @@
+<view class="box flex">
+    <image class="bank-logo" src="{{cardInfo.url}}"></image>
+    <text>{{cardInfo.bankName}} {{cardInfo.last4CardNo}}</text>
+</view>
+<view class="box" wx:if="{{hadBindChannelIds.length}}">
+    <text class="flex title">绑定成功的通道</text>
+    <view class="channels">
+        <text wx:for="{{hadBindChannelIds}}" wx:key="index">{{item.name}}</text>
+    </view>
+</view>
+<text class="flex title channel-title">通道绑定（{{unBindChannelIds.length}}）</text>
+<block wx:for="{{unBindChannelIds}}" wx:key="index">
+    <view class="box flex channel-box">
+        <view class="flex channel">
+            <text>{{index+1}}</text> {{item.name}}
+      <input bindinput="smsCode" id="{{index}}" placeholder="请输入验证码" type="number" value="{{item.smsCode}}"></input>
+        </view>
+        <text class="send-sms-code set" wx:if="{{smsCodeCount&&seleChannel==index}}">重新获取({{smsCodeCount}})</text>
+        <text bindtap="sendSmsCode" class="send-sms-code get" id="{{index}}" wx:else>获取</text>
+    </view>
+    <view bindtap="bindChannel" class="bind-channel">确定</view>
+</block>

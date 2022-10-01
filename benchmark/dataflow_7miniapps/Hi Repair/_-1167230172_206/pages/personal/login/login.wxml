@@ -1,0 +1,36 @@
+<view class="login">
+    <view class="logo">
+        <image class="logo-img" src="https://pic.hiweixiu.com/hiweixiu-app/weapp/img/17020403.png"></image>
+    </view>
+    <view class="inps-wrap">
+        <view class="inps-inner">
+            <view class="input_content">
+                <view class="input_placeholder {{phoneFocus?'focus':''}}">{{phoneFocus?'':'请输入'}}您的手机号</view>
+                <input autoFocus bindblur="inputPhoneBlur" bindfocus="inputPhoneFocus" bindinput="inputPhone" class="inp-sjh" maxlength="11" type="number"></input>
+            </view>
+        </view>
+        <view class="inps-inner">
+            <view class="input_content">
+                <view class="input_placeholder {{codeFocus?'focus':''}}">{{codeFocus?'':'请输入'}}图形验证码</view>
+                <input bindblur="inputImgCodeBlur" bindfocus="inputImgCodeFocus" bindinput="inputImgCode" class="inp-yzm" maxlength="6" type="number"></input>
+            </view>
+            <button bindtap="getImgCode" class="imgbtn">
+                <image src="{{imgData}}"></image>
+            </button>
+        </view>
+        <view class="inps-inner">
+            <view class="input_content">
+                <view class="input_placeholder {{smsFocus?'focus':''}}">{{smsFocus?'':'请输入'}}短信验证码</view>
+                <input bindblur="inputCodeBlur" bindfocus="inputCodeFocus" bindinput="inputCode" class="inp-yzm" maxlength="4" type="number"></input>
+            </view>
+            <button bindtap="sendCode" class="hqyzm" disabled="{{disabled}}">
+                <text style="color:{{getAuthCodeTextColor}}">{{getSmsCode}}</text>
+            </button>
+        </view>
+    </view>
+    <view bindtap="submit" class="btnlogin" style="background:{{loginBackgroundColor}}">无需注册，验证码登录</view>
+    <view bindtap="goToUserTerms" class="tipslogin">
+        <image class="icon-xy" src="https://pic.hiweixiu.com/hiweixiu-app/weapp/img/17020408.png"></image>
+        <text bindtap="toUserAgreement" class="tips">登录即表示您同意《用户协议》</text>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#ECEDEF",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "component-topNavigation": "../../../module/topNavigation/topNavigation",
+        "component-defaultTmp": "../../../module/company/defaultTmp/defaultTmp",
+        "component-shareActionsheet": "../../../module/_shareActionsheet/shareActionsheet",
+        "mini-icon": "../../../components/icon/icon",
+        "mini-button": "../../../components/button/button",
+        "mini-message": "../../../components/message/message",
+        "mini-popover": "../../../components/popover/popover",
+        "mini-actionsheet": "../../../components/actionsheet/actionsheet",
+        "mini-bulletLayer": "../../../components/bulletLayer/bulletLayer",
+        "mini-navigation": "../../../components/navigation/navigation"
+    }
+}

@@ -1,0 +1,12 @@
+<view class="search-page">
+    <search-top bind:search="search" bind:switchDefault="switchDefault" class="search-top"></search-top>
+    <view hidden="{{showType==2||showType==3}}">
+        <search-default bind:clickLabel="clickLabel" class=".search-default"></search-default>
+    </view>
+    <view hidden="{{showType==1||showType==3}}">
+        <search-no-data></search-no-data>
+    </view>
+    <view hidden="{{showType==1||showType==2}}">
+        <search-data class="search-data" hasMoreData="{{hasData}}"></search-data>
+    </view>
+</view>

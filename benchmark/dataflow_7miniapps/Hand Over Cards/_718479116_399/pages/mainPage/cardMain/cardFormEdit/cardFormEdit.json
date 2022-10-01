@@ -1,0 +1,20 @@
+{
+    "usingComponents": {
+        "component-cardTemp": "../_module/cardTemp/cardTemp",
+        "component-cardTempCon": "../_module/cardTempCon/cardTempCon",
+        "component-homeToEditForm": "../_module/homeToEditForm/homeToEditForm",
+        "component-cardUpld": "../_module/cardUpld/cardUpld",
+        "component-intro": "../_module/intro/intro",
+        "component-camera": "../_module/camera/camera",
+        "component-business": "../_module/business/business",
+        "mini-icon": "../../../../components/icon/icon",
+        "mini-button": "../../../../components/button/button",
+        "mini-message": "../../../../components/message/message",
+        "mini-popover": "../../../../components/popover/popover",
+        "mini-actionsheet": "../../../../components/actionsheet/actionsheet",
+        "mini-bulletLayer": "../../../../components/bulletLayer/bulletLayer",
+        "mini-navigation": "../../../../components/navigation/navigation"
+    },
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "编辑名片信息"
+}

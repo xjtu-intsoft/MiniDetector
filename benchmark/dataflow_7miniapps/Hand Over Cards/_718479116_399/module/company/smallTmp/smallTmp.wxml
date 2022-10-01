@@ -1,0 +1,19 @@
+<view class="card">
+    <view class="card-box">
+        <image class="card-image" src="{{imgUrl}}"></image>
+        <block wx:if="{{recommendCard=='yes'}}">
+            <view class="card-logo" style="{{logoStyle.left?'left:'+logoStyle.left+'rpx':''}};{{logoStyle.top?'top:'+logoStyle.top+'rpx;':''}};{{logoStyle.background?'background:'+logoStyle.background+';':''}};{{logoStyle.color?'color:'+logoStyle.color+';':''}}" wx:if="{{!logo}}">LOGO</view>
+            <view class="card-logo haveLogo" style="{{logoStyle.left?'left:'+logoStyle.left+'rpx':''}};{{logoStyle.top?'top:'+logoStyle.top+'rpx;':''}};" wx:if="{{logo}}">
+                <image class="img" src="{{logo}}"></image>
+            </view>
+        </block>
+    </view>
+    <view class="card-message">
+        <view class="card-avar"></view>
+        <view class="card-detail">
+            <view class="card-name"></view>
+            <view class="card-job"></view>
+            <view class="card-company m_viewEllipsis"></view>
+        </view>
+    </view>
+</view>

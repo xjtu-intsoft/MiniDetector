@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "福利社",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

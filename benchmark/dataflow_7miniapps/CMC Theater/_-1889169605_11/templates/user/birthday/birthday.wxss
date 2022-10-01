@@ -1,0 +1,75 @@
+.birthday_bg {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    background: #000;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.birthday_bg_anim {
+    opacity: .3;
+}
+
+.birthday_body {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    background: #fff;
+    transition: height .3s;
+}
+
+.birthday_body_anim {
+    height: 550rpx;
+}
+
+.dialog_birthday_top {
+    display: flex;
+    flex-direction: row;
+    height: 106rpx;
+    align-items: center;
+}
+
+.dialog_birthday_cancle {
+    width: 100rpx;
+}
+
+.dialog_birthday_cancle,.dialog_birthday_title {
+    color: var(--color-cc);
+    font-size: var(--color-td);
+    line-height: 106rpx;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.dialog_birthday_title {
+    flex: 1;
+}
+
+.dialog_birthday_ok {
+    width: 100rpx;
+    color: var(--color-cb);
+    font-size: var(--color-td);
+    line-height: 106rpx;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.dialog_pick {
+    width: 100%;
+    height: 440rpx;
+}
+
+.dialog_pick_column_item {
+    line-height: 87rpx;
+    text-align: center;
+}

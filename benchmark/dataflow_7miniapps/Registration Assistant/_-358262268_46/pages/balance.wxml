@@ -1,0 +1,31 @@
+<view>
+    <view>
+        <view bindtap="handleJumpRollOut" class="weui-cell withdraw" style="border-bottom: 0">
+            <view class="weui-cell__bd">
+                <text>账户余额：{{balance/100}}元</text>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">提现</view>
+        </view>
+    </view>
+    <view class="noData" wx:if="{{list.length===0}}">
+        <view>
+            <image mode="scaleToFill" src="../img/noData.svg"></image>
+        </view>
+        <text>暂无数据</text>
+    </view>
+    <view class="weui-panel weui-panel_access" wx:else>
+        <view class="weui-panel__hd">收支明细</view>
+        <view class="weui-media-box weui-media-box_appmsg" hoverClass="weui-cell_active" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view>{{item.title}}</view>
+                <view class="small">{{item.date}}</view>
+            </view>
+            <view class="box_wrapper">
+              {{item.price}}
+            </view>
+        </view>
+    </view>
+    <view class="button-sp-area fixed-btn">
+        <button bindtap="handleJumpServer" class="weui-btn">联系客服</button>
+    </view>
+</view>

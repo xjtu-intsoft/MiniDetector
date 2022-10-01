@@ -1,0 +1,25 @@
+<view bind:touchmove="_ss" class="guide-ss" wx:if="{{videoPanel.show}}">
+    <view class="guide-s">
+        <view class="guide-swiper">
+            <view class="t-top">
+                <image class="t-img" src="/images/newMain/lighter.png"></image>
+                <view class="t-txt">电子名片使用教学</view>
+            </view>
+            <view class="m">
+                <video bindended="_videoEnded" bindplay="_videoPlay" bindtap="_videoTap" bindtimeupdate="_videoUpdate" class="m-v" controls="{{controls}}" id="guideVideo" loop="{{videoPanel.loop}}" objectFit="cover" playBtnPosition="bottom" showPlayBtn="{{false}}" src="{{addToMyappVideo}}"></video>
+                <view bindtap="_videoTap" class="v-cover">
+                    <image class="v-image" src="/images/newMain/pause-b.png" wx:if="{{videoPanel.status=='pause'}}"></image>
+                    <image class="v-image" src="/images/newMain/playing-b.png" wx:if="{{videoPanel.status=='playing'}}"></image>
+                    <view class="v-time" wx:if="{{showTime}}">00:{{videoProgress.start<10?'0'+videoProgress.start:videoProgress.start}}/00:{{videoProgress.end}}</view>
+                    <view catchtouchend="_end" catchtouchmove="_move" catchtouchstart="_start" class="v-line-con">
+                        <view class="v-line"></view>
+                        <view class="v-circle" style="{{progressNum?'transform:translateX('+progressNum+'rpx)':';'}}"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="has-learn">
+            <button catch:tap="_closeLearnVideo" class="learn-btn">我学会了</button>
+        </view>
+    </view>
+</view>

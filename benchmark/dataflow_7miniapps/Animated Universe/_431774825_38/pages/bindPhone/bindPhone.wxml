@@ -1,0 +1,14 @@
+<view class="bind-phone">
+    <view class="bind-phone-tip" hidden="{{isHideTip}}">{{tipText}}</view>
+    <image class="bind-phone-banner" src="/images/IP_activity_banner.png"></image>
+    <view class="bind-phone-text">你的手机号码</view>
+    <input bindinput="inputPhone" class="bind-phone-input" maxlength="11" placeholder="点击输入手机号" placeholderClass="bind-phone-holder" type="number"></input>
+    <view class="bind-phone-line"></view>
+    <view class="bind-code-text">接收到的验证码</view>
+    <input bindinput="inputCode" class="bind-phone-input" placeholder="点击输入验证码" placeholderClass="bind-phone-holder" type="number"></input>
+    <view class="bind-phone-line"></view>
+    <view class="bind-code-view">
+        <button bindtap="sendCode" class="bind-code-btn {{codeActive?'bind-linear':''}}">{{codeText}}</button>
+    </view>
+    <button bindtap="confirm" class="bind-phone-confirm {{comfirmActive?'bind-linear':''}}">确认</button>
+</view>

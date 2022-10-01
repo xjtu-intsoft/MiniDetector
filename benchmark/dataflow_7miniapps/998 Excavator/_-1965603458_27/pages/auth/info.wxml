@@ -1,0 +1,7 @@
+<view style="text-align:center; padding-top:50px">
+    <icon class="icon-box-img" size="93" type="info"></icon>
+    <view>小程序需要您的授权才能使用!</view>
+    <view style="padding:100px 20px">
+        <button bindtap="auth" openType="openSetting" style="background-color:#3392ff!important" type="primary">立即授权</button>
+    </view>
+</view>

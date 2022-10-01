@@ -1,0 +1,107 @@
+.dialog_page {
+    z-index: 100;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: normal;
+}
+
+.dialog_bg,.dialog_page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.dialog_bg {
+    background: #000;
+    opacity: .3;
+    z-index: -1;
+}
+
+.dialog_protocol_parent {
+    width: 660rpx;
+    height: 958rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.dialog_protocol_title_parent {
+    width: 100%;
+    position: relative;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.dialog_protocol_title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 14rpx;
+    color: var(--color-cc);
+    font-size: var(--font-tb);
+    font-weight: 500;
+}
+
+.dialog_protocol_content_parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 32rpx;
+    margin-top: 46rpx;
+}
+
+.dialog_protocol_content_desc {
+    color: var(--color-cc);
+    width: 100%;
+    height: 495rpx;
+    font-size: var(--font-td);
+    font-family: PingFangSC-Regular;
+    line-height: 44rpx;
+}
+
+.dialog_protocol_content_tips {
+    height: 132rpx;
+    width: 100%;
+    font-size: var(--font-td);
+    padding-top: 44rpx;
+    line-height: 44rpx;
+}
+
+.orange {
+    color: var(--color-cb);
+}
+
+.dialog_protocol_bottom {
+    height: 101rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-tb);
+    margin-top: 40rpx;
+    border-top: 2rpx solid #e5e5e5;
+}
+
+.not_agree {
+    color: #000;
+    border-right: 2rpx solid #e5e5e5;
+}
+
+.agree,.not_agree {
+    width: 50%;
+    text-align: center;
+    height: 101rpx;
+    line-height: 101rpx;
+}
+
+.agree {
+    color: var(--color-cb);
+}

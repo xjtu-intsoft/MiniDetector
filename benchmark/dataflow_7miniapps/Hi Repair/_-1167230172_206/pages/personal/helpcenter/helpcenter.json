@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "Q & A",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

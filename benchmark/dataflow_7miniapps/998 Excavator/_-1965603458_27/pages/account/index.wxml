@@ -1,0 +1,164 @@
+<view class="pad15_15 flex bg_f3 flex_around bg_wei rev" style="background-image:url('{{background}}');">
+    <view bindtap="hideGuidance" class="guidance" hidden="{{!hideGuidance}}">点击添加到桌面，下次进入更方便
+    <view class="triangle"></view>
+    </view>
+    <view class="kapian">
+        <view class="userinfo_box">
+            <view class="userinfo_pic">
+                <button bindgetuserinfo="updateinfo" class="hidbutton" lang="zh_CN" openType="getUserInfo">
+                    <image src="{{userInfo.avatars?userInfo.avatars:'/images/icon/guest_account.png'}}"></image>
+                </button>
+                <view class="shu"></view>
+                <view class="heng"></view>
+            </view>
+            <view class="userinfo_msg">
+                <view>{{userInfo.username?userInfo.username:'未登录'}}
+          <image catchtap="upgrade" src="/images/icon/g_{{userInfo.customer_group_id}}.png" wx:if="{{userInfo.customer_group_id>1}}"></image>
+                </view>
+                <view>{{userInfo.province}}{{userInfo.city}}</view>
+                <view>{{userInfo.mobile}}</view>
+            </view>
+        </view>
+        <view class="classify">
+            <navigator hoverClass="none" url="/pages/myissue/myissue">
+                <view>{{issue_num}}</view>
+                <view>发布</view>
+            </navigator>
+            <navigator hoverClass="none" url="/pages/colles/colles">
+                <view>{{favorite}}</view>
+                <view>收藏</view>
+            </navigator>
+            <navigator hoverClass="none" url="/pages/followme/followme">
+                <view>{{from_me}}</view>
+                <view>关注</view>
+            </navigator>
+            <navigator hoverClass="none" url="/pages/followmewho/followmewho">
+                <view>{{to_me}}</view>
+                <view>粉丝</view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<navigator class="mask" url="/pages/login/login" wx:if="{{mask}}"></navigator>
+<view style="background:#eee;padding-top:40rpx;">
+    <view class="weui-cells weui-cells_after-title">
+        <navigator class="na-cell" url="/pages/myissue/myissue">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <image class="icon_list" src="/images/icon/ed2it.png"></image>我发布的
+          </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true"></input>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{issue_num}}</view>
+            </view>
+        </navigator>
+        <view catchtap="kanjia" class="na-cell">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <image class="icon_list" src="/images/icon/kanjia.png"></image>砍价记录
+          </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true"></input>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">
+                    <view class="dot" wx:if="{{msg_read==0}}"></view>
+                </view>
+            </view>
+        </view>
+        <navigator class="na-cell" url="/pages/accountpoint/index">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <image class="icon_list" src="/images/icon/point.png"></image>我的积分
+          </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true"></input>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{point}}分</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <button bindtap="openchat" class="clear_btn" openType="contact">
+            <view class="weui-cell weui-cell_input na-cell">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <image class="icon_list" src="/images/icon/help.png"></image>咨询反馈
+          </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true"></input>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access font_size">实时动态</view>
+            </view>
+        </button>
+        <view bindtap="to_vip" class="weui-cell weui-cell_input" wx:if="{{show_money}}">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <image class="icon_list" src="/images/icon/vip.png"></image>升级会员
+        </view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access font_size">享受更多福利</view>
+        </view>
+        <navigator class="weui-cell weui-cell_input" url="/pages/question/question">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <image class="icon_list" src="/images/icon/question.png"></image>常见问题
+        </view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access font_size"></view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_input" url="/pages/privacy/index">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <image class="icon_list" src="/images/icon/jubao.png"></image>隐私协议
+        </view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access font_size"></view>
+        </navigator>
+        <button bindtap="setting" class="weui-cell weui-cell_input" openType="openSetting" style="background:none">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <image class="icon_list" src="/images/icon/setting.png"></image>授权设置
+        </view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </button>
+        <view bindtap="versions" class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">
+                    <image class="icon_list" src="/images/icon/versions.png"></image>检查更新
+                </view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" disabled="true"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </view>
+</view>
+<view class="live_help">
+    <button catchtap="openchat" hoverClass="none" openType="contact" style="width:100%;height:100%;">
+        <view class="issue">
+            <image src="/images/icon/service.png"></image>
+        </view>
+    </button>
+</view>

@@ -1,0 +1,31 @@
+<form bindsubmit="onWithdraw">
+    <view class="body">
+        <button bindtap="onWithdrawRecord" class=" main-background btn-record btn-record-position">还款记录</button>
+        <input hidden="true" name="cardId" value="{{cards[currentCardIndex].cardId}}"></input>
+        <view class="chose-card-body">
+            <text class="title">还款到</text>
+            <picker bindchange="onChoseCard" class="card-body" range="{{cards}}" rangeKey="bankName" value="currentCardIndex">
+                <view class="item-picker">
+                    <image class="bank-icon" hidden="{{!card.url}}" src="{{card.url}}"></image>
+                    <text class="bank-name">{{card.bankName}} {{card.last4CardNo}}</text>
+                </view>
+            </picker>
+            <image class="ic-chose-card" src="../../images/ic_chose_card_black.png"></image>
+        </view>
+        <view class="input-body">
+            <text class="big-money-symbol">￥</text>
+            <input class="input" name="amount" placeholder="请填写还款金额" placeholderStyle="font-size:32rpx;color:#C4C4C4" type="digit" value="{{inputMoney}}"></input>
+        </view>
+        <view class="total">
+            <text class="title">账户余额</text>
+            <text class="total-money">￥{{totalMoney}}</text>
+            <text bindtap="onAllWithdraw" class="btn-all-withdraw">全额还款</text>
+        </view>
+        <view class="tip">
+            <image src="../../images/ic_red_attention.png"></image>
+      可手动还款到指定信用卡
+    </view>
+        <button class="btn-main" formType="submit">还款</button>
+        <view style="height:60rpx;"></view>
+    </view>
+</form>

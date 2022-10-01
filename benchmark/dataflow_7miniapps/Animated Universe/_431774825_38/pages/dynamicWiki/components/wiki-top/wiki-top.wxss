@@ -1,0 +1,53 @@
+.wiki-top {
+    position: relative;
+    padding: 24rpx 24rpx 26rpx 24rpx;
+    background: #2a2d3f;
+}
+
+.wiki-top video,.wiki-top-image-big {
+    width: 100%;
+    border-radius: 24rpx;
+}
+
+.wiki-top-content {
+    position: relative;
+    margin-top: 26rpx;
+    line-height: 48rpx;
+    font-size: 36rpx;
+}
+
+.wiki-top-content video-time {
+    position: absolute;
+    right: 8rpx;
+    top: 0;
+}
+
+.video-top-mute-area {
+    width: 44rpx;
+    height: 44rpx;
+    float: right;
+}
+
+.wiki-top-content video-volume {
+    position: absolute;
+    right: 8rpx;
+    top: 0;
+}
+
+.wiki-top-image-small {
+    margin-left: 154rpx;
+    width: 424rpx;
+    height: 424rpx;
+    border-radius: 24rpx;
+}
+
+.wiki-top-time {
+    position: absolute;
+    right: 34rpx;
+    top: 40rpx;
+}
+
+.wiki-top-text-noMd {
+    padding: 0 16rpx;
+    width: 670rpx;
+}

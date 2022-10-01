@@ -1,0 +1,91 @@
+<view class="center title">第{{question.level}}关</view>
+<view class="center img">
+    <image mode="aspectFill" src="{{question.images}}"></image>
+</view>
+<view class="center desc">选择该铲车对应的品牌名</view>
+<view class="center desc">剩余:
+  <text>{{time_txt}}</text> 秒</view>
+<view class="answer">
+    <view class="item" wx:for="{{question.question}}" wx:key="answer">
+        <view bindtap="doanswer" class="abtn" data-id="{{item}}">{{item}}</view>
+    </view>
+</view>
+<view class="pop" wx:if="{{showerror}}">
+    <view class="process">
+        <view style="width:{{question.level*2}}%"></view>
+    </view>
+    <view class="processtext">
+        <text>0</text>
+        <text>10</text>
+        <text>20</text>
+        <text>30</text>
+        <text>40</text>
+        <text>王者</text>
+    </view>
+    <view class="faildbox">
+        <view class="title center errotitle"> 第
+      <text>{{question.level}}</text> 关</view>
+        <view class="rightanswer">
+            <view wx:if="{{left_erro>0}}">正确答案</view>
+            <view class="toplevel" wx:else>{{left_erro>0||left_share>0?'回答错误':'闯关失败'}}</view>
+            <view class="toplevel" wx:if="{{left_erro>0}}">{{answer}}</view>
+            <view class="faildboxdesc" wx:if="{{left_erro>0||left_share>0}}">分享到微信群可获得复活机会</view>
+            <view wx:else>
+                <text decode="true">您今日复活次数已达上限
+      明日再来挑战吧！</text>
+            </view>
+            <view class="faildboxdesc" wx:if="{{left_erro>0}}">你今日还有 <text>{{left_erro}}次</text> 答错机会</view>
+            <view class="faildboxdesc" wx:if="{{left_share}}">你今日还有 <text>{{left_share}}次</text> 复活机会</view>
+        </view>
+    </view>
+    <view class="btn">
+        <view bindtap="jumpnext" wx:if="{{left_erro>0}}">继续闯关</view>
+        <button data-id="btnshare" openType="share" wx:if="{{left_share>0&&left_erro<1}}">分享复活</button>
+        <button data-id="btnpk" openType="share" wx:if="{{left_share<1}}">邀请好友比拼</button>
+        <view bindtap="gotop">我的排名</view>
+    </view>
+</view>
+<view class="pop pop_success" wx:if="{{showpop}}">
+    <view class="level">
+        <view class="thanks">我在吊装江湖连闯过<text>{{question.level-1}}</text> 关！</view>
+        <view class="thanks">超过<text class="toplevel">{{level_rang}}</text>同行水平</view>
+    </view>
+    <view class="levelimg">
+        <image mode="widthFix" src="http://images.998jx.com/youxi/qzlevel/L{{question.level-1}}.png"></image>
+    </view>
+    <view class="boxnotes">
+        <image bindtap="shownotes" mode="aspectFit" src="http://images.998jx.com/youxi/qz50.png"></image>
+    </view>
+    <view class="btn btnlevel">
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <button bindtap="gonext" formType="submit">继续闯关</button>
+            <button data-id="btnLpk" openType="share">发起挑战</button>
+        </form>
+    </view>
+</view>
+<view class="pop pop_success" wx:if="{{popsuccess}}">
+    <view class="choujiang" wx:if="{{gift}}">
+        <navigator openType="redirect" url="/pages/turntable/turntable">
+            <image mode="widthFix" src="http://images.998jx.com/youxi/win.png"></image>
+        </navigator>
+    </view>
+    <block wx:else>
+        <view class="level">
+            <view class="thanks toplevel">恭喜你成功</view>
+            <view class="thanks toplevel">成为吊装王者!</view>
+        </view>
+        <view class="success">
+            <image mode="aspectFit" src="http://images.998jx.com/youxi/king.png"></image>
+        </view>
+    </block>
+    <view class="btn">
+        <button bindtap="restart">再来一局</button>
+        <button data-id="btnLpk" openType="share">发起挑战</button>
+        <button bindtap="gotop">排行榜</button>
+    </view>
+</view>
+<view class="popregister" wx:if="{{pop_register}}">
+    <button bindgetuserinfo="register" class="weui-btn-area" lang="zh_CN" openType="getUserInfo" type="primary">
+    开始闯关
+  </button>
+</view>

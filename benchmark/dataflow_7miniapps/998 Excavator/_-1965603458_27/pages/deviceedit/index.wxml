@@ -1,0 +1,153 @@
+<form bindsubmit="formSubmit" reportSubmit="true">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">设备类型:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindtap="changecattalog" class="weui-input" disabled="true" maxlength="11" name="catname" placeholder="请选择分类" value="{{selectedcatname}}"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_cattalog}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:for="{{options_array}}" wx:key="optionsitem">
+            <view class="weui-cell__hd">
+                <view class="weui-label ">{{item.fieldname}}:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindtap="change_options" class="weui-input" disabled="true" id="{{item.oid}}" maxlength="11" name="op[{{item.oid}}]" placeholder="{{item.placeholder}}" value="{{item.selected}}" wx:if="{{item.value_array.length}}"></input>
+                <input bindinput="change_options_input" class="weui-input" id="{{item.oid}}" maxlength="11" name="op[{{item.oid}}]" placeholder="{{item.placeholder}}" value="{{item.selected}}" wx:else></input>
+            </view>
+            <view class="weui-cell__ft {{item.value_array.length?'weui-cell__ft_in-access':''}} ">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{item.ck_options}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label ">出厂年份:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindtap="changeyear" class="weui-input" disabled="true" maxlength="11" name="ccyear" placeholder="请选择年份" value="{{ccyear_text}}"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_ccyear}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">转让价格:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" focus="{{pricefocus}}" maxlength="6" name="price" placeholder="转让价" type="digit" value="{{price}}"></input>
+            </view>
+            <view class="weui-cell__ft">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_price}}"></icon>
+        万元
+      </view>
+        </view>
+        <view class="weui-cell" wx:if="{{textshow}}">
+            <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__hd">
+                        <view class="weui-uploader__title">设备介绍:</view>
+                        <view class="weui-uploader__info" style="font-size:12px">
+                            <icon color="#E64340" size="14" type="warn" wx:if="{{ck_introduce}}"></icon> 40个字以内</view>
+                    </view>
+                    <view class="weui-uploader__bd">
+                        <textarea class="textarea" maxlength="40" name="introduce" placeholder="工作状况..." value="{{introduce}}"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__hd">
+                        <view class="weui-uploader__title">设备图片:</view>
+                        <view class="weui-uploader__info" style="font-size:12px">
+                            <icon color="#E64340" size="14" type="warn" wx:if="{{ck_image}}"></icon> 3-9张</view>
+                    </view>
+                    <view class="weui-uploader__bd">
+                        <view class="weui-uploader__files" id="uploaderFiles">
+                            <view bindtap="delimage" class="weui-uploader__file" id="{{index}}" wx:for="{{image}}" wx:key="item">
+                                <image class="weui-uploader__img" mode="aspectFill" src="{{item}}"></image>
+                                <image class="edit" src="/images/icon/edit.png"></image>
+                            </view>
+                        </view>
+                        <view class="weui-uploader__input-box" wx:if="{{deviceimage_cnt<9}}">
+                            <view bindtap="uploadimg" class="weui-uploader__input"></view>
+                            <view class="add_pic">添加图片</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__hd">
+                        <view class="weui-uploader__title">{{cert_label}}</view>
+                        <view class="weui-uploader__info" style="font-size:12px">
+                            <icon color="#E64340" size="14" type="warn" wx:if="{{ck_image_cert}}"></icon> 审核资料(保密)</view>
+                    </view>
+                    <view class="weui-uploader__bd">
+                        <view class="weui-uploader__{{image_cert?'files':'input-box'}}  ">
+                            <view bindtap="uploadcert" class="weui-uploader__{{image_cert?'file':'input'}}">
+                                <image class="weui-uploader__img" mode="aspectFill" src="{{image_cert}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input {{showmore?'show':'hide'}}">
+            <view class="weui-cell__hd">
+                <view class="weui-label">联系人:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" maxlength="5" name="contact_name" placeholder="联系人姓名" value="{{userinfo.contact_name}}"></input>
+            </view>
+            <view class="weui-cell__ft">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_contact_name}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input {{showmore?'show':'hide'}}">
+            <view class="weui-cell__hd">
+                <view class="weui-label">联系电话:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <navigator url="/pages/phonenumber/phonenumber">
+                    <input class="weui-input" disabled="true" name="ownerphone" value="{{userinfo.mobile}}"></input>
+                </navigator>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_ownerphone}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input  {{showmore?'show':'hide'}}">
+            <view class="weui-cell__hd">
+                <view class="weui-label">设备地址:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindtap="openmap" class="weui-input" disabled="true" name="address" value="{{userinfo.address}}"></input>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_address}}"></icon>
+                <image bindtap="openmap" class="openmap" src="/images/icon/map_icon.png"></image>
+            </view>
+        </view>
+    </view>
+    <view bindtap="showmore" class="more">{{showmore_txt}}</view>
+    <view style="margin-bottom:20px">
+        <button class="weui-btn" disabled="{{submit?true:false}}" formType="submit" loading="{{submit}}" style="width:80%;background-color:#3392ff" type="primary">更新设备</button>
+    </view>
+</form>
+<view bindtap="tap_hide" class="model" wx:if="{{model_array.length}}">
+    <view class="modelcontent">
+        <view class="modelhead">{{model_title}}</view>
+        <scroll-view class="{{model_title=='出厂年份'?'modellisty':'modellist'}}" scrollY="true">
+            <view catchtap="{{backfunction}}" data-id="{{item.id}}" data-opid="{{backfeild}}" data-text="{{item.text}}" wx:for="{{model_array}}" wx:key="option">{{item.text}}</view>
+        </scroll-view>
+    </view>
+</view>

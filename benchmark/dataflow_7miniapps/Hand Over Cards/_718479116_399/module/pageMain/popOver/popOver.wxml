@@ -1,0 +1,5 @@
+<view catch:tap="_closePop" catch:touchmove="ss" class="pop-c" wx:if="{{popOver.show}}">
+    <view catch:tap="{{popOver.data['state']==1?'_sensorClick':'_jumpPage'}}" class="c" style="background-image:url('{{popOver.data.imageUrl}}');margin-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px">
+        <view catch:tap="_closePop" class="close"></view>
+    </view>
+</view>

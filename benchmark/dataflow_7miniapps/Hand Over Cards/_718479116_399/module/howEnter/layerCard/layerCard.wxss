@@ -1,0 +1,121 @@
+.animation-normal {
+    animation: to-normal .3s linear forwards;
+    height: 400rpx;
+}
+
+@-webkit-keyframes to-normal {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-320rpx);
+    }
+}
+
+@keyframes to-normal {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-320rpx);
+    }
+}
+
+.animationX {
+    animation: to-upX .3s linear forwards;
+    height: 315rpx;
+}
+
+@-webkit-keyframes to-upX {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-320rpx);
+    }
+}
+
+@keyframes to-upX {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-320rpx);
+    }
+}
+
+.message-content {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    transform: translateY(-320rpx);
+    height: 400rpx;
+    width: 100%;
+    border-radius: 16rpx 16rpx 0rpx 0rpx;
+    background: linear-gradient(314deg,#266fe7,#428eff);
+    box-shadow: 0 -6rpx 30rpx 0 rgba(14,39,77,.16);
+}
+
+.content-message {
+    padding: 20rpx 40rpx;
+}
+
+.message-title {
+    font-size: 36rpx;
+    line-height: 50rpx;
+    font-weight: 700;
+    color: #fff;
+}
+
+.message-show {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30rpx;
+}
+
+.message-image-heng {
+    width: 270rpx;
+}
+
+.message-image-heng,.message-image-shu {
+    height: 162rpx;
+    border-radius: 6rpx;
+    border: 1px solid #ebebeb;
+}
+
+.message-image-shu {
+    width: 97.2rpx;
+}
+
+.message-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message-button button {
+    height: 68rpx;
+    line-height: 68rpx;
+    border-radius: 34rpx;
+    width: 240rpx;
+    font-size: 32rpx;
+    color: #fff;
+}
+
+.message-button .button-1 {
+    font-weight: 700;
+    color: #3f51b5;
+    background-color: #fff;
+}
+
+.message-button .button-2 {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    margin-top: 30rpx;
+}

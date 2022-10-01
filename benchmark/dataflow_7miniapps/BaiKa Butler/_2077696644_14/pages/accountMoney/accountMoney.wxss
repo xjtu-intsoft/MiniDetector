@@ -1,0 +1,157 @@
+page {
+    background: #f2f2f2;
+}
+
+.body {
+    flex-direction: column;
+    margin: 40rpx 28rpx 20rpx;
+    border-radius: 15rpx;
+    position: relative;
+    background: #fff;
+}
+
+.body,.total {
+    display: flex;
+}
+
+.total {
+    margin-top: 25rpx;
+    height: 60rpx;
+    width: 100%;
+    align-items: center;
+}
+
+.title {
+    margin-left: 64rpx;
+    font-size: 28rpx;
+}
+
+.title,.total-money {
+    display: inline-block;
+    height: 60rpx;
+    color: #000;
+    line-height: 60rpx;
+}
+
+.total-money {
+    font-size: 25rpx;
+    margin-left: 10rpx;
+}
+
+.input-body {
+    display: flex;
+    padding: 50rpx 0;
+    margin: 0 64rpx;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.big-money-symbol {
+    font-size: 68rpx;
+}
+
+.chose-card-body {
+    display: flex;
+    margin-top: 50rpx;
+    align-items: center;
+    height: 80rpx;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.chose-card {
+    display: inline-block;
+    text-align: center;
+    font-size: 26rpx;
+}
+
+.item-picker {
+    margin-left: 90rpx;
+    font-size: 26rpx;
+    display: flex;
+    height: 60rpx;
+    align-items: center;
+}
+
+.bank-icon {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.bank-name {
+    font-size: 27rpx;
+    margin-left: 16rpx;
+    color: #000;
+    letter-spacing: 2rpx;
+}
+
+.ic-chose-card {
+    width: 14rpx;
+    height: 25rpx;
+    margin-right: 63rpx;
+    display: inline-block;
+}
+
+.input {
+    font-size: 40rpx;
+    color: #000;
+    text-align: center;
+}
+
+.input-line {
+    width: 570rpx;
+    height: 1rpx;
+    margin-top: 48rpx;
+    margin-left: 62rpx;
+}
+
+.btn-all-withdraw {
+    color: #3244cf;
+    font-size: 25rpx;
+    margin-left: 44rpx;
+}
+
+.btn-record-position {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+}
+
+.btn-record {
+    width: 150rpx;
+    height: 50rpx;
+    padding: 0;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 50rpx;
+    border-top-left-radius: 25rpx;
+    border-bottom-left-radius: 25rpx;
+    border-top-right-radius: 0rpx;
+    border-bottom-right-radius: 0rpx;
+}
+
+.btn-record::after {
+    border: none;
+}
+
+.btn-main {
+    margin-top: 40rpx;
+    width: 570rpx;
+}
+
+.tip {
+    margin: 50rpx 74rpx;
+    color: #717171;
+    font-size: 24rpx;
+}
+
+.tip image {
+    width: 30rpx;
+    height: 30rpx;
+    position: relative;
+    right: 10rpx;
+    top: 6rpx;
+}

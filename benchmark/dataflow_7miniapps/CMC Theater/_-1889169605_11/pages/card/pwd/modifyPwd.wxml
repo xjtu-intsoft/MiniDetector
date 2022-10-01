@@ -1,0 +1,23 @@
+<view style="width:100%;height:100%;background: var(--color-cg);">
+    <view class="pwd_body">
+        <view catchtap="getCode" class="pwd_phone">
+            <text class="text_mobile">{{mobile}}</text>
+            <text class="buy_btn_short_loukong" style="border-radius: 50rpx;width:182rpx;size:var(--font-td);color:{{disabled?'var(--color-cd)':'var(--color-cb)'}};border-color: {{disabled?'var(--color-cd)':'var(--color-cb)'}}">{{time}}</text>
+        </view>
+        <view class="h_line_f1"></view>
+        <view class="pwd_code">
+            <input bindinput="input_code" class="input" maxlength="11" placeholder="手机验证码" placeholderStyle="holder" type="number" value="{{code}}"></input>
+            <view catchtap="clearInput" wx:if="{{code.length>0}}">
+                <icon size="14" type="clear"></icon>
+            </view>
+        </view>
+        <view class="h_line_f1"></view>
+        <view class="pwd_code">
+            <input bindinput="input_pwd" class="input" maxlength="6" password="{{!isShowPwd}}" placeholder="新密码" placeholderStyle="holder" type="number" value="{{pwd}}"></input>
+            <image catchtap="clearInput_pwd" class="icon_pwd" src="{{pwdSrc}}" wx:if="{{pwd.length>0}}"></image>
+        </view>
+        <view class="h_line_f1"></view>
+    </view>
+    <view catchtap="okClick" class="pay">确定</view>
+    <text class="remind">{{message}}</text>
+</view>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "618活动页",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

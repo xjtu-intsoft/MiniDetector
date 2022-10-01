@@ -1,0 +1,24 @@
+.cinema-nolist {
+    height: 550rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cinema-nolist-title {
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: var(--font-tc);
+    color: var(--color-cd);
+}
+
+.cinema-nolist-tomorrowbtn {
+    border: 3rpx solid var(--color-cb);
+    border-radius: 45rpx;
+    padding: 0rpx 20rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+    font-size: var(--font-td);
+    color: var(--color-cb);
+}

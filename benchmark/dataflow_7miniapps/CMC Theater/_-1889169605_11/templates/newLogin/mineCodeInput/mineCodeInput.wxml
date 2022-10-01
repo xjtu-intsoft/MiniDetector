@@ -1,0 +1,18 @@
+<template name="mineCodeInput">
+    <view class="mineCodeInput-view">
+        <view class="mineCodeInput-topview">
+            <view bindtap="showCodeLogin" class="mineCodeInput-view-backbtn">
+                <image class="mineCodeInput-backbtnImage" src="/images/codeLogin/Nav_fanhui.png"></image>
+                <view class="mineCodeInput-backbtnTitle">返回</view>
+            </view>
+            <image class="mineCodeInput-view-logo" src="/images/configimage/denglu_logo.png"></image>
+            <view style="width: 100rpx;"></view>
+        </view>
+        <view class="mineCodeInput-codeMessage">短信已发送至：{{codeInputNum}}</view>
+        <view bindtap="codeInputGetMessageAgain" class="mineCodeInput-getAgainBtn">{{tiemDownText.length>0?tiemDownText:'重新获取验证码'}}</view>
+        <view bindtap="codeInputBecomeFirst" class="mineCodeInput-inputsView">
+            <view class="mineCodeInput-gridView" wx:for="{{codeInputStr}}" wx:key="mineCodeInput-gridView">{{item}}</view>
+        </view>
+        <input bindinput="showCodeInputStr" class="mineCode-input" focus="{{codeInputFirst}}" maxlength="4" type="number" value="{{codeInputValue}}"></input>
+    </view>
+</template>

@@ -1,0 +1,30 @@
+<view class="postdevice_container">
+    <view class="device_wrap">
+        <image class="" src="{{deviceInfo.src}}"></image>
+        <view class="phone_info">
+            <view class="phone_name">
+                <view>{{deviceInfo.name}}</view>
+                <view wx:if="{{deviceInfo.color}}">（{{deviceInfo.color}}）</view>
+            </view>
+            <view class="repair_type">{{deviceInfo.type}}</view>
+        </view>
+    </view>
+    <view class="express_info_wrap">
+        <view class="express_num">
+            <input bindinput="getExpressNumber" placeholder="请输入物流单号" placeholderClass="express_num_placeholder" type="text"></input>
+        </view>
+        <view class="express_company">
+            <picker bindchange="selectExpressCompany" mode="selector" range="{{expressCompany}}" rangeKey="name" value="{{index}}">
+                <view class="company_select {{index?'active':''}}">
+                    {{index?expressCompany[index].name:'请选择物流公司'}}
+                </view>
+            </picker>
+        </view>
+        <view class="express_tel">
+            <textarea bindinput="getExpressRemark" class="" placeholder="备注信息（选填 100字以内）" placeholderClass="express_num_placeholder" value=""></textarea>
+        </view>
+    </view>
+    <view class="confirm_express_btn">
+        <view bindtap="confirmCommit" class="btn">确认提交</view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<protocol-dialog bindagree="agree" bindnot_agree="not_agree" class="{{showUserProtocol?'is-hidden':''}}"></protocol-dialog>
+<import src="/templates/newLogin/wxLogin/wxLogin.wxml"></import>
+<view style="display:flex;flex-direction:column;height:100%;">
+    <template is="wxLogin" data="{{name:haha}}"></template>
+</view>

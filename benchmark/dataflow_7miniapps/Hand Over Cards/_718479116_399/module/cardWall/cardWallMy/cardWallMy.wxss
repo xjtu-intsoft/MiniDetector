@@ -1,0 +1,152 @@
+.itemCard {
+    padding: 0rpx 20rpx;
+}
+
+.cardInfoCon {
+    padding: 50rpx 0;
+}
+
+.border-bottom {
+    position: relative;
+}
+
+.border-bottom::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    bottom: 0;
+    border-bottom: 1px solid #eceeea;
+    transform-origin: 0 0;
+    transform: scale(.5,.5);
+    box-sizing: border-box;
+}
+
+.cardInfoCon .top {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.cardInfoCon .idy-con {
+    margin-left: auto;
+    display: flex;
+}
+
+.cardInfoCon .idy {
+    color: #2979ff;
+    background: rgba(41,121,255,.1);
+    max-width: 300rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cardInfoCon .idy,.cardInfoCon .user-top {
+    font-size: 24rpx;
+    font-weight: 400;
+    padding: 0 8rpx;
+    border-radius: 4rpx;
+}
+
+.cardInfoCon .user-top {
+    margin-left: 10rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    color: #f4a625;
+    background: rgba(244,166,37,.1);
+}
+
+.cardInfoCon .avatar .img {
+    overflow: hidden;
+    margin-right: 20rpx;
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    box-shadow: 0 0 4rpx 0 rgba(0,0,0,.5);
+    border-radius: 12rpx;
+}
+
+.defaultAvator {
+    background: #fce7c7;
+    color: #dd9621;
+    text-align: center;
+    font-size: 46rpx;
+    font-weight: 500;
+}
+
+.cardInfoCon .info-con {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.cardInfoCon .name {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 36rpx;
+    font-weight: 700;
+    color: #333;
+}
+
+.cardInfoCon .name,.cardInfoCon .name .n {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cardInfoCon .name .n {
+    max-width: 300rpx;
+}
+
+.cardInfoCon .name .top {
+    margin: auto 8rpx;
+    width: 24rpx;
+    height: 27rpx;
+}
+
+.cardInfoCon .j-c {
+    margin-top: 16rpx;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #333;
+}
+
+.cardInfoCon .j {
+    max-width: 168rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cardInfoCon .dotted {
+    margin: auto 8rpx;
+}
+
+.cardInfoCon .c {
+    max-width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cardInfoCon .intro {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.cardInfoCon .intro,.cardInfoCon .no-intro {
+    margin-top: 22rpx;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #999;
+}
+
+.cardInfoCon .no-intro {
+    text-decoration: underline;
+}

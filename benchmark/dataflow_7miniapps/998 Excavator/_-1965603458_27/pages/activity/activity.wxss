@@ -1,0 +1,147 @@
+.pages {
+    width: 100%;
+    height: 1580rpx;
+}
+
+.bg_activity {
+    width: 100%;
+    height: 100%;
+}
+
+.explain {
+    width: 133rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    padding: 10rpx;
+    color: #888;
+    background: #fff;
+    font-size: 26rpx;
+    border-bottom-left-radius: 30rpx;
+    border-top-left-radius: 30rpx;
+    position: fixed;
+    right: 0;
+    top: 10%;
+}
+
+.share_now {
+    width: 75%;
+    height: 108rpx;
+    position: absolute;
+    top: 1018rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0);
+}
+
+.modal-dialog {
+    width: 84%;
+    height: auto;
+    position: fixed;
+    top: 26%;
+    left: 50%;
+    z-index: 9999;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 15rpx;
+}
+
+.modal-content {
+    text-align: left;
+    padding: 20rpx;
+    line-height: 50rpx;
+    overflow: auto;
+}
+
+.guidance {
+    width: 600rpx;
+    height: 840rpx;
+}
+
+.week_ranking {
+    width: 88%;
+    height: 240rpx;
+    position: absolute;
+    background: #fff;
+    top: 1200rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15rpx;
+}
+
+.week_title {
+    height: 60rpx;
+    background: #F9F9F9;
+    padding: 15rpx;
+    border-top-left-radius: 15rpx;
+    border-top-right-radius: 15rpx;
+}
+
+.week_title view:nth-child(1) {
+    float: left;
+    font-size: 30rpx;
+    font-weight: 600;
+    line-height: 60rpx;
+}
+
+.week_title view:nth-child(2) {
+    float: right;
+    color: #666;
+    font-size: 24rpx;
+    line-height: 60rpx;
+}
+
+.week_content image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.week_content {
+    display: flex;
+    padding-right: 20rpx;
+}
+
+.week_content>view {
+    flex: 1;
+}
+
+.week_content>view>image {
+    float: left;
+    margin: 20rpx 0 0 20rpx;
+}
+
+.week_content>view>view {
+    float: right;
+    margin-top: 20rpx;
+}
+
+.week_content>view>view>view {
+    line-height: 45rpx;
+}
+
+.week_foot {
+    color: #FE6A0C;
+    font-size: 24rpx;
+    text-align: right;
+    line-height: 36rpx;
+    margin-right: 20rpx;
+}
+
+.textstyle {
+    text-align: center;
+}
+
+.modal-content text {
+    color: #b2b2b2;
+}
+
+.timer {
+    position: absolute;
+    top: 1140rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 33rpx;
+    text-align: center;
+    width: 100%;
+}

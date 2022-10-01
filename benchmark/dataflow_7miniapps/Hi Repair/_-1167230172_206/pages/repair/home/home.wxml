@@ -1,0 +1,57 @@
+<view class="homeContainer" style="padding-top:{{paddingTop}}px" wx:if="{{!showBone}}">
+    <view class="fixed">
+        <navbar bgcolor="{{meta}}" class="navbar"></navbar>
+        <view class="navContainer" style="background:{{meta}};height: {{navBarHeight}}px">
+            <image alt="" class="navLogo" src="../../../img/navlogo.png"></image>
+        </view>
+        <view class="searchContainer" style="background:{{meta}}">
+            <image bindtap="showPreviewGou" class="zero-buy" src="https://image.hiweixiu.com/web-template/home0yg.gif"></image>
+            <view class="search-main">
+                <view bindtap="goSearch" class="inputWrap">
+                    <image class="iconsearch" src="../../../img/iconsearch.png"></image>
+                    <view class="inputsearch">搜索维修设备型号</view>
+                </view>
+                <image catchtap="showKf" class="iconkefu" src="../../../img/iconkefu2.png"></image>
+            </view>
+            <view class="kuWrap {{isShowKf?'showKfWrap':''}}">
+                <view bindtap="showPreview" class="zskf addBorder">
+                    <image class="" src="../../../img/dhrx.png"></image>
+                    <view class="">专属客服</view>
+                    <view class="miaohui">专属</view>
+                </view>
+                <view bindtap="makePhoncall" class="zskf">
+                    <image class="" src="../../../img/zskf.png"></image>
+                    <view class="">客服热线</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="" style="height:{{scrollHeight}}px;overflow-y:auto;overflow-x: hidden;">
+        <view class="" wx:for="{{viewCom}}" wx:key="index">
+            <swiperbanner data="{{item}}" id="swiperbanner" wx:if="{{item.type=='page:home:button:swiper_banner:v1'}}"></swiperbanner>
+            <icon data="{{item}}" wx:if="{{item.type=='page:home:button:icons_2x5:v1'}}"></icon>
+            <activity data="{{item}}" wx:if="{{item.type=='page:home:module:activities_l1r2:v1'}}"></activity>
+            <bannerimg data="{{item}}" wx:if="{{item.type=='page:home:button:banner_1x1:v1'}}"></bannerimg>
+            <devices data="{{item}}" wx:if="{{item.type=='page:home:module:mydevice:v1'}}"></devices>
+            <quickorder data="{{item}}" wx:if="{{item.type=='page:home:module:quickorder:v1'}}"></quickorder>
+            <flashsale data="{{item}}" wx:if="{{item.type=='page:home:button:second_skill:v1'}}"></flashsale>
+            <store data="{{item}}" wx:if="{{item.type=='page:home:module:stores:v1'}}"></store>
+            <imgtab data="{{item}}" wx:if="{{item.type=='page:home:button:img_tab_1x3:v1'}}"></imgtab>
+            <appraise data="{{item}}" wx:if="{{item.type=='page:home:show:appraise:v1'}}"></appraise>
+            <view animation="{{ani3}}" catchtouchmove="true" class="modalInfo" wx:if="{{item.type=='page:home:button:alert_1x1:v1'&&showRef}}">
+                <view class="imgWrap">
+                    <image animation="{{ani}}" bindtap="goPage" class="" data-item="{{item.items}}" mode="widthFix" src="{{item.items.src}}"></image>
+                    <image animation="{{ani2}}" class="imgWrap-image2" mode="widthFix" src="https://image.hiweixiu.com/web-template/daily-xsj@3x.png?v=21061821061820201211"></image>
+                    <image bindtap="closeRef" class="close" src="../../../img/close.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<navbar bgcolor="{{'#fff'}}" class="navbar" wx:if="{{showBone}}"></navbar>
+<image class="" mode="widthFix" src="../../../img/bonescreen.png" style="width:100%" wx:if="{{showBone}}"></image>
+<view class="modal" wx:if="{{isShowModal}}">
+    <image class="tipsimage" mode="widthFix" src="{{tc_bg}}"></image>
+    <image bindtap="hideModal" class="closemodal" src="../../../img/close.png"></image>
+</view>
+<luck-draw-dialog id="luck-draw-dialog" showLuck="{{showLuck}}"></luck-draw-dialog>

@@ -1,0 +1,17 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "banner": "/components/banner/banner",
+        "title": "/components/title/title",
+        "tag": "/components/tag/tag",
+        "story-video": "/components/article-list/story-video/story-video",
+        "story-big-image": "/components/article-list/story-big-image/story-big-image",
+        "story-many-image": "/components/article-list/story-many-image/story-many-image",
+        "story-one-image": "/components/article-list/story-one-image/story-one-image",
+        "subject-images": "/components/article-list/subject-images/subject-images",
+        "story-slideshow": "/components/article-list/story-slideshow/story-slideshow",
+        "article-subscribe": "/components/article-list/article-subscribe/article-subscribe",
+        "go-wiki-button": "/components/go-wiki-button/go-wiki-button",
+        "has-more-data": "/components/has-more-data/has-more-data"
+    }
+}

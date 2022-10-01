@@ -1,0 +1,6 @@
+<view class="youxuann_container">
+    <image class="youxuan_image" src="../../../img/youxuanbg.png"></image>
+    <view class="btn_wrap">
+        <view bindtap="goHiYouxuan" class="btn">上Hi优品 优惠得新手机</view>
+    </view>
+</view>

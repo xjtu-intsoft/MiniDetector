@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

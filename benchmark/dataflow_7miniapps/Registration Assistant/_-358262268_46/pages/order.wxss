@@ -1,0 +1,67 @@
+./components/cMask.wxssrpx.cDialog {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10rpx;
+}
+
+.cDialog .cDialog-title {
+    height: auto;
+    padding: 40rpx 0 30rpx;
+    line-height: normal;
+    text-align: center;
+    color: #000;
+}
+
+.cDialog .cDialog-content {
+    padding-bottom: 50rpx;
+    font-size: 32rpx;
+    text-align: center;
+    color: #999;
+    border-bottom: 1rpx solid #d5d5d6;
+}
+
+.cDialog .cDialog-btn {
+    display: flex;
+    font-size: 38rpx;
+    text-align: center;
+}
+
+.cDialog .cDialog-btn button,.cDialog .cDialog-btn navigator {
+    flex: 1;
+    height: 100rpx;
+    padding: 0;
+    font-size: 16px;
+    line-height: 100rpx;
+    color: #353535;
+}
+
+.cDialog .cDialog-btn button::after,.cDialog .cDialog-btn navigator::after {
+    border: 0;
+}
+
+.cDialog .column {
+    flex-direction: column;
+}
+
+.cDialog .column button,.cDialog .column navigator {
+    width: 100%;
+    border-bottom: 1rpx solid #d5d5d6;
+}
+
+page {
+    padding-bottom: 140rpx;
+}
+
+.weui-cell {
+    padding-top: 15rpx!important;
+    padding-bottom: 15rpx!important;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 18px;
+    margin: 40rpx 0;
+    text-align: center;
+    color: #000;
+}

@@ -1,0 +1,23 @@
+<view class="content {{'WebTemp'==singleData.modelIndex['type']?'content-web':''}}">
+    <component-newCardDetail bindtolookhomepage="toLookHomePage" bindtolookhomepages="toLookHomePageS" userData="{{singleData}}"></component-newCardDetail>
+</view>
+<view style="padding:70rpx 0;"></view>
+<form bindsubmit="save" reportSubmit="true">
+    <view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}" wx:if="{{options.mark=='notSaved'}}">
+        <button bindtap="ss" class="big-success-btn" data-title="存入名片夹" formType="submit" loading="{{loading}}">
+      存入名片夹
+    </button>
+    </view>
+    <view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}" wx:if="{{options.mark=='saved'}}">
+        <button bindtap="setting" class="small-disabled-btn" data-title="设置">设置</button>
+        <button bindtap="addressListClick" class="mid-success-btn" data-title="保存至通讯录">保存至通讯录</button>
+    </view>
+    <view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}" wx:if="{{options.mark=='mine'}}">
+        <button bindtap="shareButtonClick" class="big-success-btn" data-title="发送本张名片" openType="share" wx:if="{{!deleted}}">
+      {{shareButtonContent?shareButtonContent:'发送本张名片'}}
+    </button>
+        <button class="big-disabled-btn" wx:if="{{deleted}}">本张名片已删除</button>
+    </view>
+</form>
+<import src="../../../temp/public.wxml"></import>
+<template is="netError" data="{{path:'../../../'}}" wx:if="{{netError.show}}"></template>

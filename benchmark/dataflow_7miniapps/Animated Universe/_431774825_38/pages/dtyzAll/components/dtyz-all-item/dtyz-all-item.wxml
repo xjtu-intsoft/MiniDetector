@@ -1,0 +1,8 @@
+<view class="dtyz-all-item">
+    <image class="dtyz-all-item-image" src="{{item.small_banner}}"></image>
+    <view class="dtyz-all-item-texts">
+        <text>{{item.name}}</text>
+        <text>{{item.ssi_desc}}</text>
+    </view>
+    <subscribe-button item="{{item}}"></subscribe-button>
+</view>

@@ -1,0 +1,198 @@
+<view class="bg"></view>
+<view class="home-head">
+    <image class="head-bg" src="../../images/home_head_bg.png"></image>
+    <view class="head-top" wx:if="{{totalSum.isShowModel==1}}">
+        <text class="money-tip ">需预留剩余额(元)</text>
+        <text class="money-num main-color">{{totalSum.workingAmount}}</text>
+        <view class="repay-body" hidden="{{totalFrozenAmount>0?false:true}}">
+            <image class="ic-repaying" src="../../images/ic_repaying.png"></image>
+            <text class="repaying-tip">还款中: ￥{{totalFrozenAmount}}</text>
+        </view>
+    </view>
+    <view class="head-part">
+        <view class="head-half">
+            <text class="head-title">卡剩余总额</text>
+            <text class="head-num">{{totalSum.totalBalance}}</text>
+        </view>
+        <view bindtap="onAccountMoney" class="head-half">
+            <text class="head-title">账户余额</text>
+            <view class="head-num-part">
+                <text class="head-num">{{totalSum.merchantAmount}}</text>
+                <text class="ic-arrow-right" wx:if="{{totalSum.isShowModel}}"></text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="onMoreNotification" class="head-notification" hidden="{{firstAnnouncement==''}}">
+        <view animation="{{animationData}}" class=" head-notification-body">
+            <image class="ic-notification" mode="aspectFit" src="../../images/ic_notification.png"></image>
+            <text class="notification-title">公告</text>
+            <text class="notification-content">{{firstAnnouncement}}</text>
+        </view>
+    </view>
+</view>
+<view class="body">
+    <scroll-view bindscroll="onScrollCard" class="scroll-list" scrollY="true">
+        <view class="item-parent" wx:for="{{cards}}" wx:for-index="idx" wx:key="cardId">
+            <view bindtap="onClickItem" bindtouchend="touchEnd" bindtouchstart="touchStart" catchlongtap="onLongClickItem" class="item-card {{!item.status||item.lockStatus||item.bindFlag?'item-card-lock':''}}" data-position="{{idx}}">
+                <view class="item-bank-div">
+                    <image class="item-bank-icon" mode="aspectFit" src="{{item.url}}"></image>
+                    <text class="item-bank-num">{{item.last4CardNo}}</text>
+                    <text class="item-bank-name">{{item.bankName}}</text>
+                    <text class="item-edit {{item.status!=0&&item.lockStatus==0&&item.bindFlag!=1}}">填写信息（必填）</text>
+                </view>
+                <view class="item-card-body">
+                    <view class="card-body-top">
+                        <view class="item-card-repay" wx:if="{{item.countdown>=200}}">
+                            <text class="item-card-repay-tip">未还金额</text>
+                            <text class="item-card-repay-money" wx:if="{{item.notRepaymentSum<10000}}">{{item.notRepaymentSum}}</text>
+                            <text class="item-card-repay-big-money" wx:else>{{item.notRepaymentSum}}</text>
+                            <view class="item-card-repay-b">
+                                <text class="main-color  item-countdown-time">{{item.countdown-200}}</text>
+                                <text class="item-countdown-time-desc">天
+还款</text>
+                            </view>
+                        </view>
+                        <view style="display:flex; margin-top:70rpx; margin-left:350rpx;" wx:else>
+                            <text class="red item-countdown-time">{{item.countdown-100}}</text>
+                            <text class="item-countdown-time-desc">天
+出账</text>
+                        </view>
+                    </view>
+                    <view class="card-body-bottom">
+                        <view class="card-body-bottom-item">
+                            <text class="item-bottom-tip">剩余额度</text>
+                            <text class="item-bottom-num">{{item.balance}}</text>
+                        </view>
+                        <view class="card-body-bottom-item">
+                            <text class="item-bottom-tip">本期账单</text>
+                            <text class="item-bottom-num" decode="{{true}}">{{item.billSum>=0?item.billSum:'&nbsp;'}}</text>
+                        </view>
+                    </view>
+                </view>
+                <image class="edit-bill-tip-img" hidden="{{!item.isNeedFill}}" src="../../images/update_bill_tip.png"></image>
+            </view>
+            <view bindtap="channelForCard" class="have-channel-flag" data-position="{{idx}}" wx:if="{{!item.haveChannelFlag}}">
+                <image src="../../images/have_channel_flag.png"></image>
+					点击绑定通道
+				</view>
+            <text class="item-lockStatus-tip" wx:if="{{item.lockStatus!=0}}">{{item.errorMsg}}</text>
+            <button catchtap="onRebindChannel" class="btn-small item-rebind-channel" data-position="{{idx}}" wx:if="{{item.bindFlag}}">重新绑定通道</button>
+            <text catchtap="onClickUpdateBill" class="main-background item-menu item-menu-position" data-position="{{idx}}">更新账单</text>
+            <button catchtap="onUnLockCard" class=" main-color main-background item-menu item-menu-position" data-position="{{item.cardId}}" hidden="{{item.status}}">启动</button>
+            <image class="img-stamp-pause" hidden="{{item.status}}" src="../../images/bg_pause.png"></image>
+            <button catchtap="onLockCard" class=" main-background item-menu btn-lock" data-position="{{item.cardId}}" hidden="{{!item.status}}">暂停</button>
+        </view>
+        <view bindtap="addNewCard" class="bottom" hidden="{{userInfo.isLogin==0}}">
+            <image class="img-add-card" src="../../images/ic_add_card.png"></image>
+            <text class="text-add-card">新增卡</text>
+        </view>
+        <view hidden="{{userInfo.isLogin==0||totalSum.isShowModel==0}}">
+            <text bindtap="onTeach" class="btn-fast-use">快速使用</text>
+        </view>
+        <view class="no-login-info" hidden="{{userInfo.isLogin==1}}">
+            <image class="img-no-login" src="../../images/bg_no_login_tip.png"></image>
+            <text class="no-login-tip">暂无数据，请立即登录</text>
+            <button bindtap="onLogin" class="main-color main-border-color btn-go-login">立即登录</button>
+        </view>
+    </scroll-view>
+</view>
+<modal bindcancel="cancelDeleteCard" bindconfirm="confirmDeleteCard" cancelText="取消" confirmText="确定" hidden="{{hiddenDeleteCard}}" title="提示">
+    <view style="display:flex;align-items: center;flex-direction: column; ">
+        <image class="img-modal-delete" src="../../images/ic_delete_card.png"></image>
+        <text>是否删除{{deleteCardName}}卡</text>
+    </view>
+</modal>
+<modal bindcancel="hiddenLockCardModel" bindconfirm="confirmLockCard" cancelText="取消" confirmText="确定" wx:if="{{hiddenLockCard}}">
+    <view class="lockCard">
+        <view>!</view>
+		是否要暂停消费？
+	</view>
+</modal>
+<modal bindcancel="cancelEditTip" bindconfirm="confirmEditTip" cancelText="取消" confirmText="填写信息" hidden="{{hiddenEditTip}}" title="通知">
+	请先完善卡片出账日还款日等
+	<label style="color:red">必填信息</label>， 才可更新账单制定还款计划。
+</modal>
+<modal bindcancel="cancelBillTip" bindconfirm="confirmBillTip" cancelText="取消" confirmText="确定" hidden="{{hiddenBillTip}}" title="重要提示">
+    <image class="img-bill-tip" src="../../images/bill_tip.png"></image>
+</modal>
+<modal bindcancel="cancelBindResult" bindconfirm="cancelBindResult" cancelText="取消" confirmText="确定" hidden="{{!showBindResult}}" title="">
+    <view style="display:flex;   justify-content: center;align-items: center;">
+        <image class="img-bind-tip" src="../../images/img-bind-success.png"></image>
+    </view>
+</modal>
+<view class="mask" hidden="{{!showImgNotification}}">
+    <view bindtap="onCancelNotification" class="mask-notification-dialog">
+        <image class="mask-img-notification" mode="widthFix" src="{{notificationImage}}"></image>
+        <image class="mask-img-notification-close" src="../../images/ic_close.png"></image>
+    </view>
+</view>
+<view class="mask" hidden="{{hiddenWelcomeTip}}">
+    <view class="welcome-tip" hidden="{{hiddenWelcomeTip}}">
+        <image src="../../images/bg_welcome_tip.png"></image>
+        <button bindtap="addNewCard">
+            <image mode="widthFix" src="../../images/bg_welcome_tip-btn1.png"></image>
+            <text>实名认证</text>
+        </button>
+        <button bindtap="onTeach">
+            <image mode="widthFix" src="../../images/bg_welcome_tip-btn2.png"></image>
+            <text>快速使用教程</text>
+        </button>
+        <view bindtap="cancelWelcomeTip">关闭</view>
+    </view>
+</view>
+<view class="mask" hidden="{{!showTextNotification}}">
+    <view class="mask-notification-text-body">
+        <image class="mask-img-notification-title" mode="widthFix" src="../../images/bg_notice_title.png"></image>
+        <text class="mask-text-notification">{{notificationContent}}</text>
+        <view class="mask-line"></view>
+        <button bindtap="onCancelNotification" class="btn-main" style="width:300rpx;margin-top:20rpx;margin-bottom:30rpx;">知道了</button>
+    </view>
+</view>
+<view class="mask" hidden="{{channelBindTip.isShowPop==0?true:false}}">
+    <view class="mask-dialog" style="align-items: center;width:531rpx;">
+        <image class="mask-channel-notification-head" src="../../images/bg_channel_notification_head.png"></image>
+        <view class="mask-body">
+            <text class="red">{{'[ '+channelBindTip.channelName+' ]'}}</text>
+            <text>通道还有信用卡未绑定，请绑定</text>
+        </view>
+        <text class="mask-tip">{{channelBindTip.msg}}</text>
+        <view class="mask-bottom" style="width:100%;">
+            <button bindtap="cancelChannelNotifcation" class="btn-mask btn-mask-contact">取消</button>
+            <view class="mask-bottom-line"></view>
+            <button bindtap="onNextChannelNotifcation" class="btn-mask" style="color:green">去绑定</button>
+        </view>
+    </view>
+</view>
+<view class="mask" hidden="{{!showErrorMessageDialog}}">
+    <view class="mask-dialog" style="align-items: center;width:531rpx;">
+        <image class="mask-error-message-head" src="../../images/bg_error_message_dialog_head.png"></image>
+        <view class="mask-body" style="font-size:28rpx;">
+            <text>您有</text>
+            <text style="color:#E20D0D;">【{{errorMessageCount}}】条 </text>
+            <text>失败记录，请及时处理，以免影响还款</text>
+        </view>
+        <view class="mask-bottom" style="width:100%">
+            <button bindtap="cancelErrorMessage" class="btn-mask btn-mask-contact">取消</button>
+            <view class="mask-bottom-line"></view>
+            <button bindtap="onNextErrorMessage" class="btn-mask main-color">去处理</button>
+        </view>
+    </view>
+</view>
+<view class="mask" hidden="{{!forceBindCard.isShowPop}}">
+    <view class="mask-dialog" style="align-items:center;width:531rpx;">
+        <view class="mask-title" style="font-size:36rpx;margin-top:30rpx">提示</view>
+        <view class="mask-body" style="font-size:30rpx;">{{forceBindCard.msg}}</view>
+        <view class="mask-bottom" style="width:100%;">
+            <button class="btn-mask btn-mask-contact" openType="contact">联系客服</button>
+            <view class="mask-bottom-line"></view>
+            <button bindtap="confirmForceBindCard" class="btn-mask main-color" wx:if="{{forceBindCard.type==1}}">去绑定</button>
+            <picker bindchange="bindRegionChange" mode="region" wx:if="{{forceBindCard.type==2}}">
+                <button class="btn-mask main-color">去切换区域</button>
+            </picker>
+        </view>
+    </view>
+</view>
+<button animation="{{scrollAnimation}}" bindtap="onTeach" class="btn-teach-tip btn-contact" wx:if="{{totalSum.isShowModel==1}}">教程</button>
+<button animation="{{scrollAnimation}}" bindtap="onErrorMessage" class="btn-message btn-contact {{showNewMessageTip}}">风险
+提示</button>
+<button animation="{{scrollAnimation}}" class=" view-help btn-contact " openType="contact">客服</button>

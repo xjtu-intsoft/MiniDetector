@@ -1,0 +1,9 @@
+<component-topNavigation bindtoMyPage="toMyPage" id="topNavigation" position="center" showText="false" topTitle="助手" topType="setting" wx:if="{{systemInfo['v7.0.0']}}"></component-topNavigation>
+<view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+<view catchtap="shadeClick" class="pageShade" wx:if="{{pageShade['show']}}">
+    <view class="loading-con" wx:if="{{pageShade['loading']}}">
+        <view class="loading-in"></view>
+        <view class="loading-tip">{{pageShade['loading']}}</view>
+    </view>
+</view>
+<view class="as-con"></view>

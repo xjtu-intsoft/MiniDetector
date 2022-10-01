@@ -1,0 +1,85 @@
+<view class="card-con">
+    <view class="colums left">
+        <block wx:for="{{tools.listColums( tools.mixedroofPlacementAndOthers(roofPlacementList,otherCardData) ).colOne}}" wx:for-index="idx" wx:key="idx">
+            <view catch:tap="{{sortBy=='sortByMycard'?'_toEdit':'_toWallDetail'}}" class="itemCard" data-formtoken="{{item.formtoken}}" data-i="{{idx}}" data-id="{{item.id}}" data-open-gid="{{item.openGid}}" data-type="{{sortBy}}" wx:if="{{item.intro}}">
+                <view class="newcardInfoCon {{sortBy!='sortByMycard'?'border-bottom':''}}">
+                    <view class="idy-top">
+                        <view class="idy" wx:if="{{item.modelIndex['type']!='WebTemp'&&item.industryData}}">
+              {{item.industryData}}
+            </view>
+                        <view class="user-top" wx:if="{{item.isTop}}">置顶</view>
+                    </view>
+                    <view class="intro">
+                        <view class="i">{{item.intro}}</view>
+                    </view>
+                    <view class="user">
+                        <view class="user-avatar">
+                            <image class="img" src="{{item.wxUrl}}" wx:if="{{item.wxUrl}}"></image>
+                            <view class="img defaultAvator" wx:else>{{tools.defaultAvator(item.name)}}</view>
+                        </view>
+                        <view class="user-name">{{item.name}}</view>
+                        <view class="user-job">{{item.job}}</view>
+                    </view>
+                </view>
+            </view>
+            <view catch:tap="{{sortBy=='sortByMycard'?'_toEdit':'_toWallDetail'}}" class="itemCard" data-formtoken="{{item.formtoken}}" data-i="{{idx}}" data-id="{{item.id}}" data-open-gid="{{item.openGid}}" data-type="{{sortBy}}" wx:else>
+                <view class="newcardInfoCon {{sortBy!='sortByMycard'?'border-bottom':''}}">
+                    <view class="idy-top">
+                        <view class="idy" wx:if="{{item.modelIndex['type']!='WebTemp'&&item.industryData}}">
+              {{item.industryData}}
+            </view>
+                        <view class="user-top" wx:if="{{item.isTop}}">置顶</view>
+                    </view>
+                    <view class="avatar">
+                        <image class="img" src="{{item.wxUrl}}" wx:if="{{item.wxUrl}}"></image>
+                        <view class="img defaultAvator" wx:else>{{tools.defaultAvator(item.name)}}</view>
+                    </view>
+                    <view class="name">{{item.name}}</view>
+                    <view class="job">{{item.job}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="colums right">
+        <block wx:for="{{tools.listColums( tools.mixedroofPlacementAndOthers(roofPlacementList,otherCardData) ).colTwo}}" wx:for-index="idx" wx:key="idx">
+            <view catch:tap="{{sortBy=='sortByMycard'?'_toEdit':'_toWallDetail'}}" class="itemCard" data-formtoken="{{item.formtoken}}" data-i="{{idx}}" data-id="{{item.id}}" data-open-gid="{{item.openGid}}" data-type="{{sortBy}}" wx:if="{{item.intro}}">
+                <view class="newcardInfoCon {{sortBy!='sortByMycard'?'border-bottom':''}}">
+                    <view class="idy-top">
+                        <view class="idy" wx:if="{{item.modelIndex['type']!='WebTemp'&&item.industryData}}">
+              {{item.industryData}}
+            </view>
+                        <view class="user-top" wx:if="{{item.isTop}}">置顶</view>
+                    </view>
+                    <view class="intro">
+                        <view class="i">{{item.intro}}</view>
+                    </view>
+                    <view class="user">
+                        <view class="user-avatar">
+                            <image class="img" src="{{item.wxUrl}}" wx:if="{{item.wxUrl}}"></image>
+                            <view class="img defaultAvator" wx:else>{{tools.defaultAvator(item.name)}}</view>
+                        </view>
+                        <view class="user-name">{{item.name}}</view>
+                        <view class="user-job">{{item.job}}</view>
+                    </view>
+                </view>
+            </view>
+            <view catch:tap="{{sortBy=='sortByMycard'?'_toEdit':'_toWallDetail'}}" class="itemCard" data-formtoken="{{item.formtoken}}" data-i="{{idx}}" data-id="{{item.id}}" data-open-gid="{{item.openGid}}" data-type="{{sortBy}}" wx:else>
+                <view class="newcardInfoCon {{sortBy!='sortByMycard'?'border-bottom':''}}">
+                    <view class="idy-top">
+                        <view class="idy" wx:if="{{item.modelIndex['type']!='WebTemp'&&item.industryData}}">
+              {{item.industryData}}
+            </view>
+                        <view class="user-top" wx:if="{{item.isTop}}">置顶</view>
+                    </view>
+                    <view class="avatar">
+                        <image class="img" src="{{item.wxUrl}}" wx:if="{{item.wxUrl}}"></image>
+                        <view class="img defaultAvator" wx:else>{{tools.defaultAvator(item.name)}}</view>
+                    </view>
+                    <view class="name">{{item.name}}</view>
+                    <view class="job">{{item.job}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<wxs module="tools" src="../../../wxs/defaultAvator.wxs" />

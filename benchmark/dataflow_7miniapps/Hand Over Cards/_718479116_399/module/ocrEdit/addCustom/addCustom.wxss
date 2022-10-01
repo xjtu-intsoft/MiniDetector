@@ -1,0 +1,96 @@
+.addMoreChar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: rgba(0,0,0,.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.addMoreChar .addMoreChar-con {
+    background-color: #fff;
+    width: 560rpx;
+    margin: 170rpx auto auto;
+    border-radius: 16rpx;
+    font-size: 36rpx;
+}
+
+.addMoreChar .addMoreChar-con .title {
+    color: #111;
+    text-align: center;
+    padding-top: 26rpx;
+    padding-bottom: 40rpx;
+    position: relative;
+    font-weight: 600;
+}
+
+.addMoreChar .addMoreChar-con .title-delete {
+    position: absolute;
+    right: 36rpx;
+    top: 34rpx;
+    height: 34rpx;
+    font-size: 24rpx;
+    color: #f12424;
+    line-height: 34rpx;
+}
+
+.addMoreChar .addMoreChar-con input {
+    width: 458rpx;
+    margin: auto;
+    font-size: 32rpx;
+    height: 64rpx;
+    border-radius: 6rpx;
+    border: 1px solid #999;
+    padding: 0 16rpx;
+}
+
+.addMoreChar .addMoreChar-inputTip {
+    position: absolute;
+    font-size: 22rpx;
+    margin-left: 36rpx;
+    margin-top: -4rpx;
+    color: #f12424;
+}
+
+.addMoreChar .addMoreChar-button {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 38rpx;
+    font-weight: 500;
+}
+
+.addMoreChar .addMoreChar-button .cancel,.addMoreChar .addMoreChar-button .confirm {
+    width: 50%;
+    text-align: center;
+    color: #666;
+    position: relative;
+    padding: 24rpx 0;
+}
+
+.addMoreChar .addMoreChar-button .cancel {
+    color: #666;
+    font-size: 400;
+}
+
+.addMoreChar .addMoreChar-button .confirm {
+    color: #3f51b5;
+}
+
+.addMoreChar .addMoreChar-button .cancel::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-right: 1px solid #e5e5e5;
+}
+
+.placeholderColor {
+    color: #cacaca;
+}

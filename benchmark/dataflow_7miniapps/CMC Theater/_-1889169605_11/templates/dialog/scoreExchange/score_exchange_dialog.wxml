@@ -1,0 +1,47 @@
+<template name="pwd_dialog">
+    <view class="pwd_parent">
+        <view catchtap="dismissDialog" class="pwd_screen {{isShowDialog?'pwd_screen_anim':''}} " hidden="{{!isShow}}"></view>
+        <view class="{{bodyStyle}} {{isShowDialog?animStyle:''}}" hidden="{{!isShow}}">
+            <view class="pwd_dialog_close">
+                <image catchtap="dismissDialog" class="image_close" src="/images/common/tankuang_close.png"></image>
+                <text class="text_close">{{title}}</text>
+                <text bindtap="confirmPwd" class="text_confirm_pwd">确认</text>
+            </view>
+            <view class="h_line_norma"></view>
+            <view class="dialog_score">
+                <view class="dialog_score_value_parent">
+                    <text class="dialog_score_text">消费积分</text>
+                    <text class="dialog_score_value">{{coupon.point}}</text>
+                </view>
+                <view class="h_line_norma"></view>
+                <view class="dialog_score_vip_parent">
+                    <image class="dialog_score_vip_img" src="/images/cinema/huiyuanka_logo.png"></image>
+                    <text class="dialog_score_vip_text">{{coupon.level}}</text>
+                </view>
+            </view>
+            <view class="pwd_input {{isNeedPwd?'':'hidden_view'}}">
+                <input class="pwd_input_content" disabled="true" password="true" type="text" value="{{pwdstr}}"></input>
+            </view>
+            <view class="pwd_nums  {{isNeedPwd?'':'hidden_view'}}">
+                <view catchtap="num_click" class="pwd_nums_item" data-index="{{index}}" wx:for="{{nums}}">
+                    <view wx:if="{{index<9}}">
+                        <image class="pwd_num_image" src="/images/common/key_background.png"></image>
+                        <text class="pwd_num_text">{{item}}</text>
+                    </view>
+                    <view wx:elif="{{index==9}}">
+                        <image class="pwd_num_image"></image>
+                        <text class="pwd_num_text"></text>
+                    </view>
+                    <view wx:elif="{{index==10}}">
+                        <image class="pwd_num_image" src="/images/common/key_background.png"></image>
+                        <text class="pwd_num_text">0</text>
+                    </view>
+                    <view class="pwd_num_image_delete_parent" wx:else>
+                        <image class="pwd_num_image_delete" src="/images/common/num_delete.png"></image>
+                    </view>
+                </view>
+            </view>
+            <text catchtap="dialogOkClick" class="dialog_score_ok" hidden="{{isNeedPwd}}">确定支付</text>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,23 @@
+<view class="business-con">
+    <view class="business addBold5">
+        <view class="business-title" wx:if="{{!cancelBusinessBind&&defCard['cardType']!==3}}">
+            <view class="txt">我的企业</view>
+            <view catch:tap="cancelBusiness" class="business-connect">
+                <image class="img1" src="/images/newEdit/cancel-link.png"></image>
+                <view class="v">取消关联}}</view>
+            </view>
+        </view>
+        <view catch:tap="toBuildHomePage" class="add-business" wx:if="{{cancelBusinessBind&&defCard.cardType!==3}}">
+            <image class="i" src="/images/newEdit/link.png"></image>
+            <view class="txt">关联企业</view>
+        </view>
+        <view catch:tap="toLookHomePageEdit" class="business-list" wx:if="{{!cancelBusinessBind&&defCard.cardType!==3}}">
+            <image class="busi-img" src="{{defCard['company_data']['logo']?defCard['company_data']['logo']:'/images/cdetails/homePage.png'}}"></image>
+            <view class="busi-com">
+                <view class="t1">{{defCard['company_data']['name']?defCard['company_data']['name']:defCard['company_data']['fullname']}}</view>
+                <view class="t2">{{defCard['company_data']['slogan']}}</view>
+            </view>
+            <image class="more" src="/images/newEdit/arrow-r.png"></image>
+        </view>
+    </view>
+</view>

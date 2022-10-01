@@ -1,0 +1,175 @@
+page {
+    background: #f8f8f8;
+}
+
+.ordersuccess_container {
+    padding-bottom: 114rpx;
+}
+
+.ordersuccess_container .orderSuccessContainer {
+    width: 100%;
+    height: 540rpx;
+    position: relative;
+}
+
+.ordersuccess_container .orderSuccessContainer .commit {
+    background: linear-gradient(90deg,#ff9742,#ff7200);
+    width: 100%;
+    height: 340rpx;
+    text-align: center;
+    padding-top: 46rpx;
+    padding-bottom: 36rpx;
+    color: #fff;
+}
+
+.ordersuccess_container .orderSuccessContainer .commit image {
+    width: 62rpx;
+    height: 62rpx;
+}
+
+.ordersuccess_container .orderSuccessContainer .commit .tip {
+    margin-top: 16rpx;
+    font-size: 34rpx;
+}
+
+.ordersuccess_container .orderSuccessContainer .commit .tip1 {
+    margin-top: 4rpx;
+    font-size: 28rpx;
+}
+
+.ordersuccess_container .orderSuccessContainer .orderinfo {
+    width: 100%;
+    height: 272rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ordersuccess_container .orderSuccessContainer .orderinfo .timewrapper {
+    width: 100%;
+    background: #fff;
+    padding: 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 1rpx solid #e4e0de;
+}
+
+.ordersuccess_container .orderSuccessContainer .orderinfo .addresswrapper {
+    width: 100%;
+    background: #fff;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.ordersuccess_container .orderSuccessContainer .orderinfo .addresswrapper .addwrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10rpx 0;
+}
+
+.ordersuccess_container .orderSuccessContainer .orderinfo .addresswrapper .addwrapper .flex {
+    display: flex;
+    align-items: center;
+}
+
+.ordersuccess_container .orderSuccessContainer .orderinfo .addresswrapper .addwrapper image {
+    width: 32rpx;
+    height: 32rpx;
+    flex-shrink: 0;
+}
+
+.ordersuccess_container .orderSuccessContainer .title {
+    font-size: 26rpx;
+    color: #aca3a3;
+    min-width: 65rpx;
+    flex-shrink: 0;
+}
+
+.ordersuccess_container .orderSuccessContainer .val {
+    font-size: 26rpx;
+    color: #584f4f;
+}
+
+.ordersuccess_container.addPadding {
+    padding-bottom: 150rpx;
+}
+
+.bottom {
+    display: flex;
+    padding: 20rpx 30rpx;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+.bottom view {
+    width: 330rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    text-align: center;
+    border-radius: 4rpx;
+    font-size: 30rpx;
+}
+
+.bottom .shouye {
+    border: 1rpx solid #aea7a7;
+    color: #aea7a7;
+}
+
+.bottom .watch {
+    background: linear-gradient(90deg,#ff9742,#ff7200);
+    color: #fff;
+}
+
+.model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+}
+
+.model .modelinfo {
+    position: absolute;
+    top: 308rpx;
+    left: 120rpx;
+    width: 512rpx;
+    height: 442rpx;
+    background: #fff;
+}
+
+.model .modelinfo image {
+    width: 100%;
+    height: 158rpx;
+}
+
+.model .modelinfo .info {
+    padding: 30rpx;
+    box-sizing: border-box;
+    width: 100%;
+    color: #584f4f;
+    font-size: 24rpx;
+}
+
+.model .modelinfo .btn {
+    width: 452rpx;
+    height: 60rpx;
+    background: linear-gradient(90deg,#ff9742,#ff7200);
+    border-radius: 4rpx;
+    color: #fff;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    margin: 20rpx auto 0;
+}

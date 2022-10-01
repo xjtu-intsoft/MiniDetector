@@ -1,0 +1,12 @@
+<view catchtouchmove="ss" class="new-guideCon">
+    <view class="con">
+        <image catch:tap="_closeGuide" class="close" src="/images/newEdit/n-close.png"></image>
+        <image class="icon" src="/images/success-07C160.png"></image>
+        <view class="infor">恭喜你！拥有了电子名片</view>
+        <view class="shareerInfo">
+            <image class="img" src="{{picData['userpic']+'?time='+random}}"></image>
+        </view>
+        <slot name="share"></slot>
+        <slot name="noshare"></slot>
+    </view>
+</view>

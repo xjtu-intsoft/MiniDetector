@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "story-video": "/components/article-list/story-video/story-video",
+        "story-many-image": "/components/article-list/story-many-image/story-many-image",
+        "has-more-data": "/components/has-more-data/has-more-data",
+        "story-one-image": "/components/article-list/story-one-image/story-one-image"
+    }
+}

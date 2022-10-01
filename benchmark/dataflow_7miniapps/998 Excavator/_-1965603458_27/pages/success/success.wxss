@@ -1,0 +1,220 @@
+.pages {
+    background: #eee;
+}
+
+.image_box {
+    display: flex;
+}
+
+.image_box>image {
+    flex: 1;
+}
+
+.issue_num {
+    font-size: 28rpx;
+    color: #666;
+    text-align: center;
+}
+
+.pic_box {
+    width: 480rpx;
+    margin: 20rpx auto;
+    overflow: hidden;
+}
+
+.pic_box>image {
+    width: 55rpx;
+    height: 55rpx;
+    margin-left: 10rpx;
+}
+
+.chui_b {
+    color: #b2b2b2;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 50rpx;
+    padding: 80rpx 110rpx;
+}
+
+.guidance-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.3;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.share_msg {
+    text-align: left;
+    font-size: 38rpx;
+    padding: 20rpx 20rpx 10rpx 30rpx;
+    background: #fff;
+    overflow: hidden;
+}
+
+.share_way>view>button {
+    margin-top: 30rpx;
+    padding: 0;
+    background: #fff;
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.share_way>view>button>image {
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.share_way .wx_flock {
+    float: left;
+    margin-left: 150rpx;
+}
+
+.share_way .wx_friend {
+    float: right;
+    margin-right: 150rpx;
+}
+
+.share_way {
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 75rpx;
+    margin-top: 50rpx;
+}
+
+.share_text {
+    color: #6a6a6a;
+    margin: 20rpx 100rpx 0 100rpx;
+    text-align: center;
+    font-size: 25rpx;
+}
+
+.share_text icon {
+    margin-top: -6rpx;
+}
+
+.save_Image {
+    color: #fff;
+    background: #3392ff;
+    position: fixed;
+    margin: 0!important;
+    bottom: 16rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.huabu {
+    width: 77%;
+    height: 940rpx;
+    margin: 9% auto;
+    background: #fff;
+    box-shadow: 0 0 15rpx 10rpx #ccc;
+}
+
+.line {
+    width: 100%;
+    height: 1rpx;
+    border-top: 1px solid #ccc;
+}
+
+.introduce {
+    padding: 0 20rpx 20rpx 30rpx;
+    color: #888;
+    font-size: 30rpx;
+    background: #fff;
+}
+
+.weui-btn {
+    background: #3392ff;
+    color: #fff;
+    margin: 50rpx 50rpx 20rpx 50rpx;
+    border-radius: 5rpx;
+}
+
+.shar_way {
+    height: 100%;
+}
+
+.share_box {
+    font-size: 34rpx;
+    background: #eee;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.share_box>view {
+    height: 90rpx;
+}
+
+.share_box image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: middle;
+    margin-right: 15rpx;
+    margin-top: -7rpx;
+}
+
+.share_box button {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 0;
+    font-size: 32rpx;
+    line-height: 90rpx;
+}
+
+.share_box>view:nth-child(2) {
+    border-top: 1px solid #eee;
+}
+
+.share_box>view:nth-child(3) {
+    margin-top: 15rpx;
+}
+
+@-webkit-keyframes show_share {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes show_share {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes hide_share {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes hide_share {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}

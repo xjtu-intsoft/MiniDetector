@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "subscribe-core": "../subscribe-core/subscribe-core",
+        "subscribe-top": "../subscribe-top/subscribe-top"
+    }
+}

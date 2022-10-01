@@ -1,0 +1,8 @@
+<view class="adver-con" wx:if="{{advertisementCon.length>0}}">
+    <view class="advar-title">活动专区</view>
+    <swiper bindchange="_change" class="swiper-con" current="{{current}}">
+        <swiper-item class="con-item" wx:for="{{advertisementCon}}" wx:key="{{item}}">
+            <image bindtap="_toMinipro" data-i="{{index}}" src="{{item.url+'?markTime='+markTime}}"></image>
+        </swiper-item>
+    </swiper>
+</view>

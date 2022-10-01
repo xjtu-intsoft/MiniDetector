@@ -1,0 +1,12 @@
+<template name="sales_list_item">
+    <view class="sales_list_item">
+        <image class="sales_list_item_selected" src="{{saleShop.src}}"></image>
+        <image class="sales_list_item_image" src="{{saleShop.pic}}"></image>
+        <view class="sales_list_item_info">
+            <text class="sales_list_item_name">{{saleShop.goods_alias}}</text>
+            <text class="sales_list_item_desc">{{saleShop.intro}}</text>
+            <text class="sales_list_item_price">+{{is_memeber=='1'?saleShop.member_price:saleShop.nonmember_price}}</text>
+        </view>
+    </view>
+    <view class="h_line" style="margin-left:88rpx;"></view>
+</template>

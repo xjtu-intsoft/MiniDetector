@@ -1,0 +1,4 @@
+<view catch:tap="_openVideo" class="video-con">
+    <image class="video-img" src="/images/newMain/pause-a.png"></image>
+    <view class="txt">30秒快速了解电子名片</view>
+</view>

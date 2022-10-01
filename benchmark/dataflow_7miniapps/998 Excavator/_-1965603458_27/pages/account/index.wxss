@@ -1,0 +1,631 @@
+@import "../../__wuBaseWxss__/10.wxss";
+
+.dot {
+    width: 18rpx;
+    height: 18rpx;
+    border-radius: 50%;
+    background: red;
+}
+
+.huodong {
+    width: 100%;
+    height: 150rpx;
+}
+
+.weui-cells_after-title {
+    margin-top: 20rpx;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    z-index: 99999;
+    background: rgba(000,000,000,0.5);
+}
+
+.flex {
+    display: flex;
+}
+
+.hide {
+    overflow: hidden;
+}
+
+.show {
+    display: block;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex_center {
+    justify-content: center;
+}
+
+.flex_end {
+    justify-content: flex-end;
+}
+
+.flex_star {
+    justify-content: flex-start;
+}
+
+.flex_around {
+    justify-content: space-between;
+}
+
+.flex_items {
+    align-items: center;
+}
+
+.bg_f3 {
+    background: #3392ff;
+}
+
+.pr {
+    position: relative;
+}
+
+.po {
+    position: absolute;
+}
+
+.t12_l27 {
+    top: 12px;
+    left: 27px;
+}
+
+.bg_ff {
+    background: #fff;
+}
+
+.bg_f8 {
+    background: #f8f8f8;
+}
+
+.padd_10_0 {
+    padding: 10px 0px;
+}
+
+.ver_center {
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
+}
+
+.f_16rpx {
+    font-size: 34rpx;
+}
+
+.f_14rpx {
+    font-size: 26rpx;
+}
+
+.f_14 {
+    font-size: 14px;
+}
+
+.f_12 {
+    font-size: 12px;
+}
+
+.c_ff {
+    color: #fff;
+}
+
+.c_93 {
+    color: #93a0ba;
+}
+
+.c_f3 {
+    color: #3392ff;
+}
+
+.c_red {
+    color: red;
+}
+
+.c_e6 {
+    color: #999;
+}
+
+.c_00 {
+    color: #000;
+}
+
+.font_weight {
+    font-weight: bold;
+}
+
+.middle {
+    vertical-align: bottom;
+}
+
+.pad_left {
+    padding-left: 12px;
+}
+
+.pad_right2 {
+    padding-right: 2px;
+}
+
+.pad_top6 {
+    padding-top: 6px;
+}
+
+.pad_left6 {
+    padding-left: 6px;
+}
+
+.pad_left10 {
+    padding-left: 10px;
+}
+
+.pad_6_10 {
+    padding: 10px 10px;
+}
+
+.pad_top6 {
+    padding-top: 6rpx;
+}
+
+.padd_14_16 {
+    padding: 10px 16px;
+}
+
+.pad15_15 {
+    padding: 34px 0px;
+}
+
+.mg_66 {
+    margin-bottom: 66px;
+}
+
+.member {
+    padding: 4px 10px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.nodevice {
+    text-align: center;
+    padding: 30px;
+}
+
+.guanzhu {
+    background: #f8f8f8;
+    text-align: center;
+}
+
+.guanzhu view {
+    display: inline-block;
+    margin: 16px 0px;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 26rpx;
+    background: #fff;
+}
+
+.mr_r2 {
+    margin-right: 2%;
+}
+
+.bg_da {
+    background: #dadada;
+}
+
+.bg_79 {
+    background: #79ca30;
+}
+
+.bg_ad {
+    background: #1aad19;
+}
+
+.border_1da {
+    border: none;
+}
+
+.border_t1r {
+    border-top: 1px solid #eee;
+}
+
+.border_b1r {
+    border-bottom: 1px solid #eee;
+}
+
+.text-align {
+    text-align: center;
+}
+
+.w_100 {
+    width: 100%;
+}
+
+.w_50 {
+    width: 50%;
+}
+
+.w_80 {
+    width: 80%;
+}
+
+.w_30 {
+    width: 30%;
+}
+
+.w_70 {
+    width: 67%;
+}
+
+.content {
+    text-align: center;
+}
+
+.fixed {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+
+.border_red {
+    border: 1px solid red;
+}
+
+.border_cf3 {
+    border: 1px solid #3392ff;
+}
+
+.border_green {
+    border: 1px solid green;
+}
+
+.pad_bor {
+    padding: 4px 6px;
+    border-radius: 10%;
+    width: 77rpx;
+    text-align: center;
+}
+
+.mr_8 {
+    margin-right: 5px;
+}
+
+.share {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    display: block;
+    float: right;
+    line-height: 0;
+}
+
+.share:after {
+    content: "";
+    border: none;
+}
+
+.expr {
+    font-size: 12px;
+}
+
+.share image {
+    width: 40px;
+    height: 16px;
+}
+
+.relative {
+    position: relative;
+}
+
+.markcomplaint {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 12px;
+    color: #fff;
+    background: red;
+    padding: 5px;
+}
+
+.w_32 {
+    width: 33%;
+}
+
+.voter {
+    padding: 0px;
+    margin: 0px;
+    background: none;
+}
+
+.voter:after {
+    content: "";
+    border: none;
+}
+
+.issue {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    right: 25rpx;
+    bottom: 20rpx;
+    background-color: #3392ff;
+    box-shadow: 0 0 2px 2px #3392ff;
+}
+
+.issue view {
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 800;
+}
+
+.sharebts {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: #f8f8f8;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.sharebts view {
+    width: 45%;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0px 2%;
+    padding: 7px 0px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    background: #fff;
+    height: 32rpx;
+}
+
+.live_help {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 20rpx;
+    right: 25rpx;
+}
+
+.live_help>button {
+    padding: 0;
+    margin: 0;
+}
+
+.sharebts button {
+    border: none;
+    background: none;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.sharebts button::after {
+    content: '';
+    width: 0;
+    height: 0;
+}
+
+.changebg {
+    width: 46rpx;
+    height: 46rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+
+.rev {
+    position: relative;
+    height: 170rpx;
+    background-size: 100% 100%;
+}
+
+.icon_list {
+    vertical-align: middle;
+    width: 45rpx;
+    height: 45rpx;
+    margin: -10rpx 20rpx 0 0;
+}
+
+.weui-label {
+    font-size: 32rpx;
+    color: #666;
+}
+
+.na-cell {
+    border-top: 1px solid #d9d9d9;
+}
+
+.weui-input {
+    text-align: right;
+}
+
+.font_size {
+    font-size: 30rpx;
+}
+
+.clear_btn {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.guidance {
+    position: fixed;
+    right: 0;
+    top: 20rpx;
+    z-index: 999;
+    background: rgba(0,0,0,1);
+    color: #fff;
+    font-size: 28rpx;
+    padding: 8rpx 15rpx;
+    border-radius: 15rpx;
+}
+
+.triangle {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: -13rpx;
+    right: 156rpx;
+    background: rgba(0,0,0,1);
+    transform: rotateZ(45deg);
+}
+
+.issue {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    right: 25rpx;
+    bottom: 20rpx;
+    background-color: #3392ff;
+    box-shadow: 0 0 2px 2px #3392ff;
+}
+
+.issue image {
+    width: 42px;
+    height: 40px;
+    margin: 6px auto;
+}
+
+.user_avatars {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+.kapian {
+    width: 100%;
+    height: 333rpx;
+    background: rgba(248,248,255,.2);
+    z-index: 99;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    border-radius: 10rpx;
+}
+
+.userinfo_pic {
+    margin-left: 25rpx;
+    margin-top: 25rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border: 5rpx solid #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.userinfo_pic image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.userinfo_box {
+    overflow: hidden;
+}
+
+.userinfo_box>view {
+    float: left;
+}
+
+.userinfo_msg {
+    margin-left: 30rpx;
+    margin-top: 40rpx;
+}
+
+.userinfo_msg>view:nth-child(1) {
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.userinfo_msg>view:nth-child(1)>image {
+    width: 33rpx;
+    height: 33rpx;
+    vertical-align: middle;
+}
+
+.userinfo_msg>view:nth-child(2) {
+    font-size: 26rpx;
+    color: #fff;
+}
+
+.userinfo_msg>view:nth-child(3) {
+    line-height: 40rpx;
+    height: 40rpx;
+    background: rgba(248,248,255,.6);
+    font-size: 22rpx;
+    padding: 1rpx 30rpx;
+    margin-top: 20rpx;
+    color: #888;
+}
+
+.shu {
+    width: 1px;
+    height: 40rpx;
+    background: #fff;
+    position: absolute;
+    bottom: -40%;
+    left: 50%;
+}
+
+.heng {
+    height: 1px;
+    width: 88rpx;
+    background: #fff;
+    position: absolute;
+    bottom: -40rpx;
+    left: 50%;
+}
+
+.classify {
+    position: relative;
+    margin-top: 45rpx;
+    font-size: 26rpx;
+    display: flex;
+    color: #fff;
+    text-align: center;
+    line-height: 35rpx;
+    background: rgba(51,153,255,.8);
+    padding: 15rpx 10rpx;
+}
+
+.classify>navigator:nth-child(1) {
+    border-left: none;
+}
+
+.classify>navigator {
+    border-left: 1px solid #fff;
+    flex: 1;
+}
+
+.hidbutton {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    border-radius: none;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.hidbutton::after {
+    content: '';
+    width: 0;
+    height: 0;
+}

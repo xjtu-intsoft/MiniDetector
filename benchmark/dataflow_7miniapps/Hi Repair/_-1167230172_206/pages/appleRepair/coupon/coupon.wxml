@@ -1,0 +1,23 @@
+<view class="couponContainer">
+    <view bindtap="chooseCoupon" class="couponWrap {{couponIndex==index?'active':''}}" data-couponCode="{{item.code}}" data-index="{{index}}" data-useable="{{item.useable}}" wx:if="{{couponList.length}}" wx:for="{{couponList}}" wx:key="index">
+        <view class="descWrap">
+            <view class="title">{{item.name}}</view>
+            <view class="time">有效期至{{item.ios_end_time}}</view>
+        </view>
+        <view class="priceWrap">
+            <view class="price_count">
+                <view class="sym" wx:if="{{item.type!=1}}">¥</view>
+                <view class="count">{{item.discounts.discount}}</view>
+                <view class="zhe" wx:if="{{item.type==1}}">折</view>
+            </view>
+            <view class="price_condition" wx:if="{{item.type==0}}">
+                满{{item.discounts.aim}}元减{{item.discounts.discount}}元
+            </view>
+            <view class="price_condition" wx:else>无门槛使用</view>
+        </view>
+    </view>
+    <view class="nocoupon" wx:if="{{!couponList.length}}">
+        <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/kongyemian.png"></image>
+        <view class="noucoupontext">您还没有优惠券</view>
+    </view>
+</view>

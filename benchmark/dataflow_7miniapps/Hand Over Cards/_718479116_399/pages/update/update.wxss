@@ -1,0 +1,51 @@
+.update {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.update,.update-con {
+    text-align: center;
+}
+
+.update-logo {
+    margin: 140rpx auto 50rpx;
+    width: 146rpx;
+    height: 147rpx;
+}
+
+.progress {
+    text-align: center;
+    margin: auto auto 20rpx;
+    width: 510rpx;
+    background-color: #dbe4fb;
+}
+
+.progress,.progress-front {
+    height: 8rpx;
+    border-radius: 5rpx;
+}
+
+.progress-front {
+    background-color: #3f51b5;
+    transition: width 3s linear;
+}
+
+.update-text {
+    margin-bottom: auto;
+    font-size: 28rpx;
+    color: #3f51b5;
+}
+
+.update-infor,.update-text {
+    text-align: center;
+    font-weight: 400;
+}
+
+.update-infor {
+    margin: auto auto 120rpx;
+    font-size: 36rpx;
+    color: #333;
+}

@@ -1,0 +1,55 @@
+page {
+    padding-bottom: 140rpx;
+    text-align: center;
+    font-size: 18px;
+}
+
+input {
+    width: 90%;
+    margin: 10rpx 5%;
+    padding: 5rpx;
+    box-sizing: border-box;
+    color: #ff5001;
+    border: 1px solid #ff5001;
+    border-radius: 15rpx;
+}
+
+.weui-grids {
+    margin: 50rpx auto 20rpx;
+    padding: 30rpx;
+    border: 0;
+}
+
+.weui-grids .weui-grid {
+    width: 29.33%;
+    margin: 40rpx 2% 0;
+    padding: 20rpx 0;
+    border: 1px solid #ccc;
+    box-shadow: #000;
+    border-radius: 15rpx;
+}
+
+.weui-grids .weui-grid .weui-grid__label {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.weui-grids .weui-grid.active {
+    border: 1px solid #ff5001;
+}
+
+.weui-grids .weui-grid.active .weui-grid__label {
+    color: #ff5001;
+}
+
+.weui-grids .self_input {
+    width: 96%;
+    margin: 40rpx 2% 0;
+    padding: 0;
+    border: 0;
+}
+
+.weui-grids .self_input input {
+    width: 100%;
+    margin: 0;
+}

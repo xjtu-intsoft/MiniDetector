@@ -1,0 +1,129 @@
+.make-img {
+    margin: 40rpx auto 10rpx;
+    width: 182rpx;
+    height: 128rpx;
+    position: relative;
+}
+
+.new-make-img {
+    width: 116rpx;
+    height: 82rpx;
+    margin: 88rpx auto 10rpx;
+}
+
+.make-img-cs {
+    width: 168rpx;
+    height: 116rpx;
+    margin: 48rpx auto 10rpx;
+}
+
+.make-con .canvasBox {
+    overflow: hidden;
+    position: absolute;
+    left: 6rpx;
+    right: 0rpx;
+    margin: auto;
+    top: 60rpx;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.make-con .new-canvasBox {
+    top: 88rpx;
+}
+
+.make-con .canvas {
+    width: 98rpx;
+    height: 98rpx;
+    z-index: 0;
+}
+
+.make-con .checkMark,.make-con .cmShade {
+    width: 54rpx;
+    height: 38rpx;
+    position: absolute;
+    left: 0rpx;
+    right: 0rpx;
+    top: 28rpx;
+    margin: auto;
+}
+
+.make-con .new-checkMark,.make-con .new-cmShade {
+    width: 35rpx;
+    height: 29rpx;
+}
+
+.make-con-cs .checkMark,.make-con-cs .cmShade {
+    left: 6rpx;
+    right: 3rpx;
+}
+
+.make-con .cmShade {
+    z-index: 10;
+    background-color: #fff;
+}
+
+@-webkit-keyframes waitRot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes waitRot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.waitRotAni {
+    animation: waitRot 1s linear infinite;
+}
+
+.stickSucImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 590rpx;
+    height: 154rpx;
+}
+
+.make-con-cs {
+    width: 100%;
+    height: 278rpx;
+    background: rgba(232,236,255,.72);
+    position: relative;
+    border-radius: 8px;
+}
+
+.arrow-cs {
+    bottom: -20px;
+    height: 0;
+    width: 0;
+    border: 20rpx solid transparent;
+    border-top-color: #e8ecff;
+}
+
+.arrow-cs,.text-cs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.text-cs {
+    top: 184rpx;
+    text-align: center;
+    font-size: 21px;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 700;
+    color: #333;
+    line-height: 29px;
+}

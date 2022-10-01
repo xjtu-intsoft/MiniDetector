@@ -1,0 +1,18 @@
+<view class="my-products">
+    <view class="my-products-title">
+        <image class="my-products-icon" src="/images/line_highlight.png"></image>
+        <text class="my-products-left">我的作品</text>
+        <view hidden="{{isHidden}}">
+            <text bindtap="deletePro" class="my-products-delete {{noSelect?'delete-gray':'delete-red'}}">{{deleteText}}</text>
+            <text bindtap="cancel" class="my-products-cancel">取消</text>
+        </view>
+        <image bindtap="rtClick" class="my-products-delete-icon" hidden="{{!isHidden}}" src="/images/icon_delete.png"></image>
+    </view>
+    <view class="my-products-imgs">
+        <view class="my-products-item" wx:for="{{list}}" wx:key="{{index}}">
+            <image bindload="loadImg" bindtap="previewImages" class="my-products-image" data-index="{{index}}" data-list="{{list}}" mode="aspectFill" src="{{item.url}}" style="background: {{item.bgColor}}"></image>
+            <image bindtap="selectPro" class="my-products-imgs-icon" data-index="{{index}}" hidden="{{isHidden}}" src="/images/{{item.isSelected?'icon_choose':'icon_choose_default'}}.png"></image>
+        </view>
+    </view>
+</view>
+<has-more-data hasMoreData="{{hasMoreData}}"></has-more-data>

@@ -1,0 +1,284 @@
+.coupon_package_parent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: var(--color-cg);
+}
+
+.order_remind_parent {
+    width: 100%;
+    line-height: 60rpx;
+    background-color: #fff7e0;
+}
+
+.order_remind_text {
+    color: var(--color-cb);
+    font-size: var(--font-te);
+    margin-left: 32rpx;
+}
+
+.countdown_time {
+    width: 100%;
+    line-height: 60rpx;
+    text-align: center;
+    background-color: #ffe1e1;
+}
+
+.countdown_time_text {
+    color: var(--color-ce);
+    font-size: var(--font-te);
+}
+
+.coupon_details_parent {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 34rpx 30rpx 32rpx 34rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.img {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.coupon_info {
+    width: 480rpx;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20rpx;
+}
+
+.coupon_name {
+    max-width: 420rpx;
+    color: var(--color-cc);
+    font-size: var(--font-tg);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    line-height: 36rpx;
+}
+
+.coupon_desc_parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 68rpx;
+    margin-top: 8rpx;
+}
+
+.coupon_desc {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    line-height: 34rpx;
+}
+
+.coupon_price {
+    position: absolute;
+    top: 32rpx;
+    right: 30rpx;
+    color: var(--color-cc);
+    font-size: var(--font-td);
+    font-weight: 500;
+    line-height: 40rpx;
+}
+
+.coupon_num {
+    position: absolute;
+    top: 110rpx;
+    right: 32rpx;
+    line-height: 36rpx;
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    vertical-align: middle;
+}
+
+.coupon_total_price_parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 114rpx;
+    margin-top: 20rpx;
+    background: #fff;
+}
+
+.coupon_total_text {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+}
+
+.coupon_total_price {
+    font-size: var(--font-tb);
+    color: #000;
+    font-weight: 500;
+    margin-right: 32rpx;
+    margin-left: 14rpx;
+}
+
+.coupon_order_info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    padding-left: 34rpx;
+    background: #fff;
+}
+
+.coupon_title {
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    line-height: 106rpx;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.coupon_title_text {
+    color: var(--color-cd);
+}
+
+.coupon_refund_remind,.coupon_title_text {
+    font-size: var(--font-te);
+    margin-top: 16rpx;
+}
+
+.coupon_refund_remind {
+    color: var(--color-ce);
+    margin-bottom: 42rpx;
+    font-weight: 500;
+}
+
+.phone {
+    position: fixed;
+    bottom: 40rpx;
+    width: 100%;
+    text-align: center;
+    color: var(--color-cd);
+    font-size: var(--font-te);
+}
+
+.unfinished_pay_parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 120rpx;
+    align-items: center;
+    position: fixed;
+    bottom: 0rpx;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+}
+
+.unfinished_cancel {
+    font-size: var(--font-tc);
+    color: var(--color-cb);
+}
+
+.unfinished_pay {
+    font-size: var(--font-tc);
+    color: #fff;
+    background: var(--color-cb);
+    border-radius: 8rpx;
+    text-align: center;
+    width: 220rpx;
+    line-height: 74rpx;
+    vertical-align: middle;
+}
+
+.card_status {
+    position: fixed;
+    top: 0rpx;
+    right: 0rpx;
+    bottom: 0rpx;
+    left: 0rpx;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_status_bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: .5;
+    z-index: -1;
+}
+
+.card_status_body {
+    width: 586rpx;
+    height: 600rpx;
+    background: #fff;
+    border-radius: 16rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_status_img {
+    width: 116rpx;
+    height: 116rpx;
+    margin-top: 82rpx;
+}
+
+.card_status_text_success {
+    font-size: var(--font-tb);
+    color: var(--color-cc);
+    margin-top: 36rpx;
+    font-weight: 500;
+}
+
+.card_status_text1 {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    margin-top: 18rpx;
+}
+
+.card_status_buy_ticket {
+    width: 294rpx;
+    line-height: 82rpx;
+    text-align: center;
+    background: var(--color-cb);
+    border-radius: 20.75px;
+    font-size: var(--font-tg);
+    color: #fff;
+    margin-top: 46rpx;
+    font-weight: 500rpx;
+}
+
+.card_status_see_cards {
+    font-size: var(--font-tg);
+    color: var(--color-cb);
+    margin-top: 40rpx;
+}
+
+.closebtn {
+    margin-top: 48rpx;
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.coupon_package_order_buttomview {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 96rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-cb);
+    font-size: var(--font-tb);
+    color: #fff;
+}
+
+.hidden_view,.is-hidden {
+    display: none;
+}

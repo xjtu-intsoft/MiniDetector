@@ -1,0 +1,45 @@
+.settintContainer,page {
+    width: 100%;
+    height: 100%;
+}
+
+.settintContainer {
+    padding: 20rpx;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+
+.settintContainer .msgWrap {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.settintContainer .msgWrap .wrap {
+    width: 100%;
+    padding: 24rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #2d2a2a;
+    font-size: 28rpx;
+}
+
+.settintContainer .msgWrap .border {
+    border-bottom: 1rpx solid #e4e0de;
+}
+
+.settintContainer .logout {
+    position: fixed;
+    bottom: 60rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 710rpx;
+    height: 82rpx;
+    border: 1rpx solid #a4a4a4;
+    line-height: 82rpx;
+    text-align: center;
+    color: #a4a4a4;
+    font-size: 30rpx;
+    border-radius: 8rpx;
+}

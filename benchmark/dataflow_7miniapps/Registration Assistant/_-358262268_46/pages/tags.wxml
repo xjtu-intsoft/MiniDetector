@@ -1,0 +1,37 @@
+<view>
+    <view class="weui-cells weui-cells_after-title">
+        <checkbox-group bindchange="checkboxChange" data-wpycheckboxchange-a="{{'checkMandatory'}}">
+            <label class="weui-cell weui-check__label" wx:for="{{checkMandatory}}" wx:key="key">
+                <checkbox checked="{{item.checked}}" class="weui-check" value="{{item.index}}"></checkbox>
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                    <icon class="weui-icon-checkbox_circle" size="23" type="circle" wx:if="{{!item.checked}}"></icon>
+                    <icon class="weui-icon-checkbox_success" size="23" type="success" wx:if="{{item.checked}}"></icon>
+                </view>
+                <view class="weui-cell__bd">{{item.name}}</view>
+            </label>
+        </checkbox-group>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style="margin-top:20rpx">
+        <checkbox-group bindchange="checkboxChange" data-wpycheckboxchange-a="{{'checkChoosable'}}">
+            <label class="weui-cell weui-check__label" wx:for="{{checkChoosable}}" wx:key="key">
+                <checkbox checked="{{item.checked}}" class="weui-check" value="{{item.index}}"></checkbox>
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                    <icon class="weui-icon-checkbox_circle" size="23" type="circle" wx:if="{{!item.checked}}"></icon>
+                    <icon class="weui-icon-checkbox_success" size="23" type="success" wx:if="{{item.checked}}"></icon>
+                </view>
+                <view class="weui-cell__bd">{{item.name}}</view>
+            </label>
+        </checkbox-group>
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__bd">
+                <input bindinput="bindKeyInput" class="weui-input" data-wpybindkeyinput-a="new_tag" placeholder="输入新标签" value="{{new_tag}}"></input>
+            </view>
+            <view class="weui-cell__ft">
+                <button bindtap="handleAdd" class="weui-btn mini-btn" size="mini" style="margin:6px 20rpx 0" type="default">添加</button>
+            </view>
+        </view>
+    </view>
+    <view class="button-sp-area fixed-btn">
+        <button bindtap="handelSave" class="weui-btn">保存</button>
+    </view>
+</view>

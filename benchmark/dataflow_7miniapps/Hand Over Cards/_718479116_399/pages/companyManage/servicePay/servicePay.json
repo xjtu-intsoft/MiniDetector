@@ -1,0 +1,18 @@
+{
+    "usingComponents": {
+        "component-wxPay": "../Amodule/wxPay/wxPay",
+        "mini-icon": "../../../components/icon/icon",
+        "mini-button": "../../../components/button/button",
+        "mini-message": "../../../components/message/message",
+        "mini-popover": "../../../components/popover/popover",
+        "mini-actionsheet": "../../../components/actionsheet/actionsheet",
+        "mini-bulletLayer": "../../../components/bulletLayer/bulletLayer",
+        "mini-navigation": "../../../components/navigation/navigation"
+    },
+    "navigationBarTitleText": "续期服务",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#2D3547",
+    "backgroundTextStyle": "dark"
+}

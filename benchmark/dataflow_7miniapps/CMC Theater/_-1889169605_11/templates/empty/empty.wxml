@@ -1,0 +1,10 @@
+<template name="order_list">
+    <view class="parent" wx:if="{{orderDatas.length==0&&!isFinished}}">
+        <text class="text_empty">暂无订单</text>
+    </view>
+</template>
+<template name="hot_empty">
+    <view class="parent" wx:if="{{movie_data.length==0}}">
+        <text class="text_empty">暂无数据</text>
+    </view>
+</template>

@@ -1,0 +1,154 @@
+./templates/confirmOrder/choseCoupon/activeCoupon/activeCoupon.wxssrpx./templates/confirmOrder/choseCoupon/selfCoupon/selfCoupon.wxssrpx.chosecoupon-mask {
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.chosecoupon-show {
+    opacity: 0;
+}
+
+.swiper-activecoupon-item,.swiper-selfcoupon-item {
+    background-color: var(--color-cg);
+}
+
+.chosecoupon-upview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 0rpx;
+    z-index: 2;
+    background-color: #fff;
+    transition: height .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.chosecoupon-viewup {
+    height: 85%;
+}
+
+.chosecoupon-newtopview {
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chosecoupon-lineview {
+    width: 750rpx;
+    height: 2rpx;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--color-cg);
+}
+
+.chosecoupon-newtopview-topview {
+    width: 100%;
+    height: 84rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.chosecoupon-newtopview-coupon {
+    width: 50%;
+    height: 100%;
+    line-height: 84rpx;
+    text-align: center;
+    font-size: var(--font-tc);
+}
+
+.chosecoupon-couponselect {
+    color: var(--color-cb);
+}
+
+.chosecoupon-slideview {
+    margin-left: 10%;
+    width: 30%;
+    height: 4rpx;
+    background-color: var(--color-cb);
+    transition: margin-left .3s;
+}
+
+.chosecoupon-slideview-right {
+    margin-left: 60%;
+}
+
+.chosecoupon_title_parent {
+    width: 100%;
+    height: 106rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chosecoupon_title {
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+}
+
+.chosecoupon_title_img_close {
+    position: absolute;
+    width: 64rpx;
+    height: 64rpx;
+    top: 0;
+    right: 0;
+    padding: 21rpx 12rpx;
+}
+
+.chosecoupon_addcoupon {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chosecoupon_addcoupon,.chosecoupon_inputview {
+    height: 68rpx;
+    display: flex;
+}
+
+.chosecoupon_inputview {
+    margin-left: 33rpx;
+    width: 578rpx;
+    border: 2rpx solid var(--color-ch);
+    border-radius: 8rpx;
+}
+
+.chosecoupon_inputnum {
+    margin-left: 20rpx;
+    height: 68rpx;
+    flex: 1;
+}
+
+.clear {
+    width: 60rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.chosecoupon_scan_qr_code {
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.chosecoupon_addbtn {
+    width: 60rpx;
+    height: 68rpx;
+    text-align: left;
+    background: transparent;
+    font-size: var(--font-td);
+    line-height: 68rpx;
+    color: var(--color-cb);
+    padding-left: 30rpx;
+    padding-right: 10rpx;
+}

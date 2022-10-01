@@ -1,0 +1,3 @@
+<view class="container">
+    <view class="divider" style="height:{{config.height}}rpx"></view>
+</view>

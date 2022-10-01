@@ -1,0 +1,329 @@
+@-webkit-keyframes toUp {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: -28%;
+    }
+}
+
+@keyframes toUp {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: -28%;
+    }
+}
+
+.toUp {
+    animation: toUp .3s linear forwards;
+}
+
+@-webkit-keyframes toDown {
+    0% {
+        bottom: -28%;
+    }
+
+    100% {
+        bottom: -100%;
+    }
+}
+
+@keyframes toDown {
+    0% {
+        bottom: -28%;
+    }
+
+    100% {
+        bottom: -100%;
+    }
+}
+
+.toDown {
+    animation: toDown .3s linear forwards;
+}
+
+.quickBuildView {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 13;
+    background: rgba(0,0,0,.75);
+}
+
+.bottomButton,.quickBuildView {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.bottomButton {
+    width: 93%;
+    z-index: 10;
+    height: 80rpx;
+    padding: 20rpx 3.5%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottomButtonDetail {
+    padding-bottom: 50rpx;
+}
+
+.bottomButton .buttonPrimaryBig {
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(314deg,#2e40a5,#4457a3);
+}
+
+.intro {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 720rpx;
+    margin: 32rpx auto 44rpx;
+}
+
+.intro .introTx {
+    align-self: center;
+    width: 80rpx;
+    height: 80rpx;
+    border: 2rpx solid #67c23a;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.intro .wt-t {
+    position: absolute;
+    left: 13rpx;
+    top: 57rpx;
+    width: 60rpx;
+    height: 28rpx;
+    background: #67c23a;
+    border-radius: 14rpx;
+    font-size: 20rpx;
+    font-weight: 500;
+    text-align: center;
+    line-height: 28rpx;
+    color: #fff;
+}
+
+.intro .intro-con {
+    position: relative;
+    z-index: 2;
+    margin-left: 20rpx;
+    align-self: center;
+}
+
+.intro .intro-con,.intro .intro-con .intro-img {
+    width: 617rpx;
+    height: 85rpx;
+}
+
+.writeIntroCon {
+    position: fixed;
+    bottom: -100%;
+    z-index: 13;
+    background: #fff;
+    box-shadow: 0 -6rpx 50rpx 0 rgba(3,8,26,.33);
+    border-radius: 30rpx 30rpx 0 0;
+    overflow: hidden;
+}
+
+.introCon,.writeIntroBc,.writeIntroCon {
+    height: 100%;
+    width: 100%;
+}
+
+.introCon {
+    padding: 26rpx 20rpx 0;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+}
+
+.formCon {
+    margin-top: 20rpx;
+    padding-bottom: 40rpx;
+    height: 900rpx;
+    border-radius: 8rpx;
+}
+
+.baseCon {
+    width: 700rpx;
+    background: #fff;
+}
+
+.baseCon .baseCon-item {
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #ededed;
+    background: #fff;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.baseCon .nameCon {
+    color: #333;
+    font-size: 28rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    font-weight: 500;
+}
+
+.baseCon .star {
+    color: #e91e63;
+    line-height: 42rpx;
+    margin: 0 10rpx;
+}
+
+.baseCon .input {
+    width: 500rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.proCon {
+    width: 700rpx;
+    height: 292rpx;
+    box-shadow: 0rpx 0rpx 14rpx 0rpx rgba(61,64,81,.11);
+    border-radius: 8rpx;
+    margin: 20rpx auto;
+    position: relative;
+}
+
+.proCon .proCon-item {
+    padding: 20rpx;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    height: 220rpx;
+    width: 656rpx;
+}
+
+.proCon .proCon-num {
+    color: #cacaca;
+    font-size: 22rpx;
+    line-height: 32rpx;
+    position: absolute;
+    right: 14rpx;
+    bottom: 20rpx;
+}
+
+.quickBuildCon-name {
+    margin-left: 5rpx;
+    align-self: center;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #333;
+}
+
+.buttonCon {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.buttonCon .quickSub {
+    background: linear-gradient(135deg,#4457c3,#2e40a5);
+    color: #fff;
+}
+
+.buttonCon .submitIntro-disbled {
+    background-color: #e3e3e3;
+    color: #999;
+}
+
+.buttonCon .submitIntro {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    width: 172rpx;
+    height: 56rpx;
+    background: linear-gradient(135deg,#438fff,#256de6);
+    border-radius: 28rpx;
+    border-radius: 27rpx;
+    color: #fff;
+    letter-spacing: -.1px;
+    text-align: center;
+}
+
+.buttonCon .submitIntro .send-btn-icon {
+    align-self: center;
+    width: 32rpx;
+    height: 28rpx;
+}
+
+.buttonCon .submitIntro .name,.buttonCon .submitIntro .tip {
+    align-self: center;
+    font-size: 28rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    font-weight: 500;
+    color: #fff;
+}
+
+.buttonCon .submitIntro .name {
+    max-width: 112rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.quickPhone {
+    position: absolute;
+    right: 0;
+}
+
+.quickPhone .btn {
+    background-color: #fff;
+    font-size: 30rpx;
+    color: #3f51b5;
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+    margin-right: 4rpx;
+}
+
+button[loading]::before {
+    margin-top: 9rpx;
+}
+
+.animated {
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+.animated.infinite {
+    animation-iteration-count: infinite;
+}
+
+.guide-build {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 180rpx;
+}
+
+.guide-build .guide-btn {
+    margin: 0 auto auto;
+    width: 240rpx;
+    height: 80rpx;
+    background: #3f51b5;
+    border-radius: 43rpx;
+    border: 2rpx solid #3f51b5;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #fff;
+    line-height: 80rpx;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "backgroundColor": "#f8f8f8",
+    "navigationBarBackgroundColor": "#ffffff",
+    "disableScroll": true,
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

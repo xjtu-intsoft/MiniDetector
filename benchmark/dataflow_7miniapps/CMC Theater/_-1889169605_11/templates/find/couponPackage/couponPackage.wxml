@@ -1,0 +1,33 @@
+<template name="couponPackage">
+    <view class="coupon-package-content-coupon-item {{item.background}}" wx:for="{{coupons}}" wx:key="coupons">
+        <view catchtap="couponItemClick" class="coupon-package-item" data-index="{{index}}">
+            <view class="coupon-package-item-left-parent">
+                <image class="coupon-package-item-bg" src="{{item.coupon_bg}}"></image>
+                <view class="coupon-package-item-price-parent {{item.channel=='4'?'coupon_shangjia_center':''}}">
+                    <view class="coupon-package-item-priceview">
+                        <view class="coupon-package-item-dallor {{item.coupon_type=='2'?'':'is_hidden'}}">¥</view>
+                        <view class="coupon-package-item-price {{item.coupon_color}}">{{item.showPrice}}</view>
+                        <view class="coupon-package-item-yuan {{item.coupon_color}} {{item.coupon_type=='1'?'':'is_hidden'}}">元</view>
+                    </view>
+                    <view class="coupon-package-item-left-desc {{item.channel=='4'?'is_hidden':''}} {{item.coupon_type=='2'?'desc-font-th':''}}">{{item.face_desc.desc1}}</view>
+                    <text class="coupon-package-item-left-bottom-desc {{item.channel=='4'?'is_hidden':''}}  {{item.coupon_type=='2'?'coupon-package-item-left-bottom-desc-daijin-bg':'coupon-package-item-left-bottom-desc-duihuan-bg'}}">{{item.coupon_item_desc}}</text>
+                    <text class="coupon_business_text {{item.channel=='4'?'':'is_hidden'}}">商家券</text>
+                </view>
+                <view class="coupon-package-item-left-bottom-line-parent {{item.coupon_num>1?'':'is-hidden'}}">
+                    <view class="coupon-package-item-left-bottom-line"></view>
+                    <view class="coupon-package-item-left-bottom-line width170"></view>
+                </view>
+            </view>
+            <view class="coupon-package-middleview">
+                <view class="coupon-package-middleview-desc">{{item.coupon_info}}</view>
+                <view class="coupon-package-middleview-timeview">
+                    <view class="coupon-package-middleview-time">有效期 {{item.validate_date_start}}-{{item.validate_date_end}}</view>
+                </view>
+            </view>
+            <view class="coupon-package-endview">
+                <view class="coupon-package-item-right-count">{{item.coupon_num}}张</view>
+                <image class="coupon-package-warn" src="/images/coupon_package/quan_guize_2.png"></image>
+            </view>
+        </view>
+    </view>
+</template>

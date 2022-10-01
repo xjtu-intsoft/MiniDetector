@@ -1,0 +1,267 @@
+.recharge_dialog_parent {
+    width: 100%;
+    height: 100%;
+}
+
+.recharge_dialog_body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0rpx;
+    background: #fff;
+    z-index: 2;
+    transition: height .3s;
+}
+
+.recharge_dialog_body_anim {
+    height: 660rpx;
+}
+
+.recharge_dialog_screen {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    overflow: hidden;
+    transition: background-color .3s;
+}
+
+.recharge_dialog_screen_anim {
+    opacity: .2;
+}
+
+.recharge_dialog_close {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.text_close {
+    width: 100%;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.image_close {
+    width: 32rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 32rpx;
+    top: 36rpx;
+}
+
+.rechage_picker {
+    width: 100%;
+    height: 432rpx;
+}
+
+.recharge_dialog_okbuy_btn {
+    width: 686rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.rechage_dialog_pick_item {
+    text-align: right;
+    line-height: 50px;
+    margin-right: 10rpx;
+}
+
+.rechage_dialog_pick_item_left {
+    text-align: left;
+    line-height: 50px;
+}
+
+page {
+    width: 100%;
+    height: 100%;
+    background: var(--color-cg);
+}
+
+.advert-swiper {
+    width: 100%;
+    height: 200rpx;
+}
+
+.advert-swiper-item {
+    width: 100%;
+    height: 100%;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.pay_body {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding-left: 32rpx;
+}
+
+.pay_text_top {
+    margin-top: 46rpx;
+    margin-bottom: 32rpx;
+    color: var(--color-cc);
+    font-size: var(--font-td);
+}
+
+.pay_recharge_value_select {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 10rpx;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-content: space-between;
+}
+
+.pay_recharge_value_item {
+    position: relative;
+    width: 210rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+}
+
+.pay_recharge_value_item_text {
+    width: 210rpx;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    vertical-align: middle;
+    color: var(--color-cb);
+    font-size: var(--font-tc);
+}
+
+.pay_border_solid {
+    border: 2rpx solid var(--color-cb);
+    box-sizing: border-box;
+    border-radius: 6rpx;
+}
+
+.pay_border_dashed {
+    border: 2rpx dashed var(--color-cb);
+    box-sizing: border-box;
+    border-radius: 6rpx;
+}
+
+.pay_border_color_gray {
+    border-color: var(--color-ci);
+}
+
+.pay_border_color_orange {
+    border-color: var(--color-cb);
+    border-style: solid;
+}
+
+.pay_recharge_value_item_image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.pay_recharge_value_item_image_edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.pay_validate_time {
+    margin-top: 16rpx;
+    margin-bottom: 16rpx;
+    color: var(--color-cd);
+    font-size: var(--font-te);
+}
+
+.recharge_parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    background: #fff;
+    margin-top: 25rpx;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    border-radius: 4rpx;
+    height: 80rpx;
+    border: 1px solid var(--color-ch);
+}
+
+.input {
+    flex: 1;
+    color: var(--color-cc);
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+
+.holder,.input {
+    font-size: var(--font-td);
+    text-align: end;
+}
+
+.holder {
+    color: var(--color-cd);
+}
+
+.pays_parent {
+    margin-top: 30rpx;
+    background: #fff;
+}
+
+.pays,.pays_parent {
+    display: flex;
+    flex-direction: column;
+}
+
+.pays {
+    padding-left: 55rpx;
+}
+
+.pay_item {
+    display: flex;
+    height: 106rpx;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pay_icon {
+    width: 66rpx;
+    height: 66rpx;
+}
+
+.pay_radio {
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 55rpx;
+}
+
+.pay_text {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    padding-left: 15rpx;
+    flex: 1;
+}
+
+.pay_bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    bottom: 0rpx;
+}

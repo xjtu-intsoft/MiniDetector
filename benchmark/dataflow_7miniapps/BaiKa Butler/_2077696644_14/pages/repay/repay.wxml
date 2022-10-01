@@ -1,0 +1,58 @@
+<view class="head">
+    <view class="head-status head-error-status " hidden="{{taskStatus.status==2?false:true}}">
+        <image class="img-head-status" src="../../images/ic_repay_error.png"></image>
+        <text class="head-status-tip head-error-status-tip ">{{taskStatus.msg}}</text>
+        <button class="btn-head-contact" openType="contact"></button>
+    </view>
+    <view class="head-num">
+        <view class="part">
+            <text class="num {{tasksInfo.merchantAmount>tasksInfo.totalPlanRepaymentAmount?'blue-num':'normal-num'}}">{{tasksInfo.merchantAmount}}</text>
+            <text class="tip">账号余额</text>
+        </view>
+        <view style="background:#dcdcdc;width:1rpx;height:100%;"></view>
+        <view class="part">
+            <text class="num  {{tasksInfo.totalPlanRepaymentAmount>tasksInfo.merchantAmount?'blue-num':'normal-num'}}">{{tasksInfo.totalPlanRepaymentAmount}}</text>
+            <text class="tip">今日总计划</text>
+        </view>
+    </view>
+</view>
+<view bindtap="onItemClick" class="item {{item.bg}}" data-position="{{position}}" wx:for="{{tasks}}" wx:for-index="position" wx:key="position">
+    <view class="item-bank-info">
+        <image class="item-bank-ic" src="{{item.url}}"></image>
+        <text class="item-bank-num">{{item.cardNumber}}</text>
+        <text class="item-bank">{{item.bankName}}</text>
+    </view>
+    <view class="item-body">
+        <view class="item-body-a">
+            <view class="item-body-a-part">
+                <text class="item-body-a-title">当日计划还款</text>
+                <text class="item-body-a-num" style="color:#169801">￥{{item.planRepaymentAmount}}</text>
+            </view>
+            <view class="item-body-a-part">
+                <text class="item-body-a-title">当日实际还款</text>
+                <text class="item-body-a-num" style="color:#0056d4">￥{{item.todayHadRepayment}}</text>
+            </view>
+        </view>
+        <view class="item-body-b">
+            <view class="item-body-b-part">
+                <text class="item-body-b-title">未还金额</text>
+                <text class="item-body-b-money">￥{{item.unpaidSum}}</text>
+            </view>
+            <view class="item-body-b-part" style="flex-direction:column;justify-content:center">
+                <view style="justify-content:center;display:flex;align-items:center">
+                    <text class="item-body-b-day-num">{{item.repaymentDay}}</text>
+                    <text class="item-body-b-day">还款日</text>
+                </view>
+                <text style="font-size:18rpx;color:red">预计还款时间 {{item.countDown}}天</text>
+                <view style="height:5rpx;width:100%"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="no-login-info" hidden="{{userInfo.isLogin==0?false:true}}">
+    <image class="img-no-login" src="../../images/bg_no_login_tip.png"></image>
+    <text class="no-login-tip">暂无数据，请立即登录</text>
+    <button bindtap="onLogin" class="main-color main-border-color btn-go-login">立即登录</button>
+</view>
+<view style="height:100rpx;width:100%;"></view>
+<button animation="{{scrollAnimation}}" class=" view-help btn-contact " openType="contact">客服</button>

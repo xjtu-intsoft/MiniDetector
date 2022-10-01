@@ -1,0 +1,172 @@
+.form {
+    font-size: 30rpx;
+}
+
+.form-bigTitle {
+    padding: 30rpx 20rpx;
+    font-size: 32rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 12rpx solid #f7f7f7;
+}
+
+.bigTitle-1 {
+    width: 6rpx;
+    height: 29rpx;
+    background: #3f51b5;
+    margin-right: 8rpx;
+}
+
+.bigTitle-2 {
+    font-weight: 700;
+}
+
+.form-con,.necess-con {
+    width: 710rpx;
+    margin: 0 auto;
+}
+
+.necess-con {
+    padding: 30rpx 0;
+}
+
+.form-con-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+}
+
+.form-con-item .icon {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+.form-con-item .icon .input-add,.form-con-item .icon .input-del {
+    margin: auto 0 auto auto;
+}
+
+.messa-input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 710rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    align-items: center;
+    background: #fff;
+    border-radius: 8rpx;
+    border: 1px solid #ededed;
+}
+
+.unnecess .messa-input {
+    width: 668rpx;
+}
+
+.input-radio {
+    height: 90rpx;
+    width: 50rpx;
+    display: inline-block;
+}
+
+.input-radio image {
+    height: 30rpx;
+    width: 30rpx;
+    padding: 30rpx 20rpx;
+    margin-right: 0;
+}
+
+.input-title {
+    color: #333;
+    width: 90rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    font-weight: 500;
+    margin-left: 20rpx;
+    position: relative;
+}
+
+.redTitle::after {
+    content: "*";
+    position: absolute;
+    right: 6rpx;
+    color: #e91e63;
+}
+
+.input-input {
+    height: 100%;
+    width: 500rpx;
+}
+
+.input-tip {
+    width: auto;
+    height: 90rpx;
+    font-size: 26rpx;
+    color: #3f51b5;
+    line-height: 90rpx;
+    background-color: transparent;
+    right: 40rpx;
+    position: absolute;
+}
+
+.input-add,.input-del {
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.phstyle1 {
+    color: #cacaca;
+}
+
+.phstyle2 {
+    color: #e91e63;
+}
+
+.inpColor2 {
+    color: #e91e63;
+}
+
+.messa-addMore {
+    padding: 10rpx 0 30rpx;
+    font-size: 24rpx;
+    color: #666;
+    height: 34rpx;
+    line-height: 34rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messa-addMore .add {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+}
+
+.messa-ava {
+    width: 128rpx;
+    height: 128rpx;
+    position: relative;
+    top: 20rpx;
+    margin: 0 auto 24rpx;
+}
+
+.ava-con {
+    border-radius: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ava-con,.ava-con image {
+    width: 100%;
+    height: 100%;
+}
+
+.ava-upld {
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

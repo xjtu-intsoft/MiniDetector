@@ -1,0 +1,59 @@
+<template name="online_coupon_item">
+    <view class="online_coupon_cell_parent">
+        <view class="off_line_coupon_nouser_parent {{offLineCanUseCount!=index?'is-hidden':''}}">
+            <text class="off_line_coupon_nouser_num">{{nooffLineCouponItemTitle}}</text>
+        </view>
+        <view class="online_coupon_cell">
+            <image class="online_couopn_bgimg" src="{{onlineCoupon.image}}"></image>
+            <view catchtap="onlineCouponRuleClick" class="online_coupon_start" data-index="{{index}}">
+                <text class="online_coupon_start_movie {{isNoUse?'':'coupon_shixiao_white'}} {{onlineCoupon.channel=='4'?'is-hidden':''}}">{{onlineCoupon.tempCategoryName}}</text>
+                <view class="online_coupon_exchange_rule {{isMine?'is-hidden':''}}">
+                    <text class="online_coupon_exchange_title {{isNoUse?'':'coupon_shixiao_white'}}">兑换规则</text>
+                    <image class="online_coupon_exchange_image" src="{{onlineCoupon.rule_image}}"></image>
+                </view>
+                <text class="online_coupon_mine_start_text {{isNoUse?'':'coupon_shixiao_white'}}" hidden="{{!isMine||onlineCoupon.channel=='4'}}">线下券</text>
+                <view class="couponcell-startview-pricetop {{onlineCoupon.channel=='4'?'':'is-hidden'}}">
+                    <view class="couponcell-startview-priceview">
+                        <view class="coupon_business_price {{isNoUse?'':'coupon_shixiao_white'}}">{{onlineCoupon.showPrice}}</view>
+                        <view class="coupon_business_yuan {{isNoUse?'':'coupon_shixiao_white'}}">元</view>
+                    </view>
+                    <text class="coupon_business_text {{isNoUse?'':'coupon_shixiao_white'}}">商家券</text>
+                </view>
+            </view>
+            <view class="online_coupon_middleview">
+                <text class="online_coupon_title {{isNoUse?'':'coupon_shixiao_c5'}}">{{onlineCoupon.coupon_info}}</text>
+                <view class="online_coupon_num_prent">
+                    <text class="online_coupon_num {{isNoUse?'':'coupon_shixiao_c5'}}">{{onlineCoupon.channel==3?'':'NO. '}}{{onlineCoupon.tempCouponNum}}</text>
+                </view>
+                <view class="online_coupon_timeview">
+                    <text class="online_coupon_time {{isNoUse?'':'coupon_shixiao_c5'}}">{{onlineCoupon.validate_date_start}}-{{onlineCoupon.validate_date_end}}</text>
+                    <text class="online_coupon_new {{isNoUse?'':'is-hidden'}} {{onlineCoupon.is_new=='0'?'visi-hidden':''}}">新</text>
+                    <text class="online_coupon_expire_desc {{isNoUse?'':'is-hidden'}}">{{onlineCoupon.will_be_expire_coupon_notice}}</text>
+                </view>
+            </view>
+            <view class="online_coupon_endview">
+                <image class="online_coupon_endimage {{onlineCoupon.channel=='4'?'is-hidden':''}}" src="{{onlineCoupon.category==2?'/images/newcoupon/duihuanquan_maipin_icon.png':'/images/newcoupon/duihuanquan_dianying_icon.png'}}"></image>
+                <view class="online_coupon_choseiconview {{isNoUse?'':'is-hidden'}}">
+                    <view class="online_coupon_choseicon  {{isMine?'is-hidden':''}}">
+                        <icon class="online_coupon_icon" size="20" type="circle" wx:if="{{!onlineCoupon.selected}}"></icon>
+                        <icon class="online_coupon_icon" color="orange" size="20" type="success" wx:if="{{onlineCoupon.selected}}"></icon>
+                    </view>
+                </view>
+                <image class="online_couponcell-icon {{isMine?'':'is-hidden'}} {{isNoUse?'is-hidden':''}}" src="{{onlineCoupon.iconImage}}"></image>
+                <image class="online_coupon_detail_icon {{isMine?'':'is-hidden'}}" src="/images/newcoupon/huodongyouhuiquan_info.png"></image>
+            </view>
+        </view>
+        <button catchtap="clickCoupon" class="online_coupon_share_top {{isMine?'':'is-hidden'}}" data-index="{{index}}" hidden="{{onlineCoupon.is_share=='0'||onlineCoupon.coupon_status!='1'}}">{{onlineCoupon.share_time=='0'?'分享再领1张':'分享给好友'}}</button>
+        <view class="online_coupon_desc_bottom {{isDetails?'':'is-hidden'}} {{onlineCoupon.isShowDetail?'is_show':'is-hidden'}}">
+            <text catchtap="onlineCouponRuleClick" class="online_coupon_desc_info">{{onlineCoupon.coupon_detail}}
+    </text>
+            <view class="online_coupon_num_bottom_parent {{isMine?'':'is-hidden'}}">
+                <text class="online_coupon_num_bottom_line"></text>
+                <view class="online_coupon_num_bottom">
+                    <text class="online_coupon_num_bottom_text">优惠券码：</text>
+                    <text class="online_coupon_num_bottom_value">{{onlineCoupon.tempCouponNum}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,203 @@
+page {
+    background-color: #fff;
+}
+
+.page-content {
+    height: 100%;
+}
+
+.option-goods-swiper-parent {
+    position: relative;
+    width: 100%;
+    height: 328rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.option-goods-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.option-goods-page-count {
+    position: absolute;
+    bottom: 18rpx;
+    line-height: 38rpx;
+    width: 68rpx;
+    height: 38rpx;
+    background: rgba(0,0,0,.5);
+    border-radius: 20rpx;
+    font-size: var(--font-tg);
+    color: var(--color-cf);
+    text-align: center;
+}
+
+.option-goods-title {
+    height: 50rpx;
+    margin-top: 24rpx;
+    margin-left: 32rpx;
+    font-size: var(--font-tb);
+    font-family: PingFangSC-Semibold,PingFang SC;
+    font-weight: 600;
+    color: var(--color-cc);
+    line-height: 50rpx;
+}
+
+.option-goods-content {
+    margin: 48rpx 32rpx 0;
+}
+
+.option-goods-group-title {
+    font-size: var(--font-tg);
+    color: var(--color-cd);
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.option-goods-group-title-tips {
+    color: var(--color-cc);
+    margin-left: 26rpx;
+    font-weight: 700;
+}
+
+.option-goods-group-title-num {
+    color: var(--color-cb);
+    font-weight: 700;
+}
+
+.option-goods-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20rpx;
+}
+
+.option-goods-group-good {
+    width: 332rpx;
+    height: 172rpx;
+    margin-bottom: 44rpx;
+    align-items: center;
+}
+
+.option-goods-group-good,.option-goods-group-good-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-goods-group-good-item {
+    width: 100%;
+    height: 104rpx;
+    border-radius: 8rpx;
+    justify-content: center;
+    align-content: center;
+}
+
+.option-goods-group-good-item-selected {
+    border: 1px solid var(--color-cb);
+    background: rgba(255,149,0,.1);
+}
+
+.option-goods-group-good-item-unselected {
+    border: 1px solid var(--color-ch);
+}
+
+.option-goods-group-good-name {
+    text-align: center;
+    font-size: var(--font-tg);
+    height: 36rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 5rpx;
+}
+
+.option-goods-group-good-name-selected {
+    color: var(--color-cb);
+}
+
+.option-goods-group-good-name-unselected {
+    color: var(--color-cc);
+}
+
+.option-goods-group-good-addPrice-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rpx;
+    font-size: var(--font-th);
+}
+
+.option-goods-group-good-addPrice-text-unselected {
+    color: var(--color-cd);
+}
+
+.option-goods-group-good-addPrice,.option-goods-group-good-addPrice-text-selected {
+    color: var(--color-cb);
+}
+
+.option-goods-group-good-chosegoods {
+    margin-top: 16rpx;
+    height: 60rpx;
+    width: 176rpx;
+    display: flex;
+    align-items: center;
+}
+
+.option-goods-group-good-change-btn {
+    width: 52rpx;
+    height: 52rpx;
+}
+
+.option-goods-group-good-countlable {
+    width: 72rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: var(--font-td);
+    text-align: center;
+}
+
+.option-goods-bottom-view {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 206rpx;
+    background: var(--color-cf);
+    border-top: 4rpx solid var(--color-cg);
+}
+
+.option-goods-bottom-price-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 32rpx;
+    color: var(--color-cc);
+    font-size: var(--font-td);
+}
+
+.option-goods-bottom-price {
+    color: var(--color-ce);
+    font-size: var(--font-tb);
+    font-weight: 600;
+}
+
+.option-goods-bottom-confirm-btn {
+    height: 88rpx;
+    background: var(--color-cb);
+    border-radius: 10rpx;
+    font-size: var(--font-tc);
+    color: var(--color-cf);
+    line-height: 88rpx;
+    text-align: center;
+    margin: 0 32rpx;
+}
+
+.option-goods-bottom-confirm-btn-disable {
+    opacity: .3;
+}
+
+.is-hidden {
+    display: none;
+}

@@ -1,0 +1,134 @@
+.return_dialog_page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.return_dialog_bg,.return_dialog_page {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.return_dialog_bg {
+    background: #000;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.return_dialog_bg_anim {
+    opacity: .3;
+}
+
+.return_dialog_parent {
+    width: 660rpx;
+    height: 728rpx;
+    background: #fff;
+    opacity: 0;
+    border-radius: 16rpx;
+    transition: opacity .3s;
+    position: absolute;
+    z-index: 100;
+}
+
+.return_dialog_parent_anim11 {
+    opacity: 1;
+}
+
+.return_dialog_title {
+    position: relative;
+    width: 100%;
+}
+
+.return_dialog_title_text {
+    font-size: var(--font-tb);
+    color: var(--color-cc);
+    position: absolute;
+    left: 258rpx;
+    top: 32rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.return_dialog_title_close {
+    width: 64rpx;
+    height: 64rpx;
+    position: absolute;
+    right: 8rpx;
+    top: 21rpx;
+}
+
+.return_dialog_sv {
+    width: 660rpx;
+    height: 420rpx;
+    margin-top: 146rpx;
+    padding-left: 32rpx;
+    padding-right: 32rpx;
+    box-sizing: border-box;
+}
+
+.return_dialog_list {
+    width: 660rpx;
+}
+
+.return_dialog_item {
+    margin-bottom: 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.return_dialog_item_index {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    margin-right: 4rpx;
+}
+
+.return_dialog_item_text {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    flex: 1;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.return_dialog_item_text2,.return_dialog_item_text_index {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+    height: 30rpx;
+    line-height: 30rpx;
+    vertical-align: middle;
+}
+
+.return_dialog_red_text {
+    color: var(--color-ce);
+}
+
+.return_dialog_ok {
+    background: var(--color-cb);
+    border-radius: 10rpx;
+    position: absolute;
+    bottom: 32rpx;
+    left: 32rpx;
+    right: 32rpx;
+    height: 88rpx;
+    color: var(--color-cf);
+    font-size: var(--font-tc);
+    text-align: center;
+    line-height: 88rpx;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.return_dialog_msgs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+}

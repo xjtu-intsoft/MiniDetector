@@ -1,0 +1,269 @@
+.findfood-mask {
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.findfood-show {
+    opacity: 0;
+}
+
+.findfood-upview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 0rpx;
+    background-color: #fff;
+    transition: height .3s;
+}
+
+.findfood-viewup {
+    height: 816rpx;
+}
+
+.findfoodcart-foodcell-chosegoods {
+    width: 160rpx;
+    margin-right: 14rpx;
+}
+
+.findfood-clearcartview,.findfoodcart-foodcell-chosegoods {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.findfood-clearcartview {
+    background-color: var(--color-cg);
+    height: 40rpx;
+}
+
+.findfood-clearview-btn {
+    width: 180rpx;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.findfood-clearview-btnimg {
+    width: 20.6rpx;
+    height: 22.2rpx;
+}
+
+.findfood-clearview-btntitle {
+    height: 100%;
+    margin-left: 7.6rpx;
+    padding-top: 2rpx;
+    line-height: 40rpx;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+}
+
+.findfood-foodlist {
+    width: 100%;
+    max-height: 816rpx;
+}
+
+.findfood-foodlist-cell {
+    width: 100%;
+}
+
+.findfood-foodlist-cellview {
+    padding: 24rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.findfood-cellview-nameview-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.findfood-cellview-nameview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 6rpx;
+}
+
+.findfood-cellview-hui {
+    flex-shrink: 0;
+    width: 52rpx;
+    height: 30rpx;
+}
+
+.findfood-cellview-viewname {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    max-width: 370rpx;
+}
+
+.findfood-cellview-nametop {
+    margin-left: 32rpx;
+    width: 4rpx;
+    height: 24rpx;
+    background-color: #d8d8d8;
+    flex-shrink: 0;
+}
+
+.findfood-cellview-name {
+    margin-left: 14rpx;
+    font-size: var(--font-td);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.findfood-cellview-nameview-goodscontent-desc,.findfood-cellview-nameview-goodscontent-expand {
+    color: var(--color-cd);
+    font-size: var(--font-tf);
+    margin-left: 48rpx;
+    margin-top: 4rpx;
+}
+
+.findfood-cellview-nameview-goodscontent-desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 39rpx;
+    max-width: 370rpx;
+}
+
+.findfoodcart-foodcell-huimessage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 34rpx;
+    margin-left: 50rpx;
+}
+
+.findfoodcart-huimessage {
+    font-size: var(--font-th);
+    color: var(--color-cd);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 6rpx;
+    height: 30rpx;
+}
+
+.findfood-cellview-price {
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    margin-right: 16rpx;
+    text-align: right;
+}
+
+.findfood-foodlist-addmoreview {
+    width: 100%;
+}
+
+.findfood-foodlist-addmoretop {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 32rpx;
+}
+
+.findfood-foodlist-huiview {
+    margin-left: 50rpx;
+    width: 52rpx;
+    height: 30rpx;
+}
+
+.findfood-foodlist-addmoremessage {
+    margin-left: 20rpx;
+    height: 30rpx;
+    line-height: 32rpx;
+    color: var(--color-cd);
+    font-size: var(--font-te);
+}
+
+.findfood-foodlist-addmorebtn {
+    margin-left: 10rpx;
+    height: 30rpx;
+    line-height: 32rpx;
+    color: var(--color-ce);
+    font-size: var(--font-te);
+}
+
+.findfood-foodlist-addmorearrow {
+    height: 30rpx;
+    width: 30rpx;
+}
+
+.findfood-foodlist-moregoodcell {
+    height: 58rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.findfood-foodlist-moregoodcell-end {
+    margin-bottom: 15rpx;
+}
+
+.findfood-foodlist-moregoodcell-nameview {
+    width: 375rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.findfood-foodlist-moregoodcell-hui {
+    margin-left: 30rpx;
+    width: 70rpx;
+    height: 30rpx;
+}
+
+.confirmGoodcell_expand {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    text-decoration: underline;
+    margin-left: 6rpx;
+}
+
+.findfood-foodlist-moregoodcell-name {
+    margin-left: 20rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: var(--font-te);
+    flex: 1;
+}
+
+.findfood-foodlist-moregoodcell-peice {
+    margin-left: 20rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    margin-right: 190rpx;
+}
+
+.findfood-foodlist-lineview {
+    margin-left: 4rpx;
+    width: 742rpx;
+    height: 4rpx;
+    background-color: var(--color-cg);
+    margin-bottom: 10rpx;
+}
+
+.findfood-foodlist-moregoods-lineview {
+    margin-left: 30rpx;
+    margin-top: 8rpx;
+    width: 720rpx;
+    height: 1rpx;
+    background-color: var(--color-cg);
+    margin-bottom: 16rpx;
+}

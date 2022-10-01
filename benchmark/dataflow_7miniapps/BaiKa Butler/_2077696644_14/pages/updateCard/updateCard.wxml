@@ -1,0 +1,31 @@
+<view class="head-bg">
+    <view class="head">
+        <image class="head-bank-bg" src="{{cardInfo.bg}}"></image>
+        <image class="ic-bank" src="{{cardInfo.url}}"></image>
+        <text class="bank-name">{{cardInfo.bankName}}</text>
+        <text class="bank-num">{{cardInfo.last4CardNo}}</text>
+    </view>
+</view>
+<form bindsubmit="onUpdateCard">
+    <input hidden="true" name="cardId" value="{{cardInfo.cardId}}"></input>
+    <view class="body">
+        <view class="item">
+            <image class="img-item-icon" mode="aspectFit" src="../../images/ic_lock.png"></image>
+            <text class="item-title ">CVN</text>
+            <input class="item-input  " maxlength="3" name="cvn" placeholder="输入CVN码" placeholderStyle="color:#aaa" type="number" value="{{cardInfo.cvn}}"></input>
+        </view>
+        <view class="item-line"></view>
+        <view class="item">
+            <image class="img-item-icon" mode="aspectFit" src="../../images/ic_phone.png"></image>
+            <text class="item-title ">手机号码</text>
+            <input class="item-input  " maxlength="11" name="phone" placeholder="输入银行预留手机号码" placeholderStyle="color:#aaa" type="number" value="{{cardInfo.phone}}"></input>
+        </view>
+        <view class="item-line"></view>
+        <view class="item">
+            <image class="img-item-icon" mode="aspectFit" src="../../images/ic_date.png"></image>
+            <text class="item-title ">有效期</text>
+            <input class="item-input  " maxlength="10" name="expiryDate" placeholder="输入有效期,例如02/22" placeholderStyle="color:#aaa" value="{{cardInfo.expiryDate}}"></input>
+        </view>
+        <button class="btn-main " formType="submit"> 确定</button>
+    </view>
+</form>

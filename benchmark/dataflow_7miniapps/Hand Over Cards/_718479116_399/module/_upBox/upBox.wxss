@@ -1,0 +1,122 @@
+.cardList-con,page {
+    height: 100%;
+    width: 100%;
+}
+
+.cardList-con {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.con-bg {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.75);
+}
+
+.con-scroll {
+    position: absolute;
+    bottom: -100%;
+    height: 60%;
+    width: 100%;
+    background-color: #fff;
+    color: #333;
+    border-radius: 16rpx 16rpx 0rpx 0rpx;
+    overflow: hidden;
+}
+
+.scroll {
+    height: calc(100% - 90rpx);
+}
+
+.title {
+    font-weight: 700;
+    color: #333;
+    height: 45rpx;
+    line-height: 45rpx;
+    padding: 30rpx 20rpx 15rpx;
+}
+
+@-webkit-keyframes to-up {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes to-up {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.cardUpAni {
+    animation: to-up .3s linear forwards;
+}
+
+@-webkit-keyframes to-down {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -100%;
+    }
+}
+
+@keyframes to-down {
+    0% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -100%;
+    }
+}
+
+.cardDownAni {
+    animation: to-down .3s linear forwards;
+}
+
+.bgAni {
+    opacity: .2;
+    animation: fadeIn .05s ease-in .05s forwards;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: .2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: .2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.title {
+    height: 44rpx;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    text-align: center;
+    padding-top: 30rpx;
+    padding-bottom: 15rpx;
+}

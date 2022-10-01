@@ -1,0 +1,4 @@
+<import src="/templates/confirmOrder/choseGoods/choseGoods.wxml"></import>
+<view>
+    <template is="chosegoods" data="{{display:true,displayAnimation:true,goodListData:goodListData,payType:payType,currentPriceEntity:currentPriceEntity,selectCard:selectCard,isMore:true}}"></template>
+</view>

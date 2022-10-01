@@ -1,0 +1,5 @@
+<button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber" type="primary">
+        微信账号快捷登录
+      </button>
+<button bindtap="payMoney">支付</button>
+<button bindtap="youzan">跳转有赞</button>

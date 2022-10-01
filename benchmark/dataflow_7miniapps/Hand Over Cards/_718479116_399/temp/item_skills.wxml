@@ -1,0 +1,13 @@
+<template name="item_skills">
+    <view class="skills">
+        <view class="flex">
+            <image class="img" src="/images/company/pskills.png"></image>
+            <view>使用技巧</view>
+        </view>
+        <view>
+      点击顶部右上角“
+      <image class="setUp" src="/images/company/setUp.png"></image>
+      ”，选择浮窗，即可让小程序悬浮在微信的任意页面，与客户聊天时就能随时发名片了
+    </view>
+    </view>
+</template>

@@ -1,0 +1,23 @@
+<view class="order_cancelcontainer">
+    <view class="order_status_wrap">
+        <view class="order_status">确定要取消吗？</view>
+        <view class="order_tip">请告诉我们原因吧！</view>
+    </view>
+    <view class="cancel_reason_wrap">
+        <view bindtap="selectReason" class="reason_wrap" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{cancelReasonList}}" wx:key="index">
+            <view class="select_wrap">
+                <view class="select {{reasonIndex==index?'noborder':''}}">
+                    <image class="" src="../../../img/wx_personal/selectcancel.png" wx:if="{{reasonIndex==index}}"></image>
+                </view>
+            </view>
+            <view class="content">{{item.descr}}</view>
+        </view>
+        <view class="textarea_wrap" wx:if="{{showTextarea}}">
+            <textarea bindinput="inputChange" class="" placeholder="请输入取消原因" value=""></textarea>
+        </view>
+    </view>
+    <view class="btn_list_wrap">
+        <view bindtap="confirmCancel" class="confirm">确定</view>
+        <view bindtap="contactService" class="contact_service">联系客服解决问题</view>
+    </view>
+</view>

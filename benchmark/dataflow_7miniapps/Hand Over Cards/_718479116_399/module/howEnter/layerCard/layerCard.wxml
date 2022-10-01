@@ -1,0 +1,18 @@
+<view bindtouchmove="_aa" class="message-con">
+    <view class="message-content {{animation}}">
+        <view class="content-message">
+            <view class="message-title">我的电子名片</view>
+            <view class="message-show">
+                <image bindtap="_clickCard" class="message-image-heng" src="{{myCard.pic_prefix+cardData.userpic}}" wx:if="{{cardData.hengshu=='heng'}}"></image>
+                <image bindtap="_clickCard" class="message-image-shu" src="{{myCard.pic_prefix+cardData.userpic}}" wx:if="{{cardData.hengshu=='shu'}}"></image>
+                <view class="message-button">
+                    <button bindtap="_clickSend" class="button-1" data-id="{{cardData.id}}" data-t="layerSendCard" openType="share">
+            立即发送
+          </button>
+                    <button bindtap="_switch" class="button-2" wx:if="{{list.length>1}}">切换名片</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<component-switchCard bindcloseSwitchCard="_closeSwitchCard" bindselectCard="_selectCard" myCard="{{myCard}}" switchList="{{switchList}}" wx:if="{{switchList.show}}"></component-switchCard>

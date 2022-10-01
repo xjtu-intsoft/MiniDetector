@@ -1,0 +1,43 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Progress</view>
+        <view class="page__desc">进度条，这里采用小程序原生的progress</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-progress">
+            <view class="weui-progress__bar">
+                <progress percent="0" strokeWidth="3"></progress>
+            </view>
+            <view class="weui-progress__opr">
+                <icon size="22" type="cancel"></icon>
+            </view>
+        </view>
+        <view class="weui-progress">
+            <view class="weui-progress__bar">
+                <progress percent="50" strokeWidth="3"></progress>
+            </view>
+            <view class="weui-progress__opr">
+                <icon size="22" type="cancel"></icon>
+            </view>
+        </view>
+        <view class="weui-progress">
+            <view class="weui-progress__bar">
+                <progress percent="80" strokeWidth="3"></progress>
+            </view>
+            <view class="weui-progress__opr">
+                <icon size="22" type="cancel"></icon>
+            </view>
+        </view>
+        <view class="weui-progress">
+            <view class="weui-progress__bar">
+                <progress percent="{{progress}}" strokeWidth="3"></progress>
+            </view>
+            <view class="weui-progress__opr">
+                <icon size="22" type="cancel"></icon>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <button bindtap="upload" disabled="{{disabled}}" type="primary">上传</button>
+        </view>
+    </view>
+</view>

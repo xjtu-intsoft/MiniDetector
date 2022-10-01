@@ -1,0 +1,33 @@
+.editCardPageMatch {
+    position: absolute;
+    left: 112rpx;
+    width: 620rpx;
+    background: #fff;
+    box-shadow: 0 0 14rpx 0 rgba(61,64,81,.41);
+    border-radius: 8rpx;
+    z-index: 9999;
+}
+
+.editCardPageMatch_item {
+    background-color: #fff;
+    color: #333;
+}
+
+.editCardPageMatch_item_test {
+    padding: 20rpx;
+    margin-left: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 2rpx solid #eceeea;
+}
+
+.editCardPageMatch_item:last-child {
+    border-bottom: 0;
+}
+
+.editCardPageMatch_item_test2 {
+    background-color: #eceeea;
+    margin-left: 20rpx;
+    height: 2rpx;
+}

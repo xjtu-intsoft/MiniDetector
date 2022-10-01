@@ -1,0 +1,52 @@
+@import "../../__wuBaseWxss__/10.wxss";
+
+.w_10 {
+    width: 10%;
+}
+
+.w_80 {
+    width: 80%;
+}
+
+.disable {
+    color: #ccc;
+}
+
+.dpy_none {
+    display: none;
+}
+
+.getmobile {
+    border-radius: none;
+    background: none;
+}
+
+.getmobile:after {
+    content: "";
+    border: none;
+}
+
+.hint {
+    font-size: 30rpx;
+    color: #666;
+    text-align: center;
+    padding: 15rpx;
+}
+
+.weui-btn {
+    background-color: #1AAD19;
+    color: #fff;
+}
+
+.weui-btn image {
+    width: 50rpx;
+    height: 50rpx;
+    vertical-align: top;
+    padding-top: 22rpx;
+}
+
+.weixin {
+    background: #fff;
+    color: #1AAD19;
+    border: 1px solid #1AAD19;
+}

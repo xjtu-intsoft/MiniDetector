@@ -1,0 +1,146 @@
+.wpZhezhao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.75);
+}
+
+.wpImgCon {
+    margin: 0rpx auto 50rpx;
+    border-radius: 16rpx;
+    position: relative;
+    text-align: center;
+}
+
+.wpImg,.wpImgCon {
+    width: 686rpx;
+    height: 898rpx;
+}
+
+.wpImg {
+    margin: 0 auto;
+}
+
+.avatarCon {
+    position: absolute;
+    left: 40rpx;
+    top: 118rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.avatar {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.shareOrigin {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #fff;
+    line-height: 40rpx;
+}
+
+.erweimaCon {
+    position: absolute;
+    left: 40rpx;
+    bottom: 40rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.erweima {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+}
+
+.hasBorderTop {
+    box-shadow: 0 2px 4px 0 rgba(47,47,47,.5);
+}
+
+.bottomButton .hasLg {
+    background: linear-gradient(314deg,#2e40a5,#4457c3);
+}
+
+.saveImg {
+    width: 340rpx;
+    height: 80rpx;
+    margin: 0 auto;
+    background: none;
+    border-radius: 40rpx;
+    border: 1px solid #fff;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.imagesCon image {
+    width: 100%;
+}
+
+.wp1 {
+    height: 2356rpx;
+}
+
+.wp2 {
+    height: 2148rpx;
+}
+
+.wp3 {
+    height: 516rpx;
+}
+
+.wp4 {
+    height: 2290rpx;
+}
+
+.wp5 {
+    height: 2418rpx;
+}
+
+.textCon {
+    text-align: center;
+}
+
+.p1 {
+    margin: 40rpx 0rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #333;
+    line-height: 48rpx;
+}
+
+.p2 {
+    padding-top: 10rpx;
+}
+
+.imagesCon .p1 .gesture {
+    width: 60rpx;
+    height: 60rpx;
+    position: relative;
+    top: -6rpx;
+}
+
+.immediatelyBuild {
+    color: #3f51b5;
+    text-decoration: underline;
+    position: relative;
+    top: -20rpx;
+    width: 200rpx;
+    margin: 0 auto;
+    padding: 0rpx 20rpx 20rpx;
+}

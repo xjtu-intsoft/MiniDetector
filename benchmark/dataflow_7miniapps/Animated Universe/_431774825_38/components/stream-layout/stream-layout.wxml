@@ -1,0 +1,12 @@
+<view class="stream-layout">
+    <view class="stream-layout-left">
+        <view class="stream-layout-item" wx:if="{{index%2==0}}" wx:for="{{list}}" wx:key="{{index}}">
+            <image bindload="loadImg" bindtap="clickImg" data-index="{{index}}" src="{{item[urlName]}}" style="height:{{item.showHeight}}rpx; background: {{item.bgColor}}"></image>
+        </view>
+    </view>
+    <view>
+        <view class="stream-layout-item" wx:if="{{index%2==1}}" wx:for="{{list}}" wx:key="{{index}}">
+            <image bindload="loadImg" bindtap="clickImg" data-index="{{index}}" src="{{item[urlName]}}" style="height:{{item.showHeight}}rpx; background: {{item.bgColor}}"></image>
+        </view>
+    </view>
+</view>

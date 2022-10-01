@@ -1,0 +1,359 @@
+[{
+  "key": "basic info",
+  "value": [{
+    "category_en": "personal name",
+    "category_zh": "个人姓名",
+    "words_set": ["fullname", "englishname", "realname", "employerName", "sellerName", "studentName", "compellation", "姓名", "truename", "真实姓名", "姓氏", "名字", "英文名", "英文姓", "中文名", "中文姓名", "名称", "收件人", "被保人", "收货人", "英文姓名", "乘机人", "乘客", "规范姓名", "备注姓名", "宝宝姓名", "本人姓名", "儿童姓名", "家长姓名", "持卡人姓名", "监护人姓名", "真正姓名", "real_name", "chinesename"]
+  }, {
+    "category_en": "birthday",
+    "category_zh": "生日",
+    "words_set": ["birthday", "birth", "BirthData", "年龄", "年方几何", "生日", "shouldClearBirthData", "userBirthday"]
+  }, {
+    "category_en": "age",
+    "category_zh": "年龄",
+    "except_word": ["image"],
+    "words_set": ["age", "myage", "userAge"]
+  }, {
+    "category_en": "gender",
+    "category_zh": "性别",
+    "words_set": ["性别", "gender", "sex", "man", "woman", "user_gender", "gender_key"]
+  }, {
+    "category_en": "nation",
+    "category_zh": "民族",
+    "words_set": ["findnation"]
+  }, {
+    "category_en": "nationality",
+    "category_zh": "国籍",
+    "words_set": ["国籍", "usd", "eur", "hk", "jpy", "uk", "国际区号", "选择国家", "isCN"]
+  }, {
+    "category_en": "family relations",
+    "category_zh": "家庭关系",
+    "words_set": ["婚姻状态", "家庭成员", "孩子的关系", "小孩的关系"]
+  }, {
+    "category_en": "address",
+    "category_zh": "住址",
+    "words_set": ["choose_city", "address", "address_id", "place_id", "province", "post_edit_address", "province_id", "township", "captain_ids", "employerAddress", "addressPropertyFlag", "addressFlag", "recycleAddress", "store_addr", "addressid", "address_info", "this_address", "user_city", "user_province", "user_country", "uprovince", "ucity", "ucounty", "order_confirm_address_id", "citysNames", "jfGoodaddress", "USERADDRESS", "addr", "Addr", "currentcity", "city_name", "area_name", "area_id", "cityid", "cityinfo", "dizhi", "morendizhi", "city_code", "dizhilist", "comcityid", "comcityname", "home", "region", "now_city", "oldaddress", "userAddress", "userRegion", "homeCityLocation", "ProvinceList", "provinceDataUrl", "user_home_info", "choosecity", "getCurrentCity", "getcitybylocation", "Dormitory", "getcityitem", "xiaoqu", "AddrId", "getaddrbylocation", "city_list", "location_city_id", "CITY_SELECT_LOAD", "city", "cityChange", "cityCode", "provinceName", "cityName", "countyName", "nationalCode", "postalCode", "addressInfo", "deptCity3code", "nearCities", "airport_select_address", "country", "district", "street", "nation_code", "城市获取", "城市列表", "城市详情", "城市", "省份", "weizhi", "地址", "e.nowAddress.town", "AddressInfo", "addressLocation", "addressData", "addresscode", "addressId", "addressList", "userLocation", "areaCode", "locationInfoVoList", "adressList", "addressname", "city_id", "addresschose", "cities", "citys", "addressnum", "mypos", "adr", "areacode", "areaData", "areaName", "adress", "addressNean", "settlementAddress", "addressObject", "birthAddrCode", "birthAddrZipCode", "currAddrCode", "currAddrZipCode", "hukouAddrCode", "hukouAddrZipCode", "locationCity", "currentCity", "cityInfo", "spsourceCity", "destCity", "sourceCity", "cityChosen", "cityIdArr", "cityPickerValue", "localCity", "citySelectData", "cityDatas", "selcity", "selectedCity", "provinceData", "wx_address_info", "CHOOSED_COUNTRY_NAME", "user_location", "country_cache", "地区", "社区", "街道", "省", "市", "区/县", "县区", "省市", "省市区", "区县", "所在地区", "区域", "门牌号", "楼号门牌", "单元号", "栋座号", "房间号", "详细地址", "取货地址", "居住在", "注册地址", "联系地址", "工作地市", "工作省份", "所在位置", "所在地点", "通讯地址", "公司地址", "所在小区", "小区名称", "街道信息", "收货地址", "上门地址", "服务地址", "配送地址", "邮寄地址", "企业地址", "机构地址", "位置名称", "高考地区", "地区信息", "城市id", "省/市/区", "所在区域", "默认地址", "收货地", "所在省份", "拆分地址", "locationingFailed", "user_modifyAddress", "邮政编码", "邮编", "快递地址", "授权地址", "area.pattern"]
+  }, {
+    "category_en": "phone number",
+    "category_zh": "电话/手机号码",
+    "words_set": ["phone", "UserAppletPhoneNumber", "purePhoneNumber", "phoneNum", "userPhoneNumber", "phoneId", "UserPhoneNumber", "RechargePhoneNumber", "refreshSettingPhoneNum", "PhoneKey", "PhoneNumber", "phoneName", "order_tel", "USERPHONE", "tel", "telNum", "USERTEL", "phoneno", "user_phone", "bind_phone", "loginByMobile", "get_phonenumber", "BINDMOBILE", "bindphone", "getsendphone", "wxBindPhone", "mobileNum", "bindtel", "电话", "userPhone", "phoneNumber", "手机号码", "mobile", "receiverMobile", "手机号", "手机", "mobileVerify", "mobileNo", "telCode", "fillphone", "myPhone", "cellNumber", "userMoblie", "cellPhone", "bindPhone", "phoneBind", "phone_bind", "telephone", "联系方式", "号码", "注册电话", "联系人", "固定电话", "绑定手机", "联系电话", "pure_phone_number", "servicePhoneNumber", "mobile.pattern"]
+  }, {
+    "category_en": "car info",
+    "category_zh": "车信息",
+    "words_set": ["车信息", "车牌号", "车牌", "车型", "车辆", "carNumber", "myCar", "车辆品牌", "carChargingId", "车牌号码", "车辆编号", "爱车", "发动机号", "车辆信息", "行驶里程", "汽车品牌"]
+  }]
+}, {
+  "key": "identify info",
+  "value": [{
+    "category_en": "id cards",
+    "category_zh": "身份证",
+    "words_set": ["identity_card", "identity_card_photo", "身份证号码", "身份证", "身份证号", "实名认证", "实名", "证件照", "证件号", "证件号码", "实名凭证", "身份证照片", "认证照片", "国徽面", "人像面", "反面照片", "正面照片", "背面照片", "手持身份证照片", "本人身份证号", "实人认证", "扫描身份证", "身份证信息", "身份证正反面"]
+  }, {
+    "category_en": "officer cards",
+    "category_zh": "军官证",
+    "words_set": ["军人证号"]
+  }, {
+    "category_en": "passport",
+    "category_zh": "护照",
+    "words_set": ["img_passport", "visa_province", "passportOcrByFile", "get_visa_show", "get_visa_list", "护照号", "护照", "护照首页", "护照号码"]
+  }, {
+    "category_en": "driver's license",
+    "category_zh": "驾驶证",
+    "words_set": ["驾驶证", "行驶证", "驾驶证号"]
+  }, {
+    "category_en": "work card",
+    "category_zh": "工作证",
+    "words_set": ["执业证号", "警察证号", "教师证号", "残疾证号", "老年证号", "工作证号", "学生证", "工号", "工牌", "在职证明", "工作合同"]
+  }, {
+    "category_en": "social security card",
+    "category_zh": "社保卡",
+    "words_set": ["社保号", "医保"]
+  }, {
+    "category_en": "residence card",
+    "category_zh": "居住证",
+    "words_set": ["台湾居民居住证号", "港澳居民居住证号"]
+  }]
+}, {
+  "key": "biometric info",
+  "value": [{
+    "category_en": "fingerprints",
+    "category_zh": "指纹",
+    "words_set": ["指纹", "touchId", "fingerPrint"]
+  }, {
+    "category_en": "(menstrual) period",
+    "category_zh": "经期",
+    "words_set": ["经期", "经期太长", "大姨妈", "末次月经"]
+  }, {
+    "category_en": "expected date of childbirth",
+    "category_zh": "预产期",
+    "words_set": ["预产期"]
+  }, {
+    "category_en": "facial recognition features",
+    "category_zh": "面部识别特征",
+    "words_set": ["faceImgData", "faceshare", "facemerge", "facial", "人脸识别", "人脸认证", "刷脸", "人脸", "人脸照片", "脸部特征"]
+  }]
+}, {
+  "key": "network identify info",
+  "value": [{
+    "category_en": "account",
+    "category_zh": "账号",
+    "words_set": ["account_background", "my_account_old", "ownAccountsUnit", "账号", "账户", "QQ", "qq号", "会员号", "读者号", "微信号", "QQ号", "QQ号码", "用户名", "用户id", "WXID", "QQ群号码", "微信号码", "员工账号", "支付宝", "支付宝号", "支付宝账号", "白鹭卡号", "微信code"]
+  }, {
+    "category_en": "password",
+    "category_zh": "口令",
+    "words_set": ["password", "passwordKey", "pwd", "KouLing_Data", "encryptionKey", "kouling", "userPswd", "loginByPassword", "resetPassword", "setPwd", "modifyPassword", "setPassword", "addPwd", "pwds", "passwordVerification", "changepassword", "passwd", "wallets_password", "inputPassword", "salepwd", "libPwd", "WifiPwd", "pwdInput", "口令", "卡密", "passwd_bind", "passwdBind", "密钥", "密码", "旧密码", "原密码", "新密码", "密令", "提现密码", "登录密码", "访问密码", "支付密码", "查询密码", "交易密码", "确认密码"]
+  }, {
+    "category_en": "certificate",
+    "category_zh": "证书",
+    "words_set": ["certFront", "certBack", "electronicCertificate"]
+  }, {
+    "category_en": "uid",
+    "category_zh": "用户个人信息标识",
+    "words_set": ["uid", "Uid", "registerUid", "UID", "composUid", "changeUidCate", "changeUidOrder", "shareLiveUid", "TripShareUid", "xcxuuid", "gid", "user_openid", "user_id", "uuid", "weapp_openid", "miniuserid", "fuid", "anonymousuid", "miniopenid", "wxuserid", "PDD_USERID", "personnelEntityId", "getuseropenid", "getuseridkey", "getdatainuid", "getopenid", "getwxopenid", "GetOpenIdFromWeixin", "Getopenidmobile", "recommendUid", "_refer_uid", "userid", "用户uid", "openid", "openId", "OPENID", "wx_open_id", "toopenid", "golbUuid", "usertoken", "encryptedUid", "userIds", "userOpenid", "unionid"]
+  }, {
+    "category_en": "photo",
+    "category_zh": "照片",
+    "words_set": ["previewPhoto", "album", "last_photos_category", "uploadimg", "photoAmount", "photoInfo", "albumInfo", "writePhotosAlbum", "profileimg", "photoThumb", "cutphoto", "photo_del_url", "photo_theme_update_url", "photo_info_url", "photo_list_url", "upload_photo", "delete_photo", "savepic", "zhaopian", "ImageUpload", "uploadingImage", "upload_product_pic", "upimg", "upload_img", "saveUserPhotoUrl", "uploadImgUrl", "my_album_list", "getalbum", "PhotosAlbum", "相册", "照片", "albuminfo", "albumData", "photodata", "本地相册", "imagesFilename", "albumsData", "photoLists", "ablumStu", "photo_data_me", "photo_data_peer", "photo_src_me", "photo_src_peer", "album_timeline_upload_photos", "album_timeline_list_delete_feed", "album_timeline_list_delete_user", "fullPhoto", "takePhotoSrc", "上传", "视频", "系统相册", "相册权限", "授权相册", "电子版图片", "上传图片", "图片上传", "上传视频", "视频文件", "手机相册", "jpg", "png", "jpeg", "gif", "ocr", "audio", "flv", "rtmp", "爆照", "MP4", "肩部以上五观清晰头像照"]
+  }, {
+    "category_en": "voice",
+    "category_zh": "音频",
+    "words_set": ["voice", "dubbing", "audio", "sound", "yuyin", "voiceTranslateUrl", "音频", "语音"]
+  }, {
+    "category_en": "video",
+    "category_zh": "视频",
+    "words_set": ["videoplayednumber", "video", "videoInfo", "videoURL", "uploadVideo", "getVideoListByUid"]
+  }, {
+    "category_en": "file",
+    "category_zh": "文件",
+    "words_set": ["getOpenFile", "deleteFile", "getFileInfo", "uploadFile", "submitFile", "httpFileServer","路径"]
+  }, {
+    "category_en": "wx userinfo",
+    "category_zh": "微信用户基本信息，包括用户头像、昵称等",
+    "words_set": ["userinfo", "appuserinfo", "wxuserinfo", "myuserinfo","getUserInfo"]
+  }, {
+    "category_en": "nick name",
+    "category_zh": "昵称",
+    "words_set": ["昵称", "userName", "USERNAME", "nickname", "Nickname", "wxname", "账户名", "NICK_NAME", "支付宝昵称", "微信名"]
+  }, {
+    "category_en": "icon",
+    "category_zh": "头像",
+    "words_set": ["login_user_avatar_url", "avatar_img", "user_avatar", "name_avatar", "touxiang", "avatarUrl", "GetAvatarUrlStatus", "头像", "头图", "微信头像", "用户头像", "本人头像"]
+  }, {
+    "category_en": "e-mail",
+    "category_zh": "电子邮箱",
+    "words_set": ["电子邮箱", "邮件地址", "email", "邮箱", "邮件", "注册邮箱", "邮箱地址", "常用邮箱", "正确邮箱", "电子邮件", "邮箱格式", "E-mail","emailAddr", "fp_email_address", "fp_email_password", "TodayEmail", "SEND_FILE_TO_EMAIL", "GetFaSongEmail", "UpdateEmail"]
+  }]
+}, {
+  "key": "health info",
+  "value": [{
+    "category_en": "hospitalization records",
+    "category_zh": "病历",
+    "words_set": ["hospitalId", "doctorId", "doctorNum", "deptId", "deptName", "doctorName", "canShowPersonalDoctor", "接种证", "接种医院", "健康状况", "症状", "就医医院", "入院时间", "就医类型", "就诊时间", "出院诊断", "病情描述", "就诊日期", "入院日期", "出院日期", "医院就诊", "健康档案", "病历", "预问诊信息", "诊疗卡", "医院", "入院", "住院号", "挂号"]
+  }, {
+    "category_en": "medication records",
+    "category_zh": "用药记录",
+    "words_set": ["添加接种历史", "药品"]
+  }, {
+    "category_en": "weight",
+    "category_zh": "体重",
+    "words_set": ["体重", "身体质量指数", "BMI"],
+    "except_word": ["submit"]
+  }, {
+    "category_en": "height",
+    "category_zh": "身高",
+    "words_set": ["身高"]
+  }]
+}, {
+  "key": "education info",
+  "value": [{
+    "category_en": "occupation",
+    "category_zh": "职业",
+    "words_set": ["activaJob", "职业", "求职意向", "工作", "Job", "jobInfo", "所属行业", "执业", "执业律所", "职业身份", "资质", "ujob", "job", "occupation", "user_job_edit_url", "user_job_delete_url", "GetCareerMajor", "getJobDetail"]
+  }, {
+    "category_en": "salary",
+    "category_zh": "薪资",
+    "words_set": ["月薪", "年薪", "salary", "收入情况", "资产情况", "薪资", "薪资待遇", "税前工资", "工资", "税前收入", "工资数据", "基本工资", "公积金", "真实年薪", "薪酬"]
+  }, {
+    "category_en": "position",
+    "category_zh": "职位",
+    "words_set": ["职位", "职称", "职级", "部门信息", "职务", "公司职务", "主营业务", "职位头衔"]
+  }, {
+    "category_en": "organization",
+    "category_zh": "工作单位",
+    "words_set": ["companyName", "company_history", "company_remove", "company_removeDepartment", "工作单位", "工作地点", "公司", "企业", "行业", "任职要求", "岗位", "名片", "企业名称", "单位名称", "公司名称", "公司简介", "公司名", "企业名片", "认证名片", "信用代码", "company_id", "company_name", "uindustry", "companyinfo", "companyname", "belongPartyName", "registerCompanyId", "addrCompanyName", "departmentName"]
+  }, {
+    "category_en": "education background",
+    "category_zh": "学历",
+    "words_set": ["学历"]
+  }, {
+    "category_en": "education experience",
+    "category_zh": "教育经历",
+    "words_set": ["MySchool", "historySchool", "university_id", "education", "graduate", "CollageData", "universityId", "edu_info_url", "edu_edit_url", "edu_delete_url", "school_id", "eduInfo", "eduEpx", "学历", "入学年份", "学校", "学号", "院系", "所在学校", "毕业学校", "学信网编号", "学信网", "学校数据", "校园认证", "大学"]
+  }, {
+    "category_en": "work experience",
+    "category_zh": "工作经历",
+    "words_set": ["officer_history", "department_history", "company_history", "job_exp_add_url", "workEpx", "简历", "工作经历", "自我介绍"]
+  }, {
+    "category_en": "transcripts",
+    "category_zh": "成绩单",
+    "words_set": ["GPA"]
+  }]
+}, {
+  "key": "property info",
+  "value": [{
+    "category_en": "bank account",
+    "category_zh": "银行账户",
+    "words_set": ["bankinfo", "bankselected", "inputBankName", "userBankId", "queryProctocolByBankInfo", "getBankList", "bankNoInput", "卡号", "银行信息", "银行卡", "信用卡", "信用卡卡号", "卡号尾号", "银行名称", "银行卡号", "支行名称", "开户行号", "银行账户", "收款账号", "银行类型", "开户行", "银行名", "持卡人", "所属银行", "收款帐户", "收款人户名", "收款人账号", "开户名", "银行账号", "收款银行卡", "收款银行", "银行卡信息", "持卡人卡号"]
+  }, {
+    "category_en": "transaction records",
+    "category_zh": "交易记录",
+    "words_set": ["order", "orderdata", "order_name", "bill", "orderinfo", "myorder", "tradeId", "confirm_order", "get_booking_order_detail", "get_order_info", "get_trade_last_days_data", "get_trade_last_months_data", "getmyorder", "handleOrder"]
+  }, {
+    "category_en": "credit",
+    "category_zh": "信贷",
+    "words_set": ["getLoanYear", "getLoanPercent", "loan"]
+  }, {
+    "category_en": "collections",
+    "category_zh": "收款/收入",
+    "words_set": ["todayIncome", "totalIncome", "userIncome", "income_detail"]
+  }, {
+    "category_en": "pay",
+    "category_zh": "付款/支出",
+    "words_set": ["recharge", "todayConsumer", "payCourse", "is_pay", "payBack", "create_payment", "wxpay/merchant", "Weixinpay", "WeixinChonzhi", "is_pay_passw", "set_payment_password_one", "set_payment_password_two", "payfee", "paycard", "paymentUrl", "consume", "cash", "pay_check", "wxpay_hongbao", "getcash", "wallet_pay"]
+  }, {
+    "category_en": "shopping",
+    "category_zh": "购物",
+    "words_set": ["buy_goods_list", "shop_cache", "productInfo_list_key", "coupon", "cashGood", "productlist", "coupon_delivery", "oneCoupon", "cartList", "coupon_price", "coupon_id", "coupons", "GoodsList", "cartlist", "usecoupon", "normalcartlist", "shoppingCartCouponInfoList", "gouwuche", "stash_cart", "shop_history", "goods_history", "goodsid", "goodshistory", "bargain", "shopping", "couponsId", "goodsDetailShoppingCartRefresh", "taobao", "SHOPPING_CART_QUERY", "PRODUCT_QUERY", "COUPON_QUERY", "pintuan", "delete_shopping_cart", "goodlist", "getshopCart", "taobaoid", "wallet", "订单列表", "优惠券", "代金券", "couponid", "couponId", "orderdetail", "order_id", "orderInfo", "CouponInfo", "coupon_result", "orderrefundid", "订单", "卡券", "领券", "自营券", "卖品券", "票券", "秒杀", "流水号", "抵用券"]
+  }, {
+    "category_en": "receipt",
+    "category_zh": "发票",
+    "words_set": ["发票", "发票抬头", "开票", "纳税人识别号", "税号", "票号", "正确票号", "发票金额", "账目", "开票金额", "电子保单", "发票号码", "发票代码", "纳税人", "公司纳税识别码", "单位抬头", "电子发票"]
+  }]
+}, {
+  "key": "correspondence info",
+  "value": [{
+    "category_en": "content",
+    "category_zh": "通信记录/内容",
+    "words_set": ["dialogStorage", "chatLists", "cookie", "huifu"]
+  }, {
+    "category_en": "sms",
+    "category_zh": "短信",
+    "words_set": ["smsPhone", "sms", "sendsms", "send_sms", "getSmsCode", "validateSmsCode", "getSMSCode", "smsVerify"]
+  }, {
+    "category_en": "invite code",
+    "category_zh": "邀请码",
+    "words_set": ["invite_code", "inviter", "recommendation_code", "invitecode", "myInviteCode"]
+  }, {
+    "category_en": "address book",
+    "category_zh": "通讯录",
+    "words_set": ["contactPerson", "contact_tel", "contact", "contactPersonAddrCode", "AddContact", "GetAllContactByMainUser"]
+  }, {
+    "category_en": "friends list",
+    "category_zh": "好友列表",
+    "words_set": ["friendInfo", "friendLists"]
+  }]
+}, {
+  "key": "online record",
+  "value": [{
+    "category_en": "log",
+    "category_zh": "日志",
+    "except_word": ["login"],
+    "words_set": ["日志", "Log", "logs", "log"]
+  }, {
+    "category_en": "browsing records",
+    "category_zh": "浏览记录",
+    "words_set": ["search_history_list", "search_records", "history_list", "read_record", "todayVisitor", "totalVisitor", "searchHistory", "historyRecords", "HistoryList", "historyData", "searchLabelHistory", "historyKeywords", "HistorySearch", "searchHistoryRecord", "query_history", "historical_records", "visitRecord", "getHistoryList", "历史记录", "历史", "History", "addhistory", "historyarr", "hisdata", "足迹", "searchhistory", "historyList", "historyContent", "historySrarch", "historyTag", "desHistory", "refreshHistory", "historyKey", "historyKeyword", "historyArr", "lastLoginTime", "lastMsgTime", "Last__Visit__Time", "searchTime", "finishTime", "searchHistorysKey", "searchKey", "searchData", "searchRecords", "recentSearch", "searchHis", "searchCon", "mysearch", "_history_search", "search_history", "dtsearchkey", "history_city", "histories", "histories_notional", "lishi", "historykeys", "railwayhistory", "user_habit_info", "searchkeywords", "no_watch_search_key", "historySearchResult", "historyKatachiSearchKey", "historyKatachiSearchResult", "historySearchKey", "searchHistoryBounty", "searchHistoryNew", "historyStationList", "inputHistory", "lastMerchant", "lastVisitCache", "lastClickBtn", "lastPage", "wxSearchHisKeys", "HISTORY_KATACHI_SEARCH_KEY", "HISTORY_KATACHI_SEARCH_RESULT", "HISTORY_SEARCH_RESULT", "HISTORY_SEARCH_KEY", "WORD_DETAIL_HISTORY", "history_data", "_history_locations", "om_history_list", "last_cal_user_message", "last_query_user_message", "person_history", "收藏界面", "收藏记录", "历史搜索", "搜索记录", "最近搜索", "该条记录", "输入历史", "记录"]
+  }, {
+    "category_en": "click record",
+    "category_zh": "点击记录",
+    "words_set": ["SubscribeClick", "frogGoodsClicked", "click", "clickId_a", "lastClickBtn", "clickgood", "clickbad"]
+  }, {
+    "category_en": "collection list",
+    "category_zh": "收藏列表",
+    "words_set": ["like_list", "Likes", "favorites", "person_favorite", "myCollection", "add_favorite", "del_favorite", "收藏", "收藏夹"]
+  }, {
+    "category_en": "subscribed list",
+    "category_zh": "订阅记录",
+    "words_set": ["subscribed"]
+  }]
+}, {
+  "key": "device info",
+  "value": [{
+    "category_en": "hardware serial number",
+    "category_zh": "硬件序列号",
+    "words_set": ["serialNumber", "imei", "IMEI", "deviceCode", "machineid", "设备编号"]
+  }, {
+    "category_en": "phone model",
+    "category_zh": "手机参数",
+    "words_set": ["isPhoneX", "phoneModel", "isiphonex", "platform", "systemInfo.platform", "ios", "android", "userphototype", "systemanroid", "isIOS", "andriodtextdata", "deviceInfo", "machineInfo", "sysinfo", "phone_type", "安卓手机", "机型", "设备型号", "手机系统", "设备信息", "设备品牌", "苹果手机", "苹果系统", "STORAGE_VERSION_KEY", "Android端"]
+  }, {
+    "category_en": "unique device identification code",
+    "category_zh": "唯一设备标识码",
+    "words_set": ["device_id"]
+  }, {
+    "category_en": "config",
+    "category_zh": "设置",
+    "words_set": ["sys_config", "CONFIG", "share_setting", "授权信息", "推送", "禁用", "授权设置"]
+  }]
+}, {
+  "key": "location info",
+  "value": [{
+    "category_en": "track",
+    "category_zh": "行踪轨迹",
+    "words_set": ["airline", "airport", "entercityfirst", "fromcity", "backcity", "arrivetime","行程"]
+  }, {
+    "category_en": "positioning",
+    "category_zh": "定位信息",
+    "words_set": ["_location_info", "user_location", "location_city_id", "location_city", "locatecity", "zuobiao", "location_exp", "locationp", "getlocation", "locationInfo", "curLocation", "ReadLocation", "myLocation", "locationCode", "gps_location", "userLocation", "locationName", "locationZone", "gps", "refreshLocation", "refreshGeo", "getLocationGeo", "getLocation", "getAddress", "定位", "位置", "用户坐标", "定位服务", "获取定位", "地理位置", "用户位置", "location", "坐标", "地理定位", "position", "domin", "mylocation_name", "mylocation_adress", "address_dic", "coordinate", "GEO_LOCATION", "locDatainfo", "获取位置", "位置获取", "定位失败", "手机定位", "导航", "登录地", "后台定位", "位置坐标", "定位权限", "定位中", "地图导航", "地图", "位置授权", "授权地理位置", "定位授权", "授权定位", "地址授权"]
+  }, {
+    "category_en": "accommodation",
+    "category_zh": "住宿信息",
+    "words_set": ["hotelcpdldata", "hoteldescribe", "hotelBookingInput", "hotel-date"]
+  }, {
+    "category_en": "longitude and latitude",
+    "category_zh": "经纬度",
+    "words_set": ["lat", "lng", "post_edit_lon", "post_edit_lat", "Longtitude", "Latitude", "this_latitude_data", "this_longitude_data", "location_lat", "location_lon", "currentLnt", "currentLat", "my_lat", "my_lng", "ceterLatlng", "经纬度", "longitude", "latitude", "homelatitude", "homelongitude", "blatitude", "blongitude", "lnglat", "latlng"]
+  }]
+}, {
+  "key": "other info",
+  "value": [{
+    "category_en": "marriage",
+    "category_zh": "婚姻",
+    "words_set": ["img_marriage", "img_unmarriage", "userMarriage"]
+  },{
+    "category_en": "express",
+    "category_zh": "快递",
+    "words_set": ["express", "快递单号", "快递", "cityexpress", "物流", "包裹", "快递号", "物流信息", "入物流号", "物流公司", "运单号", "发货信息", "发货", "收货", "收货信息", "邮寄信息", "顺丰速运", "圆通速递", "中通快递", "申通快递", "天天快递", "百世快递", "韵达快递", "德邦快递", "包裹码", "包裹号", "快递公司", "物流单号", "货物名称", "提货单号"]
+  }]
+}, {
+  "key": "device",
+  "value": [{
+    "category_en": "camera",
+    "category_zh": "摄像头",
+    "words_set": ["camera", "switchCamera", "摄像头", "拍照", "拍摄", "相机", "摄像头功能", "视频录制", "摄像头权限", "视频时长", "光线充足,面部正对手机", "调用相机"]
+  }, {
+    "category_en": "wifi",
+    "category_zh": "无线局域网",
+    "words_set": ["wifi", "WiFi", "Wi-Fi"]
+  }, {
+    "category_en": "network",
+    "category_zh": "网络连接",
+    "words_set": ["network"]
+  }, {
+    "category_en": "recorder",
+    "category_zh": "麦克风",
+    "words_set": ["麦克风", "话筒", "recorder start", "录音", "识别不到语音", "录制", "录音权限", "连麦", "语音功能", "录制音频"]
+  }, {
+    "category_en": "bluetooth",
+    "category_zh": "蓝牙",
+    "words_set": ["蓝牙", "蓝牙访问", "蓝牙连接", "blueTooth_ed", "手机蓝牙"]
+  }, {
+    "category_en": "clipboard",
+    "category_zh": "剪切板",
+    "words_set": ["clipboardData", "clipboard", "剪切板", "ClipBoard", "已复制", "粘贴", "粘贴板", "剪贴板", "黏贴板"]
+  }, {
+    "category_en": "npc",
+    "category_zh": "NFC",
+    "words_set": ["nfc"]
+  }]
+}]

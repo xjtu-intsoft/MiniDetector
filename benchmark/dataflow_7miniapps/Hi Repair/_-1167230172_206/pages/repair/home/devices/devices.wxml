@@ -1,0 +1,133 @@
+<view class="devicesContainer" style="background:{{background}};background-size: cover;">
+    <view class="devicesWrapper">
+        <view class="titleWrap">
+            <view class="title">{{data.meta.title}}</view>
+            <view bindtap="morePhone" class="changemodel">
+                更换机型
+                <image class="" src="../../../../img/select.png"></image>
+            </view>
+        </view>
+        <view class="mydeviceWrap">
+            <view class="deviceWrap">
+                <image class="device" src="{{myDevice.src}}"></image>
+                <view class="des">
+                    <view class="destitle">
+                        <view class="">本机</view>
+                        <view bindtap="couponShow" class="subtitle">{{data.meta.subtitle}}></view>
+                    </view>
+                    <view class="name">{{myDevice.name}}</view>
+                </view>
+            </view>
+            <view class="deviceBtnWrap">
+                <view bindtap="officeClick" class="deviceBtn" data-item="{{item}}" wx:if="{{button_type==1}}" wx:for="{{officeBtn}}" wx:key="key">
+                    {{item.title}}
+                </view>
+                <view bindtap="officeClick" class="imageBtn" data-item="{{item}}" wx:if="{{button_type==2}}" wx:for="{{officeBtn}}" wx:key="key">
+                    <image class="" mode="widthFix" src="{{item.button_background}}"></image>
+                </view>
+            </view>
+        </view>
+        <scroll-view scrollX style="width: 100%;white-space: nowrap;margin-top:30rpx;">
+            <view bindtap="selectHot" class="camera {{selectIndex==index?'active':''}}" data-index="{{index}}" wx:for="{{hotFault}}" wx:key="key">
+                {{item.name}}
+            </view>
+        </scroll-view>
+        <scroll-view scrollX style="width: 100%;white-space: nowrap;height:210rpx;padding-top:20rpx">
+            <view bindtap="bindIcon" class="hot-mould" data-color_id="{{item.color_id}}" data-faultId="{{item.faulttype_id}}" data-id="{{item.id}}" data-is_show_underlined_price="{{item.is_show_underlined_price}}" data-item="{{item}}" data-maidian="热门故障下单" data-name="{{item.name}}" data-rp_id="{{item.rp_id}}" data-underlined_price="{{item.underlined_price}}" wx:for="{{hotFault[selectIndex].children}}" wx:key="key">
+                <view class="hotWrap">
+                    <view class="info-wrap">{{item.faulttype_detail_name}}</view>
+                    <view class="goRepair" wx:if="{{item.is_show_underlined_price==0}}">
+                        <view>
+                            <text style="font-size:22rpx;">¥</text>{{item.price}}
+                        </view>
+                        <view class="repair">去维修</view>
+                    </view>
+                    <view class="underline_price" wx:else>
+                        <view class="priceWrap">
+                            <view class="underline">原价¥{{item.underlined_price}}</view>
+                            <view class="nowPrice">
+                                限时特价¥<view class="">{{item.price}}</view>
+                            </view>
+                        </view>
+                        <view class="tip">
+                            {{item.title}}<image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/jiantou.png"></image>
+                        </view>
+                    </view>
+                </view>
+                <image class="officialimg" src="{{item.rt_corner_marker}}" wx:if="{{item.is_official_parts=='1'}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="login-dialog" wx:if="{{loginDialogShow}}">
+        <view class="title">
+        提示
+    </view>
+        <view class="content">
+        登录后领取优惠券哦
+    </view>
+        <view class="foot">
+            <view bindtap="cancelLoginDialog" class="cancel">取消</view>
+            <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber">
+            登录领取
+        </button>
+        </view>
+    </view>
+    <view catchtouchmove="true" class="modal zindex14" wx:if="{{loginDialogShow}}"></view>
+    <view bindtap="couponShow" catchtouchmove="true" class="modal zindex" data-type="close" wx:if="{{showCouponModal}}"></view>
+    <view animation="{{couponAnimation}}" attachmove="{{true}}" class="coupon-dialog">
+        <view catchtouchmove="true" class="title">
+            领券中心
+            <view bindtap="couponShow" class="close">
+                <image src="../../../../img/guanbi.png"></image>
+            </view>
+        </view>
+        <scroll-view scrollY class="maxHeight">
+            <view class="coupon_container" wx:for="{{couponList}}" wx:key="index">
+                <view class="coupon_title" wx:if="{{item.show}}">
+                    {{item.coupon_type==0?'回收券':'维修券'}}
+                    <view class="line"></view>
+                </view>
+                <view class="coupon_info">
+                    <view class="price_container">
+                        <view class="price_count">
+                            <view class="sym" wx:if="{{item.coupon_type!=2}}">¥</view>
+                            <view class="count" wx:if="{{item.is_shr}}">{{item.increase}}</view>
+                            <view class="count" wx:else>
+                                {{item.preferential_type==4?!item.preferential_amount?'???':item.preferential_amount:item.coupon_type==2?item.discount*10:item.discount==0?'???':item.discount}}
+                            </view>
+                            <view class="zhe" wx:if="{{item.coupon_type==2}}">折</view>
+                        </view>
+                        <view class="price_condition" wx:if="{{(item.coupon_type==1||item.coupon_type==0)&&item.preferential_type!=4}}">
+                            满{{item.satisfy}}{{item.is_shr?'增值':'减'}}{{item.is_shr?item.increase:item.discount}}
+                        </view>
+                        <view class="price_condition" wx:else>{{item.preferential_type==4?'随机 ¥'+item.min_preferential_amount+'-¥'+item.max_preferential_amount:'无门槛使用'}}</view>
+                    </view>
+                    <view class="type_container">
+                        <view class="type_name">
+                            <view class="type" wx:if="{{item.is_shr}}">回收</view>
+                            <view class="type" wx:else>维修</view>
+                            <view class="name">{{item.coupon_name}}</view>
+                        </view>
+                        <view class="use_time">{{item.time}}</view>
+                    </view>
+                    <view bindtap="lingquNow" class="btn getnow" data-number="{{item.batch_number}}" data-shr="{{item.is_shr}}" wx:if="{{item.status==1}}">
+                        立即领取
+                    </view>
+                    <view bindtap="couponShow" class="btn usenow" data-shr="{{item.is_shr}}" wx:if="{{isLogin&&item.status==5}}">
+                        立即使用
+                    </view>
+                    <view class="btn lingguang" wx:if="{{isLogin&&(item.status==2||item.status==3||item.status==4)}}">
+                        已领完
+                    </view>
+                    <image class="alreadyget" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/alreadyget.png" wx:if="{{item.status==5}}"></image>
+                </view>
+                <view class="coupon_condition" wx:if="{{item.active}}">
+                    <view class="condition" wx:for="{{item.rule}}" wx:for-item="ele" wx:key="index">
+                        <view class="diandian"></view>
+                        <view class="content">{{ele}}</view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

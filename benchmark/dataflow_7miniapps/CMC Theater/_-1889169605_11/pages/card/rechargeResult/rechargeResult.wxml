@@ -1,0 +1,58 @@
+<view class="container">
+    <view class="recharge-status">
+        <text>充值{{depositResultObj.message}}</text>
+    </view>
+    <view class="recharge-detail">
+        <view class="recharge-detail-item">
+            <text>充值卡号：</text>
+            <text>{{card_num}}</text>
+        </view>
+        <view class="recharge-detail-item">
+            <text>充值金额：</text>
+            <text>{{util.sub(recharge)}}元</text>
+        </view>
+        <view class="recharge-detail-item">
+            <text>会员卡余额：</text>
+            <text>{{depositResultObj.balance}}元</text>
+        </view>
+        <view class="divide"></view>
+        <view class="detail-content">
+            <view class="detail-has-chance" hidden="{{!showChance||noAcitivity}}">
+                <image class="detail-show-chance" src="/images/card/chongzhi_huodong_bg.png"></image>
+                <view class="detail-show-chance-text">
+                    <view class="detail-show-chance-text-top">
+                        <text>恭喜您获得</text>
+                        <text class="redText">1次抽奖</text>
+                        <text>机会</text>
+                    </view>
+                    <text class="detail-show-chance-text-middle">点击返回视为放弃抽奖机会</text>
+                    <button bindtap="gotoChance" class="detail-show-chance-text-bottom">去抽奖</button>
+                </view>
+            </view>
+            <view class="refrush-tips" hidden="{{noAcitivity&&showChance}}">
+                <text>{{depositResultObj.activity.message}}</text>
+            </view>
+        </view>
+        <view class="tel-content">
+            <text>影城电话：</text>
+            <text>{{depositResultObj.cinema_tel}}</text>
+        </view>
+        <view class="footer-handler" hidden="{{!showChance}}">
+            <button bindtap="jumpBack" class="buy_btn">返回</button>
+        </view>
+        <view bindtap="refrushStatus" class="footer-handler" hidden="{{showChance}}">
+            <button class="buy_btn">刷新</button>
+        </view>
+    </view>
+</view>
+<wxs module="util">
+var sub = (function(recharge) {
+    if (recharge && recharge.indexOf(".") == -1) {
+        recharge = recharge + ".00";
+        return (recharge)
+    } else {
+        return (recharge)
+    }
+});
+module.exports.sub = sub;
+</wxs>

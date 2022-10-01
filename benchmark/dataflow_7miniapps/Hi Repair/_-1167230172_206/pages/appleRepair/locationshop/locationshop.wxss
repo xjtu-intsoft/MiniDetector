@@ -1,0 +1,129 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.plr20 {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.p20 {
+    padding: 20rpx;
+}
+
+.shopContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.shopContainer .scrollview {
+    width: 100%;
+    height: 72rpx;
+    white-space: nowrap;
+    border-bottom: 1rpx solid #cdcdcf;
+}
+
+.shopContainer .scrollview .location {
+    display: inline-block;
+    padding: 0 20rpx;
+    line-height: 72rpx;
+    color: #bdbdbd;
+    position: relative;
+    font-size: 30rpx;
+}
+
+.shopContainer .scrollview .location .linebo {
+    position: absolute;
+    width: 100%;
+    height: 1rpx;
+    background: #007aff;
+    left: 0;
+    bottom: 1rpx;
+}
+
+.shopContainer .scrollview .location.active {
+    color: #333;
+}
+
+.shopContainer .shopscrollview {
+    width: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.shopContainer .shopscrollview .modelShowList {
+    background: #fff;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #c8c8cc;
+}
+
+.shopContainer .shopscrollview .modelShowList .showTitle {
+    padding: 35rpx 0;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #c8c8cc;
+    font-size: 24rpx;
+    color: #111;
+}
+
+.shopContainer .shopscrollview .modelShowList .repairWayList {
+    padding: 22rpx 0;
+}
+
+.shopContainer .shopscrollview .modelShowList .repairWayList .repairWayWrap {
+    box-sizing: border-box;
+    border-radius: 8rpx;
+}
+
+.shopContainer .shopscrollview .modelShowList .repairWayList .repairWayWrap .wrap {
+    font-size: 24rpx;
+    display: flex;
+    padding: 8rpx 0;
+}
+
+.shopContainer .shopscrollview .modelShowList .repairWayList .repairWayWrap .wrap .titl {
+    color: #86868b;
+    width: 120rpx;
+    flex-shrink: 0;
+}
+
+.shopContainer .shopscrollview .modelShowList .repairWayList .repairWayWrap .wrap .desc {
+    flex: 1;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.shopContainer .shopscrollview .modelShowList .contact {
+    padding: 40rpx 0;
+    justify-content: space-between;
+}
+
+.shopContainer .shopscrollview .modelShowList .contact,.shopContainer .shopscrollview .modelShowList .contact .tel {
+    display: flex;
+    align-items: center;
+}
+
+.shopContainer .shopscrollview .modelShowList .contact .tel image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.shopContainer .shopscrollview .modelShowList .contact .tel .text {
+    color: #007aff;
+    font-size: 24rpx;
+}
+
+.shopContainer .shopscrollview .modelShowList.addBorder {
+    border: 1rpx solid #007aff;
+}

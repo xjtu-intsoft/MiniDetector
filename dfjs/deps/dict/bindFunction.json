@@ -1,0 +1,105 @@
+[
+    {
+        "type":"checkbox",
+        "bind": {
+        }
+    },
+    {
+        "type":"checkbox-group",
+        "bind":{
+            "bindchange": {
+                "returnValue":"detail",
+                "attrs": ["value"]
+            }
+        }
+    },
+    {
+        "type":"form",
+        "bind":{
+            "bindsubmit":{
+                "returnValue":"detail",
+                "attrs": ["value","formId"]
+            },
+            "bindreset":{
+            }
+        }
+    },
+    {
+        "type":"picker",
+        "bind":{
+            "bindcancel": {},
+            "bindchange":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            },
+            "bindcolunmchange":{
+                "returnValue":"detail",
+                "attrs": ["value","column"]
+            }
+        }
+    },
+    {
+        "type":"picker-view",
+        "bind":{
+            "bindchange":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            },
+            "bindpickstart":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            },
+            "bindpickerend":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            }
+        }
+    },
+    {
+        "type":"picker-view-column",
+        "bind":{}
+    },
+    {
+        "type":"slider",
+        "bind":{
+            "bindchange":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            },
+            "bindchanging":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            }
+        }
+    },
+    {
+        "type":"textarea",
+        "returnValue":"detail.value",
+        "bind":{
+            "bindfocus":{
+                "returnValue":"detail",
+                "attrs": ["value","height"]
+            },
+            "bindblur":{
+                "returnValue":"detail",
+                "attrs": ["value","cursor"]
+            },
+            "bindlinechange":{
+                "returnValue":"detail",
+                "attrs": ["height","heightRpx","lineCount"]
+            },
+            "bindinput":{
+                "returnValue":"detail",
+                "attrs": ["value","cursor","keyCode"]
+            },
+            "bindconfirm":{
+                "returnValue":"detail",
+                "attrs": ["value"]
+            },
+            "bindkeyboardheightchange":{
+                "returnValue":"detail",
+                "attrs": ["height","duration"]
+            }
+        }
+    }
+]

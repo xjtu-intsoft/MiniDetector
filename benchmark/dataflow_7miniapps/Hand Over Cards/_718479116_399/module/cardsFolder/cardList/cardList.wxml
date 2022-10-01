@@ -1,0 +1,8 @@
+<import src="./template/cardViewer.wxml"></import>
+<import src="./template/listViewer.wxml"></import>
+<view class="listViewer" wx:if="{{viewerState=='list'}}">
+    <template is="listViewer" data="{{listData:listData,timerMark:timerMark}}"></template>
+</view>
+<view class="cardViewer" wx:if="{{viewerState=='card'}}">
+    <template is="cardViewer" data="{{listData:listData,timerMark:timerMark}}"></template>
+</view>

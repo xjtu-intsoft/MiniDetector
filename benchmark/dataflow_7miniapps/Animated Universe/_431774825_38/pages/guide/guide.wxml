@@ -1,0 +1,14 @@
+<view class="guide">
+    <image class="guide-top-img" src="/images/guide_dtyz.png"></image>
+    <view class="guide-main">
+        <view class="guide-item" wx:for="{{list}}" wx:key="{{index}}">
+            <image class="guide-main-img" src="{{item.url}}"></image>
+            <text class="guide-text1">{{item.text1}}</text>
+            <text class="guide-text2">{{item.text2}}</text>
+        </view>
+    </view>
+    <view class="guide-line1"></view>
+    <view class="guide-line2"></view>
+    <button bindgetuserinfo="getUserInfo" bindtap="toStart" class="guide-start" openType="getUserInfo">马上开始</button>
+    <view class="guide-text3">你专属的动图头条</view>
+</view>

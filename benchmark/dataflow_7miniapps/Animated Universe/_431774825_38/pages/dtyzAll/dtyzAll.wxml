@@ -1,0 +1,20 @@
+<view class="dtyzAll">
+    <banner item="{{banner}}"></banner>
+    <view class="dtyzAll-main">
+        <view class="dtyzAll-nav-left">
+            <view bindtap="change" class="{{activeIndex==index?'dtyzAll-active':''}}" data-index="{{index}}" wx:for="{{theme_list}}" wx:key="{{index}}">
+                <image src="../../images/line_highlight.png" wx:if="{{activeIndex==index}}"></image>
+                <text>{{item.key}}</text>
+            </view>
+        </view>
+        <view class="dtyzAll-nav-right">
+            <view class="dtyzAll-nav-right-one" wx:for="{{theme_list[activeIndex].list}}" wx:key="{{index}}">
+                <dtyz-all-item item="{{item}}"></dtyz-all-item>
+            </view>
+            <view class="dtyzAll-kefu">
+        告诉我们，你还想了解什么
+        <image mode="widthFix" src="../../images/icon_see_all.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

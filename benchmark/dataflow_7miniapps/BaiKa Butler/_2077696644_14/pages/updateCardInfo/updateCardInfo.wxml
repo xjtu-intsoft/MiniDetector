@@ -1,0 +1,42 @@
+<form bindsubmit="updateCard">
+    <input hidden="true" name="cardId" value="{{cardInfo.cardId}}"></input>
+    <input hidden="true" name="credit" value="{{cardInfo.credit}}"></input>
+    <input hidden="true" name="accountDay" value="{{cardInfo.accountDay}}"></input>
+    <input hidden="true" name="repaymentDay" value="{{cardInfo.repaymentDay}}"></input>
+    <view class="item">
+        <image class="img-item-icon" src="../../images/ic_card_number.png"></image>
+        <text class="item-title ">卡 号</text>
+        <text class="item-input ">{{cardInfo.cardNumber}}</text>
+    </view>
+    <block wx:if="{{type==0}}">
+        <view class="view-line"></view>
+        <view class="item">
+            <image class="img-item-icon" src="../../images/ic_balance.png"></image>
+            <text class="item-title ">剩余额</text>
+            <input class="item-input " maxlength="10" name="balance" placeholder="输入剩余额" placeholderStyle="color:#323232" type="digit" value="{{cardInfo.balance}}"></input>
+        </view>
+    </block>
+    <block wx:if="{{type==1}}">
+        <input hidden="true" name="balance" value="{{cardInfo.balance}}"></input>
+        <view class="view-line"></view>
+        <view class="item">
+            <image class="img-item-icon" src="../../images/ic_repay_day.png"></image>
+            <text class="item-title ">还款日</text>
+            <picker bindchange="onPickerChange" class="item-input" range="{{date}}" value="{{cardInfo.repaymentDay-1}}">
+                <view class="picker">
+                    <text class="black-text-color ">{{cardInfo.repaymentDay}} 号</text>
+                </view>
+            </picker>
+        </view>
+    </block>
+    <block wx:if="{{type==2}}">
+        <view class="view-line"></view>
+        <view class="item">
+            <image class="img-item-icon" src="../../images/ic_balance.png"></image>
+            <text class="item-title ">账单额</text>
+            <input class="item-input " name="billSum" placeholder="输入账单额" placeholderStyle="color:#323232" type="digit"></input>
+        </view>
+    </block>
+    <view class="view-line"></view>
+    <button class="btn-main" formType="submit" style="margin-top:60rpx;"> 确定</button>
+</form>

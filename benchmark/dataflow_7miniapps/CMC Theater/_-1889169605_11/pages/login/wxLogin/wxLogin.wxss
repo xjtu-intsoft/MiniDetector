@@ -1,0 +1,78 @@
+.test {
+    white-space: pre-wrap;
+}
+
+.cancasContent {
+    transform: scale(.5);
+}
+
+.mineCodeLogin-view-logo {
+    margin-top: 176rpx;
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.wx_login_parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wx_login {
+    background: #07c160;
+    color: var(--color-cf);
+    size: var(--font-tb);
+    margin-top: 184rpx;
+}
+
+.phone_login,.wx_login {
+    width: 686rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.phone_login {
+    background: #f1f1f1;
+    color: var(--color-cc);
+    size: var(--font-tc);
+    margin-top: 32rpx;
+}
+
+.user_protocol_parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-te);
+    color: var(--color-ci);
+    line-height: 34rpx;
+    height: 84rpx;
+    padding-top: 6rpx;
+}
+
+.user_protocol_parent_wx_login_fixed {
+    position: fixed;
+    bottom: 46rpx;
+    left: 0rpx;
+    right: 0rpx;
+}
+
+.user_protocol_show {
+    color: var(--color-cb);
+}
+
+.mineCodeLogin-changeAccountLoginBtn {
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: right;
+    width: 200rpx;
+    color: var(--color-cb);
+    font-size: var(--font-tc);
+}
+
+.is-hidden {
+    display: none;
+}

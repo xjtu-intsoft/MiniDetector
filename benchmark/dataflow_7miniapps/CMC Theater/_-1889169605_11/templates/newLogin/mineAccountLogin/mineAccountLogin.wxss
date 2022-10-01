@@ -1,0 +1,154 @@
+.mineAccountLogin-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mineAccountLogin-view-logo {
+    margin-top: 50rpx;
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.mineAccountLogin-view-inputs {
+    width: 686rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.mineAccountLogin-phonenum {
+    width: 100%;
+    height: 94rpx;
+    margin-top: 16rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.phonenum-input {
+    width: 100%;
+    height: 94rpx;
+    font-size: var(--font-tb);
+}
+
+.mineAccountLogin-clear {
+    width: 94rpx;
+    height: 94rpx;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.clear-icon {
+    margin-right: 10rpx;
+}
+
+.mineAccountLogin-safecode {
+    width: 100%;
+    height: 98rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.mineAccountLogin-safecodeview {
+    height: 98rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mineAccountLogin-safecodeview-input {
+    width: 100%;
+    height: 98rpx;
+    font-size: var(--font-tb);
+}
+
+.mineAccountLogin-safecodeview-image {
+    width: 146rpx;
+    height: 54rpx;
+}
+
+.mineAccountLogin-password {
+    width: 100%;
+    height: 94rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.password-input {
+    width: 100%;
+    height: 94rpx;
+    font-size: var(--font-tb);
+}
+
+.mineAccountLogin-showPass {
+    width: 94rpx;
+    height: 94rpx;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.show-icon {
+    width: 54rpx;
+    height: 54rpx;
+}
+
+.mineAccountLogin-loginBtn {
+    width: 100%;
+    height: 96rpx;
+    color: #fff;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: var(--font-tb);
+    background-color: var(--color-cb);
+    border-radius: 8rpx;
+    margin-top: 66rpx;
+    opacity: 1;
+}
+
+.mineAccountLogin-loginBtn-nouse {
+    opacity: .3;
+}
+
+.mineAccountLogin-bottomView {
+    width: 686rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_protocol_parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-te);
+    color: var(--color-ci);
+    line-height: 34rpx;
+    height: 84rpx;
+    padding-top: 6rpx;
+}
+
+.user_protocol_show {
+    color: var(--color-cb);
+}
+
+.mineAccountLogin-changeCodeLoginBtn {
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: right;
+    color: var(--color-cb);
+}
+
+.mineAccountLogin-line {
+    width: 100%;
+    height: 2rpx;
+    background-color: var(--color-cg);
+}
+
+.is-hidden {
+    display: none;
+}

@@ -1,0 +1,83 @@
+.header {
+    width: 100%;
+    padding: 15rpx 15rpx;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    background: #fff;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 40rpx;
+    text-align: center;
+    font-weight: 700;
+}
+
+.logo>image {
+    width: 142rpx;
+    height: 48rpx;
+    vertical-align: top;
+}
+
+.gc_go {
+    font-size: 36rpx;
+    margin-left: 10rpx;
+    font-weight: 700;
+}
+
+.text {
+    padding-left: 35rpx;
+    height: 46px;
+    font-size: 44rpx;
+    color: #666;
+    text-align: left;
+    line-height: 46px;
+    border-bottom: 1px solid #d9d9d9;
+    font-weight: 600;
+}
+
+.text image {
+    width: 460rpx;
+    height: 70rpx;
+    margin: 14rpx 0 0 40rpx;
+    vertical-align: top;
+}
+
+.list {
+    padding: 15rpx 15rpx;
+    display: flex;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.logo_png>image {
+    width: 99rpx;
+    height: 99rpx;
+    margin: 31rpx 0 0 31rpx;
+}
+
+.logo_name {
+    height: 50rpx;
+    margin-left: 34rpx;
+    color: #b2b2b2;
+    font-size: 30rpx;
+    font-weight: 700;
+    border-bottom: 1px dashed #d9d9d9;
+}
+
+.options {
+    display: flex;
+}
+
+.options view {
+    height: 66rpx;
+    width: 140rpx;
+    margin-left: 30rpx;
+    color: #666;
+    line-height: 66rpx;
+    margin-top: 14rpx;
+    border: 1px solid #0094ff;
+    border-radius: 20rpx;
+    position: relative;
+    text-align: center;
+    font-size: 31rpx;
+}

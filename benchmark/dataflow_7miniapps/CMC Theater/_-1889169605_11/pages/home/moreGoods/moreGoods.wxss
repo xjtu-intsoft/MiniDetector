@@ -1,0 +1,123 @@
+./templates/confirmOrder/confirmGoodcell/confirmGoodcell.wxssrpx.chosegoods-mask {
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.chosegoods-show {
+    opacity: 0;
+}
+
+.chosegoods-upview {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    transition: height .3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chosegoods-viewup {
+    height: 70%;
+}
+
+.chosegoods-goodslist {
+    margin-top: 20rpx;
+    margin-bottom: 180rpx;
+    height: 100%;
+}
+
+.chosegoods-cell {
+    margin-left: 20rpx;
+    margin-top: 14rpx;
+}
+
+.chosegoods-buttom-line {
+    width: 100%;
+    height: 1rpx;
+    background-color: var(--color-ch);
+}
+
+.chosegoods-buttomview {
+    position: fixed;
+    bottom: 0rpx;
+    background-color: #fff;
+    width: 100%;
+    height: 180rpx;
+}
+
+.chosegoods-buttom-topview {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chosegoods-buttom-topview-desc {
+    width: 440rpx;
+    height: 80rpx;
+    line-height: 30rpx;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    margin-left: 28rpx;
+    overflow: hidden;
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+    flex-direction: column;
+}
+
+.chosegoods-buttom-topview-desc,.chosegoods-buttom-topview-price {
+    display: flex;
+    justify-content: center;
+}
+
+.chosegoods-buttom-topview-price {
+    margin-right: 28rpx;
+    line-height: 80rpx;
+    font-size: var(--font-td);
+    flex-direction: row;
+    align-items: center;
+}
+
+.chosegoods-buttom-topview-price-title {
+    flex-shrink: 0;
+}
+
+.chosegoods-buttom-topview-price-price {
+    color: var(--color-ce);
+    margin-right: 5rpx;
+    font-size: var(--font-tb);
+}
+
+.chosegoods-buttom-chosebtn {
+    margin-left: 28rpx;
+    width: 695rpx;
+    background-color: var(--color-cb);
+    height: 76rpx;
+    line-height: 76rpx;
+    text-align: center;
+    color: #fff;
+    font-size: var(--font-td);
+    border-radius: 8rpx;
+}
+
+.line-view {
+    width: 650rpx;
+    margin-right: 28rpx;
+    margin-left: 28rpx;
+    margin-top: 20rpx;
+    height: 1rpx;
+    background-color: var(--color-ch);
+}
+
+.big-scrollview {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}

@@ -1,0 +1,9 @@
+<view class="tip">
+    <view>【操作方法】</view>
+    <view>1. 请复制下面的链接，粘帖到电脑浏览器地址栏中下载报名数据。</view>
+    <view>2. 该链接有效期为30分钟，过期后请重新点击【下载表格】生成链接。</view>
+    <text>{{url}}</text>
+</view>
+<view class="button-sp-area">
+    <button bindtap="handleDownload" class="weui-btn">复制</button>
+</view>

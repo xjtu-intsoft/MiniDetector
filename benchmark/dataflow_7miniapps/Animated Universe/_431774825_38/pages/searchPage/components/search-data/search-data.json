@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "stream-layout": "/components/stream-layout/stream-layout",
+        "share-buttons": "/components/share-buttons/share-buttons",
+        "has-more-data": "/components/has-more-data/has-more-data"
+    }
+}

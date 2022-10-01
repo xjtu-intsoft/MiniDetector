@@ -1,0 +1,5 @@
+<view class="search-no-data">
+    <image class="search-no-data-image" src="/images/icon_no_result.png"></image>
+    <view class="search-no-data-tip">没有找到相关结果</view>
+    <relate-recommend mtStyle="{{mtStyle}}" source="searchPageNoData"></relate-recommend>
+</view>

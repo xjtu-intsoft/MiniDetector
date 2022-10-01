@@ -1,0 +1,5 @@
+<view class="article-subscribe">
+    <image class="article-subscribe-img" mode="aspectFit" src="/images/icon_tag.png"></image>
+    <text class="article-subscribe-text">{{item.name}}</text>
+    <subscribe-button class="article-subscribe-button" item="{{item}}" type="1"></subscribe-button>
+</view>

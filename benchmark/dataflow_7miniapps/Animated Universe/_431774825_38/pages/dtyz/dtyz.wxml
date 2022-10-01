@@ -1,0 +1,9 @@
+<view class="dtyz">
+    <banner class="dtyz-banner" item="{{topDesc}}"></banner>
+    <view class="dtyz-subscribe" wx:for="{{list}}" wx:key="{{index}}">
+        <subscribe-container item="{{item}}"></subscribe-container>
+    </view>
+    <view bindtap="goIndex" class="dtyz-bottom-button">
+        <button>去头条看大家热议的话题</button>
+    </view>
+</view>

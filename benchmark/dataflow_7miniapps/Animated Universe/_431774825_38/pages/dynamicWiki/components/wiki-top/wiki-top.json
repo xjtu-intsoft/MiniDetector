@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "video-time": "/components/video-time/video-time",
+        "video-volume": "/components/video-volume/video-volume"
+    }
+}

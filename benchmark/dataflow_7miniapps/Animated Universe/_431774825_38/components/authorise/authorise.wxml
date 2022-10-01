@@ -1,0 +1,7 @@
+<view class="authorise">
+    <image class="authorise-fail-icon" mode="widthFix" src="/images/shield.png"></image>
+    <view class="authorise-fail-title">请求授权</view>
+    <view class="authorise-fail-text">允许访问您的公开信息，</view>
+    <view class="authorise-fail-text">我们将会给您带来更适合的内容</view>
+    <button bindgetuserinfo="getUserInfo" class="re-authorise" openType="getUserInfo">开启授权</button>
+</view>

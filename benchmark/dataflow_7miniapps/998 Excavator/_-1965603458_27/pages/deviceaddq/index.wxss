@@ -1,0 +1,334 @@
+@import "../../__wuBaseWxss__/10.wxss";
+
+.weui-uploader__file {
+    width: 30%;
+    margin-right: 3.33%;
+    position: relative;
+}
+
+textarea[placeholder] {
+    position: relative;
+    z-index: 0;
+}
+
+.weui-uploader__file .edit {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 25px;
+    height: 25px;
+}
+
+.weui-uploader__img {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+}
+
+.textarea {
+    height: 80rpx;
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+.more {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    color: #ccc;
+}
+
+.more image {
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+textarea {
+    z-index: 1px;
+}
+
+.hide {
+    display: none;
+}
+
+.model {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000;
+    background: rgba(000,000,000,0.7);
+}
+
+.modelcontent {
+    background: #fff;
+    margin: 10%;
+    border-radius: 5px;
+    position: relative;
+}
+
+.modelcontent .modelhead {
+    background: #f8f8f8;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+}
+
+.modelcontent .modellist,.modelcontent .modellisty {
+    padding: 0 10px;
+    max-height: 320px;
+    width: auto;
+    padding-bottom: 10px;
+}
+
+.modelcontent .modellist view {
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0px;
+    width: 49%;
+    float: left;
+    text-align: center;
+}
+
+.modelcontent .modellisty view {
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0px;
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+.notes {
+    background: #ccc;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px;
+}
+
+.ts {
+    color: #FF6600;
+    z-index: 0;
+    position: relative;
+}
+
+.openmap {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+}
+
+.center {
+    text-align: center;
+}
+
+.getmobile {
+    border-radius: 0;
+    background: none;
+}
+
+.getmobile:after {
+    content: "";
+    border: none;
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-dialog {
+    width: 640rpx;
+    height: 880rpx;
+    position: fixed;
+    top: 22%;
+    left: 0;
+    z-index: 9999;
+    background: #fff;
+    margin: -180rpx 58rpx;
+    border-radius: 10rpx;
+}
+
+.modal-title {
+    padding: 15rpx 0 10rpx 0;
+    font-size: 36rpx;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    background: #3392ff;
+    line-height: 60rpx;
+}
+
+.modal-content {
+    font-size: 28rpx;
+    color: #C0C0C0;
+    text-align: center;
+    margin: 34px auto;
+    width: 360rpx;
+}
+
+.modal-content span {
+    color: #3392ff;
+}
+
+.modal-footer {
+    display: flex;
+    height: 86rpx;
+}
+
+.modal-footer button {
+    width: 38%;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    font-size: 30rpx;
+    border-radius: 10rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.btn-cancel {
+    background: #ccc;
+    color: #fff;
+}
+
+.btn-confirm {
+    background: #48C23D;
+    color: #fff;
+}
+
+.share_way image {
+    width: 86rpx;
+    height: 86rpx;
+}
+
+.share_way button {
+    padding: 0;
+    background: #fff;
+}
+
+.share_way {
+    width: 350rpx;
+    margin: 20rpx auto;
+}
+
+.wx-btn {
+    float: right;
+}
+
+.comment-btn {
+    float: left;
+}
+
+.share_text {
+    margin-top: 35rpx;
+    font-size: 24rpx;
+}
+
+.share_text view {
+    float: left;
+    margin-left: 117rpx;
+}
+
+.back_next {
+    width: 180rpx;
+    height: 60rpx;
+    background: #0094ff;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 60rpx;
+}
+
+.share_way view {
+    font-size: 24rpx;
+    text-align: center;
+    margin-top: -28rpx;
+}
+
+.hidden_mod {
+    width: 80rpx;
+    height: 80rpx;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(20rpx) translateY(-20rpx);
+    z-index: 9999;
+}
+
+.hidden_mod image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 15rpx;
+    z-index: 9999;
+}
+
+.canvas-box {
+    position: fixed;
+    top: 999999rpx;
+    left: 0;
+}
+
+.sx_lunbo {
+    width: 100%;
+    height: 60rpx;
+    border-bottom: solid 1px #eee;
+    background: #EBFDF5;
+}
+
+.sx_swiper {
+    width: 100%;
+    margin-top: 10rpx;
+}
+
+.sx_swiper swiper-item {
+    height: 40rpx;
+}
+
+.page_row {
+    height: 70rpx;
+    display: flex;
+}
+
+.reds {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 28rpx;
+    height: 74rpx;
+    line-height: 57rpx;
+}
+
+.page_row image {
+    width: 55rpx;
+    height: 42rpx;
+    margin: 15rpx 15rpx 15rpx 30rpx;
+}
+
+.add_pic {
+    font-size: 23rpx;
+    color: #666;
+    margin-top: 56px;
+    text-align: center;
+}

@@ -1,0 +1,144 @@
+.add_addr_button {
+    position: fixed;
+    bottom: 30rpx;
+    width: 686rpx;
+    border-radius: 10rpx;
+    height: 100rpx;
+    left: 50%;
+    margin-left: -343rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    justify-content: space-between;
+}
+
+.add_addr_button,.no_address {
+    display: flex;
+}
+
+.no_address {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.no_address image {
+    width: 196rpx;
+    height: 160rpx;
+    margin: 82rpx auto 0;
+}
+
+.no_address_txt {
+    text-align: center;
+    color: #ababab;
+    font-size: 32rpx;
+    margin-top: 86rpx;
+}
+
+.addr_list_view {
+    width: 686rpx;
+    margin: 0 auto;
+}
+
+.item {
+    font-size: 28rpx;
+    min-height: 190rpx;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 3px 24px 0 hsla(0,0%,63.9%,.2);
+    border-radius: 10rpx;
+    margin: 16rpx 0;
+}
+
+.item_address:last-child {
+    margin-bottom: 150rpx!important;
+}
+
+.content {
+    line-height: 22px;
+    margin-right: 0;
+    padding: 42rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .content_info {
+    max-width: 520rpx;
+}
+
+.content .content_info .name_phone {
+    display: flex;
+}
+
+.content .content_info .name_phone .content_name {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #000;
+}
+
+.content .content_info .name_phone .content_phone {
+    font-size: 24rpx;
+    color: #ababab;
+    margin-left: 20rpx;
+}
+
+.content .content_address {
+    margin-top: 16rpx;
+}
+
+.content .content_address .content_address_txt {
+    color: #ababab;
+    font-size: 26rpx;
+    line-height: 38rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.content .content_address .content_address_txt .address_default {
+    width: 60rpx;
+    height: 30rpx;
+    background: #fcc;
+    border-radius: 2rpx;
+    font-size: 24rpx;
+    line-height: 30rpx;
+    color: #ff7a00;
+    text-align: center;
+    display: inline-block;
+}
+
+.edit {
+    padding: 26rpx 10rpx;
+}
+
+.edit image {
+    height: 52rpx;
+    width: 52rpx;
+}
+
+.oneKeyOrderBtn {
+    text-align: center;
+    line-height: 100rpx;
+    color: #ff7a00;
+    border-top: 1px solid #f7f7f7;
+}
+
+.addAddressOrder,.phoneOrder {
+    width: 322rpx;
+    height: 100rpx;
+    background: #fff;
+    box-shadow: 0 3rpx 24rpx 0rpx hsla(0,0%,63.9%,.2);
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.addAddressOrder {
+    color: #ff7a00;
+}
+
+.phoneOrder {
+    color: #000;
+}

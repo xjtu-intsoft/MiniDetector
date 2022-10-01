@@ -1,0 +1,57 @@
+<view style="{{huifaCon['show']?'position:fixed;width:100%;height:100%;':';'}}">
+    <view class="content {{3==singleData.cardType?'content-web':''}}">
+        <component-newCardDetail bindmyevent="onMyEvent" bindtolookhomepage="toLookHomePage" freshNum="{{freshNum}}" userData="{{singleData}}">
+            <view class="is-del" slot="deleteTip" wx:if="{{singleData['isDel']}}">
+                <view class="is-del">
+                    <view class="txt">该名片已被Ta删除</view>
+                </view>
+                <view class="white-block"></view>
+            </view>
+        </component-newCardDetail>
+    </view>
+</view>
+<view class="cardOrigin" wx:if="{{singleData.sence=='3'||singleData.sence=='7'}}">
+  名片来源：{{rsExchangeTime}} 来自微信群
+  <view style="display:inline-block;">
+    「
+    <open-data openGid="{{singleData.openGid}}" style="font-size:24rpx;" type="groupName"></open-data>
+    </view>
+    <text>」的成员{{avatar.nickname?'「'+avatar.nickname+'」':''}}</text>
+</view>
+<view class="cardOrigin" wx:if="{{singleData.sence=='1'||singleData.sence=='8'}}">
+  名片来源：{{rsExchangeTime}} 来自微信好友{{avatar.nickname?'「'+avatar.nickname+'」':''}}
+</view>
+<view class="cardOrigin" wx:if="{{singleData.sence=='2'||singleData.sence=='9'}}">
+  名片来源：{{rsExchangeTime}} 来自微信好友{{fwAvatar.nickname?'「'+fwAvatar.nickname+'」':''}}的转发
+</view>
+<view class="cardOrigin" wx:if="{{singleData.sence=='5'}}">名片来源：{{rsExchangeTime}} 通过拍照保存</view>
+<view class="cardOrigin" wx:if="{{singleData.sence=='4'||singleData.sence=='10'}}">
+  名片来源：{{rsExchangeTime}} 通过扫码保存
+</view>
+<view class="cardOrigin" wx:if="{{singleData.sence=='6'}}">
+  名片来源：{{rsExchangeTime}} 来自{{avatar.nickname?'「'+avatar.nickname+'」':'微信好友'}}的回发
+</view>
+<view style="padding:70rpx 0;"></view>
+<view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}" wx:if="{{singleData['cardType']!=2&&loaded}}">
+    <button bindtap="deleteCard" class="small-default-btn delBtn">删除名片</button>
+    <button bindtap="shareToOther" class="mid-success-btn" openType="share" wx:if="{{!singleData['isDel']&&singleData['isHavingMycard']}}">
+    转发名片
+  </button>
+    <button class="mid-success-btn buttonDisabled" wx:if="{{singleData['isDel']&&singleData['isHavingMycard']}}">
+    转发名片
+  </button>
+    <button bindgetuserinfo="onGotUserInfo" class="mid-success-btn" openType="getUserInfo" wx:if="{{!singleData['isHavingMycard']&&!getSettingMessage}}">
+    回发名片
+  </button>
+    <button bindtap="returnCard" class="mid-success-btn" wx:if="{{!singleData['isHavingMycard']&&getSettingMessage}}">
+    回发名片
+  </button>
+</view>
+<view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}" wx:if="{{singleData['cardType']==2&&loaded}}">
+    <button bindtap="deleteCard" class="small-default-btn delBtn">删除名片</button>
+    <button bindtap="edit" class="mid-success-btn">编辑名片</button>
+</view>
+<view style="height:100rpx;"></view>
+<component-operationLayer bindpartFreshFun="partFreshFun" confirmCon="{{confirmCon}}" hasBorder="{{hasBorder}}" id="operationLayer" myMessage="{{myMessage}}" mycard="{{mycard}}" pageOrigin="{{options}}" quickBuild="{{quickBuild}}" returnOpenid="{{returnOpenid}}" route="{{route}}"></component-operationLayer>
+<import src="../../../temp/public.wxml"></import>
+<template is="netError" data="{{path:'../../../'}}" wx:if="{{netError.show}}"></template>

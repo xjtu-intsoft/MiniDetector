@@ -1,0 +1,32 @@
+.bg-code {
+    display: flex;
+    margin-top: 50rpx;
+    width: 700rpx;
+    margin-left: 25rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    background: #fff;
+    align-items: center;
+    font-size: 26rpx;
+}
+
+.input-code {
+    width: 520rpx;
+    text-align: center;
+}
+
+.btn-refresh,.input-code {
+    line-height: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+}
+
+.btn-refresh {
+    display: inline-block;
+    font-size: 28rpx;
+    width: 220rpx;
+}
+
+.btn-refresh:active {
+    opacity: .5;
+}

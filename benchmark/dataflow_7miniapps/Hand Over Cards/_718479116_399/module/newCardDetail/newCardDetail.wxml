@@ -1,0 +1,139 @@
+<view bindtouchstart="_containerstart" class="businessCard 'add-border" style="filter:{{ifShade=='true'?'blur(5rpx)':''}}">
+    <video controls bindfullscreenchange="_sceenchange" class="videoConPlay" danmuBtn="{{false}}" id="myVideo" playBtnPosition="center" showFullscreenBtn="{{false}}" showMuteBtn="true" src="{{videoPath}}"></video>
+    <view class="card-container">
+        <slot name="deleteTip" wx:if="{{!(ifShade=='true')}}"></slot>
+        <slot name="cardTemp" wx:if="{{isEditDetail}}"></slot>
+        <view wx:else>
+            <view wx:if="{{userData.modelIndex['type']=='SimpleTemp'}}">
+                <view bindtap="_clickCard" class="minimalist-heng no-padding-top">
+                    <block wx:if="{{item.name==userData.modelIndex['value']}}" wx:for="{{minimalistModel.data}}" wx:key="{{item}}">
+                        <image class="minimalist-heng-image full-width card-border" mode="widthFix" src="{{item['bcUrl']+'?freshNum='+freshNum}}"></image>
+                        <view class="minimalist-messa" style="width:100%">
+                            <image class="minimalist-messa-image" src="{{userData&&userData.customAvatar.name?userData.customAvatar.url:wechatMessage.avatarurl}}"></image>
+                            <view class="minimalist-messa-name viewEllipsis" style="color:{{item.color[0]}};">
+								{{userData.name}}
+								</view>
+                            <view class="minimalist-messa-job viewEllipsis" style="color:{{item.color[0]}};">{{userData.job}}</view>
+                            <view class="minimalist-messa-company viewEllipsis" style="color:{{item.color[0]}};">{{userData.company}}</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view wx:if="{{userData.modelIndex['type']!='SimpleTemp'}}">
+                <view bindtap="_clickCard" class="bussinessCard-top-heng no-padding-top" wx:if="{{userData.hengshu!='shu'}}">
+                    <image class="bussinessCard-top isGoupDetail" mode="widthFix" src="{{freshNum?userData.userpic['url']+'?freshNum='+freshNum:userData.userpic['url']}}" wx:if="{{userData}}"></image>
+                    <view bindtap="_dynamicVideoPlay" class="videoPlay-play" wx:if="{{userData['vcardVideoIsCreate']==2}}">
+                        <view class="play"></view>
+                    </view>
+                </view>
+                <view bindtap="_clickCard" class="bussinessCard-top-shu no-padding-top" wx:if="{{userData.hengshu=='shu'}}">
+                    <image class="bussinessCard-top-shu-image" src="{{freshNum?userData.userpic['url']+'?freshNum='+freshNum:userData.userpic['url']}}" wx:if="{{userData}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="bussinessCard-base {{userData.cardType==3?'bussinessCard-base-web':''}}">
+            <view catch:tap="_copyAll" class="bussinessCard-base-item" data-msg="{{userData.name+'·'+userData.job+'·'+userData.company}}" data-title="复制到微信备注" style="width:{{userData.modelIndex['type']=='SimpleTemp'?'100%':''}}">
+                <view class="bussinessCard-base-photo defaultAvator" wx:if="{{userData&&!userData.customAvatar.name&&!wechatMessage.avatarurl}}">{{tools.defaultAvator(userData.name)}}</view>
+                <image class="userAvatar" src="{{userData&&userData.customAvatar.name?userData.customAvatar.url:wechatMessage.avatarurl?wechatMessage.avatarurl:anonymous}}" wx:else></image>
+                <view class="base-right">
+                    <view class="item-top addBold viewEllipsis">{{userData.name}}</view>
+                    <view class="item-center viewEllipsis">
+                        <view class="job">{{userData.job}}</view>
+                    </view>
+                    <view catch:tap="{{userData.certified['isCertified']?'_certifiedCompany':''}}" class="pop-compnay" style="{{userData.company.length>26?'border-radius: 12rpx;':''}}" wx:if="{{showPopCompany}}">
+                        <view class="arrow"></view>
+						认证企业：{{userData.certified.certifiedName}}
+					</view>
+                    <view catch:tap="{{userData.certified['isCertified']?'_certifiedCompany':''}}" class="item-bottom viewEllipsis">
+                        <image data-company="{{userData.company}}" src="/images/cdetails/vlog.png" wx:if="{{userData.cardType==3&&userData.certified&&userData.certified['isCertified']===true}}"></image>
+                        <view class="c">{{userData.company}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="industry_data_con">
+                <block wx:if="{{industry_data.length>0&&index<=4}}" wx:for="{{industry_data}}" wx:key="item">
+                    <view class="industryItem" style="color:{{index%3==0?'#2979FF':index%3==1?'#F4A625':'#00C5C6'}};background-color:{{index%3==0?'rgba(41,121,255,0.1)':index%3==1?'rgba(244,166,37,0.1)':'rgba(0,197,198,0.1)'}}" wx:if="{{userData.modelIndex['type']!='WebTemp'}}">{{item}}</view>
+                </block>
+            </view>
+        </view>
+        <view class="user-intro {{userData.cardType==3?'user-intro-web':''}}" wx:if="{{introData}}">
+            <view class="user-intro-title {{3==userData.cardType?'user-intro-title-web':''}}">业务简介</view>
+            <view class="dec">
+                <view class="text">{{introData}}</view>
+            </view>
+        </view>
+        <view class="user-contact {{userData.cardType==3?'user-contact-web':''}}" wx:if="{{groups.length>0}}">
+            <view class="user-intro-title {{userData.cardType==3?'user-contact-title-web':''}}" style="margin-bottom:10rpx;">联系方式</view>
+            <view catchtap="showQuickDetail" class="contact-item" data-idx="{{index}}" style="{{index==groups.length-1?'margin-right:40rpx;':';'}}" wx:for="{{groups}}" wx:key="{{item}}">
+                <view class="contact-item-name">{{item.detail}}</view>
+                <view catchtap="showQuickDetail" class="contact-item-value" data-idx="{{index}}" style="{{clickItem.show&&clickItem.index==index?'color:#2979FF;':';'}}">{{item.msg}}
+					</view>
+                <view class="message-group-heitou {{clickItem.left<200?'heitou-left':'heitou-right'}}" style="z-index:2;{{clickItem.msg.detail=='手机'||clickItem.msg.detail=='座机'?'width:450rpx':clickItem.msg.detail=='地址'?'width:280rpx;':'width:110rpx;'}};{{clickItem.left<200?'left:'+clickItem.left+'px;':'right:'+375-clickItem.left+'px;'}}" wx:if="{{clickItem.show&&clickItem.index==index}}">
+                    <block wx:if="{{clickItem.msg.detail=='手机'||clickItem.msg.detail=='座机'}}">
+                        <view catchtap="_copyTap" class="heitou-item" data-msg="{{clickItem.msg.msg}}">
+                            <text>复制</text>
+                        </view>
+                        <view catchtap="_phoneTap" class="heitou-item" data-messa="{{clickItem.msg.msg}}">
+                            <text>呼叫</text>
+                        </view>
+                        <view catchtap="_addToAddr" class="heitou-item" data-m="in" style="margin-right:0;">
+                            <text>保存至通讯录</text>
+                        </view>
+                    </block>
+                    <block wx:elif="{{clickItem.msg.detail=='地址'}}">
+                        <view catchtap="_copyTap" class="heitou-item" data-msg="{{clickItem.msg.msg}}">
+                            <text>复制</text>
+                        </view>
+                        <view catchtap="_mapTap" class="heitou-item" data-messa="{{clickItem.msg.msg}}" style="margin-right:0;">
+                            <text>查看地图</text>
+                        </view>
+                    </block>
+                    <view catchtap="_copyTap" class="heitou-item" data-msg="{{clickItem.msg.msg}}" style="margin-right:0;" wx:else>
+                        <text>复制</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="user-company" wx:if="{{companyWebShow&&userData.cardType!=3&&userData.company_data.visible=='true'}}">
+            <view class="user-intro-title user-contact-title {{3==userData.cardType?'user-contact-title-web':''}}">
+				企业信息
+				</view>
+            <view bindtap="{{!userData.self?'_toLookHomePage':'_toLookHomePageS'}}" class="user-company-con" data-id="{{userData.id}}" data-visible="{{userData.company_data.visible}}">
+                <image class="user-company-logo" src="{{userData.company_data&&userData.company_data.logo?userData.company_data.logo:'/images/cdetails/homePage.png'}}"></image>
+                <view class="user-company-msg">
+                    <view>{{userData.company_data&&userData.company_data.name?userData.company_data.name:userData.company_data.fullname}}</view>
+                    <view>{{userData.company_data&&userData.company_data.slogan}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="user-company" wx:if="{{companyWebShow&&userData.cardType==3}}">
+            <view class="user-intro-title user-contact-title {{3==userData.cardType?'user-contact-title-web':''}}">企业微官网</view>
+            <view bindtap="_toLookMiniweb" class="user-company-con {{3==userData.cardType?'web-bg':''}}" data-cardtype="{{userData.cardType}}" data-entid="{{userData.company_data.entId}}" data-id="{{userData.id}}">
+                <image class="user-company-logo" src="{{userData.company_data&&userData.company_data.logo}}" wx:if="{{userData.company_data&&userData.company_data.logo}}"></image>
+                <view class="user-company-logonull" wx:else>{{tools.defaultMiniWebLogo(userData.company_data.fullname)}}</view>
+                <view class="user-company-msg">
+                    <view>{{userData.company_data.fullname}}</view>
+                    <view>{{userData.company_data.slogan?userData.company_data.slogan:''}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="user-photo" wx:if="{{userData.album_data&&userData.album_data.length>0||userData.video_data&&userData.video_data.length>0}}">
+            <view class="user-intro-title user-contact-title {{userData.cardType==3?'user-contact-title-web':''}}">图片视频</view>
+            <view catchtap="_playVideo" class="photo-video {{idx>0?'video-margin':''}}" data-thumb-url="{{video.videoPath}}" wx:for="{{userData.video_data}}" wx:for-index="idx" wx:for-item="video" wx:key="{{idx}}">
+                <image class="photo-video-image" mode="widthFix" src="{{video.upVideoPoster}}"></image>
+                <view class="photo-video-panel">
+                    <image src="/images/video-play-w.png"></image>
+                </view>
+            </view>
+            <view class="photo-image" wx:if="{{userData.album_data&&userData.album_data.length}}" wx:for="{{userData.album_data}}" wx:for-index="idx" wx:for-item="album" wx:key="{{idx}}">
+                <image bindtap="_preview" data-allpic="{{userData.album_data}}" data-url="{{album.url}}" mode="widthFix" src="{{album.url}}"></image>
+            </view>
+        </view>
+        <slot name="moreContent"></slot>
+        <slot class name="cardOrigin"></slot>
+        <slot name="bubbleslot" wx:if="{{!(ifShade=='true')}}"></slot>
+        <view style="padding:20rpx 0;"></view>
+    </view>
+</view>
+<component-dynamiccardvideo cardData="{{userData}}" ifShow="{{dynamicCardVideoPlay}}" pageName="cardDetail" videocontainerHeight="{{videocontainerHeight}}" wx:if="{{userData['vcardVideoIsCreate']==2}}"></component-dynamiccardvideo>
+<wxs module="tools" src="../../wxs/defaultAvator.wxs" />

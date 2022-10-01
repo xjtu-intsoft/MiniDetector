@@ -1,0 +1,114 @@
+.pop-c {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pop-c .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.pop-c .close .img {
+    width: 26rpx;
+    height: 26rpx;
+}
+
+.pop-c .close::before {
+    height: 48rpx;
+}
+
+.pop-c .close::after,.pop-c .close::before {
+    content: "";
+    width: 48rpx;
+}
+
+.pop-c .c {
+    position: relative;
+    box-sizing: border-box;
+    padding: 30rpx 20rpx;
+    margin-left: auto;
+    margin-right: auto;
+    width: 686rpx;
+    height: 910rpx;
+    background-size: 686rpx 910rpx;
+    border-radius: 16rpx;
+}
+
+.pop-c .c .title {
+    color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.pop-c .c .title .t-1 {
+    font-size: 68rpx;
+    font-weight: 700;
+    line-height: 96rpx;
+}
+
+.pop-c .c .title .t-2 {
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.main {
+    box-sizing: border-box;
+    padding: 30rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+}
+
+.pop-c .c .news {
+    color: #333;
+}
+
+.pop-c .c .news .s {
+    color: #333;
+    margin-bottom: 30rpx;
+}
+
+.pop-c .c .news .s-p {
+    font-size: 36rpx;
+    font-weight: 700;
+    color: #333;
+    line-height: 50rpx;
+    display: flex;
+}
+
+.pop-c .c .news .s-p::before {
+    overflow: hidden;
+    margin: auto 8rpx;
+    content: ".";
+    width: 12rpx;
+    height: 12rpx;
+    background: #3066f5;
+    border-radius: 50%;
+}
+
+.pop-c .c .news .s-t {
+    text-align: left;
+    word-break: break-all;
+    word-break: normal;
+    word-wrap: break-word;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #333;
+    line-height: 50rpx;
+}
+
+.pop-c .c .tip {
+    font-size: 28rpx;
+    color: #333;
+    font-weight: 700;
+}

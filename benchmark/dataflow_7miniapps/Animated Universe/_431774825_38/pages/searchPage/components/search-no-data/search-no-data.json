@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "relate-recommend": "/components/relate-recommend/relate-recommend"
+    }
+}

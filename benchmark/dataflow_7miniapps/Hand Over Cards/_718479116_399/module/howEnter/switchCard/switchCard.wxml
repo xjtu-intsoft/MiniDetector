@@ -1,0 +1,28 @@
+<view class="cardList-con">
+    <view bindtap="_closeCon" class="con-bg"></view>
+    <view class="con-scroll {{switchList['animationName']}}" style="padding-top:{{paddingTop}};">
+        <view class="title">
+      选择要使用的名片
+      <image bindtap="_close" src="/images/close.png"></image>
+        </view>
+        <scroll-view scrollY class="scroll">
+            <view bindtap="_clickItem" class="card-item {{item.id==switchList.id?'active':'notActive'}}" data-i="{{index}}" wx:for="{{listData}}" wx:key="{{item}}">
+                <image class="item-heng" src="{{picPre+item.userpic}}" wx:if="{{item.hengshu!='shu'}}"></image>
+                <view class="item-shu" wx:if="{{item.hengshu=='shu'}}">
+                    <image src="{{picPre+item.userpic}}"></image>
+                </view>
+                <view class="item-con">
+                    <view class="con-name">
+                        <view class="name">{{item.name}}</view>
+                    </view>
+                    <view class="con-company">
+                        <image class="isCertified" src="/images/cdetails/n-vlog.png" wx:if="{{item.certified&&item.certified['isCertified']==true}}"></image>
+                        <view class="c">{{item.company}}</view>
+                    </view>
+                    <view class="con-job">{{item.job}}</view>
+                </view>
+            </view>
+            <view style="padding:12%;"></view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,59 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/dtyz/dtyz",
+        "pages/dtyzAll/dtyzAll",
+        "pages/my/my",
+        "pages/authorise/authorise",
+        "pages/subjectDetail/subjectDetail",
+        "pages/dynamicWiki/dynamicWiki",
+        "pages/webview/webview",
+        "pages/imageDetail/imageDetail",
+        "pages/streamImages/streamImages",
+        "pages/gifnewsList/gifnewsList",
+        "pages/guide/guide",
+        "pages/addText/addText",
+        "pages/searchPage/searchPage",
+        "pages/bindPhone/bindPhone",
+        "pages/activityList/activityList",
+        "pages/ipEvent/ipEvent",
+        "pages/ipEventDisclaimer/ipEventDisclaimer"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#2a2d3f",
+        "navigationBarTitleText": "动图宇宙",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#2a2d3f",
+        "backgroundTextStyle": "light"
+    },
+    "tabBar": {
+        "color": "#93949a",
+        "selectedColor": "#d3d4d6",
+        "backgroundColor": "#272935",
+        "borderStyle": "black",
+        "list": [
+            {
+                "text": "动图宇宙",
+                "pagePath": "pages/dtyz/dtyz",
+                "iconPath": "images/icon_tab_yuzhou_normal.png",
+                "selectedIconPath": "images/icon_tab_yuzhou_selected.png"
+            },
+            {
+                "text": "动图头条",
+                "pagePath": "pages/index/index",
+                "iconPath": "images/icon_tab_toutiao_normal.png",
+                "selectedIconPath": "images/icon_tab_toutiao_selected.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/my/my",
+                "iconPath": "images/icon_tab_me_normal.png",
+                "selectedIconPath": "images/icon_tab_me_selected.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 30000,
+        "downloadFile": 30000
+    }
+}

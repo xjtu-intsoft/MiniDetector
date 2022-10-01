@@ -1,0 +1,230 @@
+page {
+    background: url('http://images.998jx.com/youxi/startbg.jpg') center top;
+    background-size: 100% 100%;
+}
+
+ad {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.actions {
+    text-align: center;
+    width: 300rpx;
+    margin: 0px auto;
+    margin-top: 38vh;
+}
+
+.topgo {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 60px;
+}
+
+.actions button {
+    height: 83rpx;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: block;
+    border-radius: 0;
+    margin-bottom: 32rpx;
+    overflow: unset；;
+}
+
+.actions button image {
+    width: 300rpx;
+    height: 83rpx;
+    display: block;
+    opacity: 0;
+}
+
+.start {
+    animation: fade 1s infinite;
+    animation-delay: 3s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1.0;
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        -webkit-transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1.0;
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        -webkit-transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1.0;
+        -webkit-transform: scale(1);
+    }
+}
+
+.muisc {
+    -webkit-transform: rotate(360deg);
+    animation: rotation 3s linear infinite;
+}
+
+@-webkit-keyframes muisc {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes muisc {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.bag {
+    width: 60px;
+    position: absolute;
+    top: 50vh;
+    right: 10px;
+}
+
+.start_bt1 {
+    animation: bounceInLeft 1.5s 0.25s linear forwards;
+}
+
+.start_bt2 {
+    animation: bounceInLeft 1.7s 0.45s linear forwards;
+}
+
+.start_bt3 {
+    animation: bounceInLeft 1.9s 0.65s linear forwards;
+}
+
+.start_bt4 {
+    animation: bounceInLeft 2.2s 0.85s linear forwards;
+}
+
+@-webkit-keyframes bounceInLeft {
+    from,60%,75%,90%,to {
+        animation-timing-function: cubic-bezier(0.215,0.610,0.355,1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: translate3d(3000px,0,0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px,0,0);
+    }
+
+    75% {
+        transform: translate3d(10px,0,0);
+    }
+
+    90% {
+        transform: translate3d(-5px,0,0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes bounceInLeft {
+    from,60%,75%,90%,to {
+        animation-timing-function: cubic-bezier(0.215,0.610,0.355,1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: translate3d(3000px,0,0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px,0,0);
+    }
+
+    75% {
+        transform: translate3d(10px,0,0);
+    }
+
+    90% {
+        transform: translate3d(-5px,0,0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.popbox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.popbox button {
+    background: none;
+    margin: 70px auto auto auto;
+    padding: 0;
+    border: none;
+    display: block;
+    border-radius: 0;
+    overflow: unset;
+}
+
+.popbox button image {
+    width: 85%;
+}
+
+.statustxt {
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    font-size: 14px;
+    height: 30px;
+    background: rgba(255,255,255,0.5);
+}
+
+.statustxt text {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    padding-left: 10px;
+    color: #cc0000;
+}

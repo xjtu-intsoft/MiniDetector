@@ -1,0 +1,13 @@
+{
+    "navigationBarTitleText": "miniUI for 递名片",
+    "navigationBarBackgroundColor": "#f1f1f1",
+    "usingComponents": {
+        "mini-icon": "../../components/icon/icon",
+        "mini-button": "../../components/button/button",
+        "mini-message": "../../components/message/message",
+        "mini-popover": "../../components/popover/popover",
+        "mini-actionsheet": "../../components/actionsheet/actionsheet",
+        "mini-bulletLayer": "../../components/bulletLayer/bulletLayer",
+        "mini-navigation": "../../components/navigation/navigation"
+    }
+}

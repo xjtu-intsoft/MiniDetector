@@ -1,0 +1,78 @@
+page {
+    background: #edeef0;
+}
+
+.centerView {
+    box-sizing: border-box;
+    padding-top: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stImg {
+    width: 100%;
+    height: auto;
+    margin: 0rpx auto;
+}
+
+.stBg {
+    position: relative;
+    box-shadow: 10rpx 10rpx 18rpx 0rpx rgba(41,46,59,.17);
+}
+
+.firstClickImg {
+    width: 748rpx;
+    height: 1198rpx;
+    margin: 18rpx 1rpx 22rpx;
+}
+
+.stView {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: rgba(0,0,0,.1);
+}
+
+.noImg {
+    background: #e3e3e3;
+}
+
+.saveImg {
+    position: relative;
+    z-index: 10;
+    width: 332rpx;
+    height: 92rpx;
+    margin: 0 auto 46rpx;
+    background: linear-gradient(128deg,#438fff,#256de6);
+    box-shadow: 12rpx 12rpx 20rpx 0rpx rgba(41,46,59,.17);
+    border-radius: 48rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 6px 6px 10px rgba(41,46,59,.17);
+}
+
+.saveImg image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}

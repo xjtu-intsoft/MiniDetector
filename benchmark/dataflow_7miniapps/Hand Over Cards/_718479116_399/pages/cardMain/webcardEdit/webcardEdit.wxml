@@ -1,0 +1,53 @@
+<template name="admin-edit-style">
+    <view catch:tap="closeMemberFunc" class="dialog">
+        <view class="contianer">
+            <view catch:tap="closeAdminFunc" class="close">
+                <mini-icon color="#D6D6D6" icon="close" miniClass="close"></mini-icon>
+            </view>
+            <view class="icon">
+                <mini-icon color="#F4A625" icon="warn" miniClass="icon"></mini-icon>
+            </view>
+            <view class="tip">提示</view>
+            <view class="title">公司名为企业名片样式的共用信息，</view>
+            <view class="title">如需修改请前往修改名片样式</view>
+            <view catch:tap="editCardStyleFunc" class="btn">修改名片样式</view>
+        </view>
+    </view>
+</template>
+<template name="member-edit-style">
+    <view catch:tap="closeMemberFunc" class="dialog">
+        <view class="contianer">
+            <view catch:tap="closeMemberFunc" class="close">
+                <mini-icon color="#D6D6D6" icon="close" miniClass="close"></mini-icon>
+            </view>
+            <view class="icon">
+                <mini-icon color="#F4A625" icon="warn" miniClass="icon"></mini-icon>
+            </view>
+            <view class="tip">提示</view>
+            <view class="title">如需修改公司名，</view>
+            <view class="title">请联系企业管理员进行配置</view>
+            <view catch:tap="closeMemberFunc" class="btn">我知道了</view>
+        </view>
+    </view>
+</template>
+<template name="fill-tip">
+    <view class="roof-place-tip card-active-tip" style="top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']+10}}px;">名片内容越丰富，客户对你的印象越深刻</view>
+</template>
+<view class="edit-con">
+    <template is="fill-tip" data="{{systemInfo:systemInfo}}"></template>
+    <form bindsubmit="{{hasUpdateForm?'formSubmit':'aa'}}" reportSubmit="{{true}}">
+        <component-cardWebForm binddropFunc="dropFunc" bindshowDialog="showDialog" bindupdateCard="updateCard" dropList="{{dropList}}" pageFlag="webcardEdit"></component-cardWebForm>
+        <component-personalintro binddropFunc="dropFunc" dropList="{{dropList}}" id="personalintro" pageFlag="webcardEdit"></component-personalintro>
+        <template is="admin-edit-style" data="{{systemInfo:systemInfo}}" wx:if="{{showAdmin}}"></template>
+        <template is="member-edit-style" data="{{systemInfo:systemInfo}}" wx:if="{{showMember}}"></template>
+        <view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}">
+            <button bindtap="deleteCard" class="small-default-btn" data-title="删除" loading="{{deleteCon['loading']}}">删除名片
+			</button>
+            <button class="mid-success-btn" data-title="保存修改" formType="submit" loading="{{saveCommit['loading']}}" wx:if="{{getSettingMessage}}">更新名片
+			</button>
+            <button bindgetuserinfo="getUserMessa" class="mid-success-btn" data-id="make_3" data-title="完成制作" id="make_3" openType="getUserInfo" wx:if="{{!getSettingMessage}}">更新名片
+			</button>
+        </view>
+    </form>
+    <view style="padding:100rpx 0;"></view>
+</view>

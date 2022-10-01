@@ -1,0 +1,76 @@
+<template name="confirmGoodcell">
+    <view class="confirmGoodcell">
+        <image class="confirmGoodcell-goodimg" src="{{good.goods_pic_url}}"></image>
+        <view class="confirmGoodcell-itemparent">
+            <view class="confirmGoodcell_name_parent">
+                <view class="confirmGoodcell-itemname">{{good.goods_alias}}</view>
+                <text catchtap="expandClick" class="confirmGoodcell_expand {{isMore||!good.optionGroupGoodText?'is-hidden':''}}" data-index="{{index}}">{{good.isExpand?'收起':'展开'}}</text>
+            </view>
+            <view class="tehui_jiajiagou_parent">
+                <view bindtap="showContent" class="confirmGoodcell-itemdec {{good.optionGroupGoodText.length>0?'is-hidden':''}}" data-content="{{good.goods_content}}">
+          {{good.goods_content}}
+        </view>
+                <view class="{{good.isExpand?'options_goods_expand':'confirmGoodcell_options_goods_desc'}} {{good.optionGroupGoodText.length==0?'is-hidden':''}}">{{good.optionGroupGoodText}}</view>
+                <view class="confirmGoodcell_promo_desc {{good.promo_is_addition_type&&good.promo_is_addition_type.length>0?'confirmGoodcell_promo_desc_margin':''}}">
+                    <image class="{{good.promo_style}}" hidden="{{good.promo_is_addition_type=='1'&&!isMore}}" src="{{good.src}}" style="margin-top:0rpx;"></image>
+                    <view class="jiajiagou_sales_list_item_tehui_msg" hidden="{{good.promo_is_addition_type!='0'}}">{{good.promo_num_text}}
+          </view>
+                </view>
+            </view>
+            <view class="confirmGoodcell-itemprice {{good.promo_is_addition_type&&good.promo_is_addition_type.length>0?'confirmGoodcell-itemprice_margin':''}}">
+                <view class="confirmGoodcell-nowprice">
+                    <text class="confirmGoodcell-nowprice-text">¥{{good.promo_is_addition_type=='0'?selectCard?price.getPrice(good.promo_member_price,good.allAddPrice):price.getPrice(good.promo_nonmember_price,good.allAddPrice):selectCard?price.getPrice(good.member_price,good.allAddPrice):price.getPrice(good.nonmember_price,good.allAddPrice)}}
+          </text>
+                    <text class="confirmGoodcell_add_peice_text">{{good.option_is_addition_type=='1'?'起':''}}</text>
+                    <text class="confirmGoodcell-oldprice" hidden="{{good.promo_is_addition_type!='0'}}">¥{{selectCard?good.member_price:good.nonmember_price}}</text>
+                    <text class="findfood-foodcell-count {{good.over_inventory_sell_flag==1||good.goods_inventory<=0||good.goods_inventory>5?'is-hidden':''}}">仅剩{{good.goods_inventory}}份
+          </text>
+                </view>
+                <view class="confirmGoodcell-choseview">
+                    <view bindtap="optionGoodsClick" class="option_goods_chose {{good.goods_type=='3'&&good.choseNum==0||isMore&&good.goods_type=='3'?'':'is-hidden'}}" data-goodid="{{good.goods_id}}" data-index="{{index}}">
+                        <text class="option_goods_num {{good.dotNum?'':'is-hidden'}}">{{good.dotNum}}</text>
+                        <text class="option_goods_text">可自选</text>
+                    </view>
+                    <view class="confirmGoodcell-choseview {{good.goods_type=='3'&&good.choseNum==0&&!isMore||isMore&&good.goods_type=='3'?'is-hidden':''}}">
+                        <image bindtap="{{type==2?'listAddNum':'choseAddNum'}}" class="confirmGoodcell-choseview-addbtn" data-goodid="{{good.map_key}}" data-index="{{index}}" src="/images/addmore/add.png"></image>
+                        <view class="confirmGoodcell-choseview-showcount {{good.choseNum>0?'':'is-hidden'}}">{{good.choseNum}}</view>
+                        <image bindtap="{{type==2?'listDecNum':'choseDecNum'}}" class="confirmGoodcell-choseview-decbtn {{good.choseNum>0?'':'is-hidden'}}" data-goodid="{{good.map_key}}" data-index="{{index}}" src="/images/addmore/jian.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="confirm_jiajiaogu_parent" hidden="{{isChoseGood?'true':good.promo_is_addition_type!='1'}}">
+        <view catchtap="jiajiagouClick" class="confirm_jiajiaogu" data-index="{{index}}">
+            <text class="jiajiaogu_image_border">加价购</text>
+            <text class="jiajiaogu_go_desc">{{selectCard?good.promo_msg_member:good.promo_msg_nonmember}}</text>
+            <text class="jiajiaogu_go_selected">{{good.additional_goods.length>0?'重新选购':'去选购'}}</text>
+            <image class="jiajiaogu_jiantou" src="/images/addmore/jiajiagou_jiantou.png"></image>
+        </view>
+        <view hidden="{{!good.additional_goods||good.additional_goods.length==0}}">
+            <view class="jiajiagou_sales_list_item_parent" wx:for="{{good.additional_goods}}" wx:for-item="saleGood" wx:key="id">
+                <image class="jiajiagou_sales_list_item_image" src="{{saleGood.pic}}"></image>
+                <view class="jiajiagou_sales_list_item_name_parent">
+                    <view class="jiajiagou_sales_list_item_icon_parent">
+                        <image class="jiajiagou_sales_list_item_icon" src="/images/addmore/Tag_jiajiagou_2.png"></image>
+                        <text class="jiajiagou_sales_list_item_name">{{saleGood.goods_alias}}</text>
+                    </view>
+                    <text class="jiajiagou_sales_list_item_price">¥{{selectCard?saleGood.member_price:saleGood.nonmember_price}}
+                    </text>
+                </view>
+            </view>
+        </view>
+        <text style="height:30rpx;"></text>
+    </view>
+    <view class="{{isChoseGood?'':'confirmGoodcell-line'}}" hidden="{{index==size-1}}"></view>
+</template>
+<wxs module="price">
+var getPrice = (function(goodPrice, addPrice) {
+    var result = parseFloat(goodPrice);
+    if (addPrice && addPrice != "0") {
+        result = parseFloat(goodPrice) + parseFloat(addPrice)
+    };
+    return (result)
+});
+module.exports.getPrice = getPrice;
+</wxs>

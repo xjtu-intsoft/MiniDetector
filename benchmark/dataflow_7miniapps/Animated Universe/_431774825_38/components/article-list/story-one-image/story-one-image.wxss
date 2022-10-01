@@ -1,0 +1,23 @@
+.story-one-image {
+    background: #2a2d3f;
+}
+
+.story-one-top {
+    position: relative;
+    height: 320rpx;
+}
+
+.story-image-title {
+    position: absolute;
+    left: 24rpx;
+    top: 30rpx;
+}
+
+.story-one-bigImg {
+    position: absolute;
+    right: 24rpx;
+    top: 30rpx;
+    width: 260rpx;
+    height: 260rpx;
+    border-radius: 10rpx;
+}

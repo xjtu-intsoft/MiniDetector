@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "快递信息",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

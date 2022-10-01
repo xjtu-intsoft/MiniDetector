@@ -1,0 +1,24 @@
+page {
+    padding-bottom: 140rpx;
+}
+
+.weui-cell {
+    padding: 35rpx;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weui-cell image {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.weui-cell .weui-cell__bd {
+    font-size: 16px;
+}
+
+.weui-cell .weui-cell__bd view {
+    padding-bottom: 10rpx;
+}

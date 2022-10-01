@@ -1,0 +1,97 @@
+.big-success-btn {
+    width: 710rpx;
+}
+
+.big-success-btn,.mid-success-btn {
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 47rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    background: linear-gradient(128deg,#438fff,#256de6);
+    color: #fff;
+}
+
+.mid-success-btn {
+    width: 460rpx;
+}
+
+.big-disabled-btn {
+    width: 710rpx;
+}
+
+.big-disabled-btn,.mid-disabled-btn {
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 47rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #fff;
+    background-color: #e3e3e3;
+}
+
+.mid-disabled-btn {
+    width: 460rpx;
+}
+
+.small-default-btn {
+    background: #fff;
+    color: #ff3b2f;
+}
+
+.small-default-btn,.small-disabled-btn {
+    width: 230rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 47rpx;
+    border: 2rpx solid #e3e3e3;
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
+.small-disabled-btn {
+    color: #fff;
+    background-color: #e3e3e3;
+}
+
+.bottomButtonDetail {
+    padding-bottom: 50rpx;
+}
+
+.bottomButton {
+    width: 93%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 92rpx;
+    line-height: 92rpx;
+    padding: 20rpx 3.5%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cropper-buttons .getCropperImage,.cropper-buttons .upload {
+    width: 50%;
+    text-align: center;
+}
+
+.cropper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.cropper-wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+}
+
+.bottomButtonDetail {
+    padding-bottom: 40rpx;
+}

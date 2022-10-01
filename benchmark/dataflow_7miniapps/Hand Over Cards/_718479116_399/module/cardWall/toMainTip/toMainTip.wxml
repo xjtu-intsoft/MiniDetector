@@ -1,0 +1,10 @@
+<view catch:touchmove="ss" class="tip-p" wx:if="{{showTip}}">
+    <view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+    <view class="tip-c">
+        <image catch:tap="closeTip" class="close" src="/images/closeRec.png"></image>
+        <image class="lighter" src="/images/cardFind/lighter.png"></image>
+        <view class="txt">小技巧</view>
+        <view class="copy t-1">你的电子名片可以在「微信任意页面」打开，随用随发。</view>
+        <view catch:tap="_toMain" class="btn">查看教学</view>
+    </view>
+</view>

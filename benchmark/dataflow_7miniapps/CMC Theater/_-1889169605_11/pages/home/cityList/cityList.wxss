@@ -1,0 +1,46 @@
+page {
+    background-color: #fff;
+}
+
+.city-header {
+    text-indent: 20rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    background-color: var(--color-cg);
+    font-size: var(--font-td);
+}
+
+.city-cell {
+    white-space: nowrap;
+    text-align: center;
+    width: 25%;
+    height: 94rpx;
+    line-height: 94rpx;
+    display: inline-block;
+    font-size: var(--font-tc);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city_cell_fill {
+    width: 100%;
+    text-align: left;
+    padding-left: 20rpx;
+}
+
+.city-cell_no {
+    width: 100%;
+    padding-left: 30rpx;
+    text-align: left;
+}
+
+.city-cell-right {
+    margin-left: 45rpx;
+}
+
+.city-cell-line {
+    height: 94rpx;
+    width: 3rpx;
+    margin-top: -94rpx;
+    background-color: var(--color-ch);
+}

@@ -1,0 +1,58 @@
+.couponContainer {
+    width: 100%;
+    padding: 0 21rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.couponContainer .coupon {
+    font-size: 0;
+    padding: 15rpx;
+    box-sizing: border-box;
+}
+
+.couponContainer .coupon .image {
+    width: 100%;
+}
+
+.couponContainer .coupon button {
+    width: 100%;
+    background: transparent;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.couponContainer .coupon button::after {
+    width: 0;
+    height: 0;
+    border: 0;
+}
+
+.couponContainer .coupon .modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.4);
+    font-size: 0;
+}
+
+.couponContainer .coupon .modal image {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.couponContainer .coupon.noMR {
+    margin-right: 0;
+}

@@ -1,0 +1,237 @@
+<view class="fixeds {{none}}">
+    <view class="pr" style="background:rgba(56, 56, 56, 0.8);">
+        <view class="mask" style="overflow-y:scroll;height:100vh;">
+            <view catchtap="return_tap" class="return pdd_8_0 bg_00 c_ff">
+                <image src="/images/icon/return.png" style="width:24px;height:24px;vertical-align:bottom;"></image>返回
+      </view>
+            <view class="classname" style="margin-top:42px;">
+                <view bindscroll="scroll" class="margin_bot8" wx:for="{{menu.citys}}" wx:for-item="itname" wx:key="cthis">
+                    <view catchtap="itemid1" class=" bg_ff f_16 padd10_14 bor_t_bor_b" data-city_vule="{{itname.name}}" data-ids="{{itname.id}}">
+            {{itname.name}}
+          </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="weui-search-bar fixed_search">
+    <view bindtap="navbar" class="user_position">
+        <image src="/images/icon/device_icon.png"></image>{{city_vule}}
+    <span class="i-arrow-down"></span>
+    </view>
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" size="14" type="search"></icon>
+            <input bindconfirm="search" class="weui-search-bar__input" confirmType="search" focus="{{inputShowed}}" name="keywords" placeholder="搜索" type="text" value="{{inputVal}}"></input>
+        </view>
+        <label bindtap="showInput" class="weui-search-bar__label" hidden="{{inputShowed}}">
+            <icon class="weui-icon-search" size="14" type="search"></icon>
+            <view class="weui-search-bar__text">搜索设备</view>
+        </label>
+    </view>
+    <view bindtap="hideInput" class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}">取消</view>
+</view>
+<view catchtap="click_catchtap" class="top_nav">
+    <swiper autoplay="true" circular="true" duration="800" indicatorActiveColor="#3392ff" interval="4000">
+        <swiper-item bindtap="entrance" data-id="{{index}}" wx:for="{{qizhong_bg}}" wx:key="img">
+            <image mode="widthFix" src="{{item.src}}" style="width:100%;height:344rpx;"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<official-account></official-account>
+<view class="app_box">
+    <scroll-view>
+        <view class="app_list_box" style="width:{{m_content_width}}">
+            <view catchtap="app_skip" class="app_list" data-catid="{{item.catid}}" data-id="{{item.appid}}" data-site="{{item.site_id}}" wx:for="{{more_app}}">
+                <image src="{{item.icon}}"></image>
+                <view style="color:#888">{{item.publicname}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<navigator class="sx_lunbo page_row" hoverClass="none" url="/pages/dealt/dealt">
+    <view class="state_dt">动态</view>
+    <swiper autoplay circular vertical class="sx_swiper" data-newsId="{{item.id}}" duration="1000" interval="3000">
+        <swiper-item catchtouchmove="catchTouchMove" wx:for="{{dt_msg}}">
+            <view class="dt_word">
+                <text>{{item.msg}} </text>
+            </view>
+        </swiper-item>
+    </swiper>
+</navigator>
+<view class="{{fixed}}">
+    <view class="bg_F8" style="z-index:9999;background:#fff;">
+        <view class="flex border_dcdc">
+            <view bindtap="clik_tap" class="f_16 w_20 flex flex_center bg_ff {{index_s==one?'active':''}}" data-index_s="1" style="padding:8px 0px;">
+        分类
+        <view class="i-arrow-down {{index_s==one?'border_crf5':''}}"></view>
+            </view>
+            <view bindtap="clik_tap" class="f_16 w_20 flex flex_center bg_ff {{index_s==two?'active':''}}" data-index_s="2" style="padding:8px 0px;">
+        品牌
+        <view class="i-arrow-down {{index_s==two?'border_crf5':''}}"></view>
+            </view>
+            <view bindtap="clik_tap" class="f_16 w_20 flex flex_center bg_ff {{index_s==three?'active':''}}" data-index_s="3" style="padding:8px 0px;">
+        年限
+        <view class="i-arrow-down {{index_s==three?'border_crf5':''}}"></view>
+            </view>
+            <view bindtap="clik_tap" class="f_16 w_20 flex flex_center bg_ff {{index_s==four?'active':''}}" data-index_s="4" style="padding:8px 0px;">
+        排序
+        <view class="i-arrow-down {{index_s==four?'border_crf5':''}}"></view>
+            </view>
+        </view>
+        <view class="{{display_none}}" style="position:relative;z-index:99999;">
+            <view catchtap="click_catchtap" class="mask2">
+                <view class="menubox bg_ff ">
+                    <view class=" " wx:for="{{whole}}" wx:for-item="item_list" wx:key="menu">
+                        <view bindtap="obtain_catid" class="containers bg_ff f_16 center" data-catids="{{item_list.catid}}" data-fclass_value="{{item_list.catname}}" wx:if="{{index_s==1}}">
+              {{item_list.catname}}
+            </view>
+                        <view bindtap="obtain_text" class="containers bg_ff f_16 center first firsts" data-text="{{value}}" wx:if="{{index_s==2}}" wx:for="{{item_list.value}}" wx:for-item="value" wx:key="menuitems">
+              {{value}}
+            </view>
+                        <view bindtap="obtain_year" class="containers bg_ff f_16 center " data-year="{{item_list}}" wx:if="{{index_s==3}}">
+              {{item_list}}
+            </view>
+                    </view>
+                    <view class="w_100" wx:if="{{index_s==4}}">
+                        <view bindtap="obtain_paixu" class="containers bg_ff f_16 center " data-sj="time" style="width:100%;">时间最新发布</view>
+                        <view bindtap="obtain_paixu" class="containers bg_ff f_16 center " data-sj="price_g" style="width:100%;">价格从低到高</view>
+                        <view bindtap="obtain_paixu" class="containers bg_ff f_16 center " data-sj="price_d" style="width:100%;">价格从高到低</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="f_12 bg_pd" wx:if="{{bboolean}}">
+        <view class="flex">
+            <view class="flex w_80">
+                <view class="c_red f_14 padd_left10 w_20 center" style="padding:6px 0px;">筛选:</view>
+                <view catchtap="bollification" class="w_20 flex border_dc flex_around  border_fc_pad" wx:if="{{class_values}}">
+                    <view class="c_e4" style="padding-left:7px;">{{class_value}}</view>
+                    <view class="" style="padding-right:7px;">
+                        <image class="error_icon" src="/images/icon/error.png"></image>
+                    </view>
+                </view>
+                <view catchtap="bollbrand" class="w_20 flex border_dc flex_around  border_fc_pad" wx:if="{{brand_vlaues}}">
+                    <view class="c_e4 " style="padding-left:7px;">{{brand_vlaue}}</view>
+                    <view class="" style="padding-right:7px;">
+                        <image class="error_icon" src="/images/icon/error.png"></image>
+                    </view>
+                </view>
+                <view catchtap="boll_year" class="w_20 flex border_dc flex_around  border_fc_pad" wx:if="{{year_values}}">
+                    <view class="c_e4" style="padding-left:7px;">{{year_value}}</view>
+                    <view class="c_red" style="padding-right:7px;">
+                        <image class="error_icon" src="/images/icon/error.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="flex_end w_20 center">
+                <view catchtap="resetcontent" class="border_sye"> 重置 </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="list_item" wx:for="{{datalist}}" wx:for-index="keys">
+    <image class="status" src="/images/icon/status_6.png" wx:if="{{item.status=='6'}}"></image>
+    <image class="status" src="/images/icon/status_4.png" wx:if="{{item.status=='4'}}"></image>
+    <view class="user_msg clearfix">
+        <view class="user_pic">
+            <navigator hoverClass="none" url="/pages/userinfo/index?id={{item.micro_id}}" wx:if="{{item.micro_id>0}}">
+                <image src="{{item.micro_avatars?item.micro_avatars:img_touxiang}}"></image>
+            </navigator>
+            <image class="img_6_6" src="{{item.micro_avatars?item.micro_avatars:img_touxiang}}" wx:else></image>
+        </view>
+        <view class="user_name {{item.customer_group.customer_group_id==1?'':'masked'}}">
+            <navigator hoverClass="none" url="/pages/userinfo/index?id={{item.micro_id}}">
+        {{item.micro_id>0?item.adder:item.ownername}}
+        <image src="/images/icon/g_{{item.customer_group.customer_group_id}}.png" wx:if="{{item.customer_group.customer_group_id!=1}}"></image>
+                <text wx:if="{{item.seller_type}}">{{item.seller_type}}</text>
+            </navigator>
+        </view>
+        <navigator class="share_out" hoverClass="none" url="/pages/equipment/equipment?ids={{item.itemid}}"> 查看详情 </navigator>
+    </view>
+    <form reportSubmit bindsubmit="form_id">
+        <button class="form_id" data-itemid="{{item.itemid}}" formType="submit" hoverClass="none">
+            <view class="list_allow">{{item.title}}
+        <text class="c_red">{{item.price}}</text>
+            </view>
+            <view class="describe">{{item.introduce}}</view>
+        </button>
+    </form>
+    <view class="my-gallery flex flex-wrap">
+        <image catchtap="show_images" class="imgcls w_32b margin_0_2_2_0" data-imageindex="{{imgIdx}}" data-item_id="{{item.itemid}}" data-key="{{keys}}" data-micro_id="{{item.micro_id}}" data-price="{{item.price}}" data-src="{{item_img}}" data-title="{{item.title}}" mode="aspectFill" src="{{item_img}}" wx:for="{{item.image_small}}" wx:for-index="imgIdx" wx:for-item="item_img" wx:key="imgthis"></image>
+    </view>
+    <view class="time_place clearfix">
+        <view class="addtime">{{item.addtime}}</view>
+        <navigator class="place" hoverClass="none" url="/pages/equipment/equipment?ids={{item.itemid}}">
+            <image src="/images/icon/map_icon.png"></image>{{item.address}}</navigator>
+    </view>
+    <view class="list_foot clearfix">
+        <view>{{item.hits}}人已看</view>
+        <view class="share_b">
+            <button data-id="{{item.itemid}}" data-image="{{item.image[0]}}" data-price="{{item.price}}" data-title="{{item.title}}" openType="share"></button>
+            <image src="/images/icon/share.png"></image>转发
+    </view>
+        <view catchtap="show_val" class="discuss" data-id="{{item.itemid}}">
+            <image src="/images/icon/discuss.png"></image> {{item.review.length}} 评论
+    </view>
+        <view bindtap="collections" class="favorite" data-colle_id="{{item.itemid}}" data-favorite="{{item.favorite}}">
+            <image src="/images/icon/{{item.favorite==0?'coles':'coles_1'}}.png"></image> {{item.favorite_cnt}}
+    </view>
+    </view>
+</view>
+<view class="weui-loadmore" wx:if="{{show_loading}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" wx:if="{{show_foot}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了</view>
+</view>
+<form bindsubmit="addreviews" class="review_form {{show_none}}">
+    <input autoHeight="true" cursorSpacing="8" fixed="true" name="reviews" placeholder="评论" style="background:#fff" value="{{review_default}}"></input>
+    <view class="sendview">
+        <button formType="submit" size="mini" style="width:82%;" type="primary">发送</button>
+    </view>
+</form>
+<view class="live_help">
+    <button catchtap="openchat" hoverClass="none" openType="contact" style="width:100%;height:100%;">
+        <view class="issue">
+            <image src="/images/icon/service.png"></image>
+        </view>
+    </button>
+</view>
+<view class="popup" wx:if="{{showcnt}}">
+    <view class="s_result">为您查询到 {{cnt}} 条结果</view>
+</view>
+<view class="popup" wx:if="{{showcnt_text}}">
+    <view class="s_result">刷新成功</view>
+</view>
+<view class="login_tishi" wx:if="{{login_tishi}}">
+    <icon color="#E64340" size="16" type="warn"></icon> 绑定手机号码即可直接联系车主。
+  <text catchtap="login" style="color:#fff;margin-left:40rpx;">点击注册 ></text>
+</view>
+<view bindtap="closepop" class="modal-mask" wx:if="{{popbanner.image}}"></view>
+<view class="popbanner" wx:if="{{popbanner.image}}">
+    <view>
+        <navigator class="popbanner" url="{{popbanner.url}}" wx:if="{{popbanner.url}}">
+            <image mode="widthFix" src="{{popbanner.image}}"></image>
+        </navigator>
+        <navigator appId="{{popbanner.app_id}}" class="popbanner" extraData="{{popbanner.extra_data}}" path="{{popbanner.path}}" target="miniProgram" wx:if="{{popbanner.path}}">
+            <image mode="widthFix" src="{{popbanner.image}}"></image>
+        </navigator>
+        <icon catchtap="closepop" color="#fff" size="20" type="clear"></icon>
+    </view>
+</view>
+<view catchtouchmove="preventTouchMove" class="guidance-mask" wx:if="{{show_images}}"></view>
+<view class="image_box" wx:if="{{show_images}}">
+    <swiper class="image_s" current="{{imageindex}}">
+        <swiper-item wx:for="{{image_url}}">
+            <image catchtap="hide_images" mode="aspectFill" src="{{item}}" style="width:100%;height:500rpx;"></image>
+        </swiper-item>
+    </swiper>
+    <view class="image_maks">
+        <view catchtap="release">我也要发布</view>
+        <view catchtap="callout">联系车主</view>
+        <view catchtap="hide_images">返回</view>
+    </view>
+</view>

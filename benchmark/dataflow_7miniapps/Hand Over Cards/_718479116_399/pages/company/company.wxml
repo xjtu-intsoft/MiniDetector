@@ -1,0 +1,8 @@
+<component-topNavigation bindtoMyPage="toMyPage" iconColor="black" id="topNavigation" position="center" showText="false" titleColor="{{pageStatus=='detail'&&isTop?'#fff':'#fff'}}" topBg="{{pageStatus=='detail'?'#2979FF':'#1E232F'}}" topTitle="{{pageStatus=='build'?'企业版':pageStatus=='detail'?'我的企业':''}}" topType="blankCardmain" zIndex="{{zIndex}}" wx:if="{{systemInfo['v7.0.0']}}"></component-topNavigation>
+<view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+<component-build bindconfirmCompany="confirmCompany" buildTimes="first" wx:if="{{pageStatus=='build'}}"></component-build>
+<view class="detailCon" wx:if="{{pageStatus=='detail'}}">
+    <component-detail bindaddCardtoCompany="addCardtoCompany" bindcompany="updateCompany" binddismissComplete="dismissComplete" bindexitCompany="exitCompany" enterprisesData="{{enterprisesData}}" preOpera="{{preOpera}}" teamList="{{teamList}}"></component-detail>
+</view>
+<component-successLayer bindcloseModel="closeModel" wx:if="{{stickSuc}}"></component-successLayer>
+<component-minibubble updateBubble="{{updateBubble}}"></component-minibubble>

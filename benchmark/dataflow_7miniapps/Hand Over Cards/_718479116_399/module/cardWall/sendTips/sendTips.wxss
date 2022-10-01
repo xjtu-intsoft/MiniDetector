@@ -1,0 +1,81 @@
+.tip-p {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    background: rgba(0,0,0,.75);
+}
+
+.tip-p,.tip-p .tip-c {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tip-p .tip-c {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 46rpx;
+    width: 646rpx;
+    min-height: 734rpx;
+    background: #fff;
+    border-radius: 20rpx;
+}
+
+.tip-c .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 40rpx;
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.tip-c .lighter {
+    margin: 0 auto 10rpx;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.tip-c .txt {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #f4a625;
+    line-height: 40rpx;
+}
+
+.tip-c .copy {
+    font-weight: 700;
+    margin: 30rpx auto 0;
+    line-height: 50rpx;
+}
+
+.tip-c .blank {
+    margin: 20rpx auto;
+    padding: 20rpx 34rpx;
+    font-size: 32rpx;
+    font-weight: 400;
+    text-align: left;
+    color: #333;
+    line-height: 50rpx;
+    background: #f5f8ff;
+    border-radius: 20rpx;
+}
+
+.tip-c .btn {
+    margin: 40rpx auto;
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #fff;
+    line-height: 92rpx;
+    text-shadow: 12rpx 12rpx 20rpx rgba(41,46,59,.17);
+    width: 342rpx;
+    height: 92rpx;
+    background: linear-gradient(128deg,#438fff,#256de6);
+    box-shadow: 12rpx 12rpx 20rpx 0 rgba(41,46,59,.17);
+    border-radius: 47rpx;
+}

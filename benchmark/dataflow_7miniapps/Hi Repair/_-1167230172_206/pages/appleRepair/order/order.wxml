@@ -1,0 +1,260 @@
+<view class="orderContainer {{isFullSucreen?'full_screen':''}}">
+    <image class="banner" mode="widthFix" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/applebanner.png"></image>
+    <view class="modelShowList">
+        <view class="showTitle">填写地址</view>
+        <view class="modelContainer plr20">
+            <view class="msgContainer w325 mt20 {{error=='nickname'?'error':''}}">
+                <input bindinput="setNickname" class="input" placeholder="昵称" placeholderClass="{{error=='nickname'?'error':'normal'}}" value="{{initNickname}}"></input>
+            </view>
+            <view class="msgContainer w325 mt20 {{error=='tel'?'error':''}}">
+                <input bindinput="settel" class="input" disabled="{{isDisabled}}" maxlength="11" placeholder="联系电话" placeholderClass="{{error=='tel'?'error':'normal'}}" type="number" value="{{initTel}}"></input>
+            </view>
+            <view class="msgContainer w325 mt20 {{error=='imgcode'?'error':''}}" wx:if="{{showReg}}">
+                <input bindinput="setImgcode" class="input" maxlength="6" placeholder="图形验证码" placeholderClass="{{error=='imgcode'?'error':'normal'}}" type="number"></input>
+                <image bindtap="getImgCode" class="imgCode" src="{{imgData}}"></image>
+            </view>
+            <view class="msgContainer w325 mt20 {{error=='smscode'?'error':''}}" wx:if="{{showReg}}">
+                <input bindinput="setSmscode" class="input" maxlength="4" placeholder="短信验证码" placeholderClass="{{error=='smscode'?'error':'normal'}}" type="number"></input>
+                <view bindtap="sendCode" class="sendSms {{disabled?'disabled':''}}">
+                    {{sendText}}
+                </view>
+            </view>
+            <view bindtap="popUp" class="msgContainer w100p mt20 {{error=='province'?'error':''}}">
+                <view class="input {{province?'':'placeholder'}}" style="{{error=='province'?'color:#E30000':''}}">
+                    {{province?province+'/'+city+'/'+district:'选择地址'}}
+                </view>
+                <image class="appledown" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+            </view>
+            <view class="msgContainer w100p mt20 {{error=='address'?'error':''}}">
+                <input bindinput="setAddress" class="input" placeholder="输入地址" placeholderClass="{{error=='address'?'error':'normal'}}" value="{{initAddress}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="modelShowList" wx:if="{{repairType==1}}">
+        <view class="showTitle">预约时间</view>
+        <view class="modelContainer plr20">
+            <view bindtap="timeUp" class="msgContainer w100p mt20 {{error=='reserve_time'?'error':''}}">
+                <view class="input {{orderTime?'':'placeholder'}}" style="{{error=='reserve_time'?'color:#E30000':''}}">
+                    {{orderTime?orderTime:'预约上门时间'}}
+                </view>
+                <image class="appledown" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="modelShowList" wx:if="{{repairType==3||repairType==2}}">
+        <view class="showTitle">选择门店</view>
+        <view class="modelContainer plr20">
+            <view bindtap="selectLocation" class="msgContainer w100p mt20 {{error=='locationShopName'?'error':''}}">
+                <view class="input {{locationShopName?'':'placeholder'}}" style="{{error=='locationShopName'?'color:#E30000':''}}">
+                    {{locationShopName?locationShopName:'选择门店'}}
+                </view>
+                <image class="appledown" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+            </view>
+            <view class="msgContainer {{error=='imei'?'error':''}} w100p mt20" wx:if="{{repairType==2}}">
+                <input bindinput="setIMEI" class="input" placeholder="请输入IMEI码" placeholderClass="{{error=='imei'?'color:#E30000':'color: #BDBDBD;'}}"></input>
+                <view bindtap="imeiUp" class="imeiText">获取IMEI</view>
+            </view>
+        </view>
+    </view>
+    <view class="modelShowList">
+        <view class="showTitle">订单信息</view>
+        <view class="repairWayList plr20">
+            <view class="repairWayWrap p20 mt20">
+                <view class="biaoqian">
+                    <image alt="" src="../../../img/bq-xsth.png" srcset=""></image>
+                </view>
+                <view class="repairWayTitle">
+                    <view class="">{{model_name+'（'+model_color+')'}}</view>
+                    <view>
+                        <view class="price">优惠价：{{model_price}}</view>
+                        <view class="official-price">原价：{{official_price}}</view>
+                    </view>
+                </view>
+                <view class="repairWayDes">
+                    <view class="">{{fault_name}}</view>
+                    <view class="desc">{{fault_desc}}</view>
+                </view>
+            </view>
+            <view bindtap="selectCoupon" class="msgContainer w100p mt20" wx:if="{{isLogin}}">
+                <view class="input {{couponData?'':'placeholder'}}">
+                    {{couponData?couponData.coupon_name:'选择优惠券'}}
+                </view>
+                <view class="couponprice">
+                    {{couponData?'-¥'+couponData.discount:couponCount?'可用'+couponCount+'优惠券':'暂无可用优惠券'}}
+                </view>
+                <image class="appledown rotate" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+            </view>
+            <button bindgetphonenumber="getPhoneNumber" class="msgContainer w100p mt20" openType="getPhoneNumber" wx:if="{{!isLogin}}">
+                <view class="input placeholder flex">
+                    请
+                    <view class="gologin">登录</view>
+                    使用优惠券
+                </view>
+                <text class="couponprice"></text>
+                <image class="appledown rotate" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+            </button>
+            <view class="msgContainer w100p mt20">
+                <input bindinput="setRemark" class="input" placeholder="请输入备注（选填）" placeholderClass="color: #BDBDBD;"></input>
+            </view>
+        </view>
+    </view>
+    <view bindtap="goPage" class="mt20 proWrap" data-type="1">
+        <view class="proTitle">常见问题解答</view>
+        <image class="appledown" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+    </view>
+    <view bindtap="goPage" class="mt20 proWrap" data-type="2">
+        <view class="proTitle">保修与查询</view>
+        <image class="appledown" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+    </view>
+    <view bindtap="goPage" class="mt20 proWrap" data-type="3">
+        <view class="proTitle">付款方式及费用说明</view>
+        <image class="appledown" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/appledown.png"></image>
+    </view>
+</view>
+<view class="tipContainer {{isFullSucreen?'full_screen':''}}">
+    <view class="tipdetail">
+        <view class="totalPriceWrap">
+            <view class="totalPricetitle">总计：¥</view>
+            <view class="totalprice">{{totalPrice}}</view>
+            <view bindtap="showDetail" class="pricedetailtxt">
+                明细
+                <image class="xiala  {{isShowDetail?'active':''}}" src="../../../img/wx_recycle/xiala.png"></image>
+            </view>
+        </view>
+        <view class="Tips_bottom">
+            <view class="Tips_top">
+                <view class="foot_main_bottom">
+                    提交订单即同意
+                    <text bindtap="toUserAgreement">《Hi维修服务条款》</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order">
+        <button bindtap="commitOrder" class="orderbtn">提交订单</button>
+    </view>
+</view>
+<view catch:touchmove="true" class="modal" wx:if="{{condition}}"></view>
+<view animation="{{pcdAnimation}}" class="citypicker">
+    <view class="cityheader cl">
+        <view bindtap="popDown" class="city-cancel" data-bool="{{0}}">取消</view>
+        <view bindtap="popDown" class="city-true" data-bool="{{1}}">确定</view>
+    </view>
+    <picker-view bindchange="bindChange" class="citybody" indicatorStyle="height: 50px;" style="width: 100%; height: 250px;" value="{{value}}">
+        <picker-view-column>
+            <view style="line-height: 50px;padding-left:10px;" wx:for="{{provinces}}" wx:key="item">
+                {{item}}
+            </view>
+        </picker-view-column>
+        <picker-view-column>
+            <view style="line-height: 50px;padding-left:10px;" wx:for="{{citys}}" wx:key="item">
+                {{item}}
+            </view>
+        </picker-view-column>
+        <picker-view-column>
+            <view style="line-height: 50px;padding-left:10px;" wx:for="{{districts}}" wx:key="item">
+                {{item}}
+            </view>
+        </picker-view-column>
+    </picker-view>
+</view>
+<view animation="{{timeAnimation}}" class="modalContent">
+    <view class="cityheader cl">
+        <view bindtap="popDownTime" class="city-cancel" data-bool="{{0}}">取消</view>
+        <view bindtap="popDownTime" class="city-true" data-bool="{{1}}">确定</view>
+    </view>
+    <view class="center_list">
+        <picker-view bindchange="timeChange" indicatorStyle="height: 60rpx;" style="width: 100%; height: 250px;text-align:center;" value="{{timeval}}">
+            <picker-view-column>
+                <view style="line-height: 60rpx" wx:for="{{dateList}}" wx:key="key">
+                    {{item.date}}
+                </view>
+            </picker-view-column>
+            <picker-view-column>
+                <view style="line-height: 60rpx" wx:for="{{periods}}" wx:key="key">
+                    {{item.start_time}}-{{item.next_time}}
+                </view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
+<view catch:touchmove="true" class="typeModal" wx:if="{{showModal}}">
+    <view class="repairtypeContainer">
+        <view class="modaltitle">
+            <text class="">提示</text>
+            <image bindtap="closeModel" class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/closemodel.png"></image>
+        </view>
+        <view class="modaltip">该地区不支持上门，请选择其他方式</view>
+        <view class="modelShowList">
+            <view class="repairWayList plr20">
+                <view bindtap="selectWay" class="repairWayWrap p20 mt20 {{selectedWay==3?'addBorder':''}}" data-index="{{3}}">
+                    <view class="repairWayTitle">到店维修</view>
+                    <view class="repairWayDes">
+                        <view class="">全国联保 售后无忧</view>
+                        <view class="">下单后30分钟内致电确认信息</view>
+                    </view>
+                </view>
+                <view bindtap="selectWay" class="repairWayWrap p20 mt20 {{selectedWay==2?'addBorder':''}}" data-index="{{2}}">
+                    <view class="repairWayTitle">邮寄维修</view>
+                    <view class="repairWayDes">
+                        <view class="">全程录像 安全放心</view>
+                        <view class="">运费需邮寄方自行承担</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view animation="{{imeiAnimation}}" catchtouchmove="ture" class="IMEIModalContent">
+    <view class="imei_top">
+        <view bindtap="IMEIpopDown" class="imei_top_delete">
+            <image src="../../repair/createOrder/image/delete_icon.png"></image>
+        </view>
+    </view>
+    <view class="imei_text">
+        拨号键盘输入xx这些
+        <text>“*#06#”</text>
+        会立即弹窗IMEI码
+    </view>
+    <view class="imei_content">
+        <view class="is_ios">
+            <image src="https://pic.hiweixiu.com/hiweixiu-app/images/imei_demo.gif"></image>
+        </view>
+    </view>
+</view>
+<view catch:touchmove="true" class="priceDetailWrap" style="bottom:{{isFullSucreen?'130rpx':'100rpx'}}" wx:if="{{isShowDetail}}">
+    <view class="wrap border">
+        <view class="detailWrap">
+            <view class="des">
+                <view class="des-name">{{fault_name}}</view>
+                <view class="biaoqian">
+                    <image alt="" src="../../../img/bq-xsth.png" srcset=""></image>
+                </view>
+            </view>
+            <view>
+                <view class="model-price">优惠价：{{model_price}}</view>
+                <view class="official-price">原价：{{official_price}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="wrap border">
+        <view class="detailWrap">
+            <view class="des">优惠券</view>
+            <view class="price">-¥{{couponData?couponData.discount:0}}</view>
+        </view>
+    </view>
+    <view class="wrap">
+        <view class="detailWrap">
+            <view class="des">上门费</view>
+            <view class="price">¥{{visit_fee}}</view>
+        </view>
+        <view class="detailWrap" wx:if="{{holidayFee*1}}">
+            <view class="des">{{holidayName}}</view>
+            <view class="price">¥{{holidayFee}}</view>
+        </view>
+        <view class="detailWrap">
+            <view class="des">夜间费</view>
+            <view class="price">¥{{night_fee}}</view>
+        </view>
+    </view>
+</view>

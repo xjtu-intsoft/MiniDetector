@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "常见问题",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

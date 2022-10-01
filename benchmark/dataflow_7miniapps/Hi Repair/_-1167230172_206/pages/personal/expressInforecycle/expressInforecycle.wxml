@@ -1,0 +1,22 @@
+<view class="express_info_container">
+    <view class="express_info_title">物流信息</view>
+    <view class="express_info_wrap">
+        <view class="express_wrap">
+            <view class="express_title">顺丰快递：{{expressCode}}</view>
+            <view class="express_detail_wrap {{showMoreExpressBtn?'':'active'}}">
+                <view class="express" wx:if="{{expressInfo.length}}" wx:for="{{expressInfo}}" wx:key="index">
+                    <view class="progress">
+                        <view class="circle {{index==0?'first_circle':''}}"></view>
+                        <view class="vertical_line" wx:if="{{index<expressInfo.length-1}}"></view>
+                    </view>
+                    <view class="express_info {{index==0?'first_line':''}}">
+                        {{item.remark}}   {{item.acceptTime}}
+                    </view>
+                </view>
+                <view style="color:#444242;font-size:24rpx;margin-top:16rpx" wx:if="{{!expressInfo.length}}">
+                    暂无物流信息
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

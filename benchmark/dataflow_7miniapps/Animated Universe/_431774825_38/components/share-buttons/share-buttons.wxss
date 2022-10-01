@@ -1,0 +1,65 @@
+.share-buttons {
+    position: fixed;
+    bottom: 10rpx;
+    left: 0;
+    display: flex;
+    width: 100%;
+}
+
+.share-buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 260rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.share-buttons .share-buttons-left {
+    margin-left: 66rpx;
+    background: linear-gradient(to right,#15D67F,#1DC8B3);
+}
+
+.share-buttons .share-buttons-right {
+    margin-left: 100rpx;
+    background: linear-gradient(to right,#349CEE,#7847FB);
+}
+
+.share-buttons-right image {
+    margin-right: 14rpx;
+    width: 38rpx;
+    height: 38rpx;
+}
+
+.share-buttons-left image {
+    margin-right: 12rpx;
+    width: 44rpx;
+    height: 34rpx;
+}
+
+.share-buttons-toIndex {
+    position: fixed;
+    bottom: 140rpx;
+    right: 0;
+}
+
+.share-button-top-images {
+    position: fixed;
+    bottom: 110rpx;
+    left: 66rpx;
+    width: 372rpx;
+    height: 100rpx;
+}
+
+.share-button-one {
+    bottom: 16rpx;
+}
+
+.share-button-one .share-buttons-left {
+    margin: 0 32rpx;
+    width: 100%;
+}

@@ -1,0 +1,19 @@
+<template name="unpaygoodcell">
+    <view>
+        <view class="unpay_order-ticket-foodscell" wx:for="{{goods_data}}" wx:key="goods_id">
+            <image class="unpay_order-ticket-foodscell-image" src="{{item.goods_pic_url}}"></image>
+            <view class="unpay_order-ticket-foodscell-describe">
+                <view class="unpay_order-ticket-foodscell-describe-jiajiagou-tehui">
+                    <image class="jiajiagou_sales_list_item_icon" src="/images/addmore/Tag_jiajiagou_2.png" wx:if="{{item.promo_is_addition_type=='1'}}"></image>
+                    <view class="confirmGoodcell_name_parent">
+                        <text class="confirmGoodcell-itemname">{{item.goods_alias}}</text>
+                        <text catchtap="expandClick" class="confirmGoodcell_expand {{!item.goods_content||item.goods_content.length<=0?'is-hidden':''}}" data-index="{{index}}">{{item.isExpand?'收起':'展开'}}</text>
+                    </view>
+                    <image class="tehui_image" src="/images/addmore/Tag_tehui.png" wx:if="{{item.promo_is_addition_type=='0'}}"></image>
+                </view>
+                <view class=" {{item.isExpand?'options_goods_expand':'unpay_order-ticket-foodscell-content'}}">{{item.goods_content}}</view>
+                <text class="unpay_goods_num" hidden="{{is_unpay}}">x{{item.good_num}}</text>
+            </view>
+        </view>
+    </view>
+</template>

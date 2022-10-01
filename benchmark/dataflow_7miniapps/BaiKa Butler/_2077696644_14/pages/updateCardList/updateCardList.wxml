@@ -1,0 +1,8 @@
+<view bindtap="onClickItem" class="item" data-position="{{position}}" wx:for="{{items}}" wx:for-index="position" wx:key="position">
+    <image class="item-bg" src="{{item.bg}}"></image>
+    <image class="item-bank-ic" src="{{item.url}}"></image>
+    <text class="item-bank-name">{{item.bankName}}</text>
+    <text class="item-bank-num">{{item.cardNumber}}</text>
+    <text class="item-btn">到期换卡</text>
+</view>
+<view style="height:100rpx;width:100%;"></view>

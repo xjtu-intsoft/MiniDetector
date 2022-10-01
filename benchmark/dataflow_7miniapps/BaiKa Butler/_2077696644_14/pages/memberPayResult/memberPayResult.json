@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "#27beab",
+    "disableScroll": true,
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "支付结果",
+    "usingComponents": {}
+}

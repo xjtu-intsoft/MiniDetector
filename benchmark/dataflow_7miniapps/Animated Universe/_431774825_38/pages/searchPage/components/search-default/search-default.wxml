@@ -1,0 +1,14 @@
+<view class="search-default">
+    <view class="search-history" hidden="{{!historyList.length}}">
+        <title bind:rtTextClick="rtTextClick" item="{{titleCommenUse}}"></title>
+        <view class="search-default-texts">
+            <text bindtap="clickLabel" data-item="{{item}}" data-label="history" wx:for="{{historyList}}" wx:key="{{index}}">{{item}}</text>
+        </view>
+    </view>
+    <view class="search-common-label">
+        <title item="{{titleHistory}}"></title>
+        <view class="search-default-texts">
+            <text bindtap="clickLabel" data-item="{{item}}" data-label="commonUse" wx:for="{{commonLabels}}" wx:key="{{index}}">{{item}}</text>
+        </view>
+    </view>
+</view>

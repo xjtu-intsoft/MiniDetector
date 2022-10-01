@@ -1,0 +1,51 @@
+<template name="detaillist">
+    <view bindlongtap="lineCopy" class="detailList-item" data-val="{{value}}" id="{{name}}">
+        <view class="detailList-item-left">{{title}}</view>
+        <view class="detailList-item-right">{{value}}</view>
+    </view>
+</template>
+<view class="container detail">
+    <view class="con">
+        <view class="detail-top">
+            <template is="detaillist" data="{{title:'发票抬头',name:'title',value:invoiceData.title}}"></template>
+            <template is="detaillist" data="{{title:'纳税人识别号',name:'taxnumber',value:invoiceData.taxnumber}}"></template>
+            <template is="detaillist" data="{{title:'单位地址',name:'companyaddress',value:invoiceData.companyaddress}}"></template>
+            <template is="detaillist" data="{{title:'电话号码',name:'telephone',value:invoiceData.telephone}}"></template>
+            <template is="detaillist" data="{{title:'开户行',name:'bankname',value:invoiceData.bankname}}"></template>
+            <template is="detaillist" data="{{title:'银行账号',name:'bankaccount',value:invoiceData.bankaccount}}"></template>
+        </view>
+        <view class="leftRadius">
+            <view class="shadow"></view>
+        </view>
+        <view class="rightRadius">
+            <view class="shadow"></view>
+        </view>
+        <view class="detail-bottom">
+            <view class="detail-bottom-title">备注</view>
+            <view bindlongtap="lineCopy" class="detail-bottom-content" data-val="{{invoiceData.mark}}">{{invoiceData.mark}}</view>
+        </view>
+    </view>
+    <view class="bottomButton invoiceButton" wx:if="{{optionsL.type=='self'}}">
+        <view bindtap="oneCopy" class="button-item addColor" data-title="一键复制">一键复制</view>
+        <button bindtap="ss" class="m_button_big m_button_primary button-item" data-title="分享" wx:if="{{!canUse}}">点击右上角三个点，选择“分享”</button>
+        <button bindtap="ss" class="m_button_big m_button_primary button-item" data-title="分享" openType="share" wx:if="{{canUse}}">分享</button>
+        <button bindtap="edit" class="m_button_big m_button_default button-item" data-title="编辑">编辑</button>
+    </view>
+    <view class="bottomButton invoiceButton" wx:if="{{optionsL.type=='other'}}">
+        <view class="button-item"></view>
+        <button bindtap="oneCopy" class="m_button_big m_button_primary button-item" data-title="一键复制">一键复制</button>
+    </view>
+    <view class="bottomButton invoiceButton" wx:if="{{optionsL.shareOthers&&!ifSelf||optionsL.shareOthers&&ifSelf&&invoiceData['isdeleted']}}">
+        <view class="button-item"></view>
+        <button bindtap="oneCopy" class="m_button_big m_button_primary button-item" data-title="一键复制">一键复制</button>
+        <button bindtap="toMain" class="m_button_big m_button_default button-item" data-title="进入“递名片”首页">进入“递名片”首页</button>
+    </view>
+    <view class="bottomButton invoiceButton" wx:if="{{optionsL.shareOthers&&ifSelf&&!invoiceData['isdeleted']}}">
+        <view bindtap="oneCopy" class="button-item addColor" data-title="一键复制">一键复制</view>
+        <button bindtap="ss" class="m_button_big m_button_primary button-item" data-title="分享" wx:if="{{!canUse}}">点击右上角三个点，选择“分享”</button>
+        <button bindtap="ss" class="m_button_big m_button_primary button-item" data-title="分享" openType="share" wx:if="{{canUse}}">分享</button>
+        <button bindtap="toMain" class="m_button_big m_button_default button-item" data-title="进入“递名片”首页">进入“递名片”首页</button>
+    </view>
+</view>
+<import src="../../../temp/public.wxml"></import>
+<template is="netError" data="{{path:'../../../'}}" wx:if="{{netError.show}}"></template>

@@ -1,0 +1,134 @@
+<view>
+    <view class="page _9bddc76">
+        <view class="page__bd _9bddc76">
+            <view class="weui-cells _9bddc76">
+                <view class="weui-cell _9bddc76">
+                    <view class="weui-cell__bd _9bddc76">
+                        <view class="weui-uploader _9bddc76">
+                            <view class="weui-uploader__hd _9bddc76">
+                                <view class="weui-uploader__title _9bddc76">图片上传</view>
+                                <view class="weui-uploader__info _9bddc76">{{$uploadImg$file_list.length}}/9</view>
+                            </view>
+                            <view class="weui-uploader__bd _9bddc76" style="overflow: inherit">
+                                <view class="weui-uploader__files _9bddc76" id="uploaderFiles">
+                                    <view bindtap="$uploadImg$previewImage" class="weui-uploader__file _9bddc76" id="{{$uploadImg$item}}" wx:for="{{$uploadImg$file_list}}" wx:for-index="$uploadImg$index" wx:for-item="$uploadImg$item" wx:key="$uploadImg$key">
+                                        <image class="weui-uploader__img _9bddc76" mode="aspectFill" src="{{$uploadImg$item}}"></image>
+                                        <image catchtap="$uploadImg$handleDelete" class="delete _9bddc76" data-wpyhandledelete-a="{{$uploadImg$index}}" mode="aspectFill" src="../img/detele.png"></image>
+                                    </view>
+                                </view>
+                                <view class="weui-uploader__input-box _9bddc76" wx:if="{{$uploadImg$file_list.length<'9'}}">
+                                    <view bindtap="$uploadImg$chooseImage" class="weui-uploader__input _9bddc76"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <open-data></open-data>
+    <view class="weui-cells">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+                <input bindblur="bindKeyInput" class="weui-input" data-wpybindkeyinput-a="title" placeholder="报名标题   方便朋友们一眼看懂这是啥活动" placeholderClass="phcolor" value="{{title}}"></input>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <textarea bindblur="bindKeyInput" class="weui-textarea" data-wpybindkeyinput-a="detail" placeholder="介绍一下报名活动的具体内容，如活动时间、具体位置、活动特色等" placeholderClass="phcolor" style="height: 6.3em" value="{{detail}}"></textarea>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">报名开始时间</view>
+            </view>
+            <view class="weui-cell__bd ta_r weui-cell__ft_in-access">
+                <picker bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-wpybindmultipickerchange-a="time_start" mode="multiSelector" range="{{multiArray}}" value="{{multiIndex}}">
+                    <input class="weui-input" disabled="{{true}}" placeholder="选择时间" value="{{time_start}}"></input>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">报名截止时间</view>
+            </view>
+            <view class="weui-cell__bd ta_r weui-cell__ft_in-access">
+                <picker bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-wpybindmultipickerchange-a="time_line" mode="multiSelector" range="{{multiArray}}" value="{{multiIndex}}">
+                    <input class="weui-input" disabled="{{true}}" placeholder="选择时间" value="{{time_line}}"></input>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">报名费用</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="bindKeyInput" class="weui-input ta_r" data-wpybindkeyinput-a="price" placeholder="元" placeholderClass="phcolor" value="{{price}}"></input>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">报名人数下限</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="bindKeyInput" class="weui-input ta_r" data-wpybindkeyinput-a="people_down" placeholder="人" placeholderClass="phcolor" value="{{people_down}}"></input>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">报名人数上限</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindblur="bindKeyInput" class="weui-input ta_r" data-wpybindkeyinput-a="people_up" placeholder="人" placeholderClass="phcolor" value="{{people_up}}"></input>
+            </view>
+        </view>
+        <view bindtap="bindChooseMap" class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <i class="iconfont"></i>
+            </view>
+            <view class="weui-cell__bd" wx:if="{{!map.name}}">添加位置</view>
+            <view class="weui-input weui-cell__ft weui-cell__ft_in-access" style="flex: 1; text-align: left;">{{map.name}}
+        </view>
+        </view>
+    </view>
+    <view class="weui-cells">
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="tags">
+            <view class="weui-cell__bd">
+                <view>报名者需提交信息</view>
+            </view>
+            <view class="weui-cell__ft weui-input weui-cell__ft_in-access">添加</view>
+        </navigator>
+        <view class="weui-cell weui-media-box_appmsg tags_box" hoverClass="weui-cell_active" style="flex-wrap:wrap">
+            <text wx:if="{{item.checked}}" wx:for="{{userTagsMandatory}}" wx:key="key">{{item.name}}</text>
+            <text wx:if="{{item.checked}}" wx:for="{{userTagsChoosable}}" wx:key="key">{{item.name}}</text>
+        </view>
+    </view>
+    <view class="protocol">
+      点击确认即代表并同意<navigator hoverClass="navigator-hover" url="protocol">《报名工具服务协议》</navigator>
+    </view>
+    <view class="button-sp-area fixed-btn">
+        <button bindtap="handleSave" class="weui-btn" wx:if="{{can_submit}}">确认</button>
+        <button class="weui-btn disabled" wx:else>确认</button>
+    </view>
+    <view class="mask-wrapper" hidden="{{!$cDialog$mask$maskStatus}}">
+        <view bindtap="$cDialog$mask${{$cDialog$mask$autoHidden&&'closeMask'}}" catchcatchtouchmove="$cDialog$mask$handleMove" class="mask" wx:if="{{$cDialog$mask$maskShow}}"></view>
+        <view animation="{{$cDialog$mask$contentAnimate}}" class="mask-content content-{{$cDialog$mask$animationType}}">
+            <view class="cDialog">
+                <view class="cDialog-title">{{$cDialog$title}}</view>
+                <view class="cDialog-content">{{$cDialog$desc}}</view>
+                <view class="cDialog-btn {{$cDialog$direction}}">
+                    <button bindtap="$cDialog$handleClick" data-wpyhandleclick-a="0" style="{{$cDialog$cancelStyle}}" wx:if="{{$cDialog$showCancel}}">{{$cDialog$cancelText}}</button>
+                    <block wx:if="{{$cDialog$btnList.length}}">
+                        <block wx:for="{{$cDialog$btnList}}" wx:for-index="$cDialog$index" wx:for-item="$cDialog$item" wx:key="$cDialog$key">
+                            <navigator bindtap="$cDialog$handleCustom" data-wpyhandlecustom-a="{{$cDialog$index}}" hoverClass="{{$cDialog$item.hover_class}}" openType="{{$cDialog$item.open_type||'navigate'}}" style="{{$cDialog$style}}" url="{{$cDialog$item.url}}" wx:if="{{$cDialog$item.url}}">{{$cDialog$item.value}}</navigator>
+                            <navigator appId="{{$cDialog$item.app_id}}" bindtap="$cDialog$handleCustom" data-wpyhandlecustom-a="{{$cDialog$index}}" extraData="{{$cDialog$item.extra_data}}" openType="navigate" path="{{$cDialog$item.path}}" style="{{$cDialog$style}}" target="miniProgram" version="{{$cDialog$item.version}}" wx:elif="{{$cDialog$item.path}}">{{$cDialog$item.value}}</navigator>
+                            <button bindgetuserinfo="$cDialog$handleGotUserInfo" data-wpyhandlegotuserinfo-a="{{$cDialog$index}}" openType="getUserInfo" style="{{$cDialog$style}}" wx:elif="{{$cDialog$item.open_type==='getUserInfo'}}">{{$cDialog$item.value}}</button>
+                            <button bindtap="$cDialog$handleCustom" data-wpyhandlecustom-a="{{$cDialog$index}}" openType="{{$cDialog$item.open_type}}" style="{{$cDialog$style}}" wx:else>{{$cDialog$item.value}}</button>
+                        </block>
+                    </block>
+                    <button bindtap="$cDialog$handleClick" data-wpyhandleclick-a="1" style="{{$cDialog$confirmStyle}}" wx:if="{{!$cDialog$btnList.length&&$cDialog$showConfirm}}">{{$cDialog$confirmText}}</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

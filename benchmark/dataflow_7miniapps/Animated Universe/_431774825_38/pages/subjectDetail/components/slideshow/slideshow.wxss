@@ -1,0 +1,34 @@
+.slideshow-title {
+    display: block;
+    padding: 52rpx 0 30rpx;
+    padding-left: 16rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.slideshow-content {
+    position: relative;
+    background: #2A2D3F;
+    border-radius: 24rpx;
+}
+
+.slideshow-content .mt-24 {
+    display: block;
+    margin: 0;
+    padding: 10rpx 30rpx;
+}
+
+.slideshow-image {
+    display: block;
+    margin: auto;
+}
+
+.slideshow-tag {
+    position: absolute;
+    left: 34rpx;
+    top: 18rpx;
+}
+
+.slideshow-go-wiki-button {
+    padding: 18rpx 24rpx 16rpx;
+}

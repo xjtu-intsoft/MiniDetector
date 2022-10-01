@@ -1,0 +1,46 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">SearchBar</view>
+        <view class="page__desc">搜索栏</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" size="14" type="search"></icon>
+                    <input bindinput="inputTyping" class="weui-search-bar__input" focus="{{inputShowed}}" placeholder="搜索" type="text" value="{{inputVal}}"></input>
+                    <view bindtap="clearInput" class="weui-icon-clear" wx:if="{{inputVal.length>0}}">
+                        <icon size="14" type="clear"></icon>
+                    </view>
+                </view>
+                <label bindtap="showInput" class="weui-search-bar__label" hidden="{{inputShowed}}">
+                    <icon class="weui-icon-search" size="14" type="search"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view bindtap="hideInput" class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length>0}}">
+            <navigator class="weui-cell" hoverClass="weui-cell_active" url="">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator class="weui-cell" hoverClass="weui-cell_active" url="">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator class="weui-cell" hoverClass="weui-cell_active" url="">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+            <navigator class="weui-cell" hoverClass="weui-cell_active" url="">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

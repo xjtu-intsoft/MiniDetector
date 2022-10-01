@@ -1,0 +1,123 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 120;
+    background: rgba(0,0,0,.75);
+    justify-content: center;
+}
+
+.modal,.modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal .modal-content {
+    width: 646rpx;
+    height: 832rpx;
+    overflow: hidden;
+    border-radius: 24rpx;
+    margin-top: -80rpx;
+    text-align: center;
+    position: relative;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.modal-content-top {
+    width: 646rpx;
+    height: 252rpx;
+    background: linear-gradient(315deg,#1e232f,#252e45);
+    border-radius: 20rpx 20rpx 0 0;
+}
+
+.modal-content-top .top-bg {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 646rpx;
+    height: 252rpx;
+}
+
+.modal-content-top .top-con {
+    position: relative;
+    width: 646rpx;
+    height: 252rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content-top .top-con .succ-icon {
+    margin: auto auto 0;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.modal-content-top .top-con .succ-txt {
+    margin: 10rpx auto auto;
+    font-size: 36rpx;
+    font-weight: 700;
+    color: #fad7ab;
+    line-height: 50rpx;
+}
+
+.modal .modal-content-title {
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #333;
+    line-height: 40rpx;
+    padding-top: 32rpx;
+    padding-bottom: 20rpx;
+}
+
+.modal .modal-content-content {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #333;
+    line-height: 54rpx;
+}
+
+.modal .modal-content-content .item {
+    margin-bottom: 12rpx;
+    display: flex;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #333;
+    line-height: 60rpx;
+}
+
+.modal .modal-content-content .item .img {
+    margin: auto 0;
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.modal .modal-content-content .item .txt {
+    margin: auto 0 auto 14rpx;
+}
+
+.modal .modal-content-tip {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #333;
+    line-height: 54rpx;
+}
+
+.modal .modal-content-button {
+    width: 100%;
+}
+
+.modal .modal-content-button .know-btn {
+    width: 342rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #4e3b19;
+    text-shadow: 12rpx 12rpx 20px rgba(41,46,59,.17);
+    background: linear-gradient(311deg,#e3b98c,#fad7ab);
+    box-shadow: 12rpx 12rpx 20rpx 0 rgba(41,46,59,.17);
+    margin: 0 auto;
+}

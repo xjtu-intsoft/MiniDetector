@@ -1,0 +1,22 @@
+<view wx:if="{{showLoading}}">
+    <component-topNavigation bindhome="toCardMain" id="topNavigation" position="center" showText="false" topTitle="递名片" topType="{{optionsL.origin!='ishowenter'?'home':'prePage'}}" wx:if="{{systemInfo['v7.0.0']}}"></component-topNavigation>
+    <view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+    <view class="load-con">
+        <view class="load-tip">
+            <component-loadingTip></component-loadingTip>
+        </view>
+    </view>
+</view>
+<view style="position:fixed;top:0;height:100%;z-index:0;width:100%;" wx:if="{{!showLoading&&loadComplete}}">
+    <component-topNavigation bindhome="toCardMain" id="topNavigation" position="center" showText="false" topTitle="递名片" topType="{{optionsL.origin!='ishowenter'?'home':'prePage'}}" wx:if="{{systemInfo['v7.0.0']}}"></component-topNavigation>
+    <view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+    <view class="roof-place-tip" wx:if="{{roofPlacementList.length<3&&!groupMycard}}">
+    前3张加入的名片，将自动置顶，获得更多群友关注
+  </view>
+    <component-cardWallStick avarMark="{{avarMark}}" bindfresh="fresh" bindstickCard="stickCard" bindstickCardUserInfo="stickCardUserInfo" bindtoLower="toLower" cardNum="{{totalCardNumber}}" cards="{{cards}}" groupMycard="{{groupMycard}}" myMessage="{{myMessage}}" myPage="stickCard" openGid="{{openGid}}" otherCardData="{{usersGroupList}}" roofPlacementList="{{roofPlacementList}}"></component-cardWallStick>
+    <component-cardWallAddCard bindaddCardToGroupMy="addCardToGroupMy" bindcloseList="closeList" bindswitch="switch" bindtoPerfect="toPerfect" cards="{{cards}}" confirmCon="{{confirmCon}}" wx:if="{{confirmCon.show}}"></component-cardWallAddCard>
+    <component-cardWallSwitchCard bindcloseSwitch="closeSwitch" bindconfirmCard="confirmCard" bindselectCard="selectCard" bindtoBuildCard="toBuildCard" cards="{{cards}}" hasBorder="{{hasBorder}}" listCon="{{listCon}}" wx:if="{{listCon.show}}"></component-cardWallSwitchCard>
+    <component-cardWallNewAdd newlyAddData="{{newlyAddData}}" wx:if="{{newlyAddData.length}}"></component-cardWallNewAdd>
+    <component-cardWallGuide bindcloseStickSuc="closeGuide" groupMycard="{{groupMycard}}" stickTitle="{{stickTitle}}" wx:if="{{stickSuc}}"></component-cardWallGuide>
+    <component-toWallPanel bindtoMyFolder="toMyFolder" totalCardNumber="{{totalCardNumber}}" wx:if="{{groupMycard}}"></component-toWallPanel>
+</view>

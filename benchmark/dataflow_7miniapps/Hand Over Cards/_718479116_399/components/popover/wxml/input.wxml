@@ -1,0 +1,13 @@
+<template name="input-popover">
+    <view class="m-popover m-input-popover mini-class" style="{{miniStyle}}">
+        <view class="m-input-popover-title">{{title}}</view>
+        <input bindblur="_blur" bindconfirm="_inputConfirm" bindfocus="_focus" bindinput="_input" class="m-input-popover-input {{inputDisabled?'m-input-popover-inputDisabled':''}} {{checkPass?'':'m-input-popover-red'}}" data-mark="{{mark}}" disabled="{{inputDisabled}}" placeholder="{{placeholder}}" placeholderClass="m-input-popover-placeholder" value="{{value}}"></input>
+        <view class="m-input-popover-tip" wx:if="{{warnTip&&checkPass}}">{{warnTip}}</view>
+        <view class="m-input-popover-tip" wx:if="{{!checkPass}}">{{sensiteve}}</view>
+        <view class="m-input-popover-button">
+            <view catchtap="_cancel" class="m-input-popover-cancel" data-mark="{{mark}}" style="color:{{cancelColor}};">{{cancelText}}</view>
+            <view style="border-right:1px solid rgba(0,0,0,0.1);height:100%;"></view>
+            <view catchtap="{{confirmDisabled?'_disabled':'_confirm'}}" class="{{confirmDisabled?'m-input-popover-disabled':'m-input-popover-confirm'}}" data-mark="{{mark}}" style="color:{{confirmColor}};">{{confirmText}}</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,17 @@
+<view class="modelcontainer">
+    <view class="modelSelect">
+        <view class="modelwrap">
+            <view bindtap="selectSeries" class="modelTitle {{selectedIndex==index+1?'active':''}} {{index+1==seriesList.length?'noBorder':''}}" data-index="{{index}}" wx:for="{{seriesList}}" wx:key="index">
+                {{item.series_name}}
+            </view>
+        </view>
+    </view>
+    <view class="modelShowList">
+        <view class="showTitle">选择机型</view>
+        <view class="modelContainer">
+            <view bindtap="selectModel" class="model {{item.selected?'active':''}}" data-id="{{item.model_id}}" data-index="{{index}}" data-name="{{item.model_name}}" wx:for="{{phoneList}}" wx:key="index">
+                <text>{{item.model_name}}</text>
+            </view>
+        </view>
+    </view>
+</view>

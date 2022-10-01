@@ -1,0 +1,336 @@
+.findshop-nav {
+    width: 100%;
+    height: 96rpx;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.findshop-nav,.findshop-nav-firstview {
+    display: flex;
+    flex-direction: row;
+}
+
+.findshop-nav-firstview {
+    height: 100%;
+}
+
+.findshop-nav-entryBtn {
+    width: 124rpx;
+    height: 100%;
+    display: flex;
+}
+
+.findshop-nav-entry {
+    width: 68rpx;
+    height: 68rpx;
+    margin: auto 20rpx auto auto;
+}
+
+.findshop-nav-chosecinemaBtn {
+    margin-left: 20rpx;
+    height: 100%;
+    display: flex;
+}
+
+.findshop-nav-chosecinema {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 430rpx;
+    margin: auto;
+    font-size: var(--font-te);
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.findshop-nav-cinemadetailBtn {
+    height: 100%;
+    width: 100rpx;
+    display: flex;
+    align-items: center;
+}
+
+.findshop-nav-cinemadetail {
+    text-indent: 18rpx;
+    font-size: var(--font-te);
+    color: var(--color-cb);
+}
+
+.findshop-nav-cartview {
+    width: 120rpx;
+    height: 100%;
+    display: flex;
+}
+
+.findshop-nav-cart {
+    margin: auto;
+    width: 38rpx;
+    height: 35rpx;
+}
+
+.findshop-nav-cart-redcountview {
+    position: absolute;
+    text-align: center;
+    min-width: 26rpx;
+    line-height: 26rpx;
+    border-radius: 13rpx;
+    padding-left: 2rpx;
+    padding-right: 2rpx;
+    color: #fff;
+    background-color: var(--color-ce);
+    top: 0rpx;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    font-size: var(--font-tf);
+}
+
+.findshop-newnav {
+    width: 100%;
+    height: 124rpx;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.findshop-nav-cinemaview,.findshop-newnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.findshop-nav-cinemaview {
+    max-width: 388rpx;
+    height: 84rpx;
+    margin-left: 24rpx;
+    background-color: var(--color-cg);
+    border-radius: 42rpx;
+    overflow: hidden;
+}
+
+.findshop-nav-cinemaname {
+    height: 100%;
+    max-width: 330rpx;
+    line-height: 84rpx;
+    font-size: var(--font-td);
+    margin-left: 26rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.findshop-nav-cinemaarrow {
+    width: 20rpx;
+    height: 12rpx;
+    margin-left: 10rpx;
+    margin-right: 26rpx;
+}
+
+.findshop-nav-btns {
+    width: 340rpx;
+    flex-direction: row-reverse;
+}
+
+.findshop-nav-btn,.findshop-nav-btns {
+    height: 100%;
+    display: flex;
+}
+
+.findshop-nav-btn {
+    width: 110rpx;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.findshop-nav-btn-image {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.findshop-nav-btn-title {
+    width: 100%;
+    line-height: 38rpx;
+    font-size: var(--font-th);
+    text-align: center;
+}
+
+.findshop-childshop-view {
+    width: 100%;
+    background-color: #fff;
+}
+
+.findshop-chose-childshop {
+    background-color: #fff;
+    width: 706rpx;
+    padding-top: 24rpx;
+    padding-bottom: 24rpx;
+    margin-left: 22rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.findshop-chose-childshop-cell {
+    width: 25%;
+    height: 158rpx;
+}
+
+.findshop-childshop-cell-iconview {
+    width: 100%;
+    height: 115rpx;
+    display: flex;
+}
+
+.findshop-childshop-cell-icon {
+    margin: auto;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 45rpx;
+    background-size: 100%;
+    background-image: var(--shop-defimage);
+}
+
+.findshop-childshop-cell-title {
+    width: 100%;
+    font-size: var(--font-te);
+    text-align: center;
+}
+
+.findshop-hotgoods {
+    background-color: #fff;
+    width: 100%;
+}
+
+.findshop-hotgoods-view {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: var(--font-te);
+    background-color: #f8f8f8;
+}
+
+.findshop-hotgoods-cell {
+    width: 373rpx;
+    height: 422rpx;
+}
+
+.findshop-hotgoods-cell-right {
+    margin-left: 4rpx;
+}
+
+.findshop-hotgoods-cell-topinset {
+    margin-top: 4rpx;
+}
+
+.findshop-hotgoods-cellView {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.findshop-hotgoods-cellImageView {
+    width: 100%;
+    height: 292rpx;
+    display: flex;
+}
+
+.findshop-hotgoods-cellImage {
+    margin: auto;
+    width: 258rpx;
+    height: 258rpx;
+    background-image: var(--shop-defimage);
+    background-size: 100%;
+}
+
+.findshop-hotgoods-celldes {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: var(--font-td);
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+    height: 40rpx;
+    width: 322rpx;
+}
+
+.findshop-hotgoods-flayview {
+    height: 30rpx;
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+    display: flex;
+}
+
+.findshop-hotgoods-tuijian {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 12rpx;
+}
+
+.findshop-hotgoods-huiview {
+    width: 50rpx;
+    height: 30rpx;
+}
+
+.findshop-hotgoods-price-view {
+    display: flex;
+    flex-direction: row;
+    margin-left: 24rpx;
+    height: 44rpx;
+    justify-content: space-between;
+}
+
+.findshop-hotgoods-price {
+    font-size: var(--font-tc);
+    font-weight: 500;
+    line-height: 44rpx;
+    color: var(--color-ce);
+}
+
+.findshop-hotgoods-title {
+    margin-right: 24rpx;
+    line-height: 44rpx;
+    font-size: var(--font-tf);
+    color: var(--color-ce);
+}
+
+.findshop-lineview {
+    margin-left: 22rpx;
+    width: 706rpx;
+    height: 1rpx;
+    background-color: var(--color-ch);
+}
+
+.find-title {
+    width: 100%;
+    height: 70rpx;
+    background-color: var(--color-cg);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.find-title-text {
+    padding-top: 2rpx;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    text-align: center;
+}
+
+.find-title-line {
+    margin: 15rpx;
+    height: 2rpx;
+    width: 52rpx;
+    background-color: var(--color-ci);
+}
+
+.is-hidden {
+    display: none;
+}

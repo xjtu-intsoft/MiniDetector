@@ -1,0 +1,86 @@
+<view class="fulishe_container">
+    <view class="" style="font-size:0">
+        <view class="fulishe_title">
+            <swiper circular indicatorDots autoplay="{{autoplay}}" class="bg" current="{{bannerIndex}}" duration="{{duration}}" indicatorActiveColor="{{active_color}}" indicatorColor="{{color}}" interval="{{interval}}">
+                <swiper-item wx:for="{{bannerInfo}}" wx:key="key">
+                    <view class="bgWrap" style="text-align:center">
+                        <image mode="widthFix" src="{{item.picture_path}}"></image>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="type_wrap">
+        <view bindtap="changeType" class="type {{selectedIndex==0?'active':''}}" data-index="0">
+            全部
+        </view>
+        <view bindtap="changeType" class="type {{selectedIndex==1?'active':''}}" data-index="1">
+            维修券
+        </view>
+        <view bindtap="changeType" class="type {{selectedIndex==2?'active':''}}" data-index="2">
+            回收券
+        </view>
+        <view bindtap="changeType" class="type {{selectedIndex==3?'active':''}}" data-index="3">
+            优品券
+        </view>
+    </view>
+    <view class="nocoupon" wx:if="{{!couponList.length}}">
+        <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/nocoupon.png"></image>
+        <view class="">很可惜呀，没有券哦~</view>
+    </view>
+    <scroll-view scrollY class="scrollView {{isFullSucreen?'fullscreen':''}}" style="height:{{scrollViewHeight}}" wx:else>
+        <view class="coupon_container" wx:for="{{couponList}}" wx:key="index">
+            <view class="coupon_title" wx:if="{{item.show}}">
+                {{item.coupon_type==0?'回收券':'维修券'}}
+                <view class="line"></view>
+            </view>
+            <view class="coupon_info">
+                <view class="price_container">
+                    <view class="price_count">
+                        <view class="sym" wx:if="{{item.coupon_type!=2}}">¥</view>
+                        <view class="count" wx:if="{{item.is_shr}}">{{item.increase}}</view>
+                        <view class="count" wx:else>
+                            {{item.preferential_type==4?!item.preferential_amount?'???':item.preferential_amount:item.coupon_type==2?item.discount*10:item.discount==0?'???':item.discount}}
+                        </view>
+                        <view class="zhe" wx:if="{{item.coupon_type==2}}">折</view>
+                    </view>
+                    <view class="price_condition" wx:if="{{(item.coupon_type==1||item.coupon_type==0)&&item.preferential_type!=4}}">
+                        满{{item.satisfy}}{{item.is_shr?'增值':'减'}}{{item.is_shr?item.increase:item.discount}}
+                    </view>
+                    <view class="price_condition" wx:else>{{item.preferential_type==4?'随机 ¥'+item.min_preferential_amount+'-¥'+item.max_preferential_amount:'无门槛使用'}}</view>
+                </view>
+                <view class="type_container">
+                    <view class="type_name">
+                        <view class="type" wx:if="{{item.is_shr}}">回收</view>
+                        <view class="type" wx:else>维修</view>
+                        <view class="name">{{item.coupon_name}}</view>
+                    </view>
+                    <view class="use_time">{{item.time}}</view>
+                    <view bindtap="showRules" class="use_rules" data-index="{{index}}">
+                        <view class="rule_title">使用规则</view>
+                        <image class="xialaselect {{item.active?'active':''}}" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/xialaselect.png"></image>
+                    </view>
+                </view>
+                <view bindtap="lingquNow" class="btn getnow" data-number="{{item.batch_number}}" data-shr="{{item.is_shr}}" wx:if="{{isLogin&&item.status==1}}">
+                    立即领取
+                </view>
+                <button bindgetphonenumber="getPhoneNumber" class="btn getnow" openType="getPhoneNumber" wx:if="{{!isLogin}}">
+                    立即领取
+                </button>
+                <view bindtap="useNow" class="btn usenow" data-shr="{{item.is_shr}}" wx:if="{{isLogin&&item.status==5}}">
+                    立即使用
+                </view>
+                <view class="btn lingguang" data-number="{{item.batch_number}}" wx:if="{{isLogin&&(item.status==2||item.status==3||item.status==4)}}">
+                    已领完
+                </view>
+                <image class="alreadyget" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/alreadyget.png" wx:if="{{item.status==5}}"></image>
+            </view>
+            <view class="coupon_condition" wx:if="{{item.active}}">
+                <view class="condition" wx:for="{{item.rule}}" wx:for-item="ele" wx:key="index">
+                    <view class="diandian"></view>
+                    <view class="content">{{ele}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

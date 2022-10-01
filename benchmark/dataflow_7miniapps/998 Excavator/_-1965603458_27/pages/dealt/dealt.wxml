@@ -1,0 +1,30 @@
+<view class="border_t1r  border_b1r">
+    <view class="flex padd_14_16 flex_around border_t1r" wx:for="{{device_list}}" wx:for-item="list" wx:key="items">
+        <view class="w_30" data-index="{{index}}">
+            <image bindtap="previewimg" data-list="{{index}}" data-src="{{list.image}}" src="{{list.image_small[0]}}" style="width:100%;height:84px;"></image>
+        </view>
+        <view class="pad_left10 w_70">
+            <navigator url="/pages/equipment/equipment?ids={{list.itemid}}">
+                <view class="f_16rpx" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">{{list.title}}</view>
+                <view class="f_14 pad_top6 c_e6" style="font-size:12px; position: relative">{{list.introduce}}
+              <image class="status" src="/images/icon/status_6.png" wx:if="{{list.status=='6'}}"></image>
+                </view>
+                <view class="f_14 pad_top6 c_f3 font_weight">{{list.price}}</view>
+                <view class="f_12 pad_top6" style="color:#999;">{{list.addtime}}
+              <image src="/images/icon/yuedu.png" style="width:16px;height:16px;vertical-align:middle;"></image> 浏览{{list.hits}}次
+            </view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="weui-loadmore" wx:if="{{show_loading}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view class="weui-loadmore weui-loadmore_line" wx:else>
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了</view>
+</view>
+<view class="issue issueStyle">
+    <view bindtap="release">发布</view>
+    <image bindtap="back_top" class="back_top top nones{{top_show?'block':''}}" src="./../../images/icon/top_qz.png" style="{{back_animate}}"></image>
+</view>

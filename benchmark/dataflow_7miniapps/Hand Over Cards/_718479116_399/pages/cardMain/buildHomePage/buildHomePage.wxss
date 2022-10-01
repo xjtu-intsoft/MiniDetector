@@ -1,0 +1,199 @@
+page {
+    background-color: #fff;
+}
+
+.containerS {
+    width: 100%;
+    height: 90%;
+}
+
+.container .abbreviation {
+    width: 92%;
+    margin-left: 4%;
+    padding: 58rpx 0 0;
+}
+
+.abbreviationTishi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 98rpx;
+    width: 92%;
+    padding: 0 4%;
+    background-color: #ffe5ee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+}
+
+.abbreviationTishi .abbreviationTishi-item {
+    font-size: 24rpx;
+}
+
+.abbreviationTishi .abbreviationTishi-item:nth-child(1) {
+    width: 7.5%;
+    height: 32rpx;
+}
+
+.abbreviationTishi .abbreviationTishi-item:nth-child(1) .abbreviationTishi-item-image {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.abbreviationTishi .abbreviationTishi-item:nth-child(2) {
+    width: 70%;
+    color: #e91e63;
+    text-align: left;
+}
+
+.abbreviationTishi .abbreviationTishi-item:nth-child(2) .item {
+    width: 100%;
+    line-height: 32rpx;
+}
+
+.abbreviationTishi .abbreviationTishi-item:nth-child(3) {
+    color: #fff;
+    width: 22.5%;
+}
+
+.abbreviationTishi .abbreviationTishi-item:nth-child(3) .item {
+    background-color: #e91e63;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 198rpx;
+    width: 136rpx;
+    text-align: center;
+    float: right;
+}
+
+.abbreviation .abbreviation-title {
+    font-size: 28rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-bottom: 10rpx;
+    font-weight: 700;
+}
+
+.abbreviation .abbreviation-title .abbreviation-title-number {
+    font-size: 24rpx;
+    float: right;
+    font-weight: 400;
+}
+
+.abbreviation .abbreviation-title .abbreviation-title-mark {
+    color: #e91e63;
+    height: 12rpx;
+    width: 12rpx;
+    margin-left: 10rpx;
+}
+
+.abbreviation .abbreviation-con {
+    width: 100%;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-input {
+    border: 1px solid #e3e3e3;
+    border-radius: 6rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    padding: 0 20rpx;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-p {
+    color: #cacaca;
+    font-size: 32rpx;
+    line-height: 44rpx;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-logo {
+    height: 176rpx;
+    width: 176rpx;
+    background: #f2f2f2;
+    border-radius: 6rpx;
+    margin-top: 2rpx;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-logo .abbreviation-con-logo-image {
+    height: 68rpx;
+    width: 68rpx;
+    margin: 54rpx;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-beizhu {
+    margin-left: 20rpx;
+    background: #e8ebfb;
+    font-size: 24rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0 16rpx;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-textarea {
+    border: 1px solid #e3e3e3;
+    border-radius: 6rpx;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    height: 374rpx;
+    padding: 29rpx 2.9%;
+    width: 94.2%;
+    word-break: break-all;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-item {
+    height: 176rpx;
+    background: #fff;
+    box-shadow: 0 0 14rpx 0 hsla(0,0%,73.7%,.5);
+    border-radius: 6rpx;
+    margin: 2rpx 0 40rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-item .abbreviation-con-item-image {
+    height: 108rpx;
+    width: 108rpx;
+}
+
+.abbreviation .abbreviation-con .abbreviation-con-item view {
+    width: 50%;
+    line-height: 44rpx;
+    color: #333;
+    font-size: 32rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rowFlexend {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.editCardPageMatch {
+    position: absolute;
+    width: 92.2%;
+    margin-left: 3.9%;
+    height: 200px;
+    opacity: 1;
+    z-index: 9999;
+}
+
+.editCardPageMatch_item {
+    background-color: #fff;
+    color: #000;
+}
+
+.editCardPageMatch_item_test {
+    height: 35px;
+    line-height: 35px;
+    padding: 2rpx 20rpx;
+    max-width: 96%;
+    border-bottom: 2rpx solid #d5d5d5;
+}

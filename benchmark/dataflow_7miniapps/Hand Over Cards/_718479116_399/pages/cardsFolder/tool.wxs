@@ -1,0 +1,10 @@
+topbarHeight = (function(d) {
+    var h = 0;
+    if (d && d.menuButton) {
+        h = d.menuButton[("" + 'height')] + d.menuButton[("" + 'top')] + 8
+    };
+    return (h)
+});
+module.exports = ({
+    topbarHeight: topbarHeight,
+});

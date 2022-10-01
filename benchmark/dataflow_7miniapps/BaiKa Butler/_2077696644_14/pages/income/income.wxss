@@ -1,0 +1,207 @@
+.head {
+    position: relative;
+    width: 100%;
+    height: 438rpx;
+}
+
+.head-body-position {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bg-head-img {
+    width: 100%;
+    height: 100%;
+}
+
+.total-earnning {
+    font-size: 60rpx;
+    letter-spacing: 6rpx;
+    line-height: 60rpx;
+}
+
+.total-earnning-tip {
+    letter-spacing: 3rpx;
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-top: 20rpx;
+    color: #fffbef;
+}
+
+.accumulated-income {
+    padding-top: 52rpx;
+    flex-direction: column;
+    align-content: center;
+}
+
+.accumulated-income,.other-income {
+    display: flex;
+    align-items: center;
+}
+
+.other-income {
+    margin-top: 96rpx;
+}
+
+.other-income-part {
+    display: inline-flex;
+    align-items: center;
+    flex-flow: column;
+    width: 50%;
+}
+
+.other-income-part:first-child {
+    border-right: 1rpx solid #ccc;
+}
+
+.other-income-number {
+    font-size: 50rpx;
+    letter-spacing: 3rpx;
+}
+
+.other-income-tip {
+    margin-top: 5rpx;
+    font-size: 23rpx;
+    color: #fff0b5;
+}
+
+.head-withdraw-position {
+    position: absolute;
+    top: 410rpx;
+    left: 225rpx;
+    z-index: 20;
+}
+
+.income-btn-withdraw {
+    width: 300rpx;
+    height: 77rpx;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 77rpx;
+    border-radius: 150rpx;
+    background: linear-gradient(90deg,var(--theme-color),var(--theme-color-light));
+}
+
+.btn-witndraw-record {
+    top: 150rpx;
+}
+
+.btn-how-withdraw,.btn-witndraw-record {
+    position: absolute;
+    right: 0;
+    height: 50rpx;
+    width: 150rpx;
+    line-height: 50rpx;
+    padding: 0rpx;
+    font-size: 24rpx;
+    display: inline-block;
+    text-align: center;
+    border-top-left-radius: 25rpx;
+    border-bottom-left-radius: 25rpx;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #fff;
+}
+
+.btn-how-withdraw {
+    top: 80rpx;
+}
+
+.body {
+    position: fixed;
+    top: 460rpx;
+    bottom: 0;
+    width: 100%;
+}
+
+.scroll-body {
+    height: 100%;
+    width: 100%;
+}
+
+.item {
+    margin-left: 64rpx;
+    margin-right: 65rpx;
+    display: flex;
+}
+
+.item-img-part {
+    flex-direction: column;
+}
+
+.item-head-img-border,.item-img-part {
+    display: inline-flex;
+    align-items: center;
+    width: 90rpx;
+}
+
+.item-head-img-border {
+    border-radius: 50%;
+    height: 90rpx;
+    justify-content: center;
+}
+
+.item-head-img {
+    height: 76rpx;
+    border-radius: 50%;
+    width: 76rpx;
+}
+
+.item-line {
+    width: 1rpx;
+    height: 160rpx;
+    background: var(--theme-color);
+}
+
+.item-body-part {
+    width: 100%;
+    margin-left: 25rpx;
+    padding-top: 20rpx;
+}
+
+.item-phone {
+    display: block;
+    font-size: 26rpx;
+    line-height: 28rpx;
+}
+
+.item-body {
+    width: 100%;
+    height: 136rpx;
+    margin-top: 35rpx;
+    background: #fff;
+    border-radius: 15rpx;
+    box-shadow: 0 0 30rpx -10rpx var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item-income {
+    font-size: 44rpx;
+    letter-spacing: 3rpx;
+    color: var(--theme-color);
+}
+
+.item-time {
+    font-size: 22rpx;
+    color: #b0b0b0;
+}
+
+.scroll-bottom {
+    margin: -5rpx 0 100rpx 98rpx;
+    font-size: 26rpx;
+}
+
+.scroll-bottom::before {
+    content: "";
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 60rpx;
+    border-radius: 10rpx;
+    display: inline-block;
+    background: linear-gradient(90deg,var(--theme-color-light),var(--theme-color));
+}

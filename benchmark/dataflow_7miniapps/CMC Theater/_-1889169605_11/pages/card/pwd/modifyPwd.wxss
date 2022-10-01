@@ -1,0 +1,79 @@
+.pwd_body {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    flex-direction: column;
+    padding-left: 34rpx;
+    background: #fff;
+}
+
+.pwd_body,.pwd_phone {
+    display: flex;
+}
+
+.pwd_phone {
+    height: 106rpx;
+    margin-right: 34rpx;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text_mobile {
+    flex: 1;
+    color: var(--color-cc);
+    font-size: var(--font-tc);
+}
+
+.pwd_code {
+    background: #fff;
+    display: flex;
+    margin-right: 34rpx;
+    flex-direction: row;
+    height: 106rpx;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input,.pwd_code {
+    font-size: var(--font-td);
+    color: var(--color-cc);
+}
+
+.input {
+    flex: 1;
+}
+
+.holder {
+    font-size: var(--font-td);
+    color: var(--color-cd);
+}
+
+.icon_pwd {
+    width: 28rpx;
+    height: 24rpx;
+}
+
+.pay {
+    height: 80rpx;
+    margin-top: 60rpx;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 80rpx;
+    background-color: var(--color-cb);
+    font-size: var(--font-tc);
+    border-radius: 6rpx;
+}
+
+.pay,.remind {
+    margin-left: 32rpx;
+    margin-right: 32rpx;
+}
+
+.remind {
+    font-size: var(--font-td);
+    color: var(--color-cd);
+    display: block;
+    margin-top: 20rpx;
+}

@@ -1,0 +1,36 @@
+<view class="item" wx:for="{{records}}" wx:for-index="idx">
+    <image class="item-bg" src="{{item.bg}}"></image>
+    <view bindtap="onItemClick" class="item-bg item-record " data-position="{{idx}}">
+        <view class="item-bank">
+            <image class="item-bank-ic" src="{{item.url}}"></image>
+            <text class="item-bank-number">{{item.cardNumber}}</text>
+            <text class="item-bank-name">{{item.bankName}}</text>
+        </view>
+        <view class="item-info">
+            <text class="item-money">￥{{item.tradeAmount}}</text>
+            <text class="item-time">{{item.tradeDate}}</text>
+        </view>
+        <view class="item-statu">
+            <block wx:if="{{item.statu==1}}">
+                <image class="item-statu-ic" src="../../images/ic_success.png"></image>
+                <text class="item-statu-tip item-statu-success">{{item.remark}}</text>
+            </block>
+            <block wx:elif="{{item.statu==0}}">
+                <image class="item-statu-ic" src="../../images/ic_withdrawing.png"></image>
+                <text class="item-statu-tip item-statu-withdrawing">{{item.remark}}</text>
+            </block>
+            <block wx:else>
+                <image class="item-statu-ic" src="../../images/ic_error.png"></image>
+                <text class="item-statu-tip item-statu-error">{{item.remark}}</text>
+                <image class="btn-small item-btn-reason">查看原因</image>
+            </block>
+        </view>
+    </view>
+</view>
+<modal bindcancel="onDissmissModal" bindconfirm="onDissmissModal" cancelText="取消" confirmText="确定" hidden="{{hiddenRepayDetail}}" title="还款详情">
+    <view class="item-repay-detail" wx:for="{{repayDetail}}">
+        <text class="item-repay-money">￥{{item.tradeAmount}}</text>
+        <text class="item-repay-date">{{item.tradeDate}}</text>
+        <text class="item-repay-statu">{{item.remark}}</text>
+    </view>
+</modal>

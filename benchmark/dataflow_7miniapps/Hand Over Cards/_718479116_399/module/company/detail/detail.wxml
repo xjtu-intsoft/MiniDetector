@@ -1,0 +1,122 @@
+<import src="./templates/popover.wxml"></import>
+<view class="company-detail">
+    <view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']+20}}px;background-color: #2979FF;"></view>
+    <view bindtap="_setting" class="company-detail-show">
+        <view class="company-show-name viewEllipsis">{{enterprisesData.entName}}</view>
+        <mini-icon color="#ffffff" icon="arrow-right" miniStyle="width:24rpx;height:24rpx;"></mini-icon>
+    </view>
+    <view catch:tap="_serviceTap" class="company-detail-server" data-use="{{companyPayStatus=='试用'?'试用':companyPayStatus=='到期'?'到期':'已付费续期'}}">
+        <image class="company-server-back" mode="widthFix" src="/images/company/companyDetailBack.jpg"></image>
+        <image class="company-server-title" mode="heightFix" src="/images/company/server.png"></image>
+        <view class="company-show-tag" style="background: #F7B51C;" wx:if="{{companyPayStatus=='试用'}}">
+      试用中
+    </view>
+        <view class="company-show-tag" style="background: #FA5151;" wx:if="{{companyPayStatus=='到期'}}">
+      服务已到期
+    </view>
+        <view class="company-server-pay pay-active" wx:if="{{companyPayStatus=='付费'}}">
+      有效期至{{serviceRestDate}}
+      <mini-icon color="#FAD7AB" icon="arrow-right" miniStyle="width:24rpx;height:24rpx;"></mini-icon>
+        </view>
+        <view class="company-server-pay pay-onTrial" wx:if="{{companyPayStatus=='试用'}}">
+      剩余{{serviceRestDay}}天
+      <mini-icon color="#FAD7AB" icon="arrow-right" miniStyle="width:24rpx;height:24rpx;"></mini-icon>
+        </view>
+        <view class="company-server-pay pay-overDate" wx:if="{{companyPayStatus=='到期'}}">
+      剩余0天
+      <mini-icon color="#FA5151" icon="arrow-right" miniStyle="width:24rpx;height:24rpx;"></mini-icon>
+        </view>
+        <view class="company-server-tip" wx:if="{{companyPayStatus!='付费'}}">不限人数·批量制作·样式自定义</view>
+        <view class="company-server-tip2" wx:if="{{companyPayStatus=='试用'}}">*现在续期享优惠</view>
+        <view class="company-server-tip3" wx:if="{{companyPayStatus=='到期'}}">部分功能已被锁定，请尽快续期服务</view>
+    </view>
+    <view class="company-detail-member">
+        <view class="company-member-title team_bold">员工名片</view>
+        <view class="company-member-contain">
+            <button catch:tap="_inviteFirstClick" class="company-member-item" wx:if="{{inviteFirstClick}}">
+                <image alt="邀请填写" src="/images/company/wechat-invite.png"></image>
+                <view>邀请填写</view>
+            </button>
+            <button catch:tap="_shareBurying" class="company-member-item" openType="share" wx:else>
+                <image alt="邀请填写" src="/images/company/wechat-invite.png"></image>
+                <view>邀请填写</view>
+            </button>
+            <view catch:tap="_manualInput" class="company-member-item">
+                <image alt="手动录入" src="/images/company/manual-input.png"></image>
+                <view>手动录入</view>
+            </view>
+            <view catch:tap="_batchImport" class="company-member-item">
+                <image alt="批量导入" src="/images/company/batch-import.png"></image>
+                <view>批量导入</view>
+            </view>
+            <view catch:tap="_cureteam" class="company-member-item all-member">
+                <view class="company-member-number viewEllipsis">{{teamData.allMembersCount}}</view>
+                <view>全部名片</view>
+            </view>
+            <view class="company-member-add" wx:if="{{!enterprisesData.joinTeam&&enterprisesData.isAdmin==1}}">
+                <button catch:tap="_joinCard" class="b-left" wx:if="{{currentDevicePhoneNumer}}">
+                    <view class="txt">添加我的名片</view>
+                </button>
+                <button bindgetphonenumber="_getPhoneNumber" class="b-left" openType="getPhoneNumber" wx:else>
+                    <view class="txt">添加我的名片</view>
+                </button>
+            </view>
+        </view>
+    </view>
+    <view class="company-detail-style">
+        <view class="company-style-title team_bold">名片样式</view>
+        <view catch:tap="_batchProduction" class="company-style-contain" data-type="名片样式">
+            <image alt="模板" class="{{companyPayStatus=='到期'?'company-style-shade':''}}" src="{{tmpList[0]['tplUrl']?tmpList[0]['tplUrl']+'?freshNum='+freshNum:''}}"></image>
+            <view class="company-style-right">
+                <view class="style-right-title viewEllipsis team_bold">
+          {{tmpList[0]['deptNames']=='未命名'||!tmpList[0]['deptNames']?'未命名样式':tmpList[0]['deptNames']}}
+        </view>
+                <view class="style-right-tip" wx:if="{{companyPayStatus=='试用'}}">
+          试用到期后，所有名片样式将被暂时设置为系统默认图，续期后自动恢复
+        </view>
+                <view class="style-right-tip" wx:if="{{companyPayStatus=='到期'}}">
+          *名片样式已被暂时设置为系统默认图，续期后自动恢复
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="company-detail-helper">
+        <view class="company-helper-title team_bold">企业助手</view>
+        <view class="company-helper-contain">
+            <view catch:tap="_miniWeb" class="company-helper-item">
+                <image alt="微官网" src="/images/company/helper-12.png" wx:if="{{companyPayStatus=='到期'}}"></image>
+                <image alt="微官网" src="/images/company/helper-1.png" wx:else></image>
+                <view style="{{companyPayStatus=='到期'?'color:#E1E1E1;':''}}">微官网</view>
+            </view>
+            <view catch:tap="_shareCardlibrary" class="company-helper-item">
+                <image alt="客户名片" src="/images/company/helper-2.png"></image>
+                <view>客户名片</view>
+            </view>
+            <view catch:tap="_viewall" class="company-helper-item">
+                <image alt="动态" src="/images/company/helper-3.png"></image>
+                <view>员工动态</view>
+            </view>
+            <view catch:tap="{{enterprisesData.entState==2?'_attestationDetail':enterprisesData.entState==0?'_attestationLock':'_attestationIntro'}}" class="company-helper-item">
+                <image alt="认证保护" src="/images/company/helper-42.png" wx:if="{{companyPayStatus=='到期'}}"></image>
+                <image alt="认证保护" src="/images/company/helper-4.png" wx:else></image>
+                <view style="{{companyPayStatus=='到期'?'color:#E1E1E1;':''}}">认证保护</view>
+            </view>
+        </view>
+        <view class="company-helper-more">更多功能请访问电脑端管理地址：www.microvcard.com</view>
+    </view>
+</view>
+<view bindtap="_shareGift" class="company-bottom" wx:if="{{companyPayStatus=='付费'&&teamData['serialCode']}}">
+    <image mode="widthFix" src="/images/company/gift.png"></image>
+    <text>推荐给朋友</text>
+    <mini-icon color="#666666" icon="arrow-right" miniStyle="width:20rpx;height:20rpx;"></mini-icon>
+</view>
+<view style="padding:20rpx;" wx:else></view>
+<component-createBusinesscard bindcloseWindow="_closeWindow" bindteamInfo="_teamInfo" cardList="{{matchCardList}}" choosePhone="{{chooseTeamData['phoneNumber']}}" entName="{{chooseTeamData.entName}}" entId="{{chooseTeamData['entId']}}" formTitle="完成填写" id="cardInfor" listTtile="确认选择" openType="{{createOpenType}}" paddingTop="360" pages="company" zIndex="120" wx:if="{{fillInformation}}"></component-createBusinesscard>
+<template is="batchImport" data="{{tipBatchDemo:tipBatchDemo}}" wx:if="{{batchImportTipShow}}"></template>
+<template is="openCardStyleTip" data wx:if="{{showCardStyleDialog}}"></template>
+<template is="openCompanyTip" data wx:if="{{showXuqiDialog}}"></template>
+<template is="cardLock" data wx:if="{{showAttentionLockDialog}}"></template>
+<template is="cardNullNotLock" data wx:if="{{showNotAttentionNotLockDialog}}"></template>
+<template is="cardNotLock" data wx:if="{{showAttentionNotLockDialog}}"></template>
+<template is="restDayTip" data="{{serviceRestDay:serviceRestDay}}" wx:if="{{restDayTipShow}}"></template>
+<template is="invite" data="{{tipInviteDemo:tipInviteDemo}}" wx:if="{{inviteTipShow}}"></template>

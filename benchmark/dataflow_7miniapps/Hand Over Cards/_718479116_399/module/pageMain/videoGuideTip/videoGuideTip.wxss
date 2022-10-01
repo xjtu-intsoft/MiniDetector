@@ -1,0 +1,22 @@
+.video-con {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 670rpx;
+    height: 80rpx;
+    background: rgba(41,121,255,.1);
+    border-radius: 12rpx;
+}
+
+.video-con .video-img {
+    margin: auto 6rpx;
+    width: 34rpx;
+    height: 34rpx;
+}
+
+.video-con .txt {
+    margin: auto 0;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #2979ff;
+}

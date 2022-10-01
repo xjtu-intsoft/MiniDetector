@@ -1,0 +1,28 @@
+<template name="mineCodeLogin">
+    <view class="mineCodeLogin-view">
+        <image class="mineCodeLogin-view-logo" src="/images/configimage/denglu_logo.png"></image>
+        <form bindsubmit="{{codeLoginPhoneNum.length>=11?'codeLoginSendBtnClick':'nouse'}}" class="mineCodeLogin-view-inputs">
+            <view class="mineCodeLogin-phonenum">
+                <input bindinput="showCodeLoginPhoneNum" class="phonenum-input" maxlength="11" name="phonenum" placeholder="手机号" placeholderStyle="color:#c5c5c5" type="number" value="{{codeLoginPhoneNum}}"></input>
+                <view bindtap="codeClearPhoneMum" class="mineCodeLogin-clear">
+                    <icon class="clear-icon" size="14" type="clear"></icon>
+                </view>
+            </view>
+            <view class="mineCodeLogin-line"></view>
+            <view class="mineCodeLogin-message">*如未注册，将自动注册账号</view>
+            <button class="mineCodeLogin-sendCodeBtn {{codeLoginPhoneNum.length>=11?'':'mineCodeLogin-sendCodeBtn-nouse'}}" formType="submit">
+        {{tiemDownText.length>0?tiemDownText:'发送验证码'}}
+      </button>
+        </form>
+        <view class="mineCodeLogin-bottomView">
+            <view class="user_protocol_parent">
+        登录即同意
+        <text catchtap="showUserProtocol" class="user_protocol_show">《用户协议》</text> 和
+        <text catchtap="showPolicy" class="user_protocol_show">《隐私政策》</text>
+            </view>
+            <view bindtap="showAccountLogin" class="mineCodeLogin-changeAccountLoginBtn">
+        账号登录
+      </view>
+        </view>
+    </view>
+</template>

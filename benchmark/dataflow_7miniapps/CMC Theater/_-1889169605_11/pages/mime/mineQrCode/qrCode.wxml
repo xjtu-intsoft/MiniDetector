@@ -1,0 +1,3 @@
+<view class="qr_parent">
+    <canvas canvasId="qrCodeCanvas" class="qr_code_canvas"></canvas>
+</view>

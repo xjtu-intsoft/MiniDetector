@@ -1,0 +1,9 @@
+<view style="height:{{pfmOpt.topHeight}}px"></view>
+<view>
+    <view class="gif-news-block" id="cell-{{index}}" wx:if="{{pfmOpt.index1<index&&index<pfmOpt.index2}}" wx:for="{{list}}" wx:key="{{index%20}}">
+        <story-video bind:go="go" bind:play="play" item="{{item}}" wx:if="{{item.show_type==1||item.show_type==3}}"></story-video>
+        <story-one-image item="{{item}}" wx:elif="{{item.show_type==2}}"></story-one-image>
+        <story-many-image item="{{item}}" wx:elif="{{item.show_type==4}}"></story-many-image>
+    </view>
+</view>
+<has-more-data hasMoreData="{{state}}"></has-more-data>

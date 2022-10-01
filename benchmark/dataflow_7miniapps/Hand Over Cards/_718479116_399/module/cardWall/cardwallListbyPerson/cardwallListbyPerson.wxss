@@ -1,0 +1,175 @@
+.card-con {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20rpx 10rpx;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    background: #f7f7f7;
+}
+
+.card-con,.card-con .colums {
+    display: flex;
+}
+
+.card-con .colums {
+    flex-direction: column;
+    margin: 0 auto;
+    width: calc(50%);
+}
+
+.itemCard {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    width: 344rpx;
+    margin: 0 auto 20rpx;
+    background: #fff;
+    box-shadow: 0 0 8rpx 0 hsla(0,0%,83.1%,.5);
+    border-radius: 12rpx;
+}
+
+.border-bottom {
+    position: relative;
+}
+
+.idy-top {
+    width: 100%;
+    display: flex;
+}
+
+.defaultAvator {
+    background: #fce7c7;
+    color: #dd9621;
+    text-align: center;
+    font-size: 46rpx;
+    font-weight: 500;
+}
+
+.newcardInfoCon {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 294rpx;
+    background: #fff;
+    border-radius: 12rpx;
+    line-height: 1.4;
+}
+
+.newcardInfoCon .avatar {
+    margin: auto auto 20rpx;
+}
+
+.newcardInfoCon .avatar .img {
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    box-shadow: 0 0 4rpx 0 #d4d4d4;
+    border-radius: 8rpx;
+}
+
+.newcardInfoCon .name {
+    margin: 0 auto;
+    max-width: 200rpx;
+}
+
+.newcardInfoCon .job,.newcardInfoCon .name {
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.newcardInfoCon .job {
+    margin: 6rpx auto auto;
+    max-width: 300rpx;
+}
+
+.newcardInfoCon .idy {
+    margin-right: 10rpx;
+    color: #2979ff;
+    font-size: 24rpx;
+    text-align: center;
+    width: 50%;
+    padding: 0 10rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: rgba(41,121,255,.1);
+    border-radius: 12rpx 0 4rpx 0;
+}
+
+.newcardInfoCon .intro {
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #666;
+    padding: 10rpx 20rpx 0;
+    text-align: left;
+    background: #fff;
+    border-radius: 14rpx;
+}
+
+.newcardInfoCon .intro .i {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    min-height: 178rpx;
+    max-height: 460rpx;
+    line-height: 1.7;
+}
+
+.newcardInfoCon .user {
+    display: flex;
+    justify-content: center;
+    padding: 30rpx 20rpx;
+    color: #999;
+}
+
+.newcardInfoCon .user .user-avatar,.newcardInfoCon .user .user-avatar .img {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 8rpx;
+}
+
+.newcardInfoCon .user .user-avatar .img {
+    font-size: 24rpx;
+    line-height: 50rpx;
+    box-shadow: 0 0 2rpx 0 hsla(0,0%,83.1%,.5);
+}
+
+.newcardInfoCon .user .user-name {
+    margin: auto 0 auto 10rpx;
+    min-width: 80rpx;
+    max-width: 180rpx;
+}
+
+.newcardInfoCon .user .user-job,.newcardInfoCon .user .user-name {
+    font-size: 24rpx;
+    font-weight: 400;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.newcardInfoCon .user .user-job {
+    margin: auto auto auto 10rpx;
+    width: 200rpx;
+}
+
+.user-top {
+    font-size: 24rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    font-weight: 400;
+    color: #f4a625;
+    padding: 0 8rpx;
+    background: rgba(244,166,37,.1);
+    border-radius: 4rpx;
+    width: 48rpx;
+    margin-left: 0;
+}

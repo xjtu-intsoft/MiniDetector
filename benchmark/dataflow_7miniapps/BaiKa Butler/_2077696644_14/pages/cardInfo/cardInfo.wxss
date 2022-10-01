@@ -1,0 +1,286 @@
+.swiper {
+    background: #fff;
+    height: 440rpx;
+}
+
+.cardInfo-img-head-bg {
+    border-radius: 20rpx;
+    height: 350rpx;
+    width: 100%;
+    margin-top: 60rpx;
+}
+
+.item-bank-position {
+    z-index: 10;
+    width: 122rpx;
+    height: 122rpx;
+    position: absolute;
+    top: 0;
+    left: 74rpx;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-head-bank {
+    display: block;
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.head-item {
+    height: 350rpx;
+    width: 100%;
+    position: absolute;
+    bottom: 20rpx;
+    display: flex;
+    color: #333;
+}
+
+.swiper-item {
+    width: 680rpx;
+    margin-left: 35rpx;
+    margin-right: 35rpx;
+    position: relative;
+    height: 100%;
+}
+
+.head-item-left-half {
+    flex: 4;
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 74rpx;
+}
+
+.text-head-balance {
+    font-size: 74rpx;
+    margin-top: 80rpx;
+}
+
+.text-head-credit {
+    color: #f2f2f2;
+    margin-top: 40rpx;
+    font-size: 24rpx;
+}
+
+.text-head-credit-number {
+    margin-left: 20rpx;
+}
+
+.head-item-right-half {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-right: 30rpx;
+}
+
+.head-item-countdown-day {
+    color: #fff;
+    font-size: 62rpx;
+    line-height: 60rpx;
+    display: inline-block;
+}
+
+.head-item-countdown-desc {
+    display: inline-block;
+    text-align: left;
+    color: #fff;
+    font-size: 22rpx;
+    line-height: 30rpx;
+    margin-left: 10rpx;
+}
+
+.head-item-repay-day label {
+    font-size: 36rpx;
+}
+
+.body-menu {
+    background: #fff;
+    display: flex;
+    height: 68rpx;
+    width: 100%;
+}
+
+.body-menu-item {
+    flex: 1;
+    color: #666;
+}
+
+.body-menu-text {
+    display: block;
+    text-align: center;
+    height: 45rpx;
+    font-size: 26rpx;
+    line-height: 45rpx;
+}
+
+.body-menu-text.main-color::after {
+    content: "";
+    width: 50%;
+    display: block;
+    margin: 20rpx auto 0;
+    border-top: 6rpx solid var(--theme-color);
+}
+
+.body-update-card-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 87rpx;
+    background: #fff;
+}
+
+.update-card-item-line {
+    margin-left: 30rpx;
+    height: 1px;
+    background: #ccc;
+}
+
+.update-card-item-icon {
+    width: 30rpx;
+    margin-left: 40rpx;
+    height: 30rpx;
+}
+
+.update-card-item-title {
+    display: inline-block;
+    width: 250rpx;
+    font-size: 28rpx;
+    margin-left: 15rpx;
+    line-height: 88rpx;
+}
+
+.update-card-item-info {
+    flex: 1;
+    margin-right: 30rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 30rpx;
+    text-align: right;
+}
+
+.item-bill-parent {
+    background: #fff;
+    position: relative;
+    height: 87rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #dcdcdc;
+}
+
+.item-bill-parent-title {
+    display: inline-block;
+    margin-left: 34rpx;
+    font-size: 30rpx;
+}
+
+.item-bill-parent-month {
+    margin-left: 10rpx;
+    font-size: 25rpx;
+    color: #646464;
+}
+
+.item-bill-parent-sum {
+    flex: 1;
+    line-height: 87rpx;
+    margin-right: 49rpx;
+    text-align: right;
+    font-size: 30rpx;
+}
+
+.item-bill-child {
+    position: relative;
+    height: 71rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-bottom: 1rpx solid #dcdcdc;
+}
+
+.item-bill-child-time {
+    display: inline-block;
+    margin-left: 34rpx;
+    width: 90rpx;
+    font-size: 25rpx;
+    line-height: 71rpx;
+}
+
+.item-bill-child-desc {
+    display: inline-block;
+    vertical-align: middle;
+    flex: 1;
+    font-size: 25rpx;
+    margin-left: 10rpx;
+}
+
+.item-bill-child-normal {
+    color: #4b4b4b;
+}
+
+.item-bill-child-money {
+    display: inline-block;
+    height: 100%;
+    line-height: 71rpx;
+    text-align: left;
+    font-size: 30rpx;
+    margin-right: 49rpx;
+}
+
+.input-sms {
+    height: 88rpx;
+    background: #fff;
+    border-radius: 44rpx;
+    display: flex;
+    align-items: center;
+    border: 1rpx solid #f1f1f1;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-load-bill {
+    position: fixed;
+    z-index: 30;
+    right: 60rpx;
+    bottom: 60rpx;
+    display: inline-block;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    line-height: 70rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+}
+
+.item-body-blank {
+    height: 20rpx;
+    width: 100%;
+    background: #f2f2f2;
+}
+
+.body-help {
+    margin-top: 20rpx;
+    height: 87rpx;
+    line-height: 87rpx;
+    font-size: 33rpx;
+    text-align: center;
+    color: #ffa200;
+    background: #fff5df;
+    border: 1rpx solid #f9c450;
+}
+
+.update-card-bottom {
+    margin-bottom: 30rpx;
+}
+
+.body-update-bill-blank {
+    height: 1rpx;
+}
+
+.btn-main {
+    margin: 100rpx auto;
+}

@@ -1,0 +1,99 @@
+<view class="container">
+    <view class="abbreviationTishi" style="height:49px;" wx:if="{{elevance.st}}">
+        <view bindtap="toClose" class="abbreviationTishi-item">
+            <image class="abbreviationTishi-item-image" src="../../../images/closeTip.png"></image>
+        </view>
+        <view class="abbreviationTishi-item">
+            <view class="item">已有{{elevance.data['total']}}人为此公司创建过主页，是否</view>
+            <view class="item">关联已有企业主页</view>
+        </view>
+        <view bindtap="toElevance" class="abbreviationTishi-item" data-title="关联">
+            <view class="item">关联</view>
+        </view>
+    </view>
+    <form bindsubmit="submit" reportSubmit="true">
+        <view class="containerS" style="margin-top:{{elevance.st?elevance.h:0}}px;">
+            <view class="abbreviation" style="padding-top:20rpx;">
+                <view class="abbreviation-title">
+          企业名称
+          <text class="abbreviation-title-mark">*</text>
+                </view>
+                <view class="abbreviation-con">
+                    <input bindblur="blur" bindfocus="focus" bindinput="input" class="abbreviation-con-input" data-detail="fullname" data-growing-track="true" data-tit="企业名称" id="fullname" name="fullname" placeholder="输入关键词可检索" placeholderClass="abbreviation-con-p" style="color:{{testQiyeData.fullname?'#F33632':''}}" value="{{qiyeData.fullname}}"></input>
+                </view>
+            </view>
+            <view class="abbreviation">
+                <view class="abbreviation-title">企业简称</view>
+                <view class="abbreviation-con">
+                    <input bindblur="blur" bindfocus="focus" bindinput="input" class="abbreviation-con-input" data-detail="name" data-tit="企业简称" id="name" name="name" placeholder="输入企业简称" placeholderClass="abbreviation-con-p" style="color:{{testQiyeData.name?'#F33632':''}}" value="{{qiyeData.name}}"></input>
+                </view>
+            </view>
+            <view class="abbreviation">
+                <view class="abbreviation-title">企业logo</view>
+                <view bindtap="upld" class="abbreviation-con rowFlexend" data-title="上传logo" wx:if="{{!qiyeData.logo}}">
+                    <view class="abbreviation-con-logo">
+                        <image class="abbreviation-con-logo-image" src="../../../images/homePage_camera.png"></image>
+                    </view>
+                    <view class="abbreviation-con-beizhu addColor addRadius">点击上传logo</view>
+                </view>
+                <view class="abbreviation-con rowFlexend" wx:if="{{qiyeData.logo}}">
+                    <image bindtap="upld" class="abbreviation-con-logo" data-title="上传logo" src="{{qiyeData.logo}}"></image>
+                </view>
+            </view>
+            <view class="abbreviation">
+                <view class="abbreviation-title">
+          一句话介绍
+          <text class="abbreviation-title-number">{{qyIntroNum}}/15</text>
+                </view>
+                <view class="abbreviation-con">
+                    <input bindblur="blur" bindfocus="focus" bindinput="input" class="abbreviation-con-input" data-detail="slogan" data-tit="一句话介绍" id="slogan" maxlength="15" name="slogan" placeholder="例如：让电子名片发遍天下" placeholderClass="abbreviation-con-p" style="color:{{testQiyeData.slogan?'#F33632':''}}" value="{{qiyeData.slogan}}"></input>
+                </view>
+            </view>
+            <view class="abbreviation">
+                <view class="abbreviation-title">企业官网</view>
+                <view class="abbreviation-con">
+                    <input bindblur="blur" bindfocus="focus" bindinput="input" class="abbreviation-con-input" data-detail="website" data-tit="企业官网" id="website" name="website" placeholder="输入企业官网" placeholderClass="abbreviation-con-p" style="color:{{testQiyeData.website?'#F33632':''}}" value="{{qiyeData.website}}"></input>
+                </view>
+            </view>
+            <view class="abbreviation">
+                <view class="abbreviation-title">
+          企业介绍
+          <text class="abbreviation-title-number">{{qyIntroXNum}}/300</text>
+                </view>
+                <view class="abbreviation-con">
+                    <scroll-view scrollY bindtap="textareaTap" class="abbreviation-con-textarea" style="white-space: pre-wrap;{{qiyeData.intro?';':'color:#cbcbcb;'}};color:{{testQiyeData.intro?'#F33632':''}}" wx:if="{{textAreaDisabled}}">{{qiyeData.intro?qiyeData.intro:'例如：“递名片”是一款免费为用户提供电子名片制作，名片收发，名片信息管理等功能的微信小程序，由北京微名天下科技有限公司独立开发运营。'}}
+          </scroll-view>
+                    <textarea bindblur="textareablur" bindinput="input" class="abbreviation-con-textarea" cursorSpacing="100" data-detail="intro" data-tit="企业介绍" focus="{{!textAreaDisabled}}" id="intro" maxlength="300" placeholder="例如：“递名片”是一款免费为用户提供电子名片制作，名片收发，名片信息管理等功能的微信小程序，由北京微名天下科技有限公司独立开发运营。" placeholderClass="abbreviation-con-p" value="{{qiyeData.intro}}" wx:if="{{!textAreaDisabled}}"></textarea>
+                </view>
+            </view>
+            <view class="abbreviation">
+                <view class="abbreviation-title">
+          主要产品{{qiyeData.products.length>0?'('+qiyeData.products.length+')':''}}
+        </view>
+                <view class="abbreviation-con">
+                    <view bindtap="tobuildProduct" class="abbreviation-con-item" data-detail="showSelf" data-ids="{{item['name']}}" data-ind="{{index}}" style="justify-content:flex-start;" wx:for="{{qiyeData.products}}" wx:key="{{item}}">
+                        <image bindtap="preview" class="abbreviation-con-item-image" mode="aspectFit" src="{{item.image[0]['thumb_url']}}" style="height:136rpx;width:228rpx;margin:20rpx;"></image>
+                        <view>{{item['name']}}</view>
+                    </view>
+                    <view bindtap="tobuildProduct" class="abbreviation-con-item" data-detail="add" data-ind="add" data-title="添加产品" wx:if="{{qiyeData.products.length<5}}">
+                        <image class="abbreviation-con-item-image" src="../../../images/addPro.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view style="padding:200rpx 0;"></view>
+        </view>
+        <view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}">
+            <button class="buttonPrimaryBig" formType="submit" loading="{{saveCommit['loading']}}">
+        {{saveCommit['con']?saveCommit['con']:'保存'}}
+      </button>
+        </view>
+    </form>
+</view>
+<view class="editCardPageMatch" style="top:{{matchData.top}}px;" wx:if="{{matchData.show}}">
+    <view bindtap="editCardPageMatchSelect" class="editCardPageMatch_item" data-details="{{matchData.detail}}" data-matchItem="{{item}}" data-matchindex="{{index}}" wx:for="{{matchData.data}}" wx:key="{{item}}">
+        <view class="editCardPageMatch_item_test viewEllipsis" style="{{matchData.data.length==index+1?' border-bottom:0;':''}}">
+      {{item}}
+    </view>
+    </view>
+</view>
+<canvas canvasId="lowerCanvas" class="lowerCanvas" style="height:{{lowerCanvas['height']}}px;width:{{lowerCanvas['width']}}px;"></canvas>

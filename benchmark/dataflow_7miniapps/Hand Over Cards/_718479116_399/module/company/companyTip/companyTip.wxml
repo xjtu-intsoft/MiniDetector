@@ -1,0 +1,9 @@
+<view class="d-panel" wx:if="{{showCardStyleDialog}}">
+    <view class="d-container">
+        <image catch:tap="_closePanel" class="close" data-type="showCardStyleDialog" src="/images/company/panel-close.png"></image>
+        <image class="clock" src="/images/company/clock.png"></image>
+        <view class="t">名片样式已锁定</view>
+        <view class="i">员工的名片暂变更为系统默认样式，续期后自动恢复上次配置</view>
+        <view bindtap="_renew" class="btn" data-use="名片样式已锁定">立即续期</view>
+    </view>
+</view>

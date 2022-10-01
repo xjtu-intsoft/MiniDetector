@@ -1,0 +1,10 @@
+<view class="activityContainer" style="background:{{background}};background-size: cover;">
+    <view class="imgWrap">
+        <view class="limg">
+            <image bindtap="goPage" class="" data-bg="{{LImage.bg}}" data-pos="left" data-type="{{LImage.route_type}}" data-url="{{LImage.url}}" src="{{LImage.src}}"></image>
+        </view>
+        <view class="rimage">
+            <image bindtap="goPage" data-extra="{{item.extra}}" data-pos="right" data-type="{{item.route_type}}" data-url="{{item.url}}" src="{{item.src}}" wx:for="{{RImage}}" wx:key="index"></image>
+        </view>
+    </view>
+</view>

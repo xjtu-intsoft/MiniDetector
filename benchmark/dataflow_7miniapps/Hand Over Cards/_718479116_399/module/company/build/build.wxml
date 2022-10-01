@@ -1,0 +1,69 @@
+<view class="build">
+    <view class="propaganda">
+        <view class="overflow">
+            <image class="propagandaBg" src="/images/company/propagandain.png"></image>
+        </view>
+        <view class="hander">递名片企业版</view>
+        <view class="title">专为企业打造的微信电子名片服务</view>
+        <view class="searchButton">
+            <view class="intorList">
+                <view class="listStyle"></view>
+                <text>批量生成名片</text>
+            </view>
+            <view class="intorList">
+                <view class="listStyle"></view>
+                <text>自定义企业名片样式</text>
+            </view>
+            <view class="intorList">
+                <view class="listStyle"></view>
+                <text>企业名认证保护</text>
+            </view>
+            <view class="intorList">
+                <view class="listStyle"></view>
+                <text>手机微官网</text>
+            </view>
+            <view class="intorList" style="margin-right: 32rpx;margin-left: 44rpx">
+                <view class="listStyle"></view>
+                <text>电脑端管理员工名片</text>
+            </view>
+            <view class="intorList" style="margin-left: 16rpx;">
+                <image src="/images/company/ellipsis.png"></image>
+            </view>
+            <view class="clear"></view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="intor">
+            <view class="build_title">
+                <view>选择企业的初始名片样式：</view>
+            </view>
+            <view class="build_intro">注册后可选更多样式，支持自定义图片</view>
+        </view>
+        <view class="select-style">
+            <view class="card">
+                <image catch:tap="_chooseTmp" class="card-img {{chooselibraryId==card.libraryId?'active':''}}" data-library-id="{{card.libraryId}}" src="{{card.url}}" wx:for="{{cardsData}}" wx:for-index="idx" wx:for-item="card" wx:key="idx"></image>
+            </view>
+        </view>
+        <view class="company">您的企业名称是？</view>
+        <view class="build_input">
+            <input bindblur="_blur" bindfocus="_focus" bindinput="_input" class="inputStyle" data-detail="fullname" data-name="account" id="fullname" maxlength="40" placeholder="输入公司/组织全称" placeholderClass="holderStyle" style="{{contentTestFail?'color:#E91E63;':';'}}" value="{{fullnameValue}}"></input>
+            <image catchtap="_clearMessage" class="icon_clear" src="/images/clear-dedede.png" wx:if="{{buttonShow}}"></image>
+            <view class="teamTip" wx:if="{{hadAuthentication}}">该名称已通过认证，您无法使用，请重新输入</view>
+        </view>
+        <mini-button bindminitap="_buttonAdd" loading="{{loading}}" miniClass="buttonAdd button_primary" text="完成注册" wx:if="{{buttonShow}}"></mini-button>
+        <mini-button loading="{{loading}}" miniClass="buttonAdd buttonAddDisabled button_disabled" text="确认企业名" wx:if="{{!buttonShow}}"></mini-button>
+        <view class="covered" wx:if="{{sevenTip}}">
+            <image src="/images/company/delivered.png"></image>
+            <view>现在注册即可免费试用{{limitDays}}天</view>
+        </view>
+    </view>
+    <view class="reminder">温馨提示：已有名片的用户完成注册后，名片将自动加入企业并更新为企业统一的名片样式。每张名片仅能加入1个企业。</view>
+</view>
+<view class="editCardPageMatch" style="top:{{matchData.top}}px;" wx:if="{{matchData.show}}">
+    <view bindtap="editCardPageMatchSelect" class="editCardPageMatch_item" data-details="{{matchData.detail}}" data-matchItem="{{item}}" data-matchindex="{{index}}" wx:for="{{matchData.data}}" wx:for-index="i" wx:key="{{item}}">
+        <block wx:if="{{i<4}}">
+            <view class="editCardPageMatch_item_test viewEllipsis">{{item}}</view>
+            <view class="editCardPageMatch_item_test2"></view>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="container" style="background:{{pageData.config.background}}">
+    <view class="wrapper" wx:for="{{pageData.templateList}}" wx:key="index">
+        <activityImage-component config="{{item.config}}" wx:if="{{item.name=='activityImg'}}"></activityImage-component>
+        <activityCoupon-component activitystatus="{{pageData.activityStatus}}" config="{{item.config}}" couponlist="{{item.data}}" islogin="{{isLogin}}" params="{{params}}" wx:if="{{item.name=='activityCoupon'}}"></activityCoupon-component>
+        <activityDivider-component config="{{item.config}}" wx:if="{{item.name=='activityDivider'}}"></activityDivider-component>
+        <activityList-component config="{{item.config}}" goodslist="{{item.data}}" wx:if="{{item.name=='activityList'}}"></activityList-component>
+    </view>
+    <view class="modal" wx:if="{{showModal}}">
+        <view class="content">
+            <image bindtap="closeModal" class="close" src="../../../img/close.png"></image>
+            <image class="info" src="../../../img/end.png" wx:if="{{pageData.activityStatus==3}}"></image>
+            <image class="info" src="../../../img/notstart.png" wx:if="{{pageData.activityStatus==1}}"></image>
+            <view class="de">{{pageData.activityStatus==1?'亲 您来早啦 活动还未开始':'亲 您来晚啦 活动已结束'}}</view>
+        </view>
+    </view>
+</view>

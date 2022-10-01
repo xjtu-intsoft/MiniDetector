@@ -1,0 +1,4 @@
+<view class="bottom-tip {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}">
+    <view class="txt">本通讯录{{totalCardNumber}}张群友名片已收纳</view>
+    <view catch:tap="_toMyFolder" class="btn">我的群友名片</view>
+</view>

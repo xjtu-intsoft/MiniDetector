@@ -1,0 +1,22 @@
+.youxuann_container {
+    padding-bottom: 122rpx;
+}
+
+.youxuann_container .youxuan_image {
+    width: 750rpx;
+    height: 1096rpx;
+}
+
+.youxuann_container .btn_wrap {
+    padding: 38rpx 30rpx 0;
+}
+
+.youxuann_container .btn_wrap .btn {
+    width: 100%;
+    height: 78rpx;
+    background: #6388ff;
+    text-align: center;
+    line-height: 78rpx;
+    color: #fff;
+    font-size: 32rpx;
+}

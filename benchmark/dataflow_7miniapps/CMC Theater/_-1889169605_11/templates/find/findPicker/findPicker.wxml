@@ -1,0 +1,19 @@
+<template name="findPicker">
+    <view class="supper-picker">
+        <picker-view bindchange="firstPickerChange" class="findPicker-view {{pickerTypeDic.firstPickerWidth}}" data-type="{{pickerTypeDic.type}}" style="{{pickerTypeDic.firstStyle}}">
+            <picker-view-column>
+                <view class="findPicker-column {{pickerTypeDic.firstAlign}}" wx:for="{{firstArr}}" wx:key="findPicker-first-column">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+        <picker-view bindchange="secondPickerChange" class="findPicker-view {{pickerTypeDic.secondPickerWidth}}" data-type="{{pickerTypeDic.type}}" style="{{pickerTypeDic.secondStyle}};">
+            <picker-view-column>
+                <view class="findPicker-column {{pickerTypeDic.secondAlign}}" wx:for="{{secondArr}}" wx:key="findPicker-first-column">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+        <picker-view bindchange="thirdPickerChange" class="findPicker-view {{pickerTypeDic.thirdPickerWidth}}" data-type="{{pickerTypeDic.type}}" style="{{pickerTypeDic.thirdStyle}};">
+            <picker-view-column>
+                <view class="findPicker-column {{pickerTypeDic.thirdAlign}}" wx:for="{{thirdArr}}" wx:key="findPicker-first-column">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</template>

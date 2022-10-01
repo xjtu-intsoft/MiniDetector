@@ -1,0 +1,43 @@
+<view class="hint">为了让客服及时联系到您，请准确填写个人信息。</view>
+<form bindsubmit="formSubmit" reportSubmit="true">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">收件人姓名</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindinput="hasval" class="weui-input" data-id="name" name="user_name" value="{{user_default.name}}"></input>
+            </view>
+            <view class="weui-cell__ft">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_name}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">收件人电话</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input bindinput="hasval" class="weui-input" data-id="mobile" name="user_mobile" type="number" value="{{user_default.mobile}}"></input>
+            </view>
+            <view class="weui-cell__ft">
+                <icon color="#E64340" size="14" type="warn" wx:if="{{ck_mobile}}"></icon>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__hd">
+                        <view class="weui-uploader__title">收件人地址</view>
+                        <view class="weui-uploader__info" style="font-size:12px">
+                            <icon color="#E64340" size="14" type="warn" wx:if="{{ck_address}}"></icon>
+                        </view>
+                    </view>
+                    <view class="weui-uploader__bd">
+                        <textarea bindinput="hasval" class="textarea" data-id="address" name="user_address" placeholder="请输入收货详细地址" value="{{user_default.address}}"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button class="weui-btn" formType="submit" loading="{{submit}}" style="width:80%;background-color:#3392ff" type="primary">确认并提交</button>
+</form>

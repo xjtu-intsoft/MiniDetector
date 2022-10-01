@@ -1,0 +1,9 @@
+<view class="sales_list_parent">
+    <block wx:for="{{sales}}" wx:key="goods_alias">
+        <import src="/templates/salesList/sales_list_item.wxml"></import>
+        <view catchtap="itemClick" class="sales_list" data-index="{{index}}">
+            <template is="sales_list_item" data="{{saleShop:item,is_memeber:is_memeber}}"></template>
+        </view>
+    </block>
+</view>
+<view catchtap="okClick" class="sales_list_bottom">确定</view>

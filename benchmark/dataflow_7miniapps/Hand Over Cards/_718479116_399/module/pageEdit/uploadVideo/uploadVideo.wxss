@@ -1,0 +1,120 @@
+.controls {
+    position: fixed;
+    top: 50rpx;
+    right: 80rpx;
+    z-index: 99;
+    background: #000;
+    border-radius: 50%;
+}
+
+.controls,.controls-img {
+    width: 34rpx;
+    height: 34rpx;
+}
+
+.player {
+    position: fixed;
+    left: -99990px;
+    z-index: 10;
+}
+
+.title {
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    justify-content: flex-start;
+    padding: 30rpx 0 20rpx 30rpx;
+}
+
+.left {
+    margin-left: auto;
+    margin-right: 30rpx;
+}
+
+.scroll {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.scroll,.video {
+    position: relative;
+    display: flex;
+}
+
+.video {
+    margin: 20rpx auto;
+    width: 710rpx;
+    border-radius: 6rpx;
+    border: 2rpx solid #ededed;
+    box-sizing: border-box;
+}
+
+.video .bg {
+    background: #f2f2f2;
+}
+
+.bg-panel,.video .bg {
+    width: 710rpx;
+    border-radius: 6rpx;
+}
+
+.bg-panel {
+    position: absolute;
+    top: 0;
+    z-index: 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background: rgba(0,0,0,.3986);
+}
+
+.video .play {
+    width: 64rpx;
+    height: 64rpx;
+    margin: auto;
+    align-self: center;
+}
+
+.video .del {
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    z-index: 333;
+    align-self: flex-end;
+    width: 30rpx;
+    height: 30rpx;
+    padding: 20rpx;
+}
+
+.video .add {
+    margin: auto;
+    width: 150rpx;
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.video .add .i {
+    width: 37rpx;
+    height: 37rpx;
+}
+
+.add .txt,.video .add .i {
+    align-self: center;
+}
+
+.add .txt {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #999;
+}
+
+.add .new-txt {
+    color: #2979ff;
+}

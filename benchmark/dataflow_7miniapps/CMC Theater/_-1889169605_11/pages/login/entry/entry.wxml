@@ -1,0 +1,17 @@
+<view class="entry-view" style="height: {{showGoods&&showFoods?1000:650}}rpx;">
+    <view bindtap="goMovie" class="entry-item entry-item-blue">
+        <image class="entry-item-image" src="/images/promation/icon_home_goupiao.png"></image>
+        <view class="entry-item-title">购票</view>
+        <view class="entry-item-desc">会员选座优惠多</view>
+    </view>
+    <view bindtap="goFood" class="entry-item entry-item-orange {{showFoods?'':'is-hidden'}}">
+        <image class="entry-item-image" src="/images/promation/icon_home_diancan.png"></image>
+        <view class="entry-item-title">点餐</view>
+        <view class="entry-item-desc">观影饮食不再愁</view>
+    </view>
+    <view bindtap="goShop" class="entry-item entry-item-red {{showGoods?'':'is-hidden'}}">
+        <image class="entry-item-image" src="/images/promation/icon_home_shangcheng.png"></image>
+        <view class="entry-item-title">商城</view>
+        <view class="entry-item-desc">丰富周边欢乐购</view>
+    </view>
+</view>

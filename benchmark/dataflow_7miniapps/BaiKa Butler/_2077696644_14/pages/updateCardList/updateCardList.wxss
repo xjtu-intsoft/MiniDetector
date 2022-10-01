@@ -1,0 +1,59 @@
+.item {
+    width: 695rpx;
+    margin-left: 27rpx;
+    height: 284rpx;
+    margin-top: 30rpx;
+    position: relative;
+}
+
+.item-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.item-bank-ic {
+    position: absolute;
+    top: 66rpx;
+    left: 53rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.item-bank-name {
+    font-size: 36rpx;
+    line-height: 40rpx;
+    display: inline-block;
+    height: 40rpx;
+    top: 66rpx;
+}
+
+.item-bank-name,.item-bank-num {
+    color: #fff;
+    position: absolute;
+    left: 140rpx;
+}
+
+.item-bank-num {
+    font-size: 42rpx;
+    line-height: 42rpx;
+    top: 142rpx;
+}
+
+.item-btn {
+    font-size: 24rpx;
+    display: inline-block;
+    width: 143rpx;
+    height: 65rpx;
+    text-align: center;
+    line-height: 65rpx;
+    border: 4rpx solid #fff;
+    color: #fff;
+    border-radius: 5rpx;
+    position: absolute;
+    right: 33rpx;
+    top: 33rpx;
+}
+
+.item-btn:active {
+    background: rgba(0,0,0,.3);
+}

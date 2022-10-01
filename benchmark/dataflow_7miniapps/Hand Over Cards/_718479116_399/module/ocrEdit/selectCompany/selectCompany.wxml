@@ -1,0 +1,5 @@
+<view class="editCardPageMatch" style="top:{{matchData.top}}px;">
+    <view bindtap="_selectCompany" class="editCardPageMatch_item" data-details="{{matchData.detail}}" data-matchItem="{{item}}" data-matchindex="{{index}}" wx:for="{{matchData.data}}" wx:for-index="idx" wx:key="{{item}}">
+        <view class="editCardPageMatch_item_test viewEllipsis" style="boder-bottom:{{idx+1==matchData.data.length}}">{{item}}</view>
+    </view>
+</view>

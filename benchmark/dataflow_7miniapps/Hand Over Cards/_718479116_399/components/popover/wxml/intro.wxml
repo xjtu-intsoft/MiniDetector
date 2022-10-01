@@ -1,0 +1,11 @@
+<template name="intro-popover">
+    <view class="m-popover m-intro-popover mini-class" style="{{miniStyle}}">
+        <view class="m-intro-popover-title">{{title}}</view>
+        <view class="m-intro-popover-text">{{text}}</view>
+        <view class="m-intro-popover-button">
+            <view catchtap="_cancel" class="m-tip-popover-cancel {{!confirm?'m-tip-popover-cancel-full':''}}" data-mark="{{mark}}" style="color:{{cancelColor}};" wx:if="{{cancel}}">{{cancelText}}</view>
+            <view style="border-right:1px solid rgba(0,0,0,0.1);height:100%;" wx:if="{{cancel&&confirm}}"></view>
+            <view catchtap="_confirm" class="m-tip-popover-confirm {{!cancel?'m-tip-popover-confirm-full':''}}" data-mark="{{mark}}" style="color:{{confirmColor}};" wx:if="{{confirm}}">{{confirmText}}</view>
+        </view>
+    </view>
+</template>

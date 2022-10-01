@@ -1,0 +1,21 @@
+<view catch:tap="_closeList" catchtouchmove="_ss" class="writeIntroCon writeIntroBc" style="border-radius: 0;">
+    <view catch:tap="_ss" class="writeIntroCon {{confirmCon['animationName']}}" style="border-radius: 15rpx 15rpx 0rpx 0rpx;">
+        <view class="confirm new-confirm">
+            <view class="mycardCon">
+                <view class="name">我的名片</view>
+                <view class="btnCon" style="{{cards.list.length>1?'justify-content:space-between':'justify-content:flex-end'}}">
+                    <view bindtap="_switch" wx:if="{{cards.list.length>1}}">切换名片</view>
+                </view>
+            </view>
+            <image class="userpicHeng" src="{{cards['defCard']['userpic']['url']}}" wx:if="{{cards['defCard'].hengshu=='heng'}}"></image>
+            <view class="userpicShu" wx:if="{{cards['defCard'].hengshu=='shu'}}">
+                <image class="shu-image" mode="widthFix" src="{{cards['defCard']['userpic']['url']}}"></image>
+            </view>
+            <form class="confirmCard">
+                <view class="confirm-btn {{systemInfo.modelX||systemInfo.modelXS?'bottomButtonDetail':'bottomButtonDetailF'}}">
+                    <button bindtap="_addCardToGroupMy" class="btn" data-title="切换提交" loading="{{loading}}">确认加入</button>
+                </view>
+            </form>
+        </view>
+    </view>
+</view>

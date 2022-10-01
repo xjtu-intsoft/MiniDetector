@@ -1,0 +1,54 @@
+.about-con {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.75);
+    z-index: 101;
+}
+
+.about-contioner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 590rpx;
+    height: 634rpx;
+    margin-left: -295rpx;
+    margin-top: -317rpx;
+    background: #fff;
+    box-shadow: 0rpx 18rpx 16rpx 0rpx rgba(0,0,0,.5);
+    border-radius: 20rpx;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}
+
+.about-contioner .about-bg {
+    width: 590rpx;
+    height: 114rpx;
+}
+
+.about-contioner .about-title {
+    font-size: 36rpx;
+    font-weight: 700;
+    text-align: center;
+}
+
+.about-contioner .about-content1,.about-contioner .about-content2 {
+    width: 458rpx;
+    margin: 20rpx auto 0;
+    text-align: center;
+}
+
+.about-contioner .about-button {
+    width: 440rpx;
+    height: 80rpx;
+    background: linear-gradient(135deg,#4457c3,#2e40a5);
+    border-radius: 38rpx;
+    color: #fff;
+    font-weight: 700;
+    line-height: 80rpx;
+    text-align: center;
+    margin: 70rpx auto 0;
+    font-size: 32rpx;
+}

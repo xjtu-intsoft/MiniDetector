@@ -1,0 +1,35 @@
+page {
+    width: 94%;
+    margin: 0 3%;
+    padding-bottom: 140rpx;
+}
+
+.title,page {
+    text-align: center;
+}
+
+.title {
+    margin: 100rpx auto 50rpx;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
+.title1 {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #3351bf;
+}
+
+.text,.title1 {
+    text-align: left;
+}
+
+.text {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.text_end {
+    text-align: right;
+}

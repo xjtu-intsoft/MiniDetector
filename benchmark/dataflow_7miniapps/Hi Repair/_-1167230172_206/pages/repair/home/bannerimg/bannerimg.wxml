@@ -1,0 +1,3 @@
+<view class="bannerimgContainer" style="background:{{background}};background-size: cover;">
+    <image bindtap="goPage" class="" data-type="{{data.items.route_type}}" data-url="{{data.items.url}}" mode="widthFix" src="{{data.items.src}}"></image>
+</view>

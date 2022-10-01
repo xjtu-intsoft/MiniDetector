@@ -1,0 +1,12 @@
+@import "../equipment/equipment.wxss";
+
+@import "../userinfo/index.wxss";
+
+@import "../../__wuBaseWxss__/10.wxss";
+
+@import "../index/index.wxss";
+
+.status {
+    height: 48px;
+    width: 80px;
+}

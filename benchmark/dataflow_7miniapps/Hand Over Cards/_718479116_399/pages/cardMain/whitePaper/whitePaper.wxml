@@ -1,0 +1,40 @@
+<view class="imagesCon">
+    <image class="wp3" src="{{wp3}}"></image>
+    <image class="wp1" src="{{wp1}}"></image>
+    <image class="wp4" src="{{wp4}}"></image>
+    <image class="wp5" src="{{wp5}}"></image>
+    <image class="wp2" src="{{wp2}}"></image>
+    <view class="textCon">
+        <view class="p1">
+            <view>商务人士的崩溃</view>
+            <view>往往就在一瞬间</view>
+            <view>忘带名片</view>
+            <view>忘记重要联系方式</view>
+            <view>……</view>
+        </view>
+        <view class="p1 p2">
+            <view>一张电子名片</view>
+            <view>随时随地、想发就发</view>
+            <view>让你的商务社交更“舒服”</view>
+        </view>
+        <view class="p1 p2">
+            <view>递名片</view>
+            <view>首批入选微信官方推荐</view>
+            <view>真格基金、IDG、脉脉联合投资</view>
+            <view>超过500万商务人士使用</view>
+            <view>是使用率最高的电子名片之一</view>
+        </view>
+        <view class="p1 p2">
+            <view>猜想再多</view>
+            <view>不如从“头”做起</view>
+            <view>制作一张电子名片</view>
+            <view>让你2020年的商务社交</view>
+            <view>优雅起来！</view>
+        </view>
+        <view class="p1" wx:if="{{mycard['list'].length<=0}}">
+            <image class="gesture" src="/images/cdetails/gesture.png"></image>
+            <view bindtap="toBuildCardd" class="immediatelyBuild">点此立即制作</view>
+        </view>
+        <view class="" style="padding: 100rpx;"></view>
+    </view>
+</view>

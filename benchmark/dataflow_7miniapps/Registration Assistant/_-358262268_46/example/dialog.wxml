@@ -1,0 +1,12 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Dialog</view>
+        <view class="page__desc">对话框，采用小程序原生的modal</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-btn-area">
+            <button bindtap="openConfirm" class="weui-btn" type="default">Confirm Dialog</button>
+            <button bindtap="openAlert" class="weui-btn" type="default">Alert Dialog</button>
+        </view>
+    </view>
+</view>

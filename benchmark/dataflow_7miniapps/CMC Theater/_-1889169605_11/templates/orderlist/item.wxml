@@ -1,0 +1,74 @@
+<template name="shop">
+    <view class="shop_list">
+        <view class="h_line"></view>
+        <view class="shop_cinema">
+            <text class="shop_cinema_text">{{item.cinema_name}}</text>
+            <text class="order_status {{item.order_status=='1'||item.order_status=='7'?'':'order_status_red'}}">{{item.order_status_desc}}</text>
+        </view>
+        <view class="h_line"></view>
+        <view class="order_goods_type">
+            <view class="order_goods_type_one" style="display:{{item.goods_detail.length>1?'flex':'none'}}">
+                <view wx:for="{{item.goods_detail}}" wx:for-index="good_index" wx:for-item="good" wx:key="good">
+                    <image class="good_image" hidden="{{good_index>4}}" src="{{good.pic}}"></image>
+                </view>
+                <text class="order_goods_all_size">共{{item.total_goods_num}}份</text>
+            </view>
+            <view class="order_goods_type_one" style="display:{{item.goods_detail.length==1?'flex':'none'}}">
+                <view>
+                    <image class="good_image" src="{{item.goods_detail[0].pic}}"></image>
+                </view>
+                <view class="order_goods_type_one_info">
+                    <text class="order_goods_type_one_name">{{item.goods_detail[0].name}} {{item.total_goods_num}}份</text>
+                    <text class="order_goods_type_one_content">{{item.goods_detail[0].content}}</text>
+                </view>
+            </view>
+            <text class="shop_time {{item.show_type=='3'?'is-hidden':''}}">{{item.delivery_time}}</text>
+        </view>
+        <view class="h_line" style="margin-top:32rpx;"></view>
+        <view class="order_status_parent">
+            <view class="order_money_parent">
+                <text class="order_total">订单总价:</text>
+                <text class="order_total_value"> ¥{{item.total_money_temp}}</text>
+            </view>
+            <text catchtap="progressClick" class="order_progress {{item.show_type=='3'?'is-hidden':''}}" data-bean="{{item}}">订单进度</text>
+        </view>
+        <view class="border-b border-t"></view>
+        <view style="width:100%;height:24rpx;background:var(--color-cg)"></view>
+    </view>
+</template>
+<template name="ticket">
+    <view class="h_line"></view>
+    <view class="order_title_parent">
+        <text class="cinema_name">{{item.cinema_name}}</text>
+        <text class="order_status {{item.order_status=='1'||item.order_status=='7'?'':'order_status_red'}}">{{item.order_status_desc}}</text>
+    </view>
+    <view class="h_line"></view>
+    <view class="order_info">
+        <view class="image_parent movie_list_bg">
+            <image class="image" id="{{item.id}}" mode="aspectFill" src="{{item.movie_img_url}}"></image>
+        </view>
+        <view class="order_info_child">
+            <view class="name_seats">
+                <text class="name">{{item.movie_name}}</text>
+                <text class="movies_count">{{item.ticket_size}}张</text>
+            </view>
+            <text class="date">{{item.tempTime}}</text>
+            <text class="hall_name">{{item.hall_name}}</text>
+        </view>
+    </view>
+    <view class="order_goods" style="display:{{item.noGoods?'none':'flex'}}">
+        <text class="order_good_text">食</text>
+        <text class="goods_count" wx:if="{{item.goods_data.length>0}}">{{item.goodInfos}}</text>
+        <text class="order_ticket_goods_all_size">共{{item.total_goods_num}}份</text>
+    </view>
+    <view class="h_line" style="margin-top:36rpx;margin-left:24rpx;"></view>
+    <view class="order_status_parent">
+        <view class="order_money_parent">
+            <text class="order_total">订单总价:</text>
+            <text class="order_total_value">¥{{item.total_money_temp}}</text>
+        </view>
+        <text catchtap="progressClick" class="order_progress {{item.order_status=='1'||item.order_status=='3'?'is-hidden':''}}" data-bean="{{item}}">订单进度</text>
+    </view>
+    <view class="border-t border-b"></view>
+    <view style="width:100%;height:24rpx;background:var(--color-cg)"></view>
+</template>

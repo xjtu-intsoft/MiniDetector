@@ -1,0 +1,126 @@
+.head {
+    width: 100%;
+    height: 76rpx;
+    background: #fff6e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-tip {
+    font-size: 27rpx;
+    color: #000;
+}
+
+.btn-contact {
+    width: 100%;
+    height: 76rpx;
+    background: #fff;
+    color: #4d49e3;
+    font-size: 27rpx;
+    border-radius: 0;
+    line-height: 76rpx;
+}
+
+.body {
+    position: absolute;
+    top: 155rpx;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.scroll-list {
+    height: 100%;
+    width: 100%;
+}
+
+.item {
+    margin-left: 34rpx;
+    margin-bottom: 30rpx;
+    background: #fff;
+    width: 683rpx;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-body {
+    margin: 45rpx;
+    font-size: 26rpx;
+    line-height: 50rpx;
+}
+
+.item-bank-info {
+    display: inline-block;
+    height: 50rpx;
+    border-bottom: 1rpx solid #a4a4a4;
+}
+
+.item-bank-ic {
+    width: 30rpx;
+    margin-top: 5rpx;
+    height: 30rpx;
+}
+
+.item-bank-name {
+    margin-left: 10rpx;
+    color: #000;
+}
+
+.item-message {
+    margin-left: 25rpx;
+}
+
+.item-select {
+    display: flex;
+    align-items: center;
+    height: 84rpx;
+    background: #f7f6f9;
+}
+
+.item-select-button {
+    display: block;
+    width: 133rpx;
+    height: 43rpx;
+    line-height: 43rpx;
+    text-align: center;
+    font-size: 23rpx;
+    background: #fff6e1;
+    color: #ff8604;
+    border: 1rpx solid #ffb204;
+    border-radius: 5rpx;
+    margin-right: 22rpx;
+}
+
+.item-select-button:active {
+    opacity: .5;
+}
+
+.item-bottom {
+    width: 100%;
+    height: 84rpx;
+    line-height: 84rpx;
+    background: transparent;
+    font-size: 29rpx;
+}
+
+.item-bottom::after {
+    border: none;
+}
+
+.item-bottom:active {
+    background: #f4f4f4;
+}
+
+.region-body {
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.region-address {
+    color: #e20d0d;
+    margin-left: 20rpx;
+    border-bottom: 1rpx solid #3d3d3d;
+}

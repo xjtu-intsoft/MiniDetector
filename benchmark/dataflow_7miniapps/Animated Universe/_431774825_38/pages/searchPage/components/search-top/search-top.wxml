@@ -1,0 +1,10 @@
+<view class="search-top">
+    <view class="search-top-left">
+        <image class="search-top-image-left" src="/images/search.png"></image>
+        <input bindconfirm="search" bindfocus="getFocus" bindinput="write" placeholder="搜表情包" type="text" value="{{value}}"></input>
+        <view bindtap="clear" class="search-top-image-right">
+            <image hidden="{{!value}}" src="/images/icon_clear_text.png"></image>
+        </view>
+        <view bindtap="search" class="search-top-cancel">搜索</view>
+    </view>
+</view>

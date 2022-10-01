@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "影片详情",
+    "usingComponents": {
+        "txv-video": "plugin://wxa75efa648b60994b/video"
+    }
+}

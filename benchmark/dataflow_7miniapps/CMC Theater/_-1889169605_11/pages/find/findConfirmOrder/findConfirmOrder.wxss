@@ -1,0 +1,1024 @@
+./templates/cardcell/cardcell.wxssrpx.chosecard-mask {
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.chosecard-show {
+    opacity: 0;
+}
+
+.chosecard-upview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 0rpx;
+    z-index: 2;
+    background-color: #fff;
+    transition: height .3s;
+}
+
+.chosecard-viewup {
+    height: 70%;
+}
+
+.chosecard-topview {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chosecard-topview-title {
+    font-size: var(--font-te);
+    color: var(--color-cc);
+    text-indent: 54rpx;
+    line-height: 96rpx;
+}
+
+.chosecard-topview-addcard {
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 23rpx;
+    margin-right: 54rpx;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.chosecard-topview-addcard-hidden {
+    opacity: 0;
+}
+
+.chosecard-upview-cardlist {
+    height: 70%;
+}
+
+.chosecard-addcard {
+    width: 100%;
+}
+
+.chosecard-addcardimg {
+    margin-left: 54rpx;
+    width: 640rpx;
+    height: 360rpx;
+}
+
+.chosecard-cardlist-cell {
+    height: 360rpx;
+    margin: -250rpx 54rpx 5rpx;
+    border-radius: 20rpx;
+    transition: margin-top .5s;
+}
+
+.chosecard-cardlist-firstcell {
+    margin-top: 0rpx;
+}
+
+.chosecard-cellup {
+    margin-top: -361rpx;
+}
+
+.chosecard-celldown {
+    margin-top: 800rpx;
+}
+
+.chosecard-buttomview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 122rpx;
+    background-color: #fff;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.chosecard-buttomview-chosebtn {
+    margin-left: 22rpx;
+    margin-top: 22rpx;
+    font-size: var(--font-tc);
+    color: #fff;
+    height: 74rpx;
+    width: 705rpx;
+    background-color: var(--color-cb);
+    text-align: center;
+    line-height: 74rpx;
+    border-radius: 8rpx;
+    opacity: 1;
+}
+
+.chosecard-buttomview-hidden {
+    opacity: 0;
+}
+
+.chosecard-selectbuttomview {
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    transition: bottom .3s;
+}
+
+.chosecard-selectbuttomview-hidden {
+    bottom: -180rpx;
+}
+
+.chosecard-selectbuttomview-topview {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.chosecard-selectbuttomview-pricemessage {
+    width: 440rpx;
+    height: 80rpx;
+    line-height: 30rpx;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+    margin-left: 25rpx;
+    overflow: hidden;
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+    flex-direction: column;
+}
+
+.chosecard-selectbuttomview-pricemessage,.chosecard-selectbuttomview-totalprice {
+    display: flex;
+    justify-content: center;
+}
+
+.chosecard-selectbuttomview-totalprice {
+    line-height: 80rpx;
+    font-size: var(--font-td);
+    margin-right: 25rpx;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chosecard-selectbuttomview-totalprice-title {
+    white-space: nowrap;
+}
+
+.chosecard-selectbuttomview-totalprice-price {
+    color: var(--color-ce);
+    margin-right: 5rpx;
+    font-size: var(--font-tb);
+}
+
+.chosecard-selectbuttomview-btns {
+    margin-top: 5rpx;
+    width: 100%;
+    height: 75rpx;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: var(--font-tc);
+}
+
+.chosecard-selectbuttomview-gochangebtn {
+    margin-left: 25rpx;
+    width: 337.5rpx;
+    height: 74rpx;
+    background-color: #fff;
+    line-height: 74rpx;
+    border-radius: 8rpx;
+    border: 1rpx solid var(--color-cb);
+    color: var(--color-cb);
+    box-sizing: border-box;
+}
+
+.chosecard-selectbuttomview-usecardbtn {
+    margin-left: 25rpx;
+    width: 337.5rpx;
+    height: 74rpx;
+    background-color: var(--color-cb);
+    line-height: 74rpx;
+    border-radius: 8rpx;
+    color: #fff;
+}
+
+.usecardbtn-big {
+    width: 700rpx;
+}
+
+.usecardbtn-black {
+    background-color: #5f5f60;
+}
+
+.lineview {
+    width: 100%;
+    height: 1rpx;
+    background-color: var(--color-ch);
+}
+
+.is-hidden {
+    display: none;
+}
+
+.vis-hidden {
+    visibility: hidden;
+}
+
+.big-scrollview {
+    width: 100%;
+    position: absolute;
+}
+
+./templates/confirmOrder/choseCoupon/activeCoupon/activeCoupon.wxssrpx.dialog_coupon_bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.dialog_coupon_anim {
+    opacity: 1;
+}
+
+.dialog_coupon_content {
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 0rpx;
+    background: var(--color-cg);
+    transition: height .3s;
+}
+
+.dialog_coupon_content_anim {
+    height: 1064rpx;
+}
+
+.chosecoupon_title_add {
+    background-color: #fff;
+}
+
+.dialog_coupon_title {
+    width: 100%;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    vertical-align: middle;
+    font-size: var(--font-tc);
+    background: #fff;
+}
+
+.dialog_coupon_list_item {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32rpx;
+}
+
+.selfcoupon_nouser_num {
+    margin-top: 12rpx;
+    margin-bottom: 16rpx;
+    color: var(--color-cd);
+    font-size: var(--font-td);
+}
+
+.dialog_coupon_list_item_child {
+    display: flex;
+    width: 680rpx;
+    flex-direction: row;
+    height: 174rpx;
+    position: relative;
+}
+
+.dialog_coupon_list_item_child_bg {
+    width: 680rpx;
+    height: 174rpx;
+    position: absolute;
+    z-index: -2;
+}
+
+.dialog_coupon_list_item_left {
+    width: 180rpx;
+    height: 174rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.dialog_coupon_list_item_left_price_parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 32rpx;
+}
+
+.dialog_coupon_list_item_left_price {
+    font-size: var(--font-tb);
+    color: #fff;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.dialog_coupon_list_item_left_unit {
+    font-size: var(--font-tg);
+    color: #fff;
+    font-weight: 500;
+}
+
+.dialog_unit_lijian {
+    font-size: var(--font-th);
+    font-weight: 400;
+}
+
+.dialog_coupon_list_item_left_bottom_desc {
+    font-size: var(--font-th);
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    bottom: 6rpx;
+}
+
+.dialog_coupon_list_item_right {
+    width: 500rpx;
+    height: 174rpx;
+    position: relative;
+}
+
+.dialog_coupon_name {
+    font-size: var(--font-tg);
+    left: 20rpx;
+    top: 26rpx;
+    position: absolute;
+}
+
+.dialog_coupon_time_parent {
+    position: absolute;
+    bottom: 20rpx;
+    left: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dialog_coupon_time {
+    font-size: var(--font-te);
+    color: var(--color-ci);
+}
+
+.couponcell-middleview-expire-desc {
+    margin-left: 16rpx;
+    text-align: center;
+    font-size: var(--font-th);
+    color: #fe4632;
+}
+
+.dialog_coupon_new {
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 10rpx;
+}
+
+.dialog_coupon_image {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    bottom: 20rpx;
+    right: 20rpx;
+}
+
+.dialog_coupon_image_ticket {
+    width: 78rpx;
+    height: 174rpx;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.dialog_coupon_bottom_parent {
+    height: 174rpx;
+    background: #fff;
+    position: fixed;
+    justify-content: center;
+    bottom: 0;
+    z-index: 101;
+}
+
+.dialog_coupon_bottom_parent,.dialog_coupon_order_price {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.dialog_coupon_order_price {
+    position: absolute;
+    right: 0rpx;
+    padding-right: 32rpx;
+    padding-left: 32rpx;
+    top: 15rpx;
+    align-items: baseline;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.dialog_coupon_order_price_save {
+    flex: 1;
+    font-size: var(--font-tg);
+    color: var(--color-cb);
+}
+
+.dialog_coupon_order_price_text {
+    font-size: var(--font-te);
+    color: var(--color-cc);
+}
+
+.dialog_coupon_order_price_value {
+    font-size: var(--font-tb);
+    color: var(--color-ce);
+    font-weight: 500;
+}
+
+.dialog_coupon_bottom_pay {
+    width: 686rpx;
+    position: absolute;
+    bottom: 18rpx;
+    left: 32rpx;
+    right: 32rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    vertical-align: middle;
+    background: var(--color-cb);
+    border-radius: 3px;
+    color: #fff;
+    font-size: var(--font-tc);
+    font-weight: 500;
+}
+
+.chosecoupon_title_parent {
+    width: 100%;
+    height: 106rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chosecoupon_title {
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+}
+
+.chosecoupon_title_img_close {
+    position: absolute;
+    width: 64rpx;
+    height: 64rpx;
+    top: 0;
+    right: 0;
+    padding: 21rpx 12rpx;
+}
+
+.chosecoupon_addcoupon {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 30rpx;
+}
+
+.chosecoupon_addcoupon,.chosecoupon_inputview {
+    height: 68rpx;
+    display: flex;
+}
+
+.chosecoupon_inputview {
+    margin-left: 33rpx;
+    width: 578rpx;
+    border: 2rpx solid var(--color-ch);
+    border-radius: 8rpx;
+}
+
+.chosecoupon_inputnum {
+    margin-left: 20rpx;
+    height: 68rpx;
+    flex: 1;
+}
+
+.clear {
+    width: 60rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.chosecoupon_scan_qr_code {
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.chosecoupon_addbtn {
+    width: 60rpx;
+    height: 68rpx;
+    text-align: left;
+    background: transparent;
+    font-size: var(--font-td);
+    line-height: 68rpx;
+    color: var(--color-cb);
+    padding-left: 30rpx;
+    padding-right: 10rpx;
+}
+
+.chosecoupon-newtopview {
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+}
+
+.chosecoupon-lineview {
+    width: 750rpx;
+    height: 2rpx;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--color-cg);
+}
+
+.chosecoupon-newtopview-topview {
+    width: 100%;
+    height: 84rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.chosecoupon-newtopview-coupon {
+    width: 50%;
+    height: 100%;
+    line-height: 84rpx;
+    text-align: center;
+    font-size: var(--font-tc);
+}
+
+.chosecoupon-couponselect {
+    color: var(--color-cb);
+}
+
+.chosecoupon-slideview {
+    margin-left: 10%;
+    width: 30%;
+    height: 4rpx;
+    background-color: var(--color-cb);
+    transition: margin-left .3s;
+}
+
+.chosecoupon-slideview-right {
+    margin-left: 60%;
+}
+
+.couponcell_package_name_parent {
+    display: flex;
+    position: absolute;
+    top: 70rpx;
+}
+
+.couponcell_package_name {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    margin-left: 20rpx;
+    text-align: left;
+    padding: 0 4rpx;
+    border: 2rpx solid hsla(0,0%,77.3%,.5);
+    border-radius: 6rpx;
+}
+
+.visi-hidden {
+    visibility: hidden;
+}
+
+.dialog_coupon_gray {
+    color: var(--color-ci);
+}
+
+page {
+    background-color: var(--color-cg);
+    white-space: nowrap;
+}
+
+.modal-title {
+    font-size: var(--font-tb);
+    text-align: center;
+    color: var(--color-cc);
+}
+
+.modal-message {
+    margin-top: 15rpx;
+    font-size: var(--font-tc);
+    text-align: center;
+    color: var(--color-cd);
+}
+
+.modal-inputview {
+    margin-top: 30rpx;
+    height: 80rpx;
+    border-radius: 8rpx;
+    border: 1rpx solid var(--color-ci);
+}
+
+.modal-input {
+    height: 80rpx;
+    margin-left: 15rpx;
+    margin-right: 15rpx;
+}
+
+.findconfirm-view {
+    background-color: #fff;
+}
+
+.findconfirm-topview,.findconfirm-topview-address {
+    width: 100%;
+    font-size: var(--font-td);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.findconfirm-typetitle {
+    height: 105rpx;
+    line-height: 105rpx;
+    margin-left: 20rpx;
+}
+
+.findconfirm-chosetightview {
+    margin-top: 32rpx;
+    margin-bottom: 32rpx;
+    margin-right: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.findconfirm-choseview {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.margin-r20 {
+    margin-right: 20rpx;
+}
+
+.findconfirm-chosetitle {
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 560rpx;
+}
+
+.findconfirm-chosetime {
+    margin-top: 10rpx;
+    margin-right: 23rpx;
+    text-align: right;
+}
+
+.findconfirm-phonetitle {
+    height: 105rpx;
+    line-height: 105rpx;
+    margin-left: 20rpx;
+}
+
+.findconfirm-phonenum {
+    height: 105rpx;
+    line-height: 105rpx;
+    margin-right: 20rpx;
+    text-align: right;
+}
+
+.findconfirm-pay-tip {
+    margin-left: 10rpx;
+    color: #9f9c09;
+    font-size: var(--font-td);
+    white-space: pre-line;
+    padding: 10rpx;
+}
+
+.findconfirm-goodsview {
+    padding-top: 24rpx;
+    width: 100%;
+}
+
+.findconfirm-goodscell {
+    width: 100%;
+    font-size: var(--font-te);
+    display: flex;
+    padding: 8rpx 0;
+    justify-content: space-between;
+}
+
+.goodscell-image {
+    margin-left: 20rpx;
+    width: 116rpx;
+    height: 116rpx;
+    background-image: var(--shop-defimage);
+    background-size: 100%;
+}
+
+.goods-cellview-nameview-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.goodscell-goodnameview {
+    height: 30rpx;
+    width: 473rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20rpx;
+}
+
+.goodscell-addmoreview {
+    width: 68rpx;
+    height: 26rpx;
+    margin-right: 10rpx;
+    flex-shrink: 0;
+}
+
+.goodscell-goodname {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 50rpx;
+    margin-right: 10rpx;
+    line-height: 50rpx;
+}
+
+.goodscell-huiview {
+    width: 50rpx;
+    height: 30rpx;
+    flex-shrink: 0;
+    margin-right: 10rpx;
+}
+
+.confirmGoodcell_expand {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    text-decoration: underline;
+    margin-left: 4rpx;
+}
+
+.findfood-cellview-nameview-goodscontent-expand {
+    color: var(--color-cd);
+    font-size: var(--font-tf);
+    white-space: pre-wrap;
+    margin-left: 20rpx;
+    width: 486rpx;
+}
+
+.findfood-cellview-nameview-goodscontent-desc {
+    color: var(--color-cd);
+    font-size: var(--font-tf);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 486rpx;
+    margin-left: 20rpx;
+}
+
+.goodscell-goodcount {
+    color: var(--color-cd);
+}
+
+.goodscell-goodprice {
+    margin-right: 32rpx;
+    height: 106rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10rpx;
+}
+
+.findconfirm-bigpriceview {
+    width: 100%;
+    height: 105rpx;
+    align-items: center;
+}
+
+.findconfirm-bigpriceview,.findconfirm-priceview {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.findconfirm-priceview {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.findconfirm-price-title {
+    white-space: nowrap;
+    padding-top: 2rpx;
+    margin-right: 5rpx;
+    font-size: var(--font-te);
+}
+
+.findconfirm-price {
+    margin-right: 20rpx;
+    height: 50rpx;
+    color: var(--color-ce);
+    font: var(--font-td);
+}
+
+.findconfirm-price-big {
+    font: var(--font-tb);
+    font-weight: 500;
+    margin-top: -2rpx;
+}
+
+.findconfirm-card-good {
+    display: flex;
+    flex-direction: column;
+}
+
+.findconfirm_choseGood {
+    font-size: var(--font-td);
+    justify-content: space-between;
+    padding-right: 20rpx;
+}
+
+.findconfirm_choseGood,.findconfirm_choseGood_left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.findconfirm_coupon_count {
+    padding-left: 5rpx;
+    padding-right: 5rpx;
+    margin-left: 10rpx;
+    border-radius: 4rpx;
+    background-color: var(--color-cb);
+    font-size: 22rpx;
+    color: #fff;
+}
+
+.findconfirm-cardview {
+    overflow: hidden;
+    width: 100%;
+    min-height: 85rpx;
+    font-size: var(--font-td);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.findconfirm-cardtitle {
+    white-space: nowrap;
+    margin-left: 20rpx;
+    line-height: 85rpx;
+}
+
+.findconfirm-cardtitle_youhui {
+    color: var(--color-ce);
+}
+
+.confirmorder-ticket-chosebuycard-selectcard {
+    margin-top: 25rpx;
+    margin-right: 20rpx;
+    margin-bottom: 25rpx;
+}
+
+.confirmorder-ticket-selectcard-cardname {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.confirmorder-ticket-selectcard-cardname-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500rpx;
+    text-align: right;
+}
+
+.name-red {
+    color: var(--color-ce);
+    text-align: right;
+}
+
+.confirmorder-ticket-selectcard-cardlevel {
+    font-size: var(--font-te);
+    text-align: right;
+    margin-right: 18rpx;
+    color: var(--color-ce);
+}
+
+.confirmorder-ticket-selectcard-cardbalance {
+    font-size: var(--font-te);
+    text-align: right;
+    margin-right: 18rpx;
+    color: var(--color-cd);
+}
+
+.arrow_image {
+    margin-top: -2rpx;
+    width: 14rpx;
+    height: 25rpx;
+    margin-left: 8rpx;
+}
+
+.findconfirm-cardchosetitle {
+    height: 85rpx;
+    line-height: 85rpx;
+    margin-right: 20rpx;
+}
+
+.findconfirm-bottomview {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    height: 174rpx;
+}
+
+.findconfirm-bottomview-bottomtopview {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.findconfirm-bottomview-refundmessage {
+    width: 500rpx;
+    margin-left: 20rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: var(--color-cd);
+    font-size: var(--font-tf);
+}
+
+.findconfirm-buybtnview {
+    width: 100%;
+    height: 94rpx;
+}
+
+.findconfirm-buybtn {
+    margin-left: 20rpx;
+    width: 710rpx;
+    background-color: var(--color-cb);
+    font-size: var(--font-td);
+    font-weight: 500;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    border-radius: 4rpx;
+}
+
+.findconfirm-gray {
+    width: 100%;
+    height: 16rpx;
+    background-color: var(--color-cg);
+}
+
+.findconfirm-lineview {
+    margin-left: 20rpx;
+    height: 2rpx;
+    background-color: var(--color-cg);
+    margin-top: 10rpx;
+}
+
+.margin-top-0 {
+    margin-top: 0;
+}
+
+.findconfirm-lineview-long {
+    width: 100%;
+    height: 1rpx;
+    background-color: var(--color-cg);
+}
+
+.long {
+    width: 100%;
+    margin-left: 0rpx;
+}

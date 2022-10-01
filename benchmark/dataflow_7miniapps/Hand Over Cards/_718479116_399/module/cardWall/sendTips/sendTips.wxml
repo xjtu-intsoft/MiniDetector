@@ -1,0 +1,11 @@
+<view catch:touchmove="ss" class="tip-p" wx:if="{{showTip}}">
+    <view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+    <view class="tip-c">
+        <image catch:tap="closeTip" class="close" src="/images/closeRec.png"></image>
+        <image class="lighter" src="/images/cardFind/lighter.png"></image>
+        <view class="txt">温馨提示</view>
+        <view class="copy">复制下面的话到群里，能让大家更容易理解群通讯录、更快录入自己的名片</view>
+        <view class="blank">{{infor}}</view>
+        <view catch:tap="setClipboard" class="btn">复制</view>
+    </view>
+</view>

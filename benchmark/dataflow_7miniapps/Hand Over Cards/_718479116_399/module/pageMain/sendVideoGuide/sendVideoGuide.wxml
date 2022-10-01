@@ -1,0 +1,21 @@
+<view bind:touchmove="ss" class="guide-ss" wx:if="{{videoPanel.show}}">
+    <view class="guide-s">
+        <view class="guide-swiper">
+            <view class="m">
+                <video bindfullscreenchange="_exitFullScreen" bindloadedmetadata="_loadedmetadata" class="m-v" controls="{{controls}}" id="guideVideo" loop="{{videoPanel.loop}}" muted="{{muted}}" objectFit="cover" playBtnPosition="bottom" showMuteBtn="{{true}}" showPlayBtn="{{true}}" showProgress="{{true}}" src="{{learnUseMicro}}" vslideGestureInFullscreen="{{false}}"></video>
+                <view class="v-cover" wx:if="{{false}}">
+                    <view class="v-time" wx:if="{{showTime}}">
+            00:{{videoProgress.start<10?'0'+videoProgress.start:videoProgress.start}}/00:{{videoProgress.end}}
+          </view>
+                    <view catchtouchend="_end" catchtouchmove="_move" catchtouchstart="_start" class="v-line-con" wx:if="{{false}}">
+                        <view class="v-line"></view>
+                        <view class="v-circle" style="{{progressNum?'transform:translateX('+progressNum+'rpx)':';'}}"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="has-learn">
+            <image catch:tap="_closeLearnVideo" class="close-img" src="/images/newMain/video-close.png"></image>
+        </view>
+    </view>
+</view>

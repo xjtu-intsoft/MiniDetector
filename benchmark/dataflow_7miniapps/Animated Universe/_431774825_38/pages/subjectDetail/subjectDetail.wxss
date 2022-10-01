@@ -1,0 +1,51 @@
+.subject-detail {
+    position: relative;
+}
+
+.subject-detail-top-subscribe {
+    position: relative;
+    height: 58rpx;
+    line-height: 58rpx;
+    font-size: 58rpx;
+}
+
+.subject-detail-top-subscribe subscribe-button {
+    position: absolute;
+    right: 0;
+}
+
+.subject-detail-top {
+    padding: 30rpx 40rpx;
+    background: #2A2D3F;
+}
+
+.subject-detail-top .mt-40 {
+    color: #fff;
+}
+
+.subject-detail-main {
+    margin: 0 24rpx 30rpx;
+}
+
+.subject-detail-content {
+    position: relative;
+    margin-top: 26rpx;
+}
+
+.subject-detail-text {
+    width: 516rpx;
+    line-height: 36rpx;
+    font-size: 24rpx;
+}
+
+.subject-detail-content video-time {
+    position: absolute;
+    right: 8rpx;
+    top: 0;
+}
+
+.slideshow-common-buttons {
+    position: fixed;
+    right: 0;
+    bottom: 180rpx;
+}

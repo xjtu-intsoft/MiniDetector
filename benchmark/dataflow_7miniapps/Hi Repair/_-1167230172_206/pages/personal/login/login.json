@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "登录",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

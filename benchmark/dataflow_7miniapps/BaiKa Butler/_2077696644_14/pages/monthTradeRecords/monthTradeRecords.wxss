@@ -1,0 +1,20 @@
+.item {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.item-amount {
+    font-size: 30rpx;
+    flex: 1;
+    color: #343434;
+    margin-left: 30rpx;
+}
+
+.item-time {
+    margin-right: 30rpx;
+    font-size: 24rpx;
+    color: #aaa;
+}

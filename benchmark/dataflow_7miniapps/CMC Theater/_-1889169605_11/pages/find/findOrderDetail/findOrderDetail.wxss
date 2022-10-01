@@ -1,0 +1,565 @@
+page {
+    background-color: var(--color-cg);
+}
+
+.findorder-scrollview,page {
+    width: 100%;
+    height: 100%;
+}
+
+.findorder-takeMessageView {
+    width: 100%;
+}
+
+.findorder-takeMessage {
+    width: 100%;
+    background-color: #ffe1e1;
+    color: var(--color-ce);
+    font-size: var(--font-tf);
+    text-indent: 25rpx;
+    line-height: 55rpx;
+    height: 55rpx;
+}
+
+.findorder-detailview {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.findorder-takedetail-messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-shrink: 10;
+    padding: 20rpx 0;
+}
+
+.findorder-takedetail-mesitem {
+    font-size: var(--font-td);
+}
+
+.findorder-takedetail-icon {
+    width: 46rpx;
+    height: 46rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    flex-shrink: 0;
+}
+
+.findorder-view {
+    width: 100%;
+    background-color: #fff;
+    padding-top: 28rpx;
+    padding-bottom: 20rpx;
+    padding-left: 20rpx;
+}
+
+.findorder-orderview {
+    width: 710rpx;
+    height: 175rpx;
+    background-color: var(--color-ch);
+    font-size: var(--font-te);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.findorder-orderview-ordernum,.findorder-orderview-takeordernum {
+    margin-left: 10rpx;
+    width: 690rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.findorder-orderview-takeordernum {
+    color: var(--color-ce);
+}
+
+.findorder-orderview-message {
+    margin-left: 10rpx;
+    line-height: 50rpx;
+    width: 690rpx;
+    height: 50rpx;
+    font-size: var(--font-tf);
+    color: var(--color-cd);
+}
+
+.findorder-showbarview {
+    width: 100%;
+    height: 158rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    transition: height .3s;
+}
+
+.findorder-showbarview-height {
+    height: 800rpx;
+}
+
+.findorder-showbarview-title {
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-top: 12rpx;
+    margin-left: 30rpx;
+    font-size: var(--font-tc);
+    font-weight: 500;
+}
+
+.findorder-showbarview-message {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    margin-left: 30rpx;
+}
+
+.findorder-showbarview-arrow {
+    width: 20rpx;
+    height: 10rpx;
+    margin-right: 25rpx;
+}
+
+.findorder-qrcodeview {
+    padding-top: 25rpx;
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: height .3s;
+    height: 580rpx;
+}
+
+.findorder-qrcodeview-zeroheight {
+    padding-top: 0rpx;
+    height: 0rpx;
+}
+
+.findorder-barcode {
+    width: 500rpx;
+    height: 150rpx;
+}
+
+.findorder-qrcode {
+    width: 360rpx;
+    height: 360rpx;
+}
+
+.findorder-takeordernum {
+    height: 70rpx;
+    margin-top: 0rpx;
+    width: 100%;
+    font-size: var(--font-td);
+    text-align: center;
+}
+
+.findorder-takeordernum1 {
+    margin-right: 20rpx;
+    height: 70rpx;
+    text-align: right;
+}
+
+.findorder-takeordernum2 {
+    margin-left: 20rpx;
+    height: 70rpx;
+}
+
+.findorder-takeorderview {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: var(--font-td);
+}
+
+.findorder-ordermessage {
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+    width: 100%;
+    min-height: 50rpx;
+    background-color: #fff;
+}
+
+.findorder-ordermessage-titleview {
+    margin-left: 30rpx;
+    font-size: var(--font-tc);
+    line-height: 106rpx;
+    font-weight: 500;
+}
+
+.findorder-ordermessage-messageview {
+    width: 100%;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+    height: 50rpx;
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-te);
+}
+
+.findorder-messageview-title {
+    margin-left: 30rpx;
+    height: 100%;
+    line-height: 50rpx;
+    color: var(--color-cd);
+}
+
+.findorder-messageview-desc {
+    height: 100%;
+    line-height: 50rpx;
+    margin-left: 10rpx;
+    color: var(--color-cd);
+}
+
+.findorder-ordermessage-couponview {
+    width: 100%;
+    height: 80rpx;
+    font-size: var(--font-td);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.findorder-ordermessage-couponview-title {
+    margin-left: 30rpx;
+}
+
+.findorder-ordermessage-couponview-price {
+    margin-right: 30rpx;
+    color: var(--color-ce);
+    font-size: var(--font-tb);
+}
+
+.findorder-ordermessage-priceview {
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.findorder-ordermessage-priceview-title {
+    margin-right: 14rpx;
+    font-size: var(--font-td);
+    color: var(--color-cc);
+}
+
+.findorder-ordermessage-priceview-price {
+    margin-right: 30rpx;
+    color: var(--color-cc);
+    font-size: var(--font-tb);
+    font-weight: 500;
+}
+
+.findorder-goodsview {
+    background-color: #fff;
+}
+
+.findorder-totalgoods {
+    width: 100%;
+}
+
+.findorder-totalgoods-goodorder {
+    width: 100%;
+    font-size: var(--font-te);
+    padding-bottom: 32rpx;
+}
+
+.findorder-goodorderview {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.findorder-goodorderview-order {
+    padding-top: 40rpx;
+    padding-bottom: 10rpx;
+    margin-left: 30rpx;
+}
+
+.findorder-goodorderview-ordernum {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.findorder-goodorderview-ordernum-title {
+    font-size: 46rpx;
+}
+
+.findorder-goodorderview-ordernum-num {
+    margin-left: 10rpx;
+    font-size: 54rpx;
+    font-weight: 500;
+}
+
+.findorder-goodorderview-describe {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    margin-bottom: 15rpx;
+}
+
+.findorder-goodorderview-state {
+    margin-right: 30rpx;
+    color: var(--color-cb);
+}
+
+.findorder-foodscell {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-size: 100%;
+    background-image: var(--backwhite-img);
+}
+
+.findorder-foodscell-image {
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    width: 130rpx;
+    height: 130rpx;
+    background-size: 100%;
+    background-image: var(--shop-defimage);
+}
+
+.findorder-foodscell-describe {
+    margin-left: 20rpx;
+    height: 100%;
+    width: 545rpx;
+    font-size: var(--font-tg);
+    display: flex;
+    flex-direction: column;
+}
+
+.findorder-foodscell-foodname {
+    margin-top: 20rpx;
+    width: 100%;
+    flex-direction: row;
+}
+
+.findorder-foodcenter,.findorder-foodscell-foodname {
+    display: flex;
+    justify-content: space-between;
+}
+
+.findorder-foodcenter {
+    flex-direction: column;
+    margin-right: 10rpx;
+    width: 490rpx;
+}
+
+.confirmGoodcell_expand {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    text-decoration: underline;
+    margin-left: 4rpx;
+}
+
+.findorder-foodnameview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 38rpx;
+}
+
+.findorder-foodname-hui {
+    width: 50rpx;
+    height: 30rpx;
+    flex-shrink: 0;
+}
+
+.findorder-foodname {
+    margin-right: 10rpx;
+    height: 38rpx;
+    line-height: 38rpx;
+    max-width: 400rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.findorder-foodname-addmore {
+    margin-right: 10rpx;
+    width: 70rpx;
+    height: 30rpx;
+    flex-shrink: 0;
+}
+
+.findorder-foodprice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: var(--font-tg);
+    height: 130rpx;
+}
+
+.findorder-foodscell-foodcount {
+    width: 100%;
+    height: 65rpx;
+    line-height: 65rpx;
+    color: var(--color-cd);
+}
+
+.findorder-goods-content {
+    margin-top: 20rpx;
+}
+
+.findfood-cellview-nameview-goodscontent-expand {
+    color: var(--color-cd);
+    font-size: var(--font-tf);
+    white-space: pre-wrap;
+    width: 100%;
+}
+
+.findfood-cellview-nameview-goodscontent-desc {
+    color: var(--color-cd);
+    font-size: var(--font-tf);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+}
+
+.findorder-buttomview {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 96rpx;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-cb);
+    font-size: var(--font-tb);
+    color: #fff;
+}
+
+.findorder-buttomview,.findorder-buttomview-view {
+    display: flex;
+    align-items: center;
+}
+
+.findorder-buttomview-view {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 90rpx;
+}
+
+.findorder-buttomview-refundmessage {
+    flex: 1;
+    height: 90rpx;
+    line-height: 30rpx;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    margin-left: 25rpx;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    white-space: pre-wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.findorder-buttomview-btns {
+    display: flex;
+    flex-direction: row;
+}
+
+.findorder-buttomview-backbtn,.findorder-buttomview-btn {
+    width: 174rpx;
+    height: 60rpx;
+    color: #fff;
+    border-radius: 4rpx;
+    margin-right: 25rpx;
+    line-height: 60rpx;
+    text-align: center;
+    font-size: var(--font-te);
+    background-color: var(--color-cb);
+}
+
+.findorder-grayview {
+    width: 100%;
+    height: 16rpx;
+}
+
+.findorder-grayview,.line-view {
+    background-color: var(--color-cg);
+}
+
+.line-view {
+    width: 720rpx;
+    height: 1rpx;
+    margin-left: 30rpx;
+}
+
+.margin-b16 {
+    margin-bottom: 16rpx;
+}
+
+.long {
+    width: 100%;
+    margin-left: 0rpx;
+}
+
+.order_btn_type {
+    display: flex;
+    flex-direction: row;
+    max-width: 330rpx;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.order_progress {
+    height: 62rpx;
+    color: var(--color-cd);
+    border: 2rpx solid var(--color-ci);
+    border-radius: 45rpx;
+    line-height: 62rpx;
+}
+
+.order-ticket-refushBtn,.order_progress {
+    font-size: var(--font-tg);
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+
+.order-ticket-refushBtn {
+    width: 122rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: var(--color-cb);
+    border: 2rpx solid var(--color-cb);
+    border-radius: 30rpx;
+}
+
+.findorder_takeaway {
+    background: #fff;
+}
+
+.findorder_takeaway,.findorder_takeaway_text_parent {
+    display: flex;
+    flex-direction: column;
+}
+
+.findorder_takeaway_text_parent {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    padding-top: 10rpx;
+}
+
+.findorder_takeaway_text {
+    font-size: var(--font-tc);
+    color: var(--color-cc);
+    font-weight: 500;
+    margin-bottom: 10rpx;
+}
+
+.is-hidden {
+    display: none;
+}

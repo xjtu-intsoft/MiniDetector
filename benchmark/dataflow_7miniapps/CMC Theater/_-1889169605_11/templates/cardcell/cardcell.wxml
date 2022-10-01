@@ -1,0 +1,19 @@
+<template name="cardcell">
+    <view class="cardcell {{carditem.show_color}}">
+        <view class="cardcell-parent {{carditem.text_color}}">
+            <view class="cardcell-cardname">{{carditem.level}}</view>
+            <view class="cardcell-cinemaname">{{carditem.cinema_name}}</view>
+            <view class="cardcell-integral">卡积分：{{carditem.integral}}分</view>
+            <view class="cardcell-outtimedate {{carditem.valid_time&&carditem.valid_time.length>0?'':'is-hidden'}}">有效期：{{carditem.valid_time}}</view>
+            <view class="cardcell-balance {{carditem.can_buy_with_online_pay=='1'||carditem.type_id=='5'?'is-hidden':''}}">
+                <view class="cardcell-balance-title">余额</view>
+                <view class="cardcell-balance-price">{{carditem.balance}}</view>
+                <view class="cardcell-balance-title">元</view>
+            </view>
+        </view>
+        <view class="cardcell-showBadView {{carditem.card_status!='1'?'':'is-hidden'}}">
+            <image class="cardcell-showBadStatus" src="/images/common/shixiao_badge.png"></image>
+            <view class="cardcell-baddesc">{{carditem.baddesc_logo_text}}</view>
+        </view>
+    </view>
+</template>

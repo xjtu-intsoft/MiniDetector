@@ -1,0 +1,41 @@
+<view class="order_comment_container">
+    <view class="device_wrap" wx:if="{{deviceInfo}}">
+        <image class="" src="{{deviceInfo.src}}"></image>
+        <view class="phone_info">
+            <view class="phone_name">{{deviceInfo.mould}}（{{deviceInfo.color}}）</view>
+            <view class="repair_type">{{deviceInfo.category}}</view>
+        </view>
+    </view>
+    <view class="service_comment_wrap">
+        <view class="service_comment">
+            <view class="service_title">服务评价</view>
+            <view class="service_level">
+                <view bindtap="changeLevel" class="level_wrap" data-index="{{index+1}}" wx:for="{{levelList}}" wx:key="index">
+                    <image class="" src="{{grade>=index+1?'../../../img/wx_personal/level.png':'../../../img/wx_personal/whitelevel.png'}}"></image>
+                </view>
+            </view>
+            <view class="service_tip">{{textContent}}</view>
+        </view>
+    </view>
+    <view class="comment_img_wrap">
+        <view class="comment_wrap">
+            <textarea bindinput="inputChange" class="textarea" placeholder="您的体验如何？说说您的体验，分享给周围的朋友吧！" placeholderClass="textarea_placeholder"></textarea>
+            <view class="preview_image" wx:if="{{showImgList.length}}">
+                <view class="image_wrap {{(index+1)%4?'mr':''}}" wx:if="{{item.src}}" wx:for="{{showImgList}}" wx:key="index">
+                    <image bindtap="previewImage" class="" data-index="{{index}}" data-url="{{showImgList}}" src="{{item.src}}"></image>
+                    <progress class="progress" percent="{{item.progress}}" wx:if="{{item.progress!=100}}"></progress>
+                </view>
+            </view>
+            <view class="img_update_wrap">
+                <view bindtap="chooseImage" class="img_update">
+                    <image alt="" src="../../../img/wx_personal/photograph@2x.png"></image>
+                    <view class="img_tip">添加图片</view>
+                    <view class="img_count">（{{imgUpdateCount}}/9）</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="confirm_comment_btn">
+        <view bindtap="comfirmComment" class="btn">确认评价</view>
+    </view>
+</view>

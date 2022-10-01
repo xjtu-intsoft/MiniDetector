@@ -1,0 +1,335 @@
+<view class="order_detail_container">
+    <view class="container_wrap {{isFullSucreen?'addpaddingbottom':''}}" wx:if="{{orderDetail}}">
+        <view class="order_status_wrap">
+            <view class="order_status">{{orderDetail.statusName}}</view>
+            <view class="order_tip">{{orderDetail.statusTip}}</view>
+            <view bindtap="refreshEngineerLocation" class="map_refresh" data-number="{{orderDetail.enginnner_info.job_number}}" wx:if="{{(orderDetail.category_id==1||orderDetail.category_id==11)&&orderDetail.status==3}}">
+                <image class="" src="../../../img/wx_personal/refresh@2x.png"></image>
+            </view>
+        </view>
+        <view class="order_tips_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==2||orderDetail.category_id==12)&&orderDetail.status<13&&orderDetail.status!=4&&orderDetail.status!=5}}">
+            <view class="order_tips">
+                <image class="" src="../../../img/wx_personal/clock.png"></image>
+                <view class="tips">
+                    <view class="tips_title">注意事项</view>
+                    <view class="tips_content">1、邮寄维修前请删除密码锁，并做好手机备份</view>
+                    <view class="tips_content">2、请在包裹中用一张纸条写下您的下单姓名、电话和回寄地址，以免造成错乱</view>
+                </view>
+            </view>
+        </view>
+        <view class="order_map_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==1||orderDetail.category_id==31||orderDetail.category_id==11)&&orderDetail.status==3}}">
+            <map id="map" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="16" style="width: 100%; height: 694rpx;"></map>
+        </view>
+        <view bindtap="goExpressInfoDetail" class="express_info_wrap" data-id="{{orderDetail.id}}" wx:if="{{!isOneKeyOrder&&orderDetail.category_id==33&&(orderDetail.status==10001||orderDetail.status==10002||orderDetail.status==10006)}}">
+            <view class="">
+                <view class="express_wrap" style="display:flex;align-items:center;justify-content:space-between">
+                    <view class="">
+                        <view class="express_title">顺丰快递：{{expressCode}}</view>
+                        <view class="express_detail_wrap {{showMoreExpressBtn?'':'active'}}">
+                            <view class="express" wx:if="{{expressInfo.length}}" wx:for="{{expressInfo}}" wx:key="index">
+                                <view class="progress" wx:if="{{index==0}}">
+                                    <view class="circle {{index==0?'first_circle':''}}"></view>
+                                    <view class="vertical_line" wx:if="{{index<expressInfo.length-1}}"></view>
+                                </view>
+                                <view class="express_info {{index==0?'first_line':''}}" wx:if="{{index==0}}">
+                                    {{item.remark}}   {{item.acceptTime}}
+                                </view>
+                            </view>
+                            <view style="color:#444242;font-size:24rpx;margin-top:16rpx" wx:if="{{!expressInfo.length}}">
+                                暂无物流信息
+                            </view>
+                        </view>
+                    </view>
+                    <image class="" src="../../../img/arrowright.png" style="width:32rpx;height:32rpx; flex-shrnk:0; margin-left:20rpx"></image>
+                </view>
+            </view>
+        </view>
+        <view class="enginer_wrap {{isMap?'bg':''}}" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==1||orderDetail.category_id==31||orderDetail.category_id==11)&&(orderDetail.status==2||orderDetail.status==3||orderDetail.status==4)}}">
+            <view class="enginer {{isMap?'bg':''}}">
+                <view class="enginer_msg">
+                    <view class="msg">
+                        <view class="enginer_name">{{orderDetail.enginnner_info.name}}</view>
+                        <view class="enginer_num">
+                            工号：{{orderDetail.enginnner_info.job_number}}
+                        </view>
+                    </view>
+                    <view bindtap="makePhonecall" class="enginer_tel" data-shield="{{orderDetail.enginnner_info.shield_flag}}" data-tel="{{orderDetail.enginnner_info.mobile}}">
+                        联系TA
+                    </view>
+                </view>
+                <image class="enginer_img" src="../../../img/wx_personal/enginer1.png" style="width:98rpx;height:98rpx;"></image>
+            </view>
+        </view>
+        <view class="door_repair_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==3||orderDetail.category_id==32||orderDetail.category_id==13)}}">
+            <view class="repaircenter_wrap">
+                <view class="repaircenter_name">
+                    <view class="name">{{orderDetail.weixiu_center.name}}</view>
+                    <view class="route_tel">
+                        <image bindtap="openLocation" class="route" data-lat="{{orderDetail.weixiu_center.lat}}" data-lng="{{orderDetail.weixiu_center.lng}}" src="../../../img/wx_personal/daohang@2x.png"></image>
+                        <image bindtap="makePhonecall" class="tel" data-tel="{{orderDetail.weixiu_center.tel}}" src="../../storeAddress/images/phone.png"></image>
+                    </view>
+                </view>
+                <view class="repaircenter_info">
+                    <view class="info">
+                        <view class="address">
+                            <view class="address_title">中心地址：</view>
+                            <view class="address_detail">
+                                {{orderDetail.weixiu_center.address}}
+                            </view>
+                        </view>
+                        <view class="address">
+                            <view class="address_title">联系电话：</view>
+                            <view class="address_detail">{{orderDetail.weixiu_center.tel}}</view>
+                        </view>
+                        <view class="address">
+                            <view class="address_title">预约时间：</view>
+                            <view class="address_detail">{{orderDetail.reserved_assembly}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="express_wrap" wx:if="{{orderDetail.category_id==33&&orderDetail.status==10000}}">
+            <view class="expresser_info">
+                <view class="express_detail">
+                    <view class="tit">取件地址：</view>
+                    <view class="det">{{orderDetail.user_address}}</view>
+                </view>
+                <view class="express_detail">
+                    <view class="tit">联系电话：</view>
+                    <view class="det">{{orderDetail.user_tel}}</view>
+                </view>
+            </view>
+            <view class="express_detail addpadding">
+                <view class="tit">预约取件时间：</view>
+                <view class="det">{{orderDetail.reserved_assembly}}</view>
+            </view>
+        </view>
+        <view class="express_wrap" wx:if="{{orderDetail.category_id==33&&orderDetail.status==10004||orderDetail.category_id==31}}">
+            <view class="expresser_info">
+                <view class="express_detail">
+                    <view class="tit">{{orderDetail.category_id==33?'收货人':'联系人'}}：</view>
+                    <view class="det">{{orderDetail.user_name}}</view>
+                </view>
+                <view class="express_detail">
+                    <view class="tit">联系电话：</view>
+                    <view class="det">{{orderDetail.user_tel}}</view>
+                </view>
+                <view class="express_detail">
+                    <view class="tit">{{orderDetail.category_id==33?'收货地址':'上门地址'}}：</view>
+                    <view class="det">{{orderDetail.user_address}}</view>
+                </view>
+            </view>
+            <view class="express_detail addpadding" wx:if="{{orderDetail.status==10000||orderDetail.category_id==31}}">
+                <view class="tit">预约上门时间：</view>
+                <view class="det">{{orderDetail.reserved_assembly}}</view>
+            </view>
+        </view>
+        <view class="phone_repaircenter_wrap">
+            <view class="phone_wrap">
+                <view class="phone_container">
+                    <image class="" src="{{orderDetail.o_pic}}"></image>
+                    <view class="phone_repairtype">
+                        <view class="phone_name">
+                            <view>{{orderDetail.mould_name}}</view>
+                            <view wx:if="{{orderDetail.color}}">（{{orderDetail.color}}）</view>
+                        </view>
+                        <view bindtap="showCommitResult" class="recycle_btn">
+                            <view>评估信息</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="price_list_wrap" wx:if="{{!isOneKeyOrder&&orderDetail.category_type==3}}">
+            <view class="addpadding">
+                <view class="price_flex">
+                    <view class="title {{orderDetail.engineer_expected_price?'textline':''}}">
+                        个人预估价格
+                    </view>
+                    <view class="price_num {{orderDetail.engineer_expected_price?'textline':''}}">
+                        ¥{{orderDetail.expected_price}}
+                    </view>
+                </view>
+                <view class="price_flex" wx:if="{{orderDetail.engineer_expected_price}}">
+                    <view class="title">工程师估价</view>
+                    <view class="price_num">¥{{orderDetail.engineer_expected_price}}</view>
+                </view>
+                <view class="price_flex">
+                    <view class="title">增值券</view>
+                    <view class="price_num">+¥{{orderDetail.appreciation_coupon_price}}</view>
+                </view>
+            </view>
+            <view class="price_flex" style="padding-top: 20rpx;">
+                <view class="title">{{orderDetail.engineer_expected_price?'最终回收价格':'预估总回收价'}}</view>
+                <view class="payprice_wrap">
+                    <view class="fee" wx:if="{{orderDetail.visit_price||orderDetail.service_price||orderDetail.night_price}}">
+                        （含
+                        <view class="doorfee" wx:if="{{orderDetail.visit_price}}">
+                            上门¥{{orderDetail.visit_price}}，
+                        </view>
+                        <view class="servicefee" wx:if="{{orderDetail.service_price}}">
+                            服务¥{{orderDetail.service_price}}
+                        </view>
+                        <view class="servicefee" wx:if="{{orderDetail.night_price}}">
+                            夜间¥{{orderDetail.night_price}}
+                        </view>
+                        ）
+                    </view>
+                    <view class="payprice">¥{{orderDetail.sum_price}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="price_list_wrap pay_info" wx:if="{{!isOneKeyOrder&&orderDetail.category_type==3}}">
+            <view class="price_flex">
+                <view class="title">收款方式</view>
+                <view class="price_num">{{orderDetail.account_method}}</view>
+            </view>
+            <view class="price_flex">
+                <view class="title">收款账号</view>
+                <view class="price_num">
+                    <view class="">{{orderDetail.account_number}}</view>
+                </view>
+            </view>
+            <view class="price_flex">
+                <view class="title">收款人</view>
+                <view class="price_num">
+                    <view class="">{{orderDetail.account_username}}</view>
+                </view>
+            </view>
+            <image class="ispay_image" src="../../../img/wx_personal/pay.png" wx:if="{{Number(orderDetail.pay_status)}}"></image>
+        </view>
+        <view class="user_order_info">
+            <view class="order_info_wrap">
+                <view class="order_info">
+                    <view class="order_title">订单编号</view>
+                    <view class="order_value">{{orderDetail.id}}</view>
+                </view>
+                <view class="order_info">
+                    <view class="order_title">下单时间</view>
+                    <view class="order_value">{{orderDetail.create_time}}</view>
+                </view>
+                <view class="order_info" wx:if="{{orderDetail.finish_time!='0000-00-00 00:00:00'}}">
+                    <view class="order_title">完成时间</view>
+                    <view class="order_value">{{orderDetail.finish_time}}</view>
+                </view>
+                <view class="order_info" wx:if="{{orderDetail.cancel_time!='0000-00-00 00:00:00'}}">
+                    <view class="order_title">取消时间</view>
+                    <view class="order_value">{{orderDetail.cancel_time}}</view>
+                </view>
+                <view class="order_info">
+                    <view class="order_title">回收方式</view>
+                    <view class="order_value">{{orderDetail.category}}</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="goZhibaoDetail" class="warranty_info_wrap" wx:if="{{orderDetail.status==5&&orderDetail.category_type!=3}}">
+            <image class="" src="../../../img/wx_personal/zhibaooutdate.png"></image>
+            <view class="warranty_info">
+                <view class="warranty_tip">
+                    由Hi维修提供售后保障服务，维修完成最多质保{{orderDetail.warranty.limitDays}}天
+                </view>
+                <view class="warranty_time">
+                    <view class="warranty_text">具体个别质保时间请查看详情</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_btn_wrap">
+        <view class="btn_wrap  {{isFullSucreen?'fix-Full-button':''}}">
+            <image bindtap="showModelBtn" class="more_btn" src="../../../img/diandiandian.png"></image>
+            <view class="order_btn_wrap">
+                <view bindtap="commentOrder" class="comment_btn" data-category="{{orderDetail.category}}" data-color="{{orderDetail.color}}" data-mould="{{orderDetail.mould_name}}" data-orderid="{{order_id}}" data-ordersn="{{order_sn}}" data-src="{{orderDetail.o_pic}}" wx:if="{{orderDetail.category_type!=3&&orderDetail.category_type!=2&&orderDetail.showCommentBtn}}">
+                    评价
+                </view>
+                <view bindtap="editExpress" class="comment_btn" data-device="{{orderDetail}}" wx:if="{{orderDetail.showExpressBtn}}">
+                    填写物流单号
+                </view>
+                <view bindtap="editMsg" class="comment_btn editmsg" wx:if="{{!isOneKeyOrder&&orderDetail.category_type==3&&orderDetail.status!=0&&orderDetail.status!=5&&orderDetail.status!=10004&&orderDetail.status!=10002}}">
+                    修改收款
+                </view>
+                <view bindtap="toggleRefuseRecycleModel" class="comment_btn editmsg" data-bool="1" wx:if="{{orderDetail.showConfirm}}">
+                    拒绝回收
+                </view>
+                <view bindtap="toggleRecycleModel" class="comment_btn confirm_recycle" data-bool="1" data-device="{{orderDetail}}" wx:if="{{orderDetail.showConfirm}}">
+                    确认回收
+                </view>
+                <view bindtap="rePrice" class="comment_btn editmsg" data-device="{{orderDetail}}" wx:if="{{orderDetail.status==0}}">
+                    重新询价
+                </view>
+            </view>
+            <view class="btn_model {{showBtn?'active':''}}  {{isFullSucreen?'addbottom':''}}">
+                <view bindtap="cancelOrder" class="calcel_btn" data-orderid="{{order_id}}" data-ordersn="{{order_sn}}" data-type="{{orderDetail.category_type}}" wx:if="{{orderDetail.showCancelBtn}}">
+                    取消
+                </view>
+                <view bindtap="complainOrder" class="service_btn" wx:if="{{orderDetail.showcomplainBtn}}">
+                    投诉
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeModel" class="pop_modelbg" wx:if="{{showEditModel}}"></view>
+    <view class="pop_model {{showEditModel?'active':''}}">
+        <view class="tips_wrap">
+            <view class="tipps_title">
+                <view class="leftline"></view>
+                结款方式修改
+                <view class="rightline"></view>
+            </view>
+            <view class="pop_tips">
+                <view class="">Hi回收现只支持</view>
+                <view class="zhifubao">支付宝</view>
+                <view class="">结款</view>
+            </view>
+        </view>
+        <view class="form_edit">
+            <view class="form_tip">收款账号</view>
+            <input bindinput="getEditAccount" class="" placeholder="请输入支付宝账号" placeholderStyle="color:#C7C0BC;" type="text" value="{{orderDetail.account_number}}"></input>
+            <view class="form_tip">收款人</view>
+            <input bindinput="getEditName" class="" placeholder="请输入支付宝绑定的真实姓名" placeholderStyle="color:#C7C0BC;" type="text" value="{{orderDetail.account_username}}"></input>
+        </view>
+        <view bindtap="confirmEdit" class="confirm_edit">确认修改</view>
+        <image bindtap="closeModel" class="close_img" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/closemodel.png"></image>
+    </view>
+</view>
+<view class="model_container" wx:if="{{showConfirmModel}}">
+    <view class="model_wrap">
+        <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/confirmrecycle.png"></image>
+        <view class="model_title">确认回收信息</view>
+        <view class="confirm_info_wrap">
+            <view class="info_wrap">
+                <view class="info_title">回收机型：</view>
+                <view class="info_detail">{{orderDetail.mould_name}}</view>
+            </view>
+            <view class="info_wrap">
+                <view class="info_title">回收金额：</view>
+                <view class="info_detail">{{orderDetail.final_recycle_price}}</view>
+            </view>
+            <view class="info_wrap">
+                <view class="info_title">收款人：</view>
+                <view class="info_detail">{{orderDetail.account_username}}</view>
+            </view>
+            <view class="info_wrap">
+                <view class="info_title">收款账号：</view>
+                <view class="info_detail">{{orderDetail.account_number}}</view>
+            </view>
+        </view>
+        <view class="model_btn">
+            <view bindtap="toggleRecycleModel" class="wait" data-bool="0">我再想想</view>
+            <view bindtap="confirmRecycle" class="confirm_recycle_btn">确认回收</view>
+        </view>
+    </view>
+</view>
+<view class="model_container" wx:if="{{showRefuseModel}}">
+    <view class="model_wrap">
+        <image class="" src="https://pic.hiweixiu.com/hiweixiu-mobile/img/refuese.png"></image>
+        <view class="model_title">提示</view>
+        <view class="refuese_info_wrap">拒绝回收后，我们会在24小时内将您的机器以顺丰到付的形式寄还给您，请耐心等待。</view>
+        <view class="model_btn">
+            <view bindtap="refueseRecycle" class="wait">拒绝回收</view>
+            <view bindtap="toggleRefuseRecycleModel" class="confirm_recycle_btn" data-bool="0">
+                我再想想
+            </view>
+        </view>
+    </view>
+</view>

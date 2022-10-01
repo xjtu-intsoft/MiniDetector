@@ -1,0 +1,12 @@
+{
+    "component": true,
+    "usingComponents": {
+        "mini-icon": "../icon/icon",
+        "mini-button": "../button/button",
+        "mini-message": "../message/message",
+        "mini-popover": "./popover",
+        "mini-actionsheet": "../actionsheet/actionsheet",
+        "mini-bulletLayer": "../bulletLayer/bulletLayer",
+        "mini-navigation": "../navigation/navigation"
+    }
+}

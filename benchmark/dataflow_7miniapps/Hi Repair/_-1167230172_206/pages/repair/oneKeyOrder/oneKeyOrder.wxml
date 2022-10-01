@@ -1,0 +1,33 @@
+<view class="addr_list_view" wx:if="{{!pageLoading}}">
+    <view class="have_address {{isFullSucreen?'fix-Full-button':''}}" wx:if="{{items.length>0}}">
+        <view class="item_address" data-index="{{index}}" wx:for="{{items}}">
+            <view class="item">
+                <view class="content">
+                    <view class="content_info">
+                        <view class="name_phone">
+                            <view class="content_name over">{{item.user_name}}</view>
+                            <view class="content_phone over">{{item.mobile}}</view>
+                        </view>
+                        <view class="content_address">
+                            <text class="content_address_txt">
+                                <text class="address_default" wx:if="{{item.is_default=='1'}}">默认</text>{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}
+                            </text>
+                        </view>
+                    </view>
+                    <view bindtap="editAddress" class="edit" data-info="{{item}}">
+                        <image src="./image/edit.png"></image>
+                    </view>
+                </view>
+                <view bindtap="oneKeyOrder" class="oneKeyOrderBtn" data-info="{{item}}">一键下单</view>
+            </view>
+        </view>
+    </view>
+    <view class="no_address" wx:else>
+        <image src="../../../img/wx_addressList/noAddress.png"></image>
+        <view class="no_address_txt">暂无收货地址，快快前往新增地址</view>
+    </view>
+    <view class="add_addr_button {{isFullSucreen?'fix-Full-button':''}}">
+        <view bindtap="addNewAddress" class="addAddressOrder">添加新地址下单</view>
+        <view bindtap="callPhone" class="phoneOrder">电话下单</view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+<view catchtouchmove="_ss" class="m-bulletLayer">
+    <view catchtap="_back" class="m-bulletLayer-back"></view>
+    <view animation="{{animationT}}" class="m-bulletLayer-content mini-class" style="{{platform=='ios'?'border-radius:0;':';'}}{{miniStyle}}">
+        <view class="m-bulletLayer-content-body">
+            <view class="m-bulletLayer-top" wx:if="{{showTop}}">
+                <view class="m-bulletLayer-title">{{title}}</view>
+                <button catchtap="_tap" class="m-bulletLayer-button" data-mark="{{mark}}" loading="{{loading}}" wx:if="{{!openType}}">{{buttonText}}
+				</button>
+                <button bindgetuserinfo="_getUserInfo" class="m-bulletLayer-button" data-mark="{{mark}}" loading="{{loading}}" openType="getUserInfo" wx:if="{{openType=='getUserInfo'}}">{{buttonText}}
+				</button>
+            </view>
+            <view class="m-bulletLayer-top" wx:else></view>
+            <slot name="autoContent"></slot>
+        </view>
+    </view>
+</view>

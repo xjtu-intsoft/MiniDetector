@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "选择机型",
+    "enablePullDownRefresh": false,
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "navbar": "../../Component/navbar/navbar",
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    },
+    "disableScroll": true
+}

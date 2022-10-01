@@ -1,0 +1,707 @@
+page {
+    background: #f7f7f7;
+}
+
+.businessCard {
+    position: relative;
+    width: 100%;
+    background-color: #f7f7f7;
+}
+
+.bussinessCard-top-heng {
+    width: 100%;
+    height: 420rpx;
+    padding-top: 38rpx;
+    padding-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.bussinessCard-top {
+    width: 700rpx;
+    height: 420rpx;
+    display: block;
+    margin: auto;
+}
+
+.bussinessCard-top-shu {
+    width: 100%;
+    height: 700rpx;
+    display: block;
+    padding-top: 10rpx;
+    padding-bottom: 20rpx;
+    background-color: #fff;
+}
+
+.bussinessCard-top-shu-image {
+    position: relative;
+    width: 420rpx;
+    height: 700rpx;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.cengdie,.cengdie2 {
+    height: 8rpx;
+    opacity: .8;
+    width: 644rpx;
+    margin: auto;
+    border-top-right-radius: 6rpx;
+    border-top-left-radius: 6rpx;
+}
+
+.cengdie2 {
+    opacity: .9;
+    width: 684rpx;
+    margin: auto;
+    height: 10rpx;
+}
+
+.bussinessCard-cardCode,.bussinessCard-switch {
+    position: fixed;
+    z-index: 3;
+    height: 92rpx;
+    width: 140rpx;
+    right: 0;
+}
+
+.bussinessCard-switch {
+    top: 512rpx;
+}
+
+.bussinessCard-cardCode {
+    top: 620rpx;
+}
+
+.bussinessCard-content {
+    padding: 20rpx 0 40rpx;
+    letter-spacing: -0.2rpx;
+    background-color: #fff;
+}
+
+.bussinessCard-content-detail {
+    padding: 0 26rpx;
+    position: relative;
+}
+
+.cardDetail {
+    margin-left: 26rpx;
+    margin-right: 26rpx;
+    padding: 14rpx 0 14rpx 20rpx;
+    overflow: hidden;
+}
+
+.detail-top {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-top view {
+    height: 50rpx;
+    line-height: 50rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.detail-top-tip {
+    position: absolute;
+    right: 20rpx;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-top-tip view {
+    text-align: center;
+}
+
+.detail-top-tip-item1 {
+    font-size: 26rpx;
+    line-height: 40rpx;
+    width: 108rpx;
+    border-radius: 200rpx;
+    color: #fff;
+    letter-spacing: -0.16rpx;
+    margin-top: 30rpx;
+    margin-left: 16rpx;
+}
+
+.detail-top-tip-item2 {
+    font-size: 20rpx;
+    line-height: 28rpx;
+    color: #666;
+    letter-spacing: -0.12rpx;
+    margin-top: 8rpx;
+}
+
+.bussinessCard-list-loading {
+    height: 20rpx;
+    width: 20rpx;
+    margin-right: 10rpx;
+}
+
+.detail-top-item1 {
+    font-size: 42rpx;
+    letter-spacing: -0.26rpx;
+    max-width: 40%;
+    padding-right: 1rpx;
+}
+
+.detail-top-item2 {
+    margin: 0 14rpx;
+}
+
+.detail-top-item3 {
+    max-width: 60%;
+}
+
+.detail-bot {
+    margin-top: 12rpx;
+    width: 100%;
+    word-break: break-all;
+    min-height: 44rpx;
+}
+
+.bussinessCard-content-message {
+    padding-top: 12rpx;
+    padding-left: 26rpx;
+    padding-right: 26rpx;
+}
+
+.message-item {
+    margin-top: 14rpx;
+}
+
+.message-item,.message-more {
+    display: flex;
+    flex-direction: row;
+}
+
+.message-more {
+    justify-content: space-around;
+    align-items: center;
+    width: 200rpx;
+    margin: auto;
+    padding-top: 20rpx;
+}
+
+.message-more view {
+    text-align: right;
+    font-size: 28rpx;
+}
+
+.message-more image {
+    height: 22rpx;
+    width: 22rpx;
+}
+
+.message-item-title {
+    max-width: 8%;
+}
+
+.message-item-detail,.message-item-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-item-detail {
+    width: 92%;
+    margin-left: 20rpx;
+    margin-top: 2rpx;
+    word-break: break-all;
+}
+
+.message-item-detail view {
+    width: 94%;
+    padding: 8rpx 10rpx;
+}
+
+.message-item-detail-intro {
+    white-space: pre-wrap;
+    padding: 8rpx 10rpx;
+}
+
+.message-item-image {
+    height: 48rpx;
+    width: 48rpx;
+    margin-top: 6rpx;
+}
+
+.message-tag {
+    position: fixed;
+    z-index: 3;
+    right: 0;
+    margin-top: -50rpx;
+    width: 160rpx;
+    height: 92rpx;
+}
+
+.bussinessCard-content-image {
+    white-space: nowrap;
+}
+
+.bussinessCard-content-image image {
+    margin: 40rpx 36rpx 0 0;
+    height: 176rpx;
+    width: 176rpx;
+    border-radius: 6rpx;
+}
+
+.bussinessCard-beizhu,.bussinessCard-list {
+    background-color: #fff;
+    padding: 0 26rpx;
+    margin-top: 20rpx;
+}
+
+.bussinessCard-list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bussinessCard-beizhu-item,.bussinessCard-list-item {
+    letter-spacing: -0.2rpx;
+    height: 44rpx;
+    padding: 30rpx 0;
+}
+
+.bussinessCard-beizhu-view {
+    letter-spacing: -0.2rpx;
+    word-break: break-all;
+    white-space: pre-wrap;
+    line-height: 44rpx;
+    padding: 30rpx 0;
+}
+
+.bussinessCard-list-item .bussinessCard-list-left {
+    width: 40%;
+}
+
+.bussinessCard-list-item .bussinessCard-list-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+}
+
+.bussinessCard-list-item .bussinessCard-list-right .right-image {
+    width: 26rpx;
+    height: 26rpx;
+    float: right;
+}
+
+.bussinessCard-list-item .bussinessCard-list-tip1 {
+    font-size: 24rpx;
+}
+
+.bussinessCard-list-item .bussinessCard-list-tip2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #e8ebfb;
+    font-size: 22rpx;
+    align-items: center;
+    padding-right: 14rpx;
+    padding-left: 14rpx;
+}
+
+.bussinessCard-list-item .tipT {
+    background-color: #e8ebfb;
+    color: #3f51b5;
+}
+
+.bussinessCard-list-item .tipF {
+    background-color: #f2f2f2;
+    color: #999;
+}
+
+.bussinessCard-list-item .bussinessCard-list-tip2-image {
+    height: 34rpx;
+    width: 34rpx;
+    margin-right: 10rpx;
+}
+
+.bottomButton {
+    background-color: #f7f7f7;
+}
+
+.copyToast {
+    height: 232rpx;
+    width: 300rpx;
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    margin-left: -150rpx;
+    margin-top: -116rpx;
+    z-index: 20;
+    background-color: rgba(17,17,17,.7);
+    border-radius: 10rpx;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copyToast .copyToast-image {
+    height: 70.6rpx;
+    width: 98.6rpx;
+    margin-top: 26rpx;
+}
+
+.copyToast .copyToast-item1 {
+    line-height: 48rpx;
+    font-size: 32rpx;
+    margin-top: 13.4rpx;
+}
+
+.copyToast .copyToast-item2 {
+    line-height: 48rpx;
+    font-size: 28rpx;
+    margin-top: 4rpx;
+}
+
+.actionSheetContainer {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+}
+
+.actionSheetContainer .actionSheetContainer-background {
+    background-color: #000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .1;
+}
+
+.actionSheetContainer .actionSheetContainer-item {
+    position: absolute;
+    bottom: -200px;
+    width: 100%;
+    box-shadow: 3rpx 3rpx 150rpx 6rpx grey;
+    font-size: 36rpx;
+    background-color: #ebebeb;
+}
+
+.actionSheetContainer .actionSheetContainer-item-sheet {
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    margin: 2rpx 0;
+    text-align: center;
+}
+
+.actionSheetContainer .actionSheetContainer-item-return {
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    margin-top: 10rpx;
+    color: #000;
+    text-align: center;
+}
+
+.big-success-btn {
+    width: 710rpx;
+}
+
+.big-success-btn,.mid-success-btn {
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 47rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    background: linear-gradient(128deg,#438fff,#256de6);
+    color: #fff;
+}
+
+.mid-success-btn {
+    width: 460rpx;
+}
+
+.big-disabled-btn {
+    width: 710rpx;
+}
+
+.big-disabled-btn,.mid-disabled-btn {
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 47rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #fff;
+    background-color: #e3e3e3;
+}
+
+.mid-disabled-btn {
+    width: 460rpx;
+}
+
+.small-default-btn {
+    background: #fff;
+    color: #ff3b2f;
+}
+
+.small-default-btn,.small-disabled-btn {
+    width: 230rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 47rpx;
+    border: 2rpx solid #e3e3e3;
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
+.small-disabled-btn {
+    color: #fff;
+    background-color: #e3e3e3;
+}
+
+.bottomButtonDetail {
+    padding-bottom: 50rpx;
+}
+
+.bottomButton {
+    width: 93%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 92rpx;
+    line-height: 92rpx;
+    padding: 20rpx 3.5%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+page {
+    background-color: #fff;
+}
+
+.content {
+    margin: 20rpx auto 0;
+    width: 690rpx;
+    min-height: 1150rpx;
+    background: #fff;
+    box-shadow: 4rpx 4rpx 30rpx 0 #d4d4d4;
+    border-radius: 20rpx;
+}
+
+.content-web-old {
+    color: #fff;
+    background: linear-gradient(136deg,#5a6581,#404a60);
+    box-shadow: 4rpx 4rpx 20rpx 0 #d4d4d4;
+}
+
+.bottomButton {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(47,47,47,.5);
+}
+
+.buttonBig {
+    width: 100%;
+}
+
+.buttonPrimaryJianrong {
+    position: relative;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 63%;
+    background: linear-gradient(51deg,#3949ab,#5c6bc0);
+    color: #fff;
+    text-align: center;
+}
+
+.huifaList {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+.huifaList .huifaBac {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: .57;
+}
+
+.huifaList .cardList {
+    margin-top: 2.7%;
+    height: 94%;
+    width: 94.6%;
+    margin-left: 2.7%;
+}
+
+.huifaList .huifa-title {
+    position: fixed;
+    width: 91.9%;
+    left: 0;
+    top: 1.6%;
+    margin-left: 2.7%;
+    padding-left: 2.7%;
+    font-size: 42rpx;
+    line-height: 108rpx;
+    height: 98rpx;
+    z-index: 3;
+    background-color: #fff;
+}
+
+.huifaList .cardList-choose {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 14rpx;
+}
+
+.huifaList .cardList-radio {
+    transform: scale(.7);
+    width: 10%;
+}
+
+.huifaList .cardList-item {
+    padding: 18rpx;
+    width: 80%;
+    border: 1px solid #d9d9d9;
+}
+
+.huifaList .cardList-item .cardList-item-image {
+    height: 132rpx;
+    width: 220rpx;
+}
+
+.huifaList .cardList-item .cardList-item-con-name {
+    font-size: 38rpx;
+    line-height: 52rpx;
+}
+
+.huifaList .cardList-item .cardList-item-con-company {
+    font-size: 26rpx;
+    line-height: 36rpx;
+    margin-top: 8rpx;
+}
+
+.huifaList .cardList-item .cardList-item-con-job {
+    font-size: 20rpx;
+    line-height: 28rpx;
+    height: 28rpx;
+    margin-top: 6rpx;
+}
+
+.huifaList .cardList-item .cardList-item-moren {
+    background-color: #fff;
+    color: #3f51b5;
+}
+
+.huifaList .bottomButton {
+    width: 89.2%;
+    left: 0;
+    margin-left: 2.7%;
+    padding-left: 2.7%;
+    padding-right: 2.7%;
+    bottom: 3.3%;
+    box-shadow: none;
+}
+
+.huifaList .bottomButton .buttonDisabled {
+    background: #c8c8c8;
+    color: #fff;
+}
+
+.is-del {
+    position: fixed;
+    top: 0;
+    left: 0rpx;
+    width: 750rpx;
+    background: #ffebea;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+}
+
+.is-del,.white-block {
+    height: 72rpx;
+    line-height: 72rpx;
+}
+
+.white-block {
+    width: 100%;
+    text-align: center;
+}
+
+.is-del .txt {
+    align-self: center;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #ff3b2f;
+}
+
+.delete-panel {
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 132rpx;
+    padding: 30rpx 26rpx;
+}
+
+.delete-panel,.delete-panel .wt {
+    display: flex;
+}
+
+.delete-panel .t {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #999;
+}
+
+.m-l-24 {
+    margin-left: 24rpx;
+}
+
+.delete-panel .name {
+    max-width: 192rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.delete-panel .btn {
+    margin-left: auto;
+    color: #333;
+}
+
+.cardOrigin,.delete-panel .btn {
+    font-size: 24rpx;
+    font-weight: 400;
+}
+
+.cardOrigin {
+    padding: 20rpx 26rpx 0rpx;
+    color: #999;
+    line-height: 40rpx;
+}
+
+.bottomButton .buttonPrimary {
+    background: linear-gradient(314deg,#2e40a5,#4457c3);
+}
+
+.bottomButton .delBtn {
+    color: #e91e63;
+}
+
+.bottomButton .buttonDisabled {
+    background: #e3e3e3;
+    color: #fff;
+}

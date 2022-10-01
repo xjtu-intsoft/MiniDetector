@@ -1,0 +1,7 @@
+<view class="luck-draw-dialog" wx:if="{{showLuck}}">
+    <view bindtap="showLuckDialog" class="luck-draw-dialog-modal"></view>
+    <view animation="{{ani}}" class="luck-draw-dialog-main">
+        <view class="title">恭喜你被选中了</view>
+        <lucky-wheel bindend="end" bindstart="start" blocks="{{blocks}}" buttons="{{buttons}}" defaultStyle="{{defaultStyle}}" height="500rpx" id="myLucky" prizes="{{prizes}}" width="500rpx"></lucky-wheel>
+    </view>
+</view>

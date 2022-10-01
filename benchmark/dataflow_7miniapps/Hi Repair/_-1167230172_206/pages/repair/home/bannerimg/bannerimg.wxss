@@ -1,0 +1,8 @@
+.bannerimgContainer {
+    padding: 0 20rpx 20rpx;
+    font-size: 0;
+}
+
+.bannerimgContainer image {
+    width: 100%;
+}

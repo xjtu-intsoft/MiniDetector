@@ -1,0 +1,20 @@
+<view class="chooseLogin">
+    <view class="logo">
+        <view class="logoImg">
+            <image class="logo-img" src="https://pic.hiweixiu.com/hiweixiu-app/weapp/img/17020403.png"></image>
+        </view>
+        <view class="logoTxt">Hi维修手机上门维修回收</view>
+    </view>
+    <view class="btn">
+        <view class="btnWx">
+            <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber" type="primary">
+        微信账号快捷登录
+      </button>
+        </view>
+        <view bindtap="goToLogin" class="btnHi">输入手机号登录/注册</view>
+    </view>
+    <view bindtap="goToUserTerms" class="tipslogin">
+        <image class="icon-xy" src="https://pic.hiweixiu.com/hiweixiu-app/weapp/img/17020408.png"></image>
+        <text class="tips">登录即表示您同意《用户协议》</text>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "增值券选择",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

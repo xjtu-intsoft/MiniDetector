@@ -1,0 +1,6 @@
+<template name="team-tip">
+    <view class="roof-place-tip card-active-tip" style="top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']+8}}px;">
+        <view class="text">该名片已加入企业，名片图可由管理员统一配置</view>
+        <image catch:tap="closeTeamTip" class="img" src="/images/newMain/tip-close.png" style="margin:auto 0;margin-left:-20rpx;margin-right:20rpx;"></image>
+    </view>
+</template>

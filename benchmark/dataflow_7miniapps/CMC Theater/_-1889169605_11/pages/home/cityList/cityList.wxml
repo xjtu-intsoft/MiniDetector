@@ -1,0 +1,7 @@
+<view class="city-list" wx:for="{{cityHeaders}}" wx:for-index="i" wx:for-item="cityHeader" wx:key="city-list">
+    <view class="city-header">{{cityHeader}}</view>
+    <view bindtap="choseCity" class="city-cell  {{i==0||i==1?'city_cell_fill':''}} {{cityCell.nocanSelect&&cityCell.name!='定位失败'?'city-cell-right':''}} {{cityCell.nocanSelect?'city-cell_no':''}}" data-city="{{cityCell}}" wx:for="{{cityArrs[i]}}" wx:for-index="j" wx:for-item="cityCell" wx:key="city-cell">
+        {{cityCell.name}} 
+        <view class="city-cell-line" wx:if="{{j%4!=0}}"></view>
+    </view>
+</view>

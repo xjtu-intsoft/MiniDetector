@@ -1,0 +1,50 @@
+<view bindtap="onWithdrawWay" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_how_withdraw.png"></image>
+    <text class="item-title">如何提现奖金?</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="onResetWeichat" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_withdraw.png"></image>
+    <text class="item-title">提现信息</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="onPush" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_attention.png"></image>
+    <text class="item-title">关注</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="onExchangePhone" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_withdraw.png"></image>
+    <text class="item-title">更换手机号</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="myReferrer" class="item" wx:if="{{userBeen.referrer?true:false}}">
+    <image class="img-item-icon" src="../../images/ic_user.png"></image>
+    <text class="item-title">我的推荐人</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="inputReferrer" class="item" wx:else>
+    <image class="img-item-icon" src="../../images/ic_user.png"></image>
+    <text class="item-title">填写推荐人</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="onBindOfficial" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_bind.png"></image>
+    <text class="item-title">绑定公众号</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="onResetPassword" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_withdraw.png"></image>
+    <text class="item-title">设置密码</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="onAddWechat" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_bind_equipment.png"></image>
+    <text class="item-title">联系客服微信</text>
+    <text class="ic-arrow-right"></text>
+</view>
+<view bindtap="exit" class="item">
+    <image class="img-item-icon" src="../../images/ic_menu_exit.png"></image>
+    <text class="item-title">退出登录</text>
+    <text class="ic-arrow-right"></text>
+</view>

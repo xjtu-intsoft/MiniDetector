@@ -1,0 +1,104 @@
+.topNavigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 101;
+    backgroundd: #fff;
+}
+
+.topNavigation .topNavigation-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+}
+
+.topNavigation .topNavigation-home {
+    padding: 34rpx 0 34rpx 20rpx;
+    width: 64rpx;
+    display: flex;
+    color: #333;
+    font-size: 32rpx;
+    font-weight: 700;
+    flex-direction: column;
+}
+
+.topNavigation .topNavigation-home .b-img,.topNavigation .topNavigation-home .w-img,.topNavigation .topNavigation-home image {
+    margin: auto 0;
+    width: 16rpx;
+    height: 32rpx;
+}
+
+.topNavigation .topNavigation-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 590rpx;
+}
+
+.topNavigation .topNavigation-title-ios {
+    font-size: 36rpx;
+    text-align: center;
+    font-weight: 700;
+}
+
+.topNavigation .topNavigation-title-android {
+    font-size: 32rpx;
+    text-align: left;
+    font-weight: 700;
+}
+
+.topNavigation .topNavigation-bottom {
+    width: 100%;
+    padding: 10rpx 0;
+}
+
+.topNavigation .menuButtonNavigation {
+    padding-bottom: 20rpx;
+}
+
+.topNavigation .iosXSNavigation {
+    padding-top: 70rpx;
+}
+
+.topNavigation .iosXNavigation {
+    padding-top: 88rpx;
+}
+
+.topNavigation .iosNavigation {
+    padding-top: 40rpx;
+}
+
+.topNavigation .androidNavigation {
+    padding-top: 60rpx;
+}
+
+.toHome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100rpx;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.topNavigation .topNavigation-home .toHome image {
+    width: 16rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}
+
+.topNavigation .groupHasBorCont {
+    padding: 26rpx 0 14rpx 20rpx;
+}
+
+.groupHasBor {
+    padding: 10rpx;
+    border-radius: 50%;
+}
+
+.topNavigation .industryTit {
+    font-weight: 400;
+    width: 70rpx;
+}

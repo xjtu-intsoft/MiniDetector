@@ -1,0 +1,58 @@
+@import "../account/index.wxss";
+
+.hide {
+    overflow: hidden;
+}
+
+.block {
+    display: block;
+}
+
+.classname {
+    width: 500rpx;
+    height: 200rpx;
+    margin: 40% auto;
+    color: #666;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.classname image {
+    width: 400rpx;
+    height: 400rpx;
+    margin-bottom: 40rpx;
+}
+
+.rightnow {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #3392ff;
+    color: #fff;
+    font-size: 40rpx;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 20rpx;
+    margin-top: 20rpx;
+}
+
+.finish {
+    width: 160rpx;
+    height: 100rpx;
+    position: absolute;
+    right: 23%;
+    top: 7%;
+}
+
+.share image {
+    width: 46rpx;
+    height: 46rpx;
+}
+
+.weui-btn {
+    color: #fff;
+    position: fixed;
+    bottom: 50rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}

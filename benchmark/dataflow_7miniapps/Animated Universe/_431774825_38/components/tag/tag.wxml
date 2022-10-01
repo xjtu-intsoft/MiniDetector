@@ -1,0 +1,8 @@
+<view catchtap="goPage" class="tag" data-index="{{index}}" wx:for="{{tags}}" wx:key="{{index}}">
+    <image class="tag-left-image" src="{{dict[item.type]||item.url}}"></image>
+    <form bindsubmit="click" class="tag-form" reportSubmit="true">
+        <input name="tagName" style="display:none" value="{{item.tag_name}}"></input>
+        <button formType="submit"></button>
+    </form>
+    <text class="tag-left-text">{{item.tag_name}}</text>
+</view>

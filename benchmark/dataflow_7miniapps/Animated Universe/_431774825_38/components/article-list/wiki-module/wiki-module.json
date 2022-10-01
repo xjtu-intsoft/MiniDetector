@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "article-lines": "/components/article-list/article-lines/article-lines",
+        "go-wiki-button": "/components/go-wiki-button/go-wiki-button"
+    }
+}

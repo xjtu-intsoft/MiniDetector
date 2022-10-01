@@ -1,0 +1,23 @@
+<block wx:if="{{oneButton}}">
+    <view class="share-buttons share-button-one">
+        <button class="share-buttons-left" openType="share">
+            <image src="/images/icon_wechat.png"></image>
+      推荐给好友
+    </button>
+    </view>
+    <common-buttons class="share-buttons-toIndex" source="{{source}}"></common-buttons>
+</block>
+<block wx:else>
+    <view class="share-buttons">
+        <button class="share-buttons-left" openType="share">
+            <image src="/images/icon_wechat.png"></image>
+      推荐给好友
+    </button>
+        <button bindtap="shareCicle" class="share-buttons-right">
+            <image src="/images/icon_share_moments.png"></image>
+      保存海报图
+    </button>
+    </view>
+    <common-buttons class="share-buttons-toIndex" source="{{source}}"></common-buttons>
+    <image animation="{{animationData}}" class="share-button-top-images" mode="widthFix" src="/images/show_box.png"></image>
+</block>

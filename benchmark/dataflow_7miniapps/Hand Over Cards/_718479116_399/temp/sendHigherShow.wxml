@@ -1,0 +1,10 @@
+<template name="higher_content">
+    <view catch:tap="closeHigher" catch:touchmove="catchMove" class="higher_con">
+        <view>电子名片已激活</view>
+        <view>去试试把它发送给您的微信好友吧</view>
+        <image src="/images/newMain/up.png"></image>
+    </view>
+</template>
+<template name="higher_back">
+    <view catch:tap="closeHigher" catch:touchmove="catchMove" class="higher_back"></view>
+</template>

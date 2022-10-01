@@ -1,0 +1,140 @@
+.activity-page {
+    background: #000;
+    height: 100%;
+}
+
+.activity-no-phone,.activity-win-list {
+    display: flex;
+    align-items: center;
+    height: 88rpx;
+    background: #2A2D3F;
+    font-size: 24rpx;
+}
+
+.activity-win-list {
+    margin-top: 2rpx;
+}
+
+.activity-win-list:first-child {
+    margin: 0;
+}
+
+.activity-icon-question {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 30rpx;
+}
+
+.activity-no-phone text {
+    flex-grow: 1;
+    margin-left: 10rpx;
+}
+
+.activity-bind-phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140rpx;
+    height: 88rpx;
+    background: linear-gradient(to right,#D73674,#6834A0);
+    border-radius: 0;
+    color: #fff;
+    font-size: 24rpx;
+}
+
+.activity-bind-phone image {
+    margin-left: 6rpx;
+    width: 10rpx;
+    height: 14rpx;
+}
+
+.activity-ip-icon {
+    width: 88rpx;
+    height: 88rpx;
+}
+
+.activity-win-mid {
+    position: relative;
+    margin-left: 14rpx;
+    flex-grow: 1;
+    height: 88rpx;
+}
+
+.activity-win-mid image {
+    position: absolute;
+    width: 348rpx;
+    height: 88rpx;
+    z-index: 1;
+}
+
+.activity-win-mid text {
+    position: absolute;
+    z-index: 1;
+}
+
+.activity-win-mid text,.activity-no-win-text {
+    line-height: 88rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.activity-win-list button {
+    margin-left: 24rpx;
+    width: 190rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    color: #fff;
+    background: linear-gradient(to right,#D73674,#6834A0);
+    border-radius: 0;
+    font-size: 24rpx;
+}
+
+.activity-no-win-text {
+    flex-grow: 1;
+    margin-left: 18rpx;
+}
+
+.activity-icon-delete {
+    padding: 24rpx;
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.activity-view-details {
+    display: flex;
+    align-items: center;
+    margin-right: 24rpx;
+    font-size: 24rpx;
+}
+
+.activity-view-details image {
+    margin-left: 6rpx;
+    width: 10rpx;
+    height: 14rpx;
+}
+
+.activity-list {
+    margin-top: 30rpx;
+    padding-bottom: 100rpx;
+}
+
+.activity-list-item {
+    margin-bottom: 20rpx;
+}
+
+.activity-banner {
+    display: block;
+    width: 100%;
+}
+
+.activity-rt-arrow {
+    margin-right: 28rpx;
+    width: 12rpx;
+    height: 24rpx;
+}
+
+.activity-list-item .activity-win-list {
+    margin: 0;
+}

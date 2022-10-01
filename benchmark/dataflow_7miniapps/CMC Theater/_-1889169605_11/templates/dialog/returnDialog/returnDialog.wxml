@@ -1,0 +1,22 @@
+<template name="return_dialog">
+    <view catchtouchmove="move" class="return_dialog_page" hidden="{{!isShow}}">
+        <view catchtap="dismissDialog" class="return_dialog_bg {{isShowDialog?'return_dialog_bg_anim':''}}"></view>
+        <view class="return_dialog_parent {{isShowDialog?'return_dialog_parent_anim11':''}}">
+            <view class="return_dialog_title">
+                <text class="return_dialog_title_text">退票说明</text>
+                <image catchtap="dialogCloseClick" class="return_dialog_title_close" src="/images/common/login_dialog_close.png"></image>
+            </view>
+            <scroll-view scrollY class="return_dialog_sv">
+                <view class="return_dialog_item" wx:for="{{refund_dialog_message}}" wx:key="msg">
+                    <text class="return_dialog_item_text_index">{{index+1}}. </text>
+                    <view class="return_dialog_msgs">
+                        <view class="return_dialog_item_text2 {{item_msg==item.needRedText?'return_dialog_red_text':''}}" wx:for="{{item.lists}}" wx:for-item="item_msg" wx:key="index">
+            {{item_msg}}
+              </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <text catchtap="dialogOkClick" class="return_dialog_ok">确定退票</text>
+        </view>
+    </view>
+</template>

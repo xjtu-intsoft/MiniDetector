@@ -1,0 +1,3 @@
+<button bindgetphonenumber="_getPhoneNumber" bindgetuserinfo="{{openType=='getUserInfoSync'?'_getUserInfoSync':'_getUserInfo'}}" bindtap="_tap" class="m-button  {{typeName}} {{sizeName}} mini-class" data-mark="{{mark}}" loading="{{loading}}" openType="{{openTypeNew}}" style="{{miniStyle}}">
+  {{text}}
+</button>

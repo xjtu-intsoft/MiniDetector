@@ -1,0 +1,23 @@
+<template name="findshop">
+    <view class="lineview"></view>
+    <view class="middlelineone"></view>
+    <view class="middlelinetwo {{goods.length<=1?'is-hidden':''}}"></view>
+    <view class="findshop-view">
+        <view bindtap="goGoodDetail" class="findshop-view-cell {{index!=0?'findshop-view-cell-little':''}}" data-cartkey="shopCart" data-index="{{index}}" wx:for="{{goods}}" wx:key="id">
+            <view class="findshop-view-cellView {{index!=0?'findshop-view-cellView-little':''}}">
+                <view class="findshop-view-cellImageView {{index!=0?'is-hidden':''}}">
+                    <image class="findshop-view-cellImage {{index!=0?'is-hidden':''}}" src="{{item.pic}}"></image>
+                </view>
+                <view class="findshop-view-desview {{index!=0?'findshop-view-desview-little':''}}">
+                    <image class="findshop-view-huiview {{item.havePromo?'':'is-hidden'}}" mode="aspectFit" src="{{item.promoPic}}" style="width: {{item.promoPicW}};"></image>
+                    <text class="findshop-view-celldes {{index!=0?'findshop-view-celldes-little':''}}" style="text-indent: {{item.promoTextIndexW}};">{{item.name}}</text>
+                </view>
+                <view class="findshop-view-price {{index!=0?'findshop-view-price-little':''}}">¥{{item.showPrice}}
+                </view>
+                <view class="findshop-view-cellImageView-little {{index!=0?'':'is-hidden'}}">
+                    <image class="findshop-view-cellImage-little {{index!=0?'':'is-hidden'}}" src="{{item.pic}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

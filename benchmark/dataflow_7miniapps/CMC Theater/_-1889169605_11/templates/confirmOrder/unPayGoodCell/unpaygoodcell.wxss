@@ -1,0 +1,67 @@
+.unpay_order-ticket-foodscell {
+    width: 100%;
+    height: 120rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: row;
+    background-size: 100%;
+    background-image: var(--backwhite-img);
+}
+
+.unpay_order-ticket-foodscell-image {
+    margin-top: 10rpx;
+    margin-left: 36rpx;
+    width: 110rpx;
+    height: 110rpx;
+    background-size: 100%;
+    background-image: var(--shop-defimage);
+}
+
+.unpay_order-ticket-foodscell-describe {
+    margin-top: 10rpx;
+    margin-left: 15rpx;
+    height: 110rpx;
+    font-size: var(--font-te);
+    color: var(--color-cd);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    position: relative;
+}
+
+.unpay_order-ticket-foodscell-name {
+    color: var(--color-cc);
+}
+
+.unpay_order-ticket-foodscell-content,.unpay_order-ticket-foodscell-name {
+    font-size: var(--font-te);
+    max-width: 450rpx;
+    margin-right: 5rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.unpay_order-ticket-foodscell-content {
+    color: var(--color-cd);
+}
+
+.unpay_order-ticket-foodscell-describe-jiajiagou-tehui {
+    display: flex;
+    flex-direction: row;
+}
+
+.jiajiagou_sales_list_item_icon {
+    width: 72rpx;
+    height: 26rpx;
+    margin-right: 5rpx;
+}
+
+.unpay_goods_num {
+    color: var(--color-cd);
+    font-size: var(--font-te);
+    position: absolute;
+    top: 84rpx;
+    right: 36rpx;
+}

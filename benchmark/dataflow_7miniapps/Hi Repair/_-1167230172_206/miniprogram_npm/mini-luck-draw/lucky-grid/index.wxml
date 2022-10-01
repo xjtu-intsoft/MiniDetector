@@ -1,0 +1,19 @@
+<view class="lucky-box" style="width: {{width}}; height: {{height}}">
+    <canvas bindtouchstart="handleClickOfCanvas" canvasId="lucky-grid" id="lucky-grid" style="width: {{width}}; height: {{height}}; visibility: {{showCanvas?'visible':'hidden'}}" type="2d"></canvas>
+    <image bindload="luckyImgLoad" bindtouchstart="handleClickOfImg" class="lucky-img" mode="scaleToFill" src="{{luckyImg}}" style="width: {{width}}; height: {{height}}" wx:if="{{luckyImg}}"></image>
+    <view>
+        <view style="visibility: hidden; height: 0" wx:if="{{isShow}}" wx:for="{{prizes}}" wx:for-item="prize" wx:key="index">
+            <view wx:for="{{prize.imgs}}" wx:for-index="i" wx:for-item="img" wx:key="i">
+                <image bindload="imgBindload" data-i="{{i}}" data-index="{{index}}" data-name="prizes" src="{{img.src}}"></image>
+                <image bindload="imgBindloadActive" data-i="{{i}}" data-index="{{index}}" data-name="prizes" src="{{img.activeSrc}}"></image>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view style="visibility: hidden; height: 0" wx:if="{{isShow}}" wx:for="{{buttons}}" wx:for-item="btn" wx:key="index">
+            <view wx:for="{{btn.imgs}}" wx:for-index="i" wx:for-item="img" wx:key="i">
+                <image bindload="imgBindload" data-i="{{i}}" data-index="{{index}}" data-name="buttons" src="{{img.src}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

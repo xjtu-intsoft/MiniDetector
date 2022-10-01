@@ -1,0 +1,68 @@
+page {
+    background: #fff;
+}
+
+.title {
+    font-size: 45rpx;
+    margin-top: 60rpx;
+    line-height: 45rpx;
+    color: #464646;
+}
+
+.phone-tip,.title {
+    display: block;
+    margin-left: 38rpx;
+}
+
+.phone-tip {
+    font-size: 35rpx;
+    margin-top: 122rpx;
+    line-height: 35rpx;
+    color: #7f7f7f;
+}
+
+.phone {
+    font-size: 45rpx;
+    margin-top: 36rpx;
+    display: block;
+    line-height: 45rpx;
+    color: #000;
+}
+
+.item,.phone {
+    margin-left: 38rpx;
+}
+
+.item {
+    margin-top: 100rpx;
+    width: 672rpx;
+    display: flex;
+    align-items: center;
+    height: 90rpx;
+    border-bottom: 1rpx solid #eee;
+}
+
+.item-input {
+    flex: 1;
+    margin-left: 10rpx;
+    font-size: 45rpx;
+    line-height: 45rpx;
+    color: #323232;
+}
+
+.item-sms-code {
+    display: block;
+    width: 181rpx;
+    height: 62rpx;
+    font-size: 30rpx;
+    line-height: 62rpx;
+    text-align: center;
+}
+
+.item-sms-code:active {
+    background: #f2f2f2;
+}
+
+.btn-main {
+    margin-top: 97rpx;
+}

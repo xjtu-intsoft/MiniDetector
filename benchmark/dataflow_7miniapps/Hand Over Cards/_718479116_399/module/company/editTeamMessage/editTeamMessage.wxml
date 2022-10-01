@@ -1,0 +1,19 @@
+<view bindtouchstart="_ss" class="modal">
+    <view bindtap="_back" class="modal-back"></view>
+    <view class="modal-content">
+        <view class="modal-content-title">修改企业名称</view>
+        <view class="modal-content-content">
+            <input bindblur="_blur" bindfocus="_focus" bindinput="_input" data-n="entName" maxlength="40" placeholder="请输入公司/组织全称" placeholderStyle="color:#cacaca;" style="{{contentTestFail?'color:#E91E63;':''}}" value="{{teamMessage.entName}}"></input>
+        </view>
+        <view class="modal-content-tip" wx:if="{{attestation}}">该名称已通过认证，您无法使用，请重新输入</view>
+        <view class="modal-content-button" style="{{attestation?'margin-top:20rpx;':''}}">
+            <button bindtap="_cancel" class="button-cancel">取消</button>
+            <button bindtap="_save" class="button-confirm" loading="{{loading}}" wx:if="{{canSave}}">
+        保存
+      </button>
+            <button class="button-confirm button-disabled" loading="{{loading}}" wx:if="{{!canSave}}">
+        保存
+      </button>
+        </view>
+    </view>
+</view>

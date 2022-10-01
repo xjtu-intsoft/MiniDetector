@@ -1,0 +1,75 @@
+.go-twiki {
+    display: flex;
+    position: relative;
+    background: #2a2d3f;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.go-twiki-left-text {
+    display: -webkit-box;
+    line-height: 54rpx;
+    font-size: 36rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    flex-grow: 1;
+    margin-right: 30rpx;
+}
+
+.go-twiki-right {
+    right: 0;
+    display: flex;
+}
+
+.go-twiki-right view {
+    width: 0;
+    border: 3rpx solid #fff;
+    height: 30rpx;
+}
+
+.go-twiki-right image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.go-wiki-left-button {
+    position: relative;
+    padding-left: 44rpx;
+    padding-top: 18rpx;
+    padding-right: 0;
+    padding-bottom: 0;
+    margin: 0 38rpx 0 0;
+    width: 430rpx;
+    height: 80rpx;
+    background: #474b63;
+    color: #fff;
+    border-radius: 40rpx;
+    font-size: 32rpx;
+    line-height: 44rpx;
+    text-align: left;
+}
+
+.go-wiki-left-button image {
+    position: absolute;
+    left: 374rpx;
+    top: 28rpx;
+    width: 14rpx;
+    height: 24rpx;
+}
+
+.go-wiki-separator {
+    border: 1px solid #979797;
+    width: 0;
+    height: 36rpx;
+}
+
+.go-twiki-button {
+    display: flex;
+    margin-left: 38rpx;
+    padding: 0;
+    width: 80rpx;
+    height: 80rpx;
+    background: transparent;
+}

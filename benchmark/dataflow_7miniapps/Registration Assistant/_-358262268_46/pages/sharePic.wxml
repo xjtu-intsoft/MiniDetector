@@ -1,0 +1,6 @@
+<view class="install-container mask">
+    <canvas canvasId="canvas" style="width:320px;height:400px;margin:50rpx auto"></canvas>
+    <view style="width:92%;margin: 0 4%;">
+        <button bindtap="handleSave" type="primary">保存图片</button>
+    </view>
+</view>

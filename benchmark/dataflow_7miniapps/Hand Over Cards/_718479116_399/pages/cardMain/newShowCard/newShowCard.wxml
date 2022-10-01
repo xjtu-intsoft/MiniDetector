@@ -1,0 +1,41 @@
+<view class="container">
+    <view class="success">
+        <component-canvasCheck canvasCheck="{{canvasCheck}}" id="canvasCheck"></component-canvasCheck>
+        <view class="addBold">制作成功</view>
+    </view>
+    <view class="about">
+        <view class="about-top">
+            <view class="title-1">电子名片的</view>
+            <view class="title-1">使用方法</view>
+            <view class="title-3"></view>
+        </view>
+        <image class="about-back" src="{{backSrc}}"></image>
+        <view class="circle-1"></view>
+        <view class="circle-2"></view>
+        <view class="circle-3">
+            <view></view>
+        </view>
+        <view class="circle-4">
+            <view></view>
+        </view>
+        <view class="circle-5">
+            <view></view>
+        </view>
+        <view class="about-list">
+            <view class="list-item" style="display:flex;flex-direction:row;align-items:center;">1.点击右上角“
+				<image class="dotted" src="../../../images/cdetails/dot.png"></image>
+			”</view>
+            <view class="list-item">2.选择“浮窗”</view>
+            <view class="list-item">3.点击屏幕右边缘的浮窗</view>
+            <view class="list-item">即可找到你的名片</view>
+            <view class="playCon">
+                <image class="playImg" src="/images/video-play.png"></image>
+                <view bindtap="playVideo" class="playBtn">观看视频教学</view>
+            </view>
+        </view>
+        <view style="padding:35rpx;"></view>
+    </view>
+    <button bindtap="toHome" class="about-button">立即发名片</button>
+    <view class="bgView"></view>
+</view>
+<component-videoAirWindow bindiKnown="iKnown" wx:if="{{showVideoAirWindow}}"></component-videoAirWindow>

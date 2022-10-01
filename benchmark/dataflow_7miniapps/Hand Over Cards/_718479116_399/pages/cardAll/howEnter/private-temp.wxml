@@ -1,0 +1,63 @@
+<template name="autoSave">
+    <view catchtouchmove="ss" class="quick-make">
+        <view class="make-con">
+            <form bindsubmit="formid" reportSubmit="true">
+                <component-canvasCheck canvasCheck="{{canvasCheck}}" id="canvasCheck"></component-canvasCheck>
+                <view class="t">已存至名片夹</view>
+                <view class="makeIf">
+                    <image class="image" src="{{avatar.avatarurl?avatar.avatarurl:anonymous}}"></image>
+                    <view class="txt">
+                        <view class="name" data-name="{{avatar&&avatar.nickname}}">
+              {{avatar&&avatar.nickname}}
+            </view>
+                        <view class="tip">
+                            <view class="arrow"></view>
+                            <view class="warm-word">可以给我一张名片，方便以后联系吗？</view>
+                        </view>
+                    </view>
+                </view>
+                <button bindtap="buildCard" class="btn" data-sensor-index="79" data-title="制作电子名片" formType="submit">
+                    <image class="l-tip" src="/images/arrow.png"></image>
+          快速制作
+        </button>
+            </form>
+        </view>
+        <image bindtap="closeBuildPanel" class="build-close" src="/images/cdetails/close.png"></image>
+    </view>
+</template>
+<template name="quickMake">
+    <view catchtouchmove="ss" class="quick-make">
+        <view class="make-con">
+            <form bindsubmit="formid" reportSubmit="true">
+                <component-canvasCheck canvasCheck="{{canvasCheck}}" id="canvasCheck"></component-canvasCheck>
+                <view class="t">已存至名片夹</view>
+                <view class="makeIf" wx:if="{{!otherShare}}">
+                    <image class="image" src="{{avatar.avatarurl?avatar.avatarurl:anonymous}}"></image>
+                    <view class="txt">
+                        <view class="name" data-name="{{avatar&&avatar.nickname}}">
+              {{avatar&&avatar.nickname}}
+            </view>
+                        <view class="tip">
+                            <view class="arrow"></view>
+                            <view class="warm-word" wx:if="{{mycard['list'].length>0&&singleData.isHavingMycard}}">
+                对方以前保存过您的名片，无需回发。
+              </view>
+                            <view class="warm-word" wx:else>可以给我一张名片，方便以后联系吗？</view>
+                        </view>
+                    </view>
+                </view>
+                <button bindtap="buildCard" class="btn" data-sensor-index="70" formType="submit" wx:if="{{!otherShare&&mycard['list'].length<=0}}">
+                    <image class="l-tip" src="/images/arrow.png"></image>
+          快速制作
+        </button>
+                <button bindtap="showChange" class="btn" data-sensor-index="71" formType="submit" wx:if="{{!otherShare&&mycard['list'].length>0&&!singleData.isHavingMycard}}">
+          立即回发
+        </button>
+                <button bindtap="closeQuick" class="btn" formType="submit" wx:if="{{otherShare||mycard['list'].length>0&&singleData.isHavingMycard}}">
+          查看他的全部信息
+        </button>
+            </form>
+        </view>
+        <image bindtap="closeQuickMake" class="build-close" src="/images/cdetails/close.png"></image>
+    </view>
+</template>

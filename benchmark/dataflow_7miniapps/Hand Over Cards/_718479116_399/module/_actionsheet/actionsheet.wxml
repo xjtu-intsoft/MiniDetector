@@ -1,0 +1,12 @@
+<view catchtouchmove="_ss" class="actionsheet-con">
+    <view bindtap="_back" class="actionsheet-back"></view>
+    <view animation="{{animationT}}" class="actionsheet-content" style="{{platform=='ios'?'border-radius:0;':';'}}">
+        <slot name="autoContent"></slot>
+        <block wx:for="{{sheetList}}" wx:key="{{item.text}}">
+            <view bindtap="_itemTap" class="content-item" data-i="{{index}}" style="{{item.color?'color:'+item.color+';':''}}">
+				{{item.text}}
+			</view>
+            <view style="padding:8rpx;background-color:#F7F7F7;" wx:if="{{sheetList.length>=2&&index==sheetList.length-2}}"></view>
+        </block>
+    </view>
+</view>

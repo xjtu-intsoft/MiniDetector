@@ -1,0 +1,39 @@
+<import src="../../../templates/dialog/rechargeDialog/recharge_dialog.wxml"></import>
+<view style="width:100%;height:100%;">
+    <swiper autoplay="true" circular="true" class="advert-swiper {{advertListData&&advertListData.length>0?'':'is-hidden'}}" current="{{currentSwiper}}" interval="4000">
+        <swiper-item class="advert-swiper-item" data-index="{{index}}" wx:for="{{advertListData}}" wx:key="advertcell">
+            <image class="advert-swiper-item-image" src="{{item.advert_img_url}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="pay_body">
+        <text class="pay_text_top">{{rechargeDesc}}</text>
+        <view class="pay_recharge_value_select">
+            <view catchtap="rechargeClick" class="pay_recharge_value_item" data-index="{{index}}" wx:for="{{memberCard.recharge_card_rule}}" wx:key="index">
+                <view class="pay_recharge_value_item_text {{item.style}} {{item.isSelected?'pay_border_color_orange':'pay_border_color_gray'}}" hidden="{{memberCard.type_id=='5'&&index==memberCard.recharge_card_rule.length-1}}">{{item.price1}}
+        </view>
+                <image class="pay_recharge_value_item_image" src="{{item.isSelected?'/images/common/icon_recharge_xuanzhong.png':''}}"></image>
+                <image class="pay_recharge_value_item_image_edit" hidden="{{!(index==memberCard.recharge_card_rule.length-1&&rechargeChange)}}" src="/images/common/icon_recharge_edit.png"></image>
+            </view>
+        </view>
+        <text class="pay_validate_time">{{memberCard.recharge_card_rule[memberCard&&memberCard.type_id=='5'?selected_position:0].rule_desc}}</text>
+    </view>
+    <view class="pay_bottom">
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <button class="buy_btn" formType="submit">{{memberCard.type_id=='5'?'去续费':'去充值'}} {{util.sub(recharge)}}元</button>
+        </form>
+    </view>
+    <view>
+        <template is="recharge" data="{{isShow:isShow,isShowDialog:isShowDialog,value:value,nums:nums}}"></template>
+    </view>
+</view>
+<wxs module="util">
+var sub = (function(recharge) {
+    if (recharge && recharge.indexOf(".") == -1) {
+        recharge = recharge + ".00";
+        return (recharge)
+    } else {
+        return (recharge)
+    }
+});
+module.exports.sub = sub;
+</wxs>

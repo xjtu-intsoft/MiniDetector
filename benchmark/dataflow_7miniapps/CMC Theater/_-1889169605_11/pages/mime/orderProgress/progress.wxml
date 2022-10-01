@@ -1,0 +1,40 @@
+<view class="root">
+    <view class="order_info">
+        <view class="order_info_item">
+            <text class="text">订单号：</text>
+            <text class="value">{{orderResult.order_num}}</text>
+        </view>
+        <view class="order_info_item">
+            <text class="text">{{orderResult.order_status=='2'||orderResult.order_status=='9'?'退款金额：':'订单金额：'}}</text>
+            <text class="value">{{orderResult.total_money_temp}}</text>
+        </view>
+        <view class="order_info_item">
+            <text class="text">订单状态：</text>
+            <text class="value">{{orderResult.msg}}</text>
+        </view>
+    </view>
+    <view class="order_progress">
+        <view class="progress_group" wx:for="{{hasGroup?groups:[1]}}" wx:for-index="group_index" wx:for-item="group" wx:key="progress_group">
+            <view class="progress_group_item_parent" hidden="{{!hasGroup}}">
+                <view class="progress_group_zhanwei"></view>
+                <text class="progress_group_item_title">取餐号{{group.code}}</text>
+                <view class="h_line_f1" style="margin-left:16rpx;"></view>
+            </view>
+            <view class="progress_group_zhanwei" hidden="{{hasGroup}}"></view>
+            <view class="progress_item" wx:for="{{hasGroup?group.lists:orderResult.order_progress}}" wx:key="progress_item">
+                <view class="progress_left">
+                    <view class="v_line_top {{index==0?'line_transparent':''}}"></view>
+                    <image class="progress_img" src="{{item.src}}"></image>
+                    <view class="v_line_bottom" hidden="{{item.hidden}}"></view>
+                </view>
+                <view class="progress_right">
+                    <view catchtap="telClick" data-msg="{{item.msg}}" wx:for="{{item.sMsg}}" wx:for-item="item_msg" wx:key="index">
+                        <text class="progress_status {{index==0?'progress_status_first':''}} {{item_msg==item.needRedText?'cb_text':''}}">{{item_msg}}</text>
+                    </view>
+                    <text class="progress_time">{{item.time}}</text>
+                </view>
+            </view>
+        </view>
+        <view style="height:20rpx;background:white"></view>
+    </view>
+</view>

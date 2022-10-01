@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "subscribe-button": "/components/subscribe-button/subscribe-button"
+    }
+}

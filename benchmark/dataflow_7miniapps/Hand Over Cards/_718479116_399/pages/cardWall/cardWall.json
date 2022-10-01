@@ -1,0 +1,23 @@
+{
+    "usingComponents": {
+        "component-cardwallListbyGroup": "../../module/cardWall/cardwallListbyGroup/cardwallListbyGroup",
+        "component-cardwallListbyPerson": "../../module/cardWall/cardwallListbyPerson/cardwallListbyPerson",
+        "component-sendtips": "../../module/cardWall/sendTips/sendTips",
+        "component-topNavigation": "../../module/topNavigation/topNavigation",
+        "component-invoice": "../../module/_invoice/invoiceList/invoiceList",
+        "component-minibubble": "../../module/miniBubble/miniBubble",
+        "component-groupIntro": "../../module/cardWall/groupIntro/groupIntro",
+        "mini-icon": "../../components/icon/icon",
+        "mini-button": "../../components/button/button",
+        "mini-message": "../../components/message/message",
+        "mini-popover": "../../components/popover/popover",
+        "mini-actionsheet": "../../components/actionsheet/actionsheet",
+        "mini-bulletLayer": "../../components/bulletLayer/bulletLayer",
+        "mini-navigation": "../../components/navigation/navigation"
+    },
+    "navigationBarTitleText": "助手",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
+}

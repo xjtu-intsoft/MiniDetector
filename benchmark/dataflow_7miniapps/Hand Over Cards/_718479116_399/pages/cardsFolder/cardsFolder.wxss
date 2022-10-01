@@ -1,0 +1,307 @@
+page {
+    background-color: #fff;
+}
+
+.navigationLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    min-width: 200rpx;
+}
+
+.navigationLeft image {
+    height: 30rpx!important;
+    width: 30rpx!important;
+}
+
+.navigationLeft text {
+    font-weight: 400;
+    font-size: 24rpx;
+}
+
+.camara {
+    position: absolute;
+    top: -99999;
+    left: -99999;
+    width: 0;
+    height: 0;
+}
+
+.photo-card {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    bottom: 60rpx;
+    right: 20rpx;
+    width: 258rpx;
+    height: 84rpx;
+    background: linear-gradient(310deg,#256de6,#2c81ff);
+    box-shadow: 12rpx 12rpx 20rpx 0 #d4d4d4,-12rpx -12rpx 14rpx 0 #fff;
+    border-radius: 42rpx;
+}
+
+.photo-card .img {
+    width: 38rpx;
+    height: 38rpx;
+    margin: auto 0;
+}
+
+.photo-card .txt {
+    margin: auto 0 auto 6rpx;
+    font-size: 32rpx;
+    color: #fff;
+}
+
+.quick-tip {
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+    padding: 0 20rpx;
+}
+
+.quick-tip,.quick-tip .i {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.quick-tip .i {
+    margin-right: 122rpx;
+}
+
+.quick-tip .i .img {
+    width: 32rpx;
+    height: 32rpx;
+    margin: auto 8rpx auto auto;
+}
+
+.quick-tip .i .n {
+    margin: auto;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #333;
+}
+
+.showOnTop {
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    height: 76rpx;
+    padding: 30rpx 20rpx 10rpx;
+}
+
+.searchCon {
+    background-color: #f3f3f3;
+    border-radius: 14rpx;
+    width: 710rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchCon .img {
+    height: 28rpx;
+    width: 28rpx;
+    margin-right: 10rpx;
+}
+
+.searchCon view {
+    font-size: 32rrpx;
+    margin-left: 8rpx;
+    color: #999;
+}
+
+.myConnections {
+    padding: 20rpx 0rpx 40rpx;
+    background: #fff;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.ribbon-count {
+    width: 710rpx;
+    margin: 0 auto;
+    justify-content: space-between;
+    background: linear-gradient(134deg,#f1e2d2,#fdf9ef);
+    border-radius: 14rpx;
+    border: 1px solid #e1bb8d;
+}
+
+.ribbon-count,.ribbon-count .t {
+    display: flex;
+}
+
+.ribbon-count .t {
+    flex-direction: column;
+    border-radius: 6rpx;
+    align-items: center;
+    padding: 40rpx;
+}
+
+.ribbon-count .l {
+    padding: 40rpx;
+}
+
+.ribbon-count .total {
+    font-size: 32rpx;
+}
+
+.ribbon-count .t .u {
+    text-align: center;
+    margin-top: 6rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #d1b784;
+    line-height: 34rpx;
+}
+
+.ribbon-count .t .b {
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 44rpx;
+    font-weight: 700;
+    color: #a47d35;
+    line-height: 44rpx;
+}
+
+.ribbon-count .m .b {
+    font-size: 44rpx;
+}
+
+.ribbon-count .t text {
+    font-size: 24rpx;
+    color: #e1bb8d;
+}
+
+.ribbon-show {
+    width: 710rpx;
+    flex-direction: row;
+    margin: 20rpx auto 0;
+}
+
+.ribbon-show,.ribbon-show .l {
+    display: flex;
+    align-items: center;
+}
+
+.ribbon-show .l {
+    flex-direction: column;
+    justify-content: center;
+    min-width: 48rpx;
+    padding-right: 20rpx;
+    margin-right: 40rpx;
+}
+
+.ribbon-show .l image {
+    height: 36rpx;
+    width: 36rpx;
+}
+
+.ribbon-show .l text {
+    font-size: 24rpx;
+    line-height: 34rpx;
+    margin-top: 10rpx;
+}
+
+.ribbon-show .t {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20rpx;
+    width: 386rpx;
+    height: 92rpx;
+    background: linear-gradient(128deg,#438fff,#256de6);
+    border-radius: 47rpx;
+    color: #fff;
+}
+
+.ribbon-show .t image {
+    height: 38rpx;
+    width: 38rpx;
+    margin-right: 6rpx;
+}
+
+.renmai {
+    width: 710rpx;
+    margin: 0 auto;
+}
+
+.renmai .renmai-total {
+    padding: 40rpx 20rpx;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    background: linear-gradient(134deg,#f1e2d2,#fdf9ef);
+    border-radius: 14rpx;
+    border: 1px solid #e1bb8d;
+}
+
+.renmai .renmai-total .t {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6rpx;
+    align-items: center;
+}
+
+.renmai .renmai-total .l {
+    margin: 0rpx 38rpx;
+}
+
+.renmai .renmai-total .r {
+    margin: 0rpx 42rpx;
+}
+
+.renmai .renmai-total .total {
+    font-size: 32rpx;
+}
+
+.renmai .renmai-total .t .u {
+    text-align: center;
+    margin-top: 6rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #e1bb8d;
+    line-height: 34rpx;
+}
+
+.renmai .renmai-total .t .b {
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 44rpx;
+    font-weight: 700;
+    color: #a47d35;
+    line-height: 44rpx;
+}
+
+.renmai .renmai-total .m .b {
+    font-size: 44rpx;
+}
+
+.renmai .renmai-total .t .lLine,.renmai .renmai-total .t .mLine,.renmai .renmai-total .t .rLine {
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    margin-top: 10rpx;
+}
+
+.renmai .renmai-total .t .lLine {
+    background: #37b8f8;
+}
+
+.renmai .renmai-total .t .mLine {
+    background: #deba8e;
+}
+
+.renmai .renmai-total .t .rLine {
+    background: #f94824;
+}
+
+.renmai .renmai-total .t text {
+    font-size: 24rpx;
+    color: #e1bb8d;
+}

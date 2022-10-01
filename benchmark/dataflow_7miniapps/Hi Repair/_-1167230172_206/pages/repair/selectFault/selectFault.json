@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "选择故障大类",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

@@ -1,0 +1,19 @@
+<component-topNavigation bindbuildBack="buildBack" id="topNavigation" showText="false" topTitle="{{topTitle}}" topType="buildCard" wx:if="{{systemInfo['v7.0.0']}}"></component-topNavigation>
+<view style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;" wx:if="{{systemInfo['v7.0.0']}}"></view>
+<component-buildguide steps="{{3}}"></component-buildguide>
+<view class="container_B" style="padding-top: 16rpx;">
+    <view class="success">
+        <component-canvasCheck canvasCheck="{{canvasCheck}}" id="canvasCheck"></component-canvasCheck>
+        <view class="tip">你已经会用浮窗找到名片了</view>
+    </view>
+    <view class="send-p">
+		快给「<view class="name">{{pname}}</view>」发一张名片吧
+	</view>
+    <view catch:tap="clickCard" class="card-heng" wx:if="{{options.hengshu!='shu'}}">
+        <image src="{{options.url}}"></image>
+    </view>
+    <view catch:tap="clickCard" class="card-shu" wx:if="{{options.hengshu=='shu'}}">
+        <image src="{{options.url}}"></image>
+    </view>
+    <button bindtap="toHome" class="about-button" data-t="2" openType="share" style="margin-top:80rpx;">发送名片</button>
+</view>

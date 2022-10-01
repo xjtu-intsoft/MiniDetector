@@ -1,0 +1,54 @@
+<template name="hot">
+    <view class="show_time" wx:if="{{isComing&&item.movie_show_date1}}">
+        <text class="show_time_text">{{item.movie_show_date1}}</text>
+    </view>
+    <view style="display: flex;flex-direction: row;width:100%">
+        <view class="image_parent movie_list_bg">
+            <image bindtap="mvoie_detail" class="image" data-id="{{item}}" id="{{item.id}}" mode="aspectFill" src="{{item.movie_img_url}}"></image>
+            <image bindtap="mvoie_detail" class="image_play" data-id="{{item}}" id="{{item.id}}" src="/images/common/dianyingshouye_icon_bofang.png" wx:if="{{is_show_trailer=='1'}}"></image>
+        </view>
+        <view bindtap="mvoie_detail" class="info" data-id="{{item}}">
+            <view class="name_parent" data-id="{{item}}">
+                <text catchtap="mvoie_detail" class="name" data-id="{{item}}">{{item.movie_name}}</text>
+                <text catchtap="mvoie_detail" class="threeD" data-id="{{item}}" wx:if="{{item.movie_format}}">{{item.movie_format}}</text>
+            </view>
+            <text catchtap="mvoie_detail" class="text_ellipse" data-id="{{item}}" style="margin-top:50rpx">{{item.movie_abstract}}</text>
+            <text catchtap="mvoie_detail" class="text_ellipse" data-id="{{item}}">主演：{{item.movie_cast}}</text>
+        </view>
+        <view class="right">
+            <view>
+                <text style="font-size:var(--font-tc);color:var(--color-cb)">{{point.rate(item.movie_rate,0)}}</text>
+                <text style="font-size:var(--font-tf);color:var(--color-cb)">.{{point.rate(item.movie_rate,1)}}</text>
+            </view>
+            <text catchtap="goToSeat" class="btn_ticket_buy" data-id="{{item.movie_id}}" wx:if="{{item.sell_status==1}}">购票</text>
+            <text catchtap="goToSeat" class="btn_ticket_buy" data-id="{{item.movie_id}}" wx:if="{{item.sell_status==2}}">预售</text>
+        </view>
+    </view>
+    <view style="background:transparent;height:32rpx;"></view>
+    <view class="h_line_norma" hidden="{{isComing&&!item.show_line}}" style="margin-left: 152rpx;"></view>
+</template>
+<wxs module="point">
+var rate = (function(rate, index) {
+    if (!rate) {
+        return ("")
+    };
+    var tempRate = rate + "";
+    var array = tempRate.split(".");
+    if (array.length == 2) {
+        if (index == 0) {
+            return (array[(0)])
+        } else {
+            return (array[(1)])
+        }
+    } else {
+        if (index == 0) {
+            return (array[(0)])
+        } else {
+            return ("0")
+        }
+    }
+});
+module.exports = ({
+    rate: rate,
+});
+</wxs>

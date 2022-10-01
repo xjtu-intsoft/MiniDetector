@@ -1,0 +1,161 @@
+page {
+    background-color: #fff;
+}
+
+.load-con,page {
+    height: 100%;
+    width: 100%;
+}
+
+.load-con {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.load-con .load-tip {
+    margin: auto;
+}
+
+.immersive .homePage .outCircle {
+    width: 60rpx;
+    height: 46rpx;
+    border-radius: 50%;
+    border: 1px solid #c6c6c6;
+    text-align: center;
+    padding-top: 12rpx;
+}
+
+.immersive .homePage .outCircle .microvcardlogo {
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.loading-container {
+    position: fixed;
+    height: 100rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 0;
+    margin-top: -50rpx;
+}
+
+.loading-container .loading-container-tip {
+    margin-top: 28rpx;
+    text-align: center;
+    font-weight: 700;
+    color: #3f51b5;
+}
+
+.freshCon {
+    position: absolute;
+    right: 20rpx;
+    bottom: 140rpx;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.freshCon image {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.freshCon .dot {
+    position: absolute;
+    right: 36rpx;
+    top: 36rpx;
+    width: 18rpx;
+    height: 18rpx;
+    border-radius: 50%;
+    background: #f33632;
+}
+
+.myToast {
+    width: 488rpx;
+    padding: 40rpx 48rpx 38rpx 50rpx;
+    height: 88rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #fff;
+    line-height: 44rpx;
+    background: #111;
+    border-radius: 10rpx;
+    opacity: .7;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 50;
+}
+
+.goMain {
+    position: fixed;
+    bottom: 20rpx;
+    width: 710rpx;
+    left: 20rpx;
+    box-shadow: 2rpx 6rpx 8rpx 0rpx rgba(65,65,65,.33);
+    border-radius: 14rpx;
+    z-index: 2;
+}
+
+.goMain .goMain-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(130deg,#2a2a2a,#5e5e5e);
+    opacity: .86;
+    border-radius: 14rpx;
+}
+
+.goMain .goMain-con {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 24rpx;
+    color: #fff;
+    line-height: 34rpx;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.goMain .goMain-con-logo {
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.goMain .goMain-con-c {
+    width: 520rpx;
+}
+
+.goMain .goMain-con-c text {
+    color: #1ecdf8;
+    font-size: 36rpx;
+}
+
+.goMain .goMain-con-right {
+    width: 30rpx;
+    height: 30rpx;
+    padding: 20rpx;
+}
+
+.roof-place-tip {
+    text-align: center;
+    height: 72rpx;
+    line-height: 72rpx;
+    background: #fff7ea;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #f2a72c;
+}

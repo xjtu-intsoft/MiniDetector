@@ -1,0 +1,9 @@
+<view class="about-con" wx:if="{{show}}">
+    <view class="about-contioner">
+        <image class="about-bg" src="{{imageU}}"></image>
+        <view class="about-title">欢迎使用“递名片”</view>
+        <view class="about-content1">我们是一款专业的电子名片产品，您刚刚体验了“我的班级”功能。</view>
+        <view class="about-content2">您可以使用本小程序来收发电子名片、拍照存名片、管理群友名片等。</view>
+        <view bindtap="_experience" class="about-button">立即体验</view>
+    </view>
+</view>

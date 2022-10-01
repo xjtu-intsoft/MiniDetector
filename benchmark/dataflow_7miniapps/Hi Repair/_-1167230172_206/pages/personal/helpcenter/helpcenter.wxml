@@ -1,0 +1,12 @@
+<view class="qa_container">
+    <view class="qa_wrap" wx:for="{{QAList}}" wx:key="index">
+        <view class="q_wrap">
+            <view class="q">Q</view>
+            <view class="q_detail">{{item.question}}</view>
+        </view>
+        <view class="a_wrap">
+            <view class="a">A</view>
+            <view class="a_detail">{{item.answer}}</view>
+        </view>
+    </view>
+</view>

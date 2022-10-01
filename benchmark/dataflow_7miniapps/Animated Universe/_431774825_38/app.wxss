@@ -1,0 +1,68 @@
+page {
+    color: #fff;
+    background: #13131f;
+    height: 100%;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+}
+
+button::after {
+    border: none;
+}
+
+.public-canvas {
+    position: fixed;
+    top: 1000000rpx;
+    left: 0;
+    width: 750px;
+    height: 2000px;
+}
+
+.judge-canvas {
+    position: fixed;
+    top: 20000px;
+    width: 2px;
+    height: 2px;
+}
+
+.m-14 {
+    margin: 14rpx 0;
+}
+
+.mt-40 {
+    margin-top: 40rpx;
+}
+
+.mt-24 {
+    margin-top: 24rpx;
+}
+
+.mb-32 {
+    margin-bottom: 32rpx;
+}
+
+.noMore {
+    text-align: center;
+}
+
+.loadding {
+    display: block;
+    padding: 22rpx 278rpx 36rpx;
+    width: 194rpx;
+    height: 94rpx;
+    background: #13131f;
+}
+
+.public-top-bg {
+    width: 100%;
+}
+
+.add-text-label {
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    float: left;
+    border: dashed #C2C2C2 1px;
+}

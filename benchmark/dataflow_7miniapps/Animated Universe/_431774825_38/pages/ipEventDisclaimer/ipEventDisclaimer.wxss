@@ -1,0 +1,16 @@
+.container {
+    padding: 0 20rpx;
+    font-size: 16px;
+}
+
+.container .cell {
+    margin-bottom: 10rpx;
+}
+
+.container .cell .title {
+    margin: 10rpx 0;
+}
+
+.container .cell text {
+    display: inline-block;
+}

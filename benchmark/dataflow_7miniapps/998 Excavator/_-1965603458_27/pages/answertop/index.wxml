@@ -1,0 +1,34 @@
+<image bindtap="gameer" class="er" src="/images/icon/er.png"></image>
+<view class="title">
+    <view bindtap="today" class="{{active=='today'?'on':''}}">
+        <text>今日排名</text>
+    </view>
+    <view bindtap="yestoday" class="{{active=='yestoday'?'on':''}}">
+        <text>昨日排名</text>
+    </view>
+    <view bindtap="weeks" class="{{active=='weeks'?'on':''}}">
+        <text>本周排行</text>
+    </view>
+</view>
+<scroll-view bindscrolltolower="loadmore" class="toplist" scrollY="true">
+    <view class="item" wx:for="{{topdata}}" wx:for-index="idx" wx:key="it">
+        <view>{{idx+1}}</view>
+        <image src="{{item.avatars}}"></image>
+        <view>
+            <text>{{item.username}}</text>
+        </view>
+        <view>{{item.level}}关</view>
+    </view>
+</scroll-view>
+<view class="now">
+    <view class="item">
+        <view>{{curr.rownum}}</view>
+        <image src="{{curr.avatars}}"></image>
+        <view>{{curr.username}}</view>
+        <view>{{curr.level}}关</view>
+    </view>
+</view>
+<view class="gamebtn">
+    <button bindtap="redo">继续闯关</button>
+    <button openType="share">发起挑战</button>
+</view>

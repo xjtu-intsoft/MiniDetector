@@ -1,0 +1,153 @@
+.item_body_parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_body,.item_body_parent {
+    position: relative;
+    width: 644rpx;
+}
+
+.item_body {
+    height: 366rpx;
+}
+
+.qrcode {
+    position: absolute;
+    width: 126rpx;
+    height: 136rpx;
+    right: 0rpx;
+    top: 0rpx;
+}
+
+.item_parent {
+    width: 644rpx;
+    height: 366rpx;
+    padding-left: 48rpx;
+    padding-right: 40rpx;
+    box-sizing: border-box;
+}
+
+.item_1,.item_parent {
+    display: flex;
+    flex-direction: column;
+}
+
+.item_1 {
+    position: relative;
+}
+
+.level {
+    margin-top: 53rpx;
+    line-height: 50rpx;
+    height: 50rpx;
+    font-size: var(--font-tb);
+    font-weight: 500;
+}
+
+.level,.name {
+    width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.name {
+    line-height: 36rpx;
+    font-size: var(--font-tg);
+}
+
+.card_type {
+    font-size: var(--font-tf);
+    border-radius: 30rpx;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    margin-top: 10rpx;
+    color: #fff;
+}
+
+.card_num {
+    position: absolute;
+    top: 166rpx;
+    font-size: var(--font-tc);
+}
+
+.unit_list {
+    font-size: var(--font-td);
+}
+
+.integral_bottom_parent {
+    margin-top: 35rpx;
+}
+
+.integral_bottom,.integral_bottom_parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.integral_bottom {
+    width: 100%;
+    align-items: baseline;
+}
+
+.integral_score {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.integral {
+    font-size: var(--font-tg);
+    margin-right: 10rpx;
+}
+
+.integral_value {
+    max-width: 270rpx;
+    font-size: 56rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.valid_time {
+    font-size: var(--font-tg);
+    margin-top: 16rpx;
+    line-height: 36rpx;
+    vertical-align: middle;
+    margin-right: 5rpx;
+}
+
+.chongzhi {
+    color: #7e5714;
+}
+
+.quanyi {
+    color: #424757;
+}
+
+.white {
+    color: #fff;
+}
+
+.is_hidden {
+    display: none;
+}
+
+.card_status_badge {
+    width: 184rpx;
+    line-height: 124rpx;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+    font-size: var(--font-tg);
+    color: var(--color-cd);
+    font-weight: 500;
+    transform: rotate(-20deg);
+}

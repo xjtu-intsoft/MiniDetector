@@ -1,0 +1,307 @@
+page {
+    width: 100%;
+    background: #f3cc7f;
+}
+
+.turntitle {
+    text-align: center;
+    padding-top: 10rpx;
+}
+
+.turntitle image {
+    width: 250px;
+    height: auto;
+    margin: 0px auto;
+}
+
+.container {
+    z-index: 1;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.gostart {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.gostart button {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    width: 40%;
+    background: url('http://images.998jx.com/youxi/game_bt.png');
+    background-size: 100% 100%;
+}
+
+.gostart button:first-child {
+    color: #ca1518;
+}
+
+.plate-wrap-box {
+    position: relative;
+    z-index: 999;
+    width: 600rpx;
+    height: 600rpx;
+    border-radius: 50%;
+    margin: 0 auto 30rpx;
+}
+
+.plate-border {
+    position: relative;
+    z-index: 9;
+    width: 600rpx;
+    height: 600rpx;
+    background-color: #ffbe04;
+    border-radius: 50%;
+}
+
+.plate-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9;
+    width: 540rpx;
+    height: 540rpx;
+    border: 1rpx solid #e88605;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.plate-light {
+    z-index: 1;
+    width: 600rpx;
+    height: 600rpx;
+    border: none;
+}
+
+.plate-box {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    width: 0;
+    height: 0;
+    font-size: 24rpx;
+}
+
+.bulb {
+    position: absolute;
+    width: 16rpx;
+    height: 16rpx;
+    left: 50%;
+    top: -292rpx;
+    transform: translate(-50%,0);
+    border-radius: 50%;
+    background-color: #fff0c7;
+    filter: blur(0.5rpx);
+}
+
+.text-box {
+    position: absolute;
+    display: block;
+    width: 200rpx;
+    height: 150rpx;
+    top: -264rpx;
+    transform: translate(-50%,0);
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.text-box text {
+    display: block;
+    text-align: center;
+}
+
+.text-box image {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 0px auto;
+}
+
+.plate-btn-wrap {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+}
+
+.plate-btn-wrap::before {
+    content: '';
+    position: absolute;
+    z-index: 9;
+    left: calc(50% - 10rpx);
+    top: -40rpx;
+    transform: translate(-50%,0);
+    width: 0;
+    height: 0;
+    border-bottom: 80rpx solid #e7211b;
+    border-left: 20rpx solid transparent;
+}
+
+.plate-btn-wrap::after {
+    content: '';
+    position: absolute;
+    z-index: 9;
+    left: calc(50% + 10rpx);
+    top: -40rpx;
+    transform: translate(-50%,0);
+    width: 0;
+    height: 0;
+    border-bottom: 80rpx solid #ca1518;
+    border-right: 20rpx solid transparent;
+}
+
+.plate-btn-box {
+    position: relative;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #e62d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plate-inner-btn {
+    position: relative;
+    z-index: 999;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    background-color: #ca1518;
+    font-size: 28rpx;
+    color: #fdcf03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 30rpx;
+}
+
+.resuts {
+    font-size: 14px;
+    text-align: center;
+}
+
+.resuts text {
+    color: #666;
+}
+
+.contact {
+    height: 50px;
+}
+
+.jlist {
+    margin: 0px 30rpx 20rpx 30rpx;
+    padding: 20rpx 30rpx;
+    font-size: 14px;
+    background: #faeaca;
+    border-radius: 10rpx;
+}
+
+.jlist .tab {
+    text-align: center;
+    display: inline-block;
+    width: 33.3%;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #999;
+    border-bottom: 1px solid #f3cc7f;
+    padding-bottom: 10px;
+}
+
+.jlist text {
+    display: block;
+    color: #cd332e;
+}
+
+.jlist .on {
+    color: #000;
+}
+
+.myjplist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.myjplist view:nth-child(1) {
+    flex: 0 0 60px;
+}
+
+.myjplist view:nth-child(2) {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.myjplist view:nth-child(3) {
+    flex: 0 0 82px;
+}
+
+.jplist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jplist image {
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 2px;
+}
+
+.jplist view {
+    font-size: 14px;
+}
+
+.jplist view:nth-child(2) {
+    flex: 0 0 60px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jplist view:nth-child(3) {
+    flex: auto;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jplist view:nth-child(4) {
+    flex: 0 0 82px;
+}
+
+.fulltag {
+    position: absolute;
+    top: 15px;
+    right: -60px;
+    font-size: 14px;
+    background: #f06b5a;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 60px;
+    transform: rotate(45deg);
+}
+
+.listarea {
+    min-height: 300px;
+}

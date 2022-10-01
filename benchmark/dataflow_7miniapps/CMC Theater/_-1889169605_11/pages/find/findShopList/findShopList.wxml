@@ -1,0 +1,28 @@
+<view class="findshop-list-nogoods {{goodList.length<=0?'':'is-hidden'}}">
+    <image class="nogoods-image" src="/images/shop/search.png"></image>
+    <view class="nogoods-title">暂无商品，去别处逛逛~</view>
+</view>
+<scroll scrollY bindscrolltolower="loadMoreGoods" class="findshop-scroll-list {{goodList.length<=0?'is-hidden':''}}">
+    <view bindtap="goGoodDetail" class="findshop-scroll-listcell" data-index="{{index}}" wx:for="{{goodList}}" wx:key="id">
+        <view class="findshop-listcell-view">
+            <image class="findshop-listcell-image" src="{{item.pic}}"></image>
+            <view class="findshop-listcell-prentview">
+                <view class="findshop-listcell-name">{{item.name}}</view>
+                <view class="findshop-listcell-des">{{item.intro}}</view>
+                <view class="findshop-listcell-promo-cell">
+                    <image class="findshop-listcell-promo-tuijian {{item.is_hot_goods=='1'?'':'is-hidden'}}" src="/images/addmore/Tag_tuijian.png"></image>
+                    <image class="findshop-listcell-huiview {{item.havePromo?'':'is-hidden'}}" mode="aspectFit" src="{{item.promoPic}}" style="width: {{item.promoPicW}};"></image>
+                </view>
+                <view class="findshop-listcell-price-view">
+                    <view class="findshop-listcell-priceview">
+                        <view class="findshop-listcell-price">¥{{item.showPrice}}</view>
+                        <view class="findshop-listcell-oldprice {{item.havePromo&&!item.isAddMore?'':'is-hidden'}}">¥{{item.price}}</view>
+                    </view>
+                    <view class="findshop-hotgoods-title {{item.inventory<=0||item.inventory>5?'is-hidden':''}}">仅剩{{item.inventory}}份</view>
+                </view>
+            </view>
+        </view>
+        <view class="lineview"></view>
+    </view>
+    <view class="findshop-buttom-title {{goodList.length==totalCount?'':'is-hidden'}}">已经全部加载完毕</view>
+</scroll>

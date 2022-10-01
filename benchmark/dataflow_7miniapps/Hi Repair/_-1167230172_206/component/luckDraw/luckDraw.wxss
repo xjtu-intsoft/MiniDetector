@@ -1,0 +1,30 @@
+.luck-draw-dialog {
+    z-index: 199;
+}
+
+.luck-draw-dialog,.luck-draw-dialog-modal {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.luck-draw-dialog-modal {
+    background: rgba(0,0,0,.7);
+}
+
+.luck-draw-dialog-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.luck-draw-dialog-main .title {
+    font-size: 34rpx;
+    color: #fff;
+    text-align: center;
+}

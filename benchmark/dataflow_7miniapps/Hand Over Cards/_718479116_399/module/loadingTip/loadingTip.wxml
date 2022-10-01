@@ -1,0 +1,12 @@
+<view class="loader">
+    <view class="loader-inner ball-spin-fade-loader">
+        <view class="v v1"></view>
+        <view class="v v2"></view>
+        <view class="v v3"></view>
+        <view class="v v4"></view>
+        <view class="v v5"></view>
+        <view class="v v6"></view>
+        <view class="v v7"></view>
+        <view class="v v8"></view>
+    </view>
+</view>

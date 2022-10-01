@@ -1,0 +1,40 @@
+<view class="activity-page">
+    <view class="activity-win">
+        <view class="activity-no-phone" wx:if="{{!hasPhone}}">
+            <image class="activity-icon-question" src="/images/question_mark_icon.png"></image>
+            <text>看不到抽奖信息?</text>
+            <button bindtap="goBindPhonePage" class="activity-bind-phone">
+        绑定手机
+        <image src="/images/icon_see_all_white.png"></image>
+            </button>
+        </view>
+        <view class="activity-win-list" wx:if="{{hasPhone}}" wx:for="{{winningList}}" wx:key="{{index}}">
+            <image class="activity-ip-icon" src="{{item.ip_icon}}"></image>
+            <block wx:if="{{item.winning_type==2}}">
+                <view class="activity-win-mid">
+                    <image src="/images/colorful_rectangle.png"></image>
+                    <text>{{item.winning_title}}</text>
+                </view>
+                <button openType="contact">联系客服领奖</button>
+            </block>
+            <block wx:else>
+                <text class="activity-no-win-text">{{item.winning_title}}</text>
+                <image bindtap="closeNotify" class="activity-icon-delete" data-index="{{index}}" data-ip_id="{{item.ip_id}}" src="/images/icon_clear_text.png" wx:if="{{item.winning_type==1}}"></image>
+                <view bindtap="viewDetails" class="activity-view-details" data-ip_id="{{item.ip_id}}" wx:elif="{{item.winning_type==3}}">
+            查看详情
+            <image src="/images/icon_see_all.png"></image>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="activity-list" wx:if="{{isShowActivity}}">
+        <view bindtap="viewDetails" class="activity-list-item" data-ip_id="{{item.ip_id}}" wx:for="{{activityList}}" wx:key="{{index}}">
+            <image class="activity-banner" mode="widthFix" src="{{item.banner}}"></image>
+            <view class="activity-win-list">
+                <image class="activity-ip-icon" src="{{item.ip_icon}}"></image>
+                <view class="activity-no-win-text">{{item.prompt}}</view>
+                <image class="activity-rt-arrow" src="/images/right_arrows.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

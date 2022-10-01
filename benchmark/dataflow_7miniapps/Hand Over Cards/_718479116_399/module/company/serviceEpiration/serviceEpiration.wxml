@@ -1,0 +1,10 @@
+<view class="service-expire" wx:if="{{enterprisesData.entName}}">
+    <image catch:tap="_closeMsgTip" class="close" src="/images/company/panel-close.png"></image>
+    <image class="bg" src="/images/newMain/pay-bg.png"></image>
+    <view catch:tap="_toRenewal" class="contianer">
+        <view class="name">{{enterprisesData.entName}}</view>
+        <view class="residueDate">企业版服务剩余{{enterprisesData.residueDate}}天</view>
+        <view class="tip">到期后名片样式、微官网等功能将受影响，请尽快续期</view>
+        <view class="btn">立即续期</view>
+    </view>
+</view>

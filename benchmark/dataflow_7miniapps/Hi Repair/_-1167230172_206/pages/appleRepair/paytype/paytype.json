@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "付款方式及费用说吗",
+    "usingComponents": {
+        "luck-draw-dialog": "/component/luckDraw/luckDraw"
+    }
+}

@@ -1,0 +1,18 @@
+<view>
+    <video controls bindfullscreenchange="_sceenchange" class="player" danmuBtn="{{false}}" id="myVideo" playBtnPosition="center" showFullscreenBtn="{{false}}" showMuteBtn="true" src="{{videoPath}}"></video>
+    <view class="scroll">
+        <view catch:tap="_playVideo" class="video" data-video-src="{{video.videoPath}}" wx:for="{{videoList}}" wx:for-index="idx" wx:for-item="video" wx:key="{{idx}}">
+            <image class="bg" mode="widthFix" src="{{video.upVideoPoster}}"></image>
+            <view class="bg-panel">
+                <image catch:tap="_deleteVideo" class="del" data-video-idx="{{idx}}" src="/images/newEdit/del.png"></image>
+                <image class="play" src="/images/newEdit/play-btn.png"></image>
+            </view>
+        </view>
+        <view catch:tap="_uploadVideo" class="video" wx:if="{{videoList.length<1}}">
+            <view class="add">
+                <image class="i" mode="widthFix" src="{{pageFlag=='webcardEdit'?'/images/preview/video2.png':'/images/preview/video.png'}}"></image>
+                <view class="txt {{pageFlag=='webcardEdit'?'new-txt':''}}" wx:if="{{!videoList.length}}">上传视频</view>
+            </view>
+        </view>
+    </view>
+</view>

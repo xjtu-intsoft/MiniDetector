@@ -1,0 +1,283 @@
+.container {
+    padding-top: 60rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .noInvoiceImg {
+    display: block;
+    margin: 0 auto;
+    width: 258rpx;
+    height: 258rpx;
+}
+
+.invoice-btn {
+    width: 372rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    background: linear-gradient(128deg,#438fff,#256de6);
+    box-shadow: 12rpx 12rpx 20rpx 0rpx rgba(41,46,59,.17);
+    border-radius: 47rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 12rpx 12rpx 20rpx rgba(41,46,59,.17);
+    display: block;
+    margin: 60rpx auto 0;
+}
+
+.manage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    letter-spacing: -.01px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.manage .manage-item {
+    padding: 26rpx 0 32rpx;
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-right: 2.7%;
+}
+
+.invoiceList {
+    width: 100%;
+    margin-top: 10rpx;
+}
+
+.invoiceList-item {
+    width: 710rpx;
+    height: 164rpx;
+    margin: auto;
+    background: #fff;
+    box-shadow: 0rpx 0rpx 8rpx 0rpx hsla(0,0%,83.1%,.6);
+    border-radius: 12rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.invoiceList-switch {
+    margin-right: 24rpx;
+    height: 46rpx;
+    width: 76rpx;
+    border-radius: 23rpx;
+}
+
+.invoiceList-switch-item {
+    height: 46rpx;
+    width: 46rpx;
+    border-radius: 23rpx;
+    background-color: #fff;
+    border: 0 solid rgba(0,0,0,.04);
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,.15),0 1px 1px 0 rgba(0,0,0,.16),0 3px 1px 0 rgba(0,0,0,.1);
+}
+
+.switch-itemT {
+    background-color: #4cd964;
+    border: 1px solid #4cd964;
+}
+
+.switch-itemF {
+    background-color: #fff;
+    border: 1px solid #e5e5ea;
+}
+
+.switch-item-T {
+    margin-left: 30rpx;
+}
+
+.switch-item-F {
+    margin-left: 0rpx;
+}
+
+.switchT-animation {
+    animation: switchT .5s ease-out forwards;
+}
+
+.switchF-animation {
+    animation: switchF .5s ease-out forwards;
+}
+
+.invoiceList .invoiceListCon {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 172rpx;
+    align-items: center;
+}
+
+.invoiceList-radio-container {
+    width: 72rpx;
+    height: 72rpx;
+    margin-right: 6rpx;
+}
+
+.invoiceList .invoiceList-radio-item {
+    height: 2rpx;
+    width: 18rpx;
+    background-color: #fff;
+    position: absolute;
+    margin: 15rpx 7rpx;
+}
+
+.invoiceList-item .item-con,.invoiceList-item .item-con2 {
+    height: 100%;
+}
+
+.invoiceList-item .item-con2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.invoiceList-item .item-con2 .icon {
+    align-self: center;
+    margin: auto 20rpx;
+    width: 56rpx;
+    min-width: 56rpx;
+    padding: 20rpx;
+    height: 56rpx;
+    background: rgba(41,121,255,.1);
+    border-radius: 100%;
+}
+
+.invoiceList-item .item-con-top {
+    width: 550rpx;
+}
+
+.viewEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.invoiceList-item .item-con-top .top-title {
+    height: 44rpx;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #333;
+    line-height: 44rpx;
+}
+
+.invoiceList-item .item-con-bot {
+    height: 40rpx;
+    font-size: 28rpx;
+    color: #999;
+    line-height: 40rpx;
+    margin-top: 12rpx;
+}
+
+.add {
+    display: flex;
+    background: #fff;
+    box-shadow: 0rpx 0rpx 8rpx 0rpx hsla(0,0%,83.1%,.6);
+    border-radius: 12rpx;
+    width: 710rpx;
+    height: 164rpx;
+    justify-content: center;
+    align-items: center;
+    margin: 30rpx auto auto;
+}
+
+.add .item-add {
+    height: 60rpx;
+    line-height: 60rpx;
+    letter-spacing: -.1px;
+    color: #333;
+}
+
+.add .item-add:nth-child(1) {
+    align-self: center;
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 6rpx;
+}
+
+.manage .view {
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.manage .image {
+    height: 30rpx;
+    width: 30rpx;
+    margin: 5rpx 10rpx;
+}
+
+.buttonCon {
+    padding: 0 0 30rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: #ebebeb;
+}
+
+.button-item {
+    border-radius: 6rpx;
+    font-size: 32rpx;
+    margin-left: 2.7%;
+    width: 94.6%;
+}
+
+.buttonCon .button-item:nth-child(1) {
+    color: #1aad19;
+    text-align: center;
+    width: 100%;
+}
+
+.buttonCon .button-item:nth-child(2) {
+    background: #1aad19;
+    height: 80rpx;
+}
+
+.buttonCon .button-item:nth-child(3) {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    color: #333;
+    height: 80rpx;
+}
+
+.move-area {
+    box-sizing: border-box;
+    padding: auto 20rpx;
+    overflow-x: hidden;
+    width: 100%;
+    height: 172rpx;
+    margin-top: 30rpx;
+}
+
+.move-view {
+    width: 886rpx;
+    height: 0;
+}
+
+.del {
+    display: flex;
+    margin-right: 20rpx;
+    width: 116rpx;
+    height: 164rpx;
+    background: #ff3b2f;
+    box-shadow: 0 0 6rpx 0 hsla(0,0%,73.7%,.5);
+    border-radius: 6rpx;
+}
+
+.del,.del .txt {
+    align-self: center;
+}
+
+.del .txt {
+    margin: auto;
+    font-size: 30rpx;
+    font-weight: 400;
+    color: #fff;
+    line-height: 42rpx;
+}

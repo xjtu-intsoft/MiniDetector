@@ -1,0 +1,23 @@
+.search-default {
+    padding: 48rpx 22rpx 0 24rpx;
+    background: #13131F;
+}
+
+.search-default-texts {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20rpx;
+}
+
+.search-default-texts text {
+    margin-top: 20rpx;
+    margin-right: 30rpx;
+    padding: 8rpx 14rpx;
+    background: #2A2D3F;
+    border-radius: 8rpx;
+    font-size: 32rpx;
+}
+
+.search-history {
+    margin-bottom: 60rpx;
+}

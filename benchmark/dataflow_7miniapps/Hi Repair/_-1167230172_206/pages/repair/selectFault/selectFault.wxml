@@ -1,0 +1,11 @@
+<view class="faultList">
+    <view bindtap="{{item.bind}}" class="faultItem" data-faultid="{{item.id}}" data-faultname="{{item.content}}" wx:for="{{faultList}}">
+        <view class="imgView">
+            <image src="{{item.imgUrl}}"></image>
+        </view>
+        <view class="textView">
+            <view class="title">{{item.content}}</view>
+            <view class="openTime">{{item.desc}}</view>
+        </view>
+    </view>
+</view>

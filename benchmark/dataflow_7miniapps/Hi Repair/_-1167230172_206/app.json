@@ -1,0 +1,115 @@
+{
+    "pages": [
+        "pages/repair/home/home",
+        "pages/repair/homeGiftWeb/homeGiftWeb",
+        "pages/repair/activityWeb190925/activityWeb190925",
+        "pages/repair/bannerWeb/bannerWeb",
+        "pages/repair/selectFault/selectFault",
+        "pages/repair/memoryUp/memoryUp",
+        "pages/repair/memoryUp-createOrder/memoryUp-createOrder",
+        "pages/repair/orderSubmitted/orderSubmitted",
+        "pages/repair/createOrder/createOrder",
+        "pages/repair/chooseDevice/chooseDevice",
+        "pages/repair/searchDevice/searchDevice",
+        "pages/repair/faultDetail/faultDetail",
+        "pages/repair/oneKeyOrder/oneKeyOrder",
+        "pages/repair/oneKeyAddressOrder/oneKeyAddressOrder",
+        "pages/repair/couponList/couponList",
+        "pages/repair/aboutusWeb/aboutusWeb",
+        "pages/repair/repairDesWeb/repairDesWeb",
+        "pages/repair/userAgreementWeb/userAgreementWeb",
+        "pages/repair/recycleuserAgreementWeb/recycleuserAgreementWeb",
+        "pages/repair/fulishe/fulishe",
+        "pages/personal/myOrderDetail/myOrderDetail",
+        "pages/personal/recycleOrderDetail/recycleOrderDetail",
+        "pages/personal/myOrderList/myOrderList",
+        "pages/personal/expressInfo/expressInfo",
+        "pages/personal/orderCancel/orderCancel",
+        "pages/personal/orderComment/orderComment",
+        "pages/personal/postDevice/postDevice",
+        "pages/personal/addAddress/addAddress",
+        "pages/personal/addressList/addressList",
+        "pages/personal/login/login",
+        "pages/personal/chooseLogin/chooseLogin",
+        "pages/personal/myOrderListWeb/myOrderListWeb",
+        "pages/personal/warrantyDetail/warrantyDetail",
+        "pages/personal/myHelpCenterWeb/myHelpCenterWeb",
+        "pages/personal/myFeedBackWeb/myFeedBackWeb",
+        "pages/personal/selfCenter/selfCenter",
+        "pages/personal/setting/setting",
+        "pages/personal/helpcenter/helpcenter",
+        "pages/personal/usercoupon/usercoupon",
+        "pages/storeAddress/storeAddress",
+        "pages/recycle/home/home",
+        "pages/recycle/ordersuccess/ordersuccess",
+        "pages/recycle/commitorder/commitorder",
+        "pages/recycle/phonelist/phonelist",
+        "pages/recycle/faultprice/faultprice",
+        "pages/recycle/searchmodel/searchmodel",
+        "pages/recycle/voucher/voucher",
+        "pages/recycle/addAddress/addAddress",
+        "pages/recycle/addressList/addressList",
+        "pages/activity/liuyiba/liuyiba",
+        "pages/activity/hotactivity/hotactivity",
+        "pages/HiYouxuan/youxuanhome/youxuanhome",
+        "pages/personal/pay/pay",
+        "pages/personal/estimateresult/estimateresult",
+        "pages/personal/expressInforecycle/expressInforecycle",
+        "pages/appleRepair/fault/fault",
+        "pages/appleRepair/phonemodel/phonemodel",
+        "pages/appleRepair/order/order",
+        "pages/appleRepair/locationshop/locationshop",
+        "pages/appleRepair/coupon/coupon",
+        "pages/appleRepair/commonproblem/commonproblem",
+        "pages/appleRepair/repairwarranty/repairwarranty",
+        "pages/appleRepair/paytype/paytype",
+        "pages/appleRepair/ordersuccess/ordersuccess"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarTitleText": "Hi维修",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#fff",
+        "navigationBarBackgroundColor": "#fff"
+    },
+    "tabBar": {
+        "color": "#ACA3A3",
+        "selectedColor": "#FF5000",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/repair/home/home",
+                "text": "首页",
+                "iconPath": "img/tabbar/shouye-hui.png",
+                "selectedIconPath": "img/tabbar/shouye-juse.png"
+            },
+            {
+                "pagePath": "pages/recycle/home/home",
+                "text": "Hi回收",
+                "iconPath": "img/tabbar/huishou-hui.png",
+                "selectedIconPath": "img/tabbar/huishou-juse.png"
+            },
+            {
+                "pagePath": "pages/HiYouxuan/youxuanhome/youxuanhome",
+                "text": "Hi优品",
+                "iconPath": "img/tabbar/youping-hui.png",
+                "selectedIconPath": "img/tabbar/youping-juse.png"
+            },
+            {
+                "pagePath": "pages/personal/selfCenter/selfCenter",
+                "text": "我的",
+                "iconPath": "img/tabbar/wode-hui.png",
+                "selectedIconPath": "img/tabbar/wode-juse.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wx05173ac0eee13384"
+    ],
+    "debug": true
+}

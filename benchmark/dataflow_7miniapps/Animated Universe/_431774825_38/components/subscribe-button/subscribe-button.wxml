@@ -1,0 +1,12 @@
+<form bind:submit="submitFormId" reportSubmit="true" wx:if="{{item.user_sub==1}}">
+    <button class="subscribe-button subscribe-button-has" formType="submit">
+        <image mode="aspectFit" src="/images/icon_tick_recommand.png"></image>
+        <text>已订</text>
+    </button>
+</form>
+<form bind:submit="subscribe" reportSubmit="true" wx:else>
+    <button class="subscribe-button subscribe-button-no" formType="submit">
+        <image mode="aspectFit" src="/images/icon_plus.png"></image>
+        <text>订阅</text>
+    </button>
+</form>

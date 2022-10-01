@@ -1,0 +1,42 @@
+<text class="tip">绑定所有通道，可以避免失败，丰富商户类型</text>
+<view class="head">
+    <text class="item-title">认证通道</text>
+    <view class="item-body">
+        <view bindtap="onChoseChannel" class="item-channel" data-position="{{position}}" wx:for="{{channelData}}" wx:for-index="position">
+            <text class="item-channel-progress" style="width:{{item.progress}}rpx"></text>
+            <text class="item-channel-num">{{item.name}}</text>
+            <image class="item-channel-check" hidden="{{position==currentChannelPosition?false:true}}" src="../../images/ic_channel_check.png"></image>
+        </view>
+    </view>
+</view>
+<image bindtap="changeLargeOpeningTip" class="btn-large-opening" src="../../images/btn_large_opening.jpg" wx:if="{{isSupportBigChannel}}"></image>
+<view class="modal-large-opening-box" wx:if="{{showLargeOpeningTip}}">
+    <view class="modal-large-opening" style="background:url('../../images/bg_large_opening.jpg') white no-repeat;background-size:100%">
+        <view class="modal-large-opening-title">通知提醒</view>
+        <view class="modal-large-opening-content">
+      {{msg}}
+    </view>
+        <view class="modal-large-opening-btn">
+            <button bindtap="changeLargeOpeningTip">退出</button>
+            <button bindtap="largeOpening">开启</button>
+        </view>
+        <view bindtap="toMemberPage" class="beMember">升级会员，降低费率</view>
+    </view>
+</view>
+<view class="body">
+    <view class="body-body">
+        <scroll-view class="scroll-body" scrollY="true">
+            <view class="item" wx:for="{{cards}}" wx:for-index="position">
+                <view class="item-bank-info {{item.itemBG}}">
+                    <image class="item-bank-icon" mode="aspectFit" src="{{item.url}}"></image>
+                    <text class="item-bank-num">{{item.cardNumber}}</text>
+                    <text class="item-bank-name">{{item.bankName}}</text>
+                </view>
+                <view class="item-other">
+                    <button bindtap="onRebind" class=" btn-small item-rebind" data-position="{{position}}" wx:if="{{item.isSupport==1}}">重新认证</button>
+                    <text class="item-no-support" wx:else>该通道暂不支持此卡绑定</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

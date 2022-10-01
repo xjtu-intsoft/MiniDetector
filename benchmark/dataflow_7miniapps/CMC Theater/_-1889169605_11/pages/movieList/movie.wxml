@@ -1,0 +1,45 @@
+<view class="page">
+    <view class="movies_top">
+        <view bindtap="selectCinema" class="movies_city">
+            <text style="font-size:var(--font-te)">影院</text>
+            <image class="arrow_down" src="/images/common/arrow_down.png" style="margin-left:11rpx;"></image>
+        </view>
+        <text class="v_line_44" style="margin-left:140rpx;"></text>
+        <view class="movies_hot_parent">
+            <view class="movies_hot">
+                <text bindtap="hotClick" class="movies_hot_text" style="color:{{!isHot?'black':'var(--color-cb)'}}">正在热映</text>
+                <text class="hot_bottom_line" hidden="{{!isHot}}"></text>
+            </view>
+            <view class="movies_coming">
+                <text bindtap="comingClick" class="movies_hot_text" style="color:{{!isComing?'black':'var(--color-cb)'}}">即将上映</text>
+                <text class="hot_bottom_line" hidden="{{!isComing}}"></text>
+            </view>
+        </view>
+    </view>
+    <view class="h_line_norma"></view>
+    <view class="swiper" style="background:white" wx:if="{{isHot&&advert_data.length>0}}">
+        <swiper autoplay="true" circular="true" class="swiper" current="{{currentSwiper}}" style="background:white" wx:if="{{advert_data.length>0}}">
+            <swiper-item wx:for="{{advert_data}}" wx:key="id">
+                <image binderror="imageError" catchtap="imageClick" class="swiper_image {{item.error?'banner_bg':''}}" data-index="{{index}}" mode="widthFix" src="{{item.advert_img_url}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view scrollY class="sv">
+        <block wx:for="{{movie_data}}" wx:key="movie_id">
+            <import src="../../templates/movielist/item.wxml"></import>
+            <view class="hot_list_body" hidden="{{!isHot}}" style="display:{{isHot?flex:none}};">
+                <template is="hot" data="{{item:item,isHot:isHot,isComing:isComing,is_show_trailer:is_show_trailer}}"></template>
+            </view>
+        </block>
+        <block wx:for="{{movie_data_comming}}" wx:key="movie_id">
+            <import src="../../templates/movielist/item.wxml"></import>
+            <view class="hot_list_body" hidden="{{!isComing}}" style="display:{{isComing?flex:none}};">
+                <template is="hot" data="{{item:item,isHot:isHot,isComing:isComing,is_show_trailer:is_show_trailer}}"></template>
+            </view>
+        </block>
+    </view>
+    <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">{{loadMore}}</view>
+    </view>
+</view>

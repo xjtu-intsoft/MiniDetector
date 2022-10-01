@@ -1,0 +1,51 @@
+<view class="edit">
+    <view catch:tap="_dropFunc" class="drop-con {{pageFlag=='webcardEdit'?'new-drop-con':''}}" data-type="intro" wx:if="{{editType!='add'}}">
+        <view class="name">
+            <view>
+				业务简介
+			</view>
+            <image catch:tap="_showIntroTipFunc" class="cloud" src="/images/companyWeb/cloud.png"></image>
+            <component-msgPopover arrowLeft="132" id="introTip" msg="该信息可由企业管理员统一配置，配置后将自动同步到你的名片" top="50"></component-msgPopover>
+        </view>
+        <image class="icon {{dropList['intro']?'active':''}}" src="{{pageFlag=='webcardEdit'?'/images/newEdit/blank-arrow2.png':'/images/newEdit/blank-arrow.png'}}"></image>
+    </view>
+    <view class="textarea-con" wx:if="{{dropList['intro']}}">
+        <textarea bindblur="blur" bindinput="input" class="textarea" focus="{{areaFocus}}" maxlength="200" style="color:{{testFail?'#F33632':''}}" value="{{cbData.intro}}" wx:if="{{areaShow}}"></textarea>
+        <view catch:tap="textAreaForce" class="textarea" style="color:{{testFail?'#F33632':''}}" wx:if="{{cbData.intro&&!areaFocus&&!areaShow}}">
+            <text>{{cbData.intro}}</text>
+        </view>
+        <view catch:tap="textAreaForce" class="intro" wx:if="{{!cbData.intro&&!areaFocus}}">
+            <view class="intro-p">
+                <image class="i" mode="aspectFill" src="{{pageFlag=='webcardEdit'?'/images/preview/edit-intro2.png':'/images/preview/edit-intro.png'}}"></image>
+                <view class="txt {{pageFlag=='webcardEdit'?'new-txt':''}}">填写业务介绍或个人简介</view>
+            </view>
+        </view>
+    </view>
+    <view catch:tap="_dropFunc" class="drop-con" data-type="video" wx:if="{{editType!='add'}}">
+        <view class="name">
+            <view>图片视频</view>
+            <image catch:tap="_showMediaTipFunc" class="cloud" src="/images/companyWeb/cloud.png"></image>
+            <component-msgPopover arrowLeft="132" id="mediaTip" msg="该信息可由企业管理员统一配置，配置后将自动同步到你的名片" top="50"></component-msgPopover>
+        </view>
+        <image class="icon {{dropList['video']?'active':''}}" src="/images/newEdit/blank-arrow.png"></image>
+    </view>
+    <view wx:if="{{dropList['video']}}">
+        <view class="photo">
+            <view bindtap="imagePreview" class="photo-item" data-imagesrc="{{item['url']}}" data-index="{{index}}" wx:for="{{cbData.desc}}" wx:key="{{item}}">
+                <image class="addRadius" mode="widthFix" src="{{item['url']}}"></image>
+                <image catchtap="throwImage" class="deleteImage addRadius" data-throwindex="{{index}}" src="/images/newEdit/del.png"></image>
+            </view>
+            <view class="add-photo" wx:if="{{!cbData.desc.length}}">
+                <view catchtap="addImages" class="add">
+                    <image class="i" mode="aspectFill" src="{{pageFlag=='webcardEdit'?'/images/preview/photo2.png':'/images/preview/photo.png'}}" wx:if="{{!cbData.desc.length}}"></image>
+                    <view class="txt {{pageFlag=='webcardEdit'?'new-txt':''}}" wx:if="{{!cbData.desc.length}}">上传图片</view>
+                </view>
+            </view>
+            <view catchtap="addImages" class="add-more" wx:if="{{cbData.desc.length>=1&&cbData.desc.length<9}}">
+                <image class="img" src="{{pageFlag=='webcardEdit'?'/images/newEdit/add2.png':'/images/newEdit/add.png'}}"></image>
+                <view class="txt {{pageFlag=='webcardEdit'?'new-txt':''}}">继续上传图片</view>
+            </view>
+        </view>
+        <component-uploadVideo bindtrigger="triggerFunc" bindupdateVideoList="addVideoList" oldvideoList="{{cbData.video}}" pageFlag="webcardEdit" pageOption="{{pageOption}}"></component-uploadVideo>
+    </view>
+</view>

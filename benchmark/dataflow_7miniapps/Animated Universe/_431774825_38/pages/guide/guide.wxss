@@ -1,0 +1,93 @@
+.guide {
+    position: relative;
+    height: 100%;
+    background: #2E3142;
+}
+
+.guide-top-img {
+    display: block;
+    padding: 62rpx 0 0 190rpx;
+    width: 374rpx;
+    height: 112rpx;
+}
+
+.guide-main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 70rpx;
+}
+
+.guide-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 234rpx;
+}
+
+.guide-item:nth-child(1),.guide-item:nth-child(2) {
+    padding: 76rpx 0 48rpx;
+}
+
+.guide-item:nth-child(3),.guide-item:nth-child(4) {
+    padding-top: 58rpx;
+}
+
+.guide-main-img {
+    display: block;
+    width: 124rpx;
+    height: 124rpx;
+}
+
+.guide-text1 {
+    margin-top: 16rpx;
+    line-height: 44rpx;
+    font-size: 32rpx;
+}
+
+.guide-text2 {
+    margin-top: 16rpx;
+    line-height: 34rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.guide-start {
+    display: block;
+    margin: 92rpx auto 0;
+    width: 360rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    border-radius: 56rpx;
+    background: linear-gradient(to right,#9F44D3,#F23489);
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+}
+
+.guide-text3 {
+    padding: 16rpx 0 156rpx;
+    line-height: 34rpx;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.guide-line1 {
+    position: absolute;
+    top: 248rpx;
+    left: 372rpx;
+    width: 2rpx;
+    height: 572rpx;
+    background: #3D3E4D;
+    z-index: 10;
+}
+
+.guide-line2 {
+    position: absolute;
+    top: 530rpx;
+    left: 72rpx;
+    width: 608rpx;
+    height: 2rpx;
+    background: #3D3E4D;
+    z-index: 10;
+}

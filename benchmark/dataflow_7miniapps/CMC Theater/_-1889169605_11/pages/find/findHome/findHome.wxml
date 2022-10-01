@@ -1,0 +1,49 @@
+<swiper autoplay="true" circular="true" class="advert-swiper {{advertListData.length==0?'is-hidden':''}}" current="{{currentSwiper}}" interval="4000">
+    <swiper-item bindtap="clickswiper" class="advert-swiper-item" data-index="{{index}}" wx:for="{{advertListData}}" wx:key="advertcell">
+        <image class="advert-swiper-item-image" src="{{item.advert_img_url}}"></image>
+    </swiper-item>
+</swiper>
+<import src="/templates/find/findshop/findshop.wxml"></import>
+<view class="find-first-group {{goods.length<=0?'is-hidden':''}}">
+    <view bindtap="choseMoreGoods" class="find-title">
+        <view class="find-title-line"></view>
+        <view class="find-title-text">商城</view>
+        <view class="find-title-line"></view>
+    </view>
+    <view class="find-shop-group">
+        <template is="findshop" data="{{goods:goods}}"></template>
+    </view>
+    <view class="lineview"></view>
+    <view bindtap="choseMoreGoods" class="find-chose-more">
+        <view class="find-more-btn">更多商品</view>
+    </view>
+    <view class="find-gray-view"></view>
+</view>
+<import src="/templates/find/findfood/findfood.wxml"></import>
+<view class="find-second-group {{foods.length<=0?'is-hidden':''}}">
+    <view bindtap="choseMoreFoods" class="find-title">
+        <view class="find-title-line"></view>
+        <view class="find-title-text">餐饮</view>
+        <view class="find-title-line"></view>
+    </view>
+    <view class="find-food-group">
+        <template is="findfood" data="{{foods:foods}}"></template>
+    </view>
+    <view bindtap="choseMoreFoods" class="find-chose-more">
+        <view class="find-more-btn">更多餐饮</view>
+    </view>
+    <view class="find-gray-view"></view>
+</view>
+<view class="find-third-group">
+    <view class="find-title">
+        <view class="find-title-line"></view>
+        <view class="find-title-text">活动</view>
+        <view class="find-title-line"></view>
+    </view>
+    <view bindtap="clickPromCell" class="find-promcell" data-index="{{index}}" wx:for="{{promotionData}}" wx:key="promcell">
+        <image class="find-promcell-statusicon" src="{{item.status_icon}}"></image>
+        <image class="find-promcell-image" src="{{item.new_promotion_img_url}}"></image>
+        <text class="find-promcell-desc">{{item.showDesc}}</text>
+        <view class="find-promcell-line"></view>
+    </view>
+</view>

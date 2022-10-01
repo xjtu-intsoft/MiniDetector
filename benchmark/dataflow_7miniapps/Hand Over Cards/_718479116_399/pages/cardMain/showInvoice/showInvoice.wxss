@@ -1,0 +1,124 @@
+.container {
+    background-color: #f3f3f3;
+}
+
+.detail {
+    padding: 30rpx 20rpx;
+    font-size: 30rpx;
+    letter-spacing: -.09px;
+    line-height: 42rpx;
+}
+
+.con {
+    background: #fff;
+    border-radius: 10rpx;
+    box-shadow: 0 0 10rpx 0 hsla(0,0%,73.7%,.5);
+    margin-bottom: 30rpx;
+}
+
+.detail-top {
+    padding: 20rpx 30rpx;
+}
+
+.detailList-item {
+    padding: 20rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detailList-item-left {
+    color: #999;
+    width: 40%;
+}
+
+.detailList-item-right {
+    text-align: right;
+    color: #333;
+    width: 60%;
+    word-break: break-all;
+}
+
+.detail-bottom {
+    border-top: 1px dashed #ddd;
+    background: #eef3f6;
+    padding: 36rpx 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detail-bottom .detail-bottom-title {
+    color: #999;
+    width: 40%;
+}
+
+.detail-bottom .detail-bottom-content {
+    text-align: right;
+    color: #333;
+    width: 60%;
+    word-break: break-all;
+}
+
+.leftRadius {
+    width: 40rpx;
+    height: 40rpx;
+    padding: 4rpx;
+    position: absolute;
+    left: 16rpx;
+    margin-top: -24rpx;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.leftRadius .shadow {
+    width: 40rpx;
+    height: 40rpx;
+    background-color: #f3f3f3;
+    box-shadow: inset 0 0 10rpx 0 hsla(0,0%,73.7%,.5);
+    border-radius: 20rpx;
+    margin-left: -20rpx;
+}
+
+.rightRadius {
+    width: 40rpx;
+    height: 40rpx;
+    padding: 4rpx;
+    position: absolute;
+    right: 16rpx;
+    margin-top: -24rpx;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.rightRadius .shadow {
+    width: 40rpx;
+    height: 40rpx;
+    background-color: #f3f3f3;
+    box-shadow: inset 0 0 10rpx 0 hsla(0,0%,73.7%,.5);
+    border-radius: 20rpx;
+    margin-left: 20rpx;
+}
+
+.invoiceButton {
+    display: block;
+    height: auto;
+    position: absolute;
+    padding-top: 30rpx;
+    bottom: auto;
+    background-color: #f3f3f3;
+    padding-left: 2.7%;
+    padding-right: 2.7%;
+    width: 94.6%;
+}
+
+.bottomButton .m_button_default {
+    margin-top: 30rpx;
+}
+
+.bottomButton .button-item:nth-child(1) {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 18rpx;
+    padding: 20rpx 0;
+}

@@ -1,0 +1,37 @@
+{
+    "desc": "关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
+    "rules": [
+        {
+            "action": "allow",
+            "page": "pages/repair/home/home"
+        },
+        {
+            "action": "allow",
+            "page": "pages/repair/fulishe/fulishe"
+        },
+        {
+            "action": "allow",
+            "page": "pages/repair/oneKeyOrder/oneKeyOrder"
+        },
+        {
+            "action": "allow",
+            "page": "pages/storeAddress/storeAddress"
+        },
+        {
+            "action": "allow",
+            "page": "pages/repair/chooseDevice/chooseDevice?tyleIndex=0"
+        },
+        {
+            "action": "allow",
+            "page": "pages/recycle/home/home"
+        },
+        {
+            "action": "allow",
+            "page": "pages/recycle/phonelist/phonelist"
+        },
+        {
+            "action": "allow",
+            "page": "pages/repair/aboutusWeb/aboutusWeb"
+        }
+    ]
+}

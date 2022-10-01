@@ -1,0 +1,40 @@
+.authorise {
+    box-sizing: border-box;
+    padding-top: 172rpx;
+    height: 100%;
+    background: #F0EFF6;
+    color: #fff;
+}
+
+.authorise-fail-icon {
+    display: block;
+    margin: 0 auto;
+    width: 306rpx;
+}
+
+.authorise-fail-title {
+    margin: 96rpx 0 32rpx 0;
+    height: 56rpx;
+    line-height: 56rpx;
+    font-size: 40rpx;
+    text-align: center;
+    color: #333333;
+}
+
+.authorise-fail-text {
+    line-height: 48rpx;
+    font-size: 32rpx;
+    text-align: center;
+    color: #999999;
+}
+
+.re-authorise {
+    display: block;
+    margin: 90rpx auto 0;
+    width: 360rpx;
+    height: 80rpx;
+    background: linear-gradient(to right,#9F44D3,#F23489);
+    border-radius: 38rpx;
+    font-size: 32rpx;
+    color: #fff;
+}

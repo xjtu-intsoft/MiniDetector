@@ -1,0 +1,4 @@
+<button bindtap="tap" class="common-buttons">
+    <image mode="widthFix" src="/images/icon_home.png"></image>
+  回首页
+</button>

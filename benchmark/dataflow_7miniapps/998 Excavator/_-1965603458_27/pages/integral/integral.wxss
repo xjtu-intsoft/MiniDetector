@@ -1,0 +1,232 @@
+@import "../../__wuBaseWxss__/10.wxss";
+
+.timer {
+    text-align: center;
+    font-size: 30rpx;
+    color: #666;
+    background: #f4f4f4;
+}
+
+.top_bg {
+    height: 360rpx;
+    background: url("http://images.998jx.com/micro/account_qizhong.jpg");
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.modal-content {
+    text-align: left;
+    padding: 20rpx;
+}
+
+.weui-cell {
+    padding: 15rpx 20rpx;
+}
+
+.hide {
+    display: none;
+}
+
+.box {
+    height: 360rpx;
+    width: 100%;
+    position: relative;
+}
+
+.box_one {
+    width: 200rpx;
+    position: relative;
+}
+
+.box_one>image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+.top_num {
+    color: #888;
+    font-size: 40rpx;
+    margin: 0 30rpx 0 20rpx;
+}
+
+.share_name {
+    font-size: 26rpx;
+    text-align: center;
+    color: #fff;
+}
+
+.share_num {
+    font-size: 24rpx;
+    color: #888;
+    text-align: center;
+}
+
+.share_gz {
+    text-align: center;
+    font-size: 25rpx;
+    color: #fff;
+    width: 120rpx;
+    height: 50rpx;
+    margin: 0 auto;
+    background: #3392ff;
+    border-radius: 15rpx;
+    line-height: 50rpx;
+    border: 1px solid #fff;
+}
+
+.share_top {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-35rpx) translateX(-15rpx);
+}
+
+.share_top>image {
+    width: 100%;
+    height: 100%;
+}
+
+.guanzhu {
+    width: 100rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    font-size: 25rpx;
+    color: #fff;
+    border-radius: 15rpx;
+    background: #3392ff;
+    position: relative;
+    border: 1px solid #3392ff;
+}
+
+.top_current {
+    background: #fff;
+    color: #b2b2b2;
+}
+
+.guanzhu_icon {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    left: -56%;
+}
+
+.share_ {
+    color: #3392ff;
+    font-size: 32rpx;
+    text-align: center;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.explain {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    margin-right: 20rpx;
+    margin-top: 10rpx;
+}
+
+.share_go {
+    float: left;
+    font-size: 28rpx;
+    color: #fff;
+    background: #3392ff;
+    text-align: center;
+    width: 164rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 15rpx;
+    margin-right: 20rpx;
+    padding: 0;
+}
+
+.modal-dialog {
+    width: 590rpx;
+    height: auto;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    z-index: 9999;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 15rpx;
+    padding: 20rpx;
+}
+
+.modal-content>view {
+    line-height: 50rpx;
+}
+
+.guidance-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.3;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.guidance-dialog {
+    position: fixed;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    border-radius: 10rpx;
+}
+
+.guidance {
+    width: 650rpx;
+    height: 1000rpx;
+    position: relative;
+}
+
+.guidance image {
+    width: 100%;
+    height: 100%;
+}
+
+.guidance_delet {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    transform: translateX(50%) translateY(99rpx);
+    z-index: 99;
+}
+
+.guidance_delet image {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 15rpx;
+}
+
+.link_to {
+    width: 190rpx;
+    height: 60rpx;
+    position: absolute;
+    bottom: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user_msg {
+    position: absolute;
+    right: 0;
+    top: 62rpx;
+    z-index: 999;
+}

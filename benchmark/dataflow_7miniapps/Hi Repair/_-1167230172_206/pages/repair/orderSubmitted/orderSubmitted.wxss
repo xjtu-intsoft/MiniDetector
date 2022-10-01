@@ -1,0 +1,99 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.orderSuccessContainer {
+    width: 100%;
+    min-height: 100%;
+    background: #fafafa;
+    text-align: center;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 0;
+}
+
+.orderSuccessContainer .orderWrap {
+    width: 100%;
+    padding: 40rpx 0;
+    background: #fff;
+    border-radius: 8rpx;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.orderSuccessContainer .orderWrap .image {
+    width: 128rpx;
+    height: 128rpx;
+}
+
+.orderSuccessContainer .orderWrap .title {
+    color: #2d2a2a;
+    font-size: 42rpx;
+    margin-top: 16rpx;
+    font-weight: 700;
+}
+
+.orderSuccessContainer .orderWrap .des {
+    color: #a4a4a4;
+    font-size: 24rpx;
+    width: 390rpx;
+    margin-top: 40rpx;
+}
+
+.orderSuccessContainer .orderWrap .btnWrap {
+    margin-top: 40rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.orderSuccessContainer .orderWrap .btnWrap .btn {
+    width: 150rpx;
+    height: 50rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    border: 1rpx solid #ff7200;
+    line-height: 50rpx;
+    text-align: center;
+    color: #ff7200;
+    font-size: 22rpx;
+}
+
+.orderSuccessContainer .orderWrap .btnWrap .btn.bg {
+    background: #ff7200;
+    color: #fff;
+    margin-left: 40rpx;
+}
+
+.orderSuccessContainer .orderWrap .btnWrap .cellKf {
+    position: absolute;
+    right: 10rpx;
+    top: 0;
+    opacity: 0;
+}
+
+.orderSuccessContainer .official {
+    width: 100%;
+    height: 136rpx;
+    margin-top: 20rpx;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 21;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    display: flex;
+    justify-content: center;
+}
+
+.modal image {
+    width: 600rpx;
+    height: 452rpx;
+    margin-top: 300rpx;
+}

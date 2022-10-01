@@ -1,0 +1,15 @@
+.search-no-data {
+    background: #13131f;
+}
+
+.search-no-data-image {
+    margin: 120rpx 0 36rpx 294rpx;
+    width: 164rpx;
+    height: 158rpx;
+}
+
+.search-no-data-tip {
+    line-height: 44rpx;
+    font-size: 32rpx;
+    text-align: center;
+}

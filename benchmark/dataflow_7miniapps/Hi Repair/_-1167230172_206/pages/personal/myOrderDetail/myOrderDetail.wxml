@@ -1,0 +1,262 @@
+<view class="order_detail_container">
+    <view class="container_wrap {{isFullSucreen?'addpaddingbottom':''}}" wx:if="{{orderDetail}}">
+        <view class="order_status_wrap">
+            <view class="order_status {{orderDetail.status==0||orderDetail.status==5?'black':'ff5'}}">
+                {{orderDetail.statusName}}
+            </view>
+            <view class="order_tip">{{orderDetail.statusTip}}</view>
+            <view bindtap="refreshEngineerLocation" class="map_refresh" data-number="{{orderDetail.enginnner_info.job_number}}" wx:if="{{(orderDetail.category_id==1||orderDetail.category_id==11)&&orderDetail.status==3}}">
+                <image class="" src="../../../img/wx_personal/refresh@2x.png"></image>
+            </view>
+        </view>
+        <view class="order_tips_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==2||orderDetail.category_id==12)&&orderDetail.status<13&&orderDetail.status!=4&&orderDetail.status!=5&&orderDetail.status!=0}}">
+            <view class="order_tips">
+                <image class="" src="../../../img/wx_personal/clock.png"></image>
+                <view class="tips">
+                    <view class="tips_title">注意事项</view>
+                    <view class="tips_content">1、邮寄维修前请删除密码锁，并做好手机备份</view>
+                    <view class="tips_content">2、请在包裹中用一张纸条写下您的下单姓名、电话和回寄地址，以免造成错乱</view>
+                </view>
+            </view>
+        </view>
+        <view class="order_map_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==1||orderDetail.category_id==31||orderDetail.category_id==11)&&orderDetail.status==3}}">
+            <map id="map" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="16" style="width: 100%; height: 694rpx;"></map>
+        </view>
+        <view class="express_info_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==2||orderDetail.category_id==12)&&(orderDetail.status==12||orderDetail.status==14)&&expressInfo.length}}">
+            <view class="express_wrap">
+                <view class="express_title">{{expressName}}：{{expressCode}}</view>
+                <view class="express_detail_wrap {{showMoreExpressBtn?'':'active'}}">
+                    <view class="express" wx:if="{{expressInfo.length}}" wx:for="{{expressInfo}}" wx:key="index">
+                        <view class="progress">
+                            <view class="circle {{index==0?'first_circle':''}}"></view>
+                            <view class="vertical_line" wx:if="{{index<expressInfo.length-1}}"></view>
+                        </view>
+                        <view class="express_info {{index==0?'first_line':''}}">
+                            {{item.AcceptStation}} {{item.AcceptTime}}
+                        </view>
+                    </view>
+                    <view style="color:#444242;font-size:24rpx;margin-top:16rpx" wx:if="{{!expressInfo.length}}">
+                        暂无物流信息
+                    </view>
+                </view>
+                <view bindtap="showMoreExpress" class="show_more_express" wx:if="{{showMoreExpressBtn&&expressInfo.length}}">
+                    <view class="">展开更多物流详情</view>
+                    <image class="" src="../../../img/wx_personal/shouqi_m@2x.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="enginer_wrap {{isMap?'bg':''}}" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==1||orderDetail.category_id==31||orderDetail.category_id==11)&&(orderDetail.status==2||orderDetail.status==3||orderDetail.status==4)}}">
+            <view class="enginer {{isMap?'bg':''}}">
+                <view class="enginer_msg">
+                    <view class="msg">
+                        <view class="enginer_name">{{orderDetail.enginnner_info.name}}</view>
+                        <view class="enginer_num">
+                            工号：{{orderDetail.enginnner_info.job_number}}
+                        </view>
+                    </view>
+                    <view bindtap="makePhonecall" class="enginer_tel" data-shield="{{orderDetail.enginnner_info.shield_flag}}" data-tel="{{orderDetail.enginnner_info.mobile}}" data-type="{{orderDetail.category_type}}">
+                        联系TA
+                    </view>
+                </view>
+                <image class="enginer_img" src="../../../img/wx_personal/enginer1.png" style="width:98rpx;height:98rpx;"></image>
+            </view>
+        </view>
+        <view class="door_repair_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==3||orderDetail.category_id==32||orderDetail.category_id==13)}}">
+            <view class="repaircenter_wrap">
+                <view class="repaircenter_name">
+                    <view class="name">{{orderDetail.center_name}}</view>
+                    <view class="route_tel">
+                        <image bindtap="openLocation" class="route" data-lat="{{orderDetail.latitude}}" data-lng="{{orderDetail.longitude}}" src="../../../img/wx_personal/daohang@2x.png"></image>
+                        <image bindtap="makePhonecall" class="tel" data-tel="{{orderDetail.center_tel}}" src="../../storeAddress/images/phone.png"></image>
+                    </view>
+                </view>
+                <view class="repaircenter_info">
+                    <view class="info">
+                        <view class="address">
+                            <view class="address_title">中心地址：</view>
+                            <view class="address_detail">{{orderDetail.center_address}}</view>
+                        </view>
+                        <view class="address">
+                            <view class="address_title">联系电话：</view>
+                            <view class="address_detail">{{orderDetail.center_tel}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="phone_repaircenter_wrap">
+            <view class="phone_wrap">
+                <view class="detail-title">维修机型</view>
+                <view class="phone_container">
+                    <image class="" src="{{orderDetail.o_pic}}"></image>
+                    <view class="phone_repairtype">
+                        <view class="phone_name" wx:if="{{!isOneKeyOrder}}">
+                            <view>{{orderDetail.mould_name}}</view>
+                            <view wx:if="{{orderDetail.color}}">（{{orderDetail.color}}）</view>
+                        </view>
+                        <view class="phone_name" wx:else>请等待客服与您确认维修信息</view>
+                        <view class="repairtype">{{orderDetail.category}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="repaircenter_wrap" wx:if="{{!isOneKeyOrder&&(orderDetail.category_id==2||orderDetail.category_id==12)}}">
+                <view class="repaircenter_name">{{orderDetail.center_name}}</view>
+                <view class="repaircenter_info">
+                    <view class="info">
+                        <view class="address">{{orderDetail.center_address}}</view>
+                        <view class="address">联系电话：{{orderDetail.center_tel}}</view>
+                    </view>
+                    <view class="route_tel">
+                        <image bindtap="openLocation" class="route" data-lat="{{orderDetail.latitude}}" data-lng="{{orderDetail.longitude}}" src="../../../img/wx_personal/daohang@2x.png"></image>
+                        <image bindtap="makePhonecall" class="tel" data-tel="{{orderDetail.center_tel}}" src="../../storeAddress/images/phone.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="fault-price" wx:if="{{!isOneKeyOrder}}">
+            <view class="detail-title">故障信息</view>
+            <view class="fault_list_wrap" wx:if="{{!isOneKeyOrder}}">
+                <view class="fault_list" wx:for="{{orderDetail.fault_info}}" wx:for-item="ele" wx:key="index">
+                    <view class="fault_wrap">
+                        <view class="fault">
+                            <view class="fault_name {{ele.status==0?'active':''}}">
+                                {{ele.fault_type_detail}}
+                            </view>
+                        </view>
+                        <view class="price {{ele.status==0?'active':''}}" wx:if="{{orderDetail.category_id!=11&&orderDetail.category_id!=12&&orderDetail.category_id!=13}}">
+                            ¥{{ele.repair_price}}
+                        </view>
+                    </view>
+                    <view class="warranty" wx:if="{{orderDetail.status==5}}">
+                        <view class="warranty_img">
+                            <image class="" src="{{ele.warranty_period_number==2?'../../../img/wx_personal/Group@2x.png':ele.warranty_period_number==1?'../../../img/wx_personal/zhibaooutdate1.png':'../../../img/wx_personal/zhibaonone.png'}}"></image>
+                            <view class="warranty_tip {{ele.warranty_period_number==2?active:''}}">
+                                {{ele.warranty_period_number==2?'质保中':ele.warranty_period_number==1?'质保已过期':'无质保'}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="price_list_wrap" wx:if="{{!isOneKeyOrder&&orderDetail.category_id!=11&&orderDetail.category_id!=12&&orderDetail.category_id!=13}}">
+                <view class="price_flex">
+                    <view class="title">维修总价</view>
+                    <view class="price_num">¥{{orderDetail.repair_total_price}}</view>
+                </view>
+                <view class="price_flex" wx:if="{{orderDetail.increment_amount}}">
+                    <view class="title">增加项</view>
+                    <view class="price_num">¥{{orderDetail.increment_amount}}</view>
+                </view>
+                <view class="price_flex">
+                    <view class="title">上门费</view>
+                    <view class="price_num">¥{{orderDetail.visit_price}}</view>
+                </view>
+                <view class="price_flex">
+                    <view class="title">服务费</view>
+                    <view class="price_num">¥{{orderDetail.service_price}}</view>
+                </view>
+                <view bindtap="showModel" class="price_flex" data-text="{{orderDetail.holiday_describe}}" wx:if="{{orderDetail.holiday_manual_fee*1}}">
+                    <view class="title">{{orderDetail.holiday_name}} <image class="" src="../../repair/createOrder/image/shuom.png"></image>
+                    </view>
+                    <view class="price_num">¥{{orderDetail.holiday_manual_fee}}</view>
+                </view>
+                <view class="price_flex" wx:if="{{orderDetail.discount_zhijiang}}">
+                    <view class="title">直降</view>
+                    <view class="price_num ff5">-¥{{orderDetail.discount_zhijiang}}</view>
+                </view>
+                <view class="price_flex" wx:if="{{orderDetail.discount_jiagou}}">
+                    <view class="title">打包优惠</view>
+                    <view class="price_num ff5">-¥{{orderDetail.discount_jiagou}}</view>
+                </view>
+                <view class="price_flex" wx:if="{{orderDetail.discount_coupon}}">
+                    <view class="title">优惠券</view>
+                    <view class="price_num ff5">-¥{{orderDetail.discount_coupon}}</view>
+                </view>
+                <view class="price_flex" wx:if="{{orderDetail.discount_amount}}">
+                    <view class="title">优惠项</view>
+                    <view class="price_num ff5">-¥{{orderDetail.discount_amount}}</view>
+                </view>
+                <view class="price_flex_total">
+                    <view class="title" wx:if="{{orderDetail.discount_total}}">已优惠</view>
+                    <view class="acount" wx:if="{{orderDetail.discount_total}}">¥{{orderDetail.discount_total}}</view>
+                    <view class="title">{{orderDetail.status==5?'实际':'预计'}}支付</view>
+                    <view class="payprice">¥{{orderDetail.pay}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="user_order_info">
+            <view class="detail-title">订单信息</view>
+            <view class="order_info_wrap">
+                <view class="order_info">
+                    <view class="order_title">地址信息</view>
+                    <view class="user_info">
+                        <view class="user_address">{{orderDetail.user_address}}</view>
+                        <view class="user">
+                            <view class="user_name">{{orderDetail.user_name}}</view>
+                            <view class="user_tel">{{orderDetail.user_tel}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="order_info">
+                    <view class="order_title">订单编号</view>
+                    <view class="order_value">{{orderDetail.batch_number}}</view>
+                    <view bindtap="copyText" class="copy">复制</view>
+                </view>
+                <view class="order_info">
+                    <view class="order_title">下单时间</view>
+                    <view class="order_value">{{orderDetail.create_time}}</view>
+                </view>
+                <view class="order_info" wx:if="{{orderDetail.reserved_time&&(orderDetail.category_id==1||orderDetail.category_id==11)}}">
+                    <view class="order_title">预约时间</view>
+                    <view class="order_value">{{orderDetail.reserved_time}}</view>
+                </view>
+                <view class="order_info" wx:if="{{orderDetail.finish_time}}">
+                    <view class="order_title">完成时间</view>
+                    <view class="order_value">{{orderDetail.finish_time}}</view>
+                </view>
+                <view class="order_info" wx:if="{{orderDetail.cancel_time}}">
+                    <view class="order_title">取消时间</view>
+                    <view class="order_value">{{orderDetail.cancel_time}}</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="goZhibaoDetail" class="warranty_info_wrap" wx:if="{{orderDetail.status==5&&orderDetail.category_type!=3}}">
+            <image class="" src="../../../img/wx_personal/zhibaooutdate.png"></image>
+            <view class="warranty_info">
+                <view class="warranty_tip">
+                    由Hi维修提供售后保障服务，维修完成最多质保{{orderDetail.warranty.limitDays}}天
+                </view>
+                <view class="warranty_time">
+                    <view class="warranty_text">具体个别质保时间请查看详情</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_btn_wrap">
+        <view class="btn_wrap  {{isFullSucreen?'fix-Full-button':''}}">
+            <image bindtap="showModelBtn" class="more_btn" src="../../../img/diandiandian.png"></image>
+            <view class="order_btn_wrap">
+                <view bindtap="commentOrder" class="comment_btn" data-category="{{orderDetail.category}}" data-color="{{orderDetail.color}}" data-mould="{{orderDetail.mould_name}}" data-orderid="{{order_id}}" data-ordersn="{{order_sn}}" data-src="{{orderDetail.o_pic}}" wx:if="{{orderDetail.category_type!=3&&orderDetail.category_type!=2&&orderDetail.showCommentBtn}}">
+                    评价
+                </view>
+                <view bindtap="editExpress" class="comment_btn" data-device="{{orderDetail}}" wx:if="{{orderDetail.showExpressBtn}}">
+                    填写物流单号
+                </view>
+            </view>
+            <view class="btn_model {{showBtn?'active':''}}  {{isFullSucreen?'addbottom':''}}">
+                <view bindtap="cancelOrder" class="calcel_btn" data-orderid="{{order_id}}" data-ordersn="{{order_sn}}" data-type="{{orderDetail.category_type}}" wx:if="{{orderDetail.showCancelBtn}}">
+                    取消
+                </view>
+                <view bindtap="complainOrder" class="service_btn" wx:if="{{orderDetail.showcomplainBtn}}">
+                    投诉
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="tipsModal" wx:if="{{showTipModal}}">
+    <view class="tipsWrap">
+        <view class="tiptitle">服务费说明</view>
+        <text class="tipcontent">{{tipsText}}</text>
+        <view bindtap="closeModalShow" class="closebtn">确认</view>
+    </view>
+</view>

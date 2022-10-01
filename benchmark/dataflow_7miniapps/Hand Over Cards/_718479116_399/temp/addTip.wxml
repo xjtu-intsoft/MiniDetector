@@ -1,0 +1,5 @@
+<template name="fill-tip">
+    <view class="roof-place-tip card-active-tip" style="top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']+10}}px;">
+        <view class="text">前3张加入的名片，将自动置顶，获得更多群友关注</view>
+    </view>
+</template>

@@ -1,0 +1,18 @@
+<view class="short-con">
+    <view catch:tap="_createTeam" class="join-team" wx:if="{{!businessList.length}}">
+    试用企业版
+    <view class="dotted" wx:if="{{showDotted}}"></view>
+    </view>
+    <view catch:tap="statsTeam" class="my-team" style="z-index:0;" wx:if="{{businessList.length&&!inviteTeamGuidePage}}">
+        <view class="t">我的企业</view>
+    </view>
+    <view catch:tap="statsTeam" class="my-team" style="z-index:100;" wx:if="{{businessList.length&&inviteTeamGuidePage}}">
+        <view catch:touchmove="ss" class="introduce">
+            <view class="title">您已经成功领取电子名片并加入了企业，</view>
+            <view class="title">点击这里可以查看企业详情</view>
+            <image class="gesture" src="../../../images/newMain/gesture.png"></image>
+        </view>
+        <view class="t">我的企业</view>
+    </view>
+    <view catch:tap="inviteTeamHide" class="guidance" wx:if="{{businessList.length&&inviteTeamGuidePage}}"></view>
+</view>

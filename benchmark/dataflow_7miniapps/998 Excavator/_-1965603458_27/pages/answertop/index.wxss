@@ -1,0 +1,160 @@
+page {
+    background: url('http://images.998jx.com/youxi/topbg.jpg') center top;
+    background-size: 100% 100%;
+    font-size: 16px;
+}
+
+.er {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.title {
+    margin-top: 17vh;
+    margin-left: 60rpx;
+    margin-right: 60rpx;
+    height: 6vh;
+}
+
+.title view {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.title .on text {
+    background: #000;
+    color: #fff;
+    padding: 2px 5px;
+}
+
+.toplist {
+    margin: 0px 60rpx;
+    height: 56vh;
+    width: unset;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.item,.jpitem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(000,000,000,0.05);
+}
+
+.jpitem image {
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 2px 5px;
+}
+
+.jpitem view {
+    font-size: 14px;
+}
+
+.jpitem view:nth-child(2) {
+    flex: 0 0 50px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jpitem view:nth-child(3) {
+    flex: auto;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jpitem view:nth-child(4) {
+    flex: 0 0 50px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item text {
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item view:nth-child(1),.item view:nth-last-child(1) {
+    flex: 0 0 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.item view:nth-child(1) {
+    font-style: italic;
+    color: #666;
+}
+
+.item image {
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.item view:nth-child(3) {
+    flex: auto;
+}
+
+.item:nth-child(1) view:nth-child(1) {
+    color: red;
+}
+
+.item:nth-child(2) view:nth-child(1) {
+    color: #f60;
+}
+
+.item:nth-child(3) view:nth-child(1) {
+    color: #f8f407;
+}
+
+.now {
+    background: rgba(243,150,0,0.1);
+    margin: 0px 60rpx 10px 60rpx;
+}
+
+.gamebtn {
+    text-align: center;
+}
+
+.gamebtn button {
+    display: inline-block;
+    padding: 0 25px;
+    margin: 0 10px;
+    height: auto;
+    width: auto;
+    background: unset;
+    background: url('http://images.998jx.com/youxi/game_bt.png');
+    background-size: 100% 100%;
+    border-radius: 0;
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+.gamebtn button:first-child {
+    color: #CC0000;
+}

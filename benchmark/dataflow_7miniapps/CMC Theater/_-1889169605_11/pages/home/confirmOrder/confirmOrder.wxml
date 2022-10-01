@@ -1,0 +1,166 @@
+<modal bindcancel="modalCancel" bindconfirm="modalOk" class="modal" confirmText="确认" hidden="{{hiddenInputPass}}">
+    <view class="modal-title">会员卡支付</view>
+    <view class="modal-message">请输入卡密码，完成支付</view>
+    <view class="modal-inputview">
+        <input bindinput="cardPassInput" class="modal-input" cursorSpacing="100rpx" focus="{{!hiddenInputPass}}" password="true" placeholder="密码" type="number" value="{{cardPass}}"></input>
+    </view>
+</modal>
+<import src="/templates/confirmOrder/confirmGoodcell/confirmGoodcell.wxml"></import>
+<import src="/templates/confirmOrder/unPayGoodCell/unpaygoodcell.wxml"></import>
+<scroll-view scrollY style="height: 100%;">
+    <view class="countdown-time">支付剩余时间[ {{countDownTime}} ]</view>
+    <view class="back-groundview">
+        <view class="movie-detailview-bg">
+            <view class="order-movie-detailview">
+                <image class="moviedetail-image" mode="aspectFill" src="{{orderComfimEntity.order_info.movie_img_url}}"></image>
+                <view class="moviedetail-deatilview">
+                    <view class="moviedetail-moviename">{{orderComfimEntity.order_info.movie_name}}</view>
+                    <view class="moviedetail-timeview">
+                        <view class="moviedetail-showtime">{{orderComfimEntity.order_info.show_time}}</view>
+                        <view class="moviedetail-fomat">{{orderComfimEntity.order_info.movie_format}}</view>
+                    </view>
+                    <view class="moviedetail-cinemaname">{{orderComfimEntity.order_info.cinema_name}}</view>
+                    <view class="moviedetail-seats">{{orderComfimEntity.order_info.hall_name}} | {{orderComfimEntity.order_info.showSeatInfo}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="movie-priceview-bg">
+            <view class="order-movie-priceview">
+                <view class="movieprice-title">电影票</view>
+                <view class="movieprice-priceview">
+                    <view class="movieprice-totalprice">¥{{currentPriceEntity.ticket_price_and_coupon_subsidy}}</view>
+                    <view class="movieprice-totalnum">共{{orderComfimEntity.order_info.showSeatCount}}张</view>
+                </view>
+            </view>
+        </view>
+        <view class="order-movie-goodsview {{goodListData.goods_data&&goodListData.goods_data.length>0&&orderComfimEntity.order_type=='1'?'':'is-hidden'}}">
+            <view class="moviegoods-topview">
+                <view class="moviegoods-title">{{goodListData.cinema_goods_name}}</view>
+                <view bindtap="showChoseGoods" class="moviegoods-moreview">
+                    <view class="moviegoods-chosemore">更多选择</view>
+                    <image class="moviegoods-moreimage" src="/images/common/card_details_jiantou_right.png"></image>
+                </view>
+            </view>
+            <view class="confirmorder-ticket-goodcell" wx:for="{{choseGoodListArr.length>0?choseGoodListArr:[ goodListData.goods_data[0] ]}}" wx:key="goods_id">
+                <template is="confirmGoodcell" data="{{good:item,index:index,payType:payType,type:'1',index:index,selectCard:selectCard,size:choseGoodListArr.length>0?choseGoodListArr.length:1}}"></template>
+            </view>
+            <view class="order-line {{choseGoodListArr.length>0?'':'is-hidden'}}"></view>
+            <view class="moviegoods-bottomview {{choseGoodListArr.length>0?'':'is-hidden'}}">
+                <view class="moviebottom-title">小计</view>
+                <view class="moviebottom-price">¥{{currentPriceEntity.totalGoodsPrice}}</view>
+            </view>
+        </view>
+        <view class="order-movie-goodsview {{orderComfimEntity.goods.goods_data&&orderComfimEntity.goods.goods_data.length>0&&orderComfimEntity.order_type=='2'?'':'is-hidden'}}">
+            <view class="moviegoods-topview">
+                <view class="moviegoods-title">{{orderComfimEntity.goods.cinema_goods_name}}({{orderComfimEntity.goods.total_goods_num}}份)</view>
+            </view>
+            <template is="unpaygoodcell" data="{{goods_data:choseGoodListArr}}"></template>
+            <view class="order-line"></view>
+            <view class="moviegoods-bottomview">
+                <view class="moviebottom-title">小计</view>
+                <view class="moviebottom-price">¥{{currentPriceEntity.totalGoodsPrice}}</view>
+            </view>
+        </view>
+        <view bindtap="{{maincardBtnSelect}}" class="order-movie-maincardview {{currentPriceEntity.cinema_card_level_info&&cardCount==0?'':'is-hidden'}}" data-cardid="{{currentPriceEntity.cinema_card_level_info.cinema_card_level_id}}">
+            <view class="maincard-leftview">
+                <view class="left-recomview {{currentPriceEntity.cinema_card_level_info.promotion_activity_type==1?'left-recomview-middlewidth':''}} {{currentPriceEntity.cinema_card_level_info.promotion_activity_type==2?'left-recomview-longwidth':''}}">
+                    <image class="left-recomview-image" src="/images/orderDetial/huiyuan_v.png"></image>
+                    <view class="left-recomview-title">
+            影院主推卡{{currentPriceEntity.cinema_card_level_info.promotion_activity_type==1?'特惠':''}}{{currentPriceEntity.cinema_card_level_info.promotion_activity_type==2?'首单特惠':''}}
+          </view>
+                </view>
+                <view class="left-cardname">{{currentPriceEntity.cinema_card_level_info.cinema_card_level_name}}</view>
+                <view class="left-openmessage-view">
+                    <view class="openmessage-title">开卡后本单</view>
+                    <view class="openmessage-redtitle">立减</view>
+                    <view class="openmessage-redprice">¥{{currentPriceEntity.openSaveMoney}}</view>
+                </view>
+            </view>
+            <view class="maincard-rightbtn">{{maincardBtnTitle}}</view>
+        </view>
+        <view class="order-movie-choseview">
+            <view bindtap="showChoseCard" class="chose-cardview {{currentPriceEntity.cinema_card_level_info&&cardCount==0?'is-hidden':''}}">
+                <view class="cardview-leftview">
+                    <image class="cardleftview-icon {{selectCard?'':'is-hidden'}}" src="/images/orderDetial/huiyuanka_logo.png"></image>
+                    <view class="cardleftview-cardname">{{selectCard?selectCard.level:'会员卡'}}</view>
+                </view>
+                <view class="cardview-rightview">
+                    <view class="cardview-rightnoiconview">
+                        <view class="cardrightview-topview {{payType==2||payType==3?'is-hidden':''}}">
+                            <view class="cardrightview-nocardmessage {{selectCard?'is-hidden':''}}">添加会员卡享更多优惠</view>
+                            <view class="cardrightview-topview-price {{selectCard&&payType==1&&saveMoney>0?'':'is-hidden'}}">¥{{saveMoney}}</view>
+                            <view class="cardrightview-topview-message {{selectCard&&saveMoney>0&&payType==1?'':'is-hidden'}}">本单已省</view>
+                        </view>
+                        <view class="cardrightview-balance {{selectCard&&selectCard.can_buy_with_online_pay!=1&&selectCard.card_recharge==1?'':'is-hidden'}}">卡余额:{{selectCard.balance}}元</view>
+                    </view>
+                    <image class="cardrightview-topview-icon" src="/images/common/card_details_jiantou_right.png"></image>
+                </view>
+            </view>
+            <view class="order-line"></view>
+            <view bindtap="showChoseCoupon" class="chose-couponview">
+                <view class="couponview-leftview">
+                    <view class="couponleftview-title">优惠券</view>
+                    <view class="couponleftview-num {{payType==2&&offLineCouponSelectedCount>0||payType==3&&selfGoBuyCouponCount>0||offLineCanUseCount+canUseCouponCount<=0?'is-hidden':''}}">{{offLineCanUseCount+canUseCouponCount+'张可用'}}</view>
+                    <view class="couponleftview-usenum {{payType!=3||selfGoBuyCouponCount<=0?'is-hidden':''}}">{{selfGoBuyCouponCount}}张已选</view>
+                </view>
+                <view class="couponview-rightview">
+                    <image class="couponrightview-icon" src="/images/common/card_details_jiantou_right.png"></image>
+                    <view class="couponrightview-message {{(payType==2||payType=='3')&&couponRightShow!='添加影票及餐饮优惠券'?'title-red':''}}">{{couponRightShow}}</view>
+                </view>
+            </view>
+            <view class="order-line"></view>
+            <view class="chose-phoneview">
+                <view class="phoneview-title">手机号</view>
+                <view class="phoneview-numview">
+                    <view bindtap="clickPhoneView" class="phoneview-num {{hiddenNum?'':'is-hidden'}}">{{phoneNumber}}</view>
+                    <input bindblur="phoneInputBlur" bindinput="currentInputNum" class="phoneview-num-input {{hiddenNum?'is-hidden':''}}" focus="{{!hiddenNum}}" maxlength="11" placeholder="取票手机号" value="{{phoneNumber}}"></input>
+                    <image class="phoneview-icon {{phoneCanChange?'':'is-hidden'}}" src="/images/orderDetial/confir_edit.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="order-movie-choseview {{calculateData.is_show_companion=='1'?'':'is-hidden'}}">
+            <view bindtap="showCertificate" class="chose-couponview">
+                <view class="couponview-leftview">
+                    <view class="couponleftview-title">观影人信息</view>
+                    <view class="couponleftview-subtitle">（必填）</view>
+                </view>
+                <view class="couponview-rightview">
+                    <image class="couponrightview-icon" src="/images/common/card_details_jiantou_right.png"></image>
+                    <view class="couponrightview-message">{{idCardTips}}</view>
+                </view>
+            </view>
+        </view>
+        <view style="height: 245rpx;"></view>
+    </view>
+</scroll-view>
+<view class="order-movie-bottomview">
+    <view class="long-lineview"></view>
+    <view class="movie-bottom-topview">
+        <view class="confirmorder-buttomview-refundmessage {{currentPriceEntity.refund_settings.refund=='1'&&currentPriceEntity.refund_settings.order_can_refund=='1'?'is-hidden':''}}">{{currentPriceEntity.refund_settings.refund_message}}</view>
+        <view catchtap="refunNoticeClick" class="movie-refundview {{currentPriceEntity.refund_settings.refund=='0'||currentPriceEntity.refund_settings.order_can_refund=='0'||!currentPriceEntity||!currentPriceEntity.refund_settings?'is-hidden':''}}">
+            <view class="movie-refundmessage">{{calculateData.protocolAndRule.title}}</view>
+            <image class="movie-refundicon" src="{{isShowDialog?'/images/orderDetial/chupiao_icon_jiantoushang.png':'/images/orderDetial/chupiao_icon_jiantouxia.png'}}"></image>
+        </view>
+        <view bindtap="showPriceDetial" class="movie-priceview">
+            <view class="movie-priceview-title">订单总价 : </view>
+            <view class="movie-priceview-price">¥{{currentPriceEntity.newTotalPrice}}</view>
+            <image class="movie-priceview-icon" src="{{detialDisplay?'/images/orderDetial/chupiao_icon_jiantoushang.png':'/images/orderDetial/chupiao_icon_jiantouxia.png'}}"></image>
+        </view>
+    </view>
+    <view class="confirmorder-ticket-btns">
+        <view bindtap="cancelOrder" class="confirmorder-ticket-cancelbtn {{orderComfimEntity.order_type==1?'is-hidden':''}}">取消订单</view>
+        <form bindsubmit="{{mainPayBtnActive}}" reportSubmit="true">
+            <button class="confirmorder-ticket-buybtn {{orderComfimEntity.order_type==1?'confirmorder-ticket-buybtn-big':''}}" formType="submit">{{mainPayBtnTitle}}</button>
+        </form>
+    </view>
+</view>
+<import src="/templates/confirmOrder/choseCard/choseCard.wxml"></import>
+<template is="chosecard" data="{{display:cardDisplay,displayAnimation:cardDisplayAnimation,cardList:cardList,selectCardIndex:selectCardIndex,scrollHeight:scrollHeight,toview:toview,cardListOpen:cardListOpen,cardStatus:cardStatus,cardPriceEntity:cardPriceEntity}}"></template>
+<import src="/templates/confirmOrder/choseCoupon/choseCoupon.wxml"></import>
+<template is="chosecoupon" data="{{display:couponDisplay,displayAnimation:couponDisplayAnimation,couponScrollHeight:couponScrollHeight,couponList:couponList,couponBottomShow:couponBottomShow,couponPriceEntity:couponPriceEntity,goSelfCoupon:goSelfCoupon,selfCouponList:selfCouponList,selfCouponBottomShow:selfCouponBottomShow,selfCouponPriceEntity:selfCouponPriceEntity,inputNum:inputNum,canUseSelfCount:canUseCouponCount,noUseItemTitle:noUseItemTitle,offLineCanUseCount:offLineCanUseCount,offlineNoCanUseCount:offlineNoCanUseCount,nooffLineCouponItemTitle:nooffLineCouponItemTitle,inputCouponNum:inputCouponNum}}"></template>
+<import src="/templates/showpricedetial/showpricedetial.wxml"></import>
+<template is="showpricedetial" data="{{display:detialDisplay,displayAnimation:detialDisplayAnimation,maskviewData:maskviewData}}"></template>
+<import src="/templates/dialog/refundNoticeDialog/refundNotice.wxml"></import>
+<template is="refundNotice" data="{{isShowDialog:isShowDialog,isShow:isShow,isNon:isNon,protocolAndRule:protocolAndRule,title:calculateData.protocolAndRule.title,protocolSrc:protocolSrc}}"></template>
+<import src="/templates/dialog/ticketConfirmCertificationDialog/certificationDialog.wxml"></import>
+<template is="certificationDialog" data="{{isShowCertification:isShowCertification}}"></template>

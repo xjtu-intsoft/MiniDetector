@@ -1,0 +1,27 @@
+.section {
+    position: relative;
+    padding: 30rpx 0 50rpx 40rpx;
+    background: #2a2d3f;
+    color: #fff;
+}
+
+.section view:first-child {
+    margin-bottom: 20rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 60rpx;
+}
+
+.section-text {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 40rpx;
+}
+
+.section image {
+    position: absolute;
+    top: 60rpx;
+    right: 40rpx;
+    width: 80rpx;
+    height: 80rpx;
+}

@@ -1,0 +1,14 @@
+<view class="body">
+    <swiper bindchange="onChangeSwiper" class="body-img" current="{{currentImgPosition}}">
+        <swiper-item wx:for="{{pictures}}">
+            <image class="item-slide-image" mode="aspectFit" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <text class="save-tip" wx:if="{{pictures.length==0}}">暂无分享海报</text>
+    <scroll-view class="scroll-body" scrollX="true">
+        <image bindtap="onChosePicture" class="item-picture {{idx==currentImgPosition?'item-picture-check':''}}" data-position="{{idx}}" mode="aspectFit" src="{{item}}" wx:for="{{pictures}}" wx:for-index="idx"></image>
+    </scroll-view>
+    <view class="bottom">
+        <button bindtap="onSavePicture" class="btn-main" disabled="{{pictures.length>0?false:true}}">保存图片</button>
+    </view>
+</view>

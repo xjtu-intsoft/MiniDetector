@@ -1,0 +1,141 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-cf);
+}
+
+.recharge-status {
+    padding-top: 40rpx;
+    padding-left: 60rpx;
+}
+
+.recharge-status text {
+    font-size: var(--font-tc);
+    line-height: 3;
+    font-weight: 500;
+    color: var(--color-cb);
+}
+
+.divide {
+    margin: 20rpx 20rpx 0;
+    border-bottom: 2rpx dashed #ccc;
+}
+
+.recharge-detail {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.recharge-detail-item {
+    padding-left: 60rpx;
+    padding-bottom: 10rpx;
+}
+
+.recharge-detail text {
+    font-size: var(--font-tg);
+    color: var(--color-cd);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.detail-has-chance {
+    position: relative;
+}
+
+.detail-has-chance,.detail-show-chance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-show-chance {
+    height: 270rpx;
+    width: 100%;
+}
+
+.detail-show-chance-text {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 60rpx;
+    margin-top: 16rpx;
+}
+
+.detail-show-chance-text-top text {
+    font-size: 44rpx;
+    color: #000;
+}
+
+.detail-show-chance-text-top .redText {
+    color: #ff4426;
+}
+
+.detail-show-chance-text-middle {
+    font-size: var(--font-te);
+    color: #000;
+    margin: 8rpx 0;
+}
+
+.detail-show-chance-text-bottom {
+    color: var(--color-cf);
+    font-size: var(--font-tc);
+    height: 80rpx;
+    width: 242rpx;
+    border-radius: 41.5rpx;
+    background: #fe4632;
+    line-height: 2.6;
+    margin-top: 4rpx;
+}
+
+.recharge-detail .detail-header {
+    font-size: var(--font-tb);
+    font-weight: 500;
+    margin-bottom: 15rpx;
+    color: var(--color-cb);
+}
+
+.detail-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 60rpx;
+    margin-top: 30rpx;
+}
+
+.refrush-tips text {
+    font-size: var(--font-td);
+    color: #fe4632;
+}
+
+.tel-content {
+    display: flex;
+    justify-content: center;
+}
+
+.tel-content text {
+    font-size: var(--font-te);
+    color: var(--color-cd);
+}
+
+.footer-handler {
+    display: flex;
+}
+
+.footer-handler button {
+    width: 100%;
+    margin: 20rpx;
+}
+
+.grey {
+    background-color: var(--color-cd);
+}
+
+.border-btn {
+    border: 1rpx solid var(--color-cb);
+    color: var(--color-cb);
+    background-color: transparent;
+}

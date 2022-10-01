@@ -1,0 +1,138 @@
+.findshop-view {
+    width: 100%;
+    height: 420rpx;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.findshop-view-cell {
+    width: 50%;
+    height: 100%;
+}
+
+.findshop-view-cell-little {
+    width: 50%;
+    height: 50%;
+}
+
+.findshop-view-cellView {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.findshop-view-cellImageView {
+    width: 100%;
+    height: 292rpx;
+    display: flex;
+}
+
+.findshop-view-cellImage {
+    margin: auto;
+    width: 258rpx;
+    height: 258rpx;
+    background-size: 100%;
+    background-image: var(--shop-defimage);
+}
+
+.findshop-view-huiview {
+    max-width: 70rpx;
+    height: 30rpx;
+    margin-top: 4rpx;
+    margin-left: 24rpx;
+    position: absolute;
+}
+
+.findshop-view-celldes {
+    margin-top: -3rpx;
+    display: flex;
+    font-size: var(--font-td);
+    margin-left: 24rpx;
+    margin-right: 24rpx;
+    text-indent: 60rpx;
+    width: 326rpx;
+    height: 100%;
+}
+
+.findshop-view-celldes-little {
+    width: 140rpx;
+    line-height: 45rpx;
+    word-break: break-all;
+}
+
+.findshop-view-desview {
+    overflow: hidden;
+    height: 70rpx;
+}
+
+.findshop-view-price {
+    font-size: var(--font-tc);
+    font-weight: 500;
+    margin-left: 24rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    color: var(--color-ce);
+    display: flex;
+}
+
+.findshop-view-count {
+    margin-left: 24rpx;
+    font-size: var(--font-tf);
+    color: var(--color-ce);
+}
+
+.findshop-view-cellImageView-little {
+    width: 214rpx;
+    height: 100%;
+    display: flex;
+}
+
+.findshop-view-cellImage-little {
+    margin: auto auto auto 0rpx;
+    width: 170rpx;
+    height: 170rpx;
+    background-size: 100%;
+    background-image: var(--shop-defimage);
+}
+
+.findshop-view-desview-little {
+    margin-top: 23rpx;
+    height: 130rpx;
+}
+
+.findshop-view-price-little {
+    margin-left: 24rpx;
+    width: 140rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.lineview {
+    width: 100%;
+    height: 1rpx;
+    background-color: var(--color-ch);
+}
+
+.middlelineone {
+    width: 1rpx;
+    height: 420rpx;
+}
+
+.middlelineone,.middlelinetwo {
+    background-color: var(--color-ch);
+    left: 375rpx;
+    position: absolute;
+}
+
+.middlelinetwo {
+    width: 375rpx;
+    height: 2rpx;
+    margin-top: 210rpx;
+}

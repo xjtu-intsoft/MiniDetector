@@ -1,0 +1,41 @@
+var defaultAvator = (function(name) {
+    return (name && name.slice(0, 1))
+});
+var defaultMiniWebLogo = (function(name) {
+    return (name && name.slice(0, 1))
+});
+var listColums = (function(list) {
+    var colOne = [];
+    var colTwo = [];
+    for (var i = 0; i < list.length; i++) {
+        if (i % 2 == 0) {
+            colOne.push(list[((nt_0 = (i), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))])
+        } else {
+            colTwo.push(list[((nt_1 = (i), null == nt_1 ? undefined : 'number' === typeof nt_1 ? nt_1 : "" + nt_1))])
+        }
+    };
+    return ({
+        colOne,
+        colTwo
+    })
+});
+var mixedroofPlacementAndOthers = (function(recordsByPerson, otherCardData) {
+    var allMembers = [];
+    recordsByPerson = recordsByPerson || [];
+    otherCardData = otherCardData || [];
+    for (var i = 0; i < recordsByPerson.length; i++) {
+        recordsByPerson[((nt_2 = (i), null == nt_2 ? undefined : 'number' === typeof nt_2 ? nt_2 : "" + nt_2))][("" + 'isTop')] = true;
+        allMembers.push(recordsByPerson[((nt_3 = (i), null == nt_3 ? undefined : 'number' === typeof nt_3 ? nt_3 : "" + nt_3))])
+    };
+    for (var j = 0; j < otherCardData.length; j++) {
+        otherCardData[((nt_4 = (j), null == nt_4 ? undefined : 'number' === typeof nt_4 ? nt_4 : "" + nt_4))][("" + 'isTop')] = false;
+        allMembers.push(otherCardData[((nt_5 = (j), null == nt_5 ? undefined : 'number' === typeof nt_5 ? nt_5 : "" + nt_5))])
+    };
+    return (allMembers)
+});
+module.exports = ({
+    defaultAvator: defaultAvator,
+    defaultMiniWebLogo: defaultMiniWebLogo,
+    listColums: listColums,
+    mixedroofPlacementAndOthers: mixedroofPlacementAndOthers,
+});

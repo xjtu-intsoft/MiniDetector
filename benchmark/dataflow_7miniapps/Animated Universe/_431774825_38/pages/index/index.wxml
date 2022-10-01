@@ -1,0 +1,53 @@
+<view class="index-msg {{isIphone?'':'index-msg-android'}}" wx:if="{{isShowTip}}">
+    <image class="index-msg-bg" src="/images/combined_shape.png"></image>
+    <view class="index-msg-main">
+        <view class="index-msg-left">
+            <text>喜欢动图宇宙，就点击</text>
+            <image class="index-msg-menu" src="/images/msg_menu.png"></image>
+            <text>添加到我的{{msg}}吧！</text>
+        </view>
+        <image bindtap="deleteTip" class="index-msg-delete" src="/images/msg_delete.png"></image>
+    </view>
+</view>
+<view class="main">
+    <banner class="index-banner" item="{{banner}}"></banner>
+    <view style="height:{{pfmOpt.topHeight}}px"></view>
+    <block wx:if="{{pfmOpt.index1<index&&index<pfmOpt.index2}}" wx:for="{{list}}" wx:key="{{index%20}}">
+        <view id="{{'cell-'+index}}" wx:if="{{item.article_type==1}}">
+            <view class="index-title" wx:if="{{item.titleTemplate}}">
+                <title bind:rtClick="viewAll" data-headline_id="{{item.headline_id}}" item="{{item.titleTemplate}}"></title>
+            </view>
+            <view class="index-story">
+                <story-video bind:go="go" bind:play="play" item="{{item}}" wx:if="{{item.show_type==1||item.show_type==3}}"></story-video>
+                <story-one-image item="{{item}}" wx:if="{{item.show_type==2}}"></story-one-image>
+                <story-many-image item="{{item}}" wx:if="{{item.show_type==4}}"></story-many-image>
+            </view>
+        </view>
+        <view id="{{'cell-'+index}}" wx:elif="{{item.article_type==2&&(item.show_type==5||item.show_type==6||item.show_type==7)}}">
+            <view class="index-title">
+                <title bind:rtClick="goStreamImages" data-item="{{item}}" item="{{item.title}}"></title>
+            </view>
+            <view class="index-subject-content">
+                <subject-images item="{{item}}" wx:if="{{item.show_type==5}}"></subject-images>
+                <story-slideshow item="{{item}}" wx:elif="{{item.show_type==6}}"></story-slideshow>
+                <story-big-image item="{{item}}" wx:if="{{item.show_type==7}}"></story-big-image>
+                <tag class="story-big-tag" tags="{{item.tag}}"></tag>
+            </view>
+            <view class="index-go-wiki-button">
+                <go-wiki-button bind:textClick="textClick" item="{{item}}" type="1"></go-wiki-button>
+            </view>
+            <article-subscribe item="{{item.subscribe_tag}}" wx:if="{{item.showSubscribe}}"></article-subscribe>
+        </view>
+        <view id="{{'cell-'+index}}" wx:elif="{{item.article_type==3}}">
+            <view class="index-title">
+                <title item="{{item.title}}"></title>
+            </view>
+            <story-big-image item="{{item}}"></story-big-image>
+            <view class="index-go-wiki-button">
+                <go-wiki-button bind:textClick="textClick" item="{{item}}" type="1"></go-wiki-button>
+            </view>
+        </view>
+    </block>
+    <has-more-data hasMoreData="{{state}}" wx:if="{{!httpFail}}"></has-more-data>
+</view>
+<canvas canvasId="myCanvas" class="public-canvas"></canvas>

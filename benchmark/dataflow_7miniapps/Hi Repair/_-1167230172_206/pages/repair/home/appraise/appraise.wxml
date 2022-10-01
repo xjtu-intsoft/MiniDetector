@@ -1,0 +1,29 @@
+<view class="quickorderContainer" style="background:{{background}};background-size: cover;">
+    <view class="quickorderWrap">
+        <view class="title">{{data.meta.title}}</view>
+        <view class="descWrap">
+            <scroll-view scrollX class="" style="width: 100%;white-space: nowrap;">
+                <view class="comment-item" style="background-image:url({{data.meta.theme.comment_background}})" wx:for="{{data.items}}">
+                    <view class="comment-item-content">
+                        <view>
+                            <view class="content-time">{{item.created_at}}</view>
+                            <view class="content-main">{{item.content}}</view>
+                        </view>
+                        <view>
+                            <view class="content-user">
+                                <view class="name">{{item.user_name}}</view>
+                                <view class="star">
+                                    <image mode="heightFix" src="{{data.meta.theme.comment_star}}"></image>
+                                </view>
+                            </view>
+                            <view class="content-model">
+                                <view class="model-name">{{item.mould_name}}</view>
+                                <view class="model-fault over">{{item.fault_detail}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

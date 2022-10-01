@@ -1,0 +1,70 @@
+<import src="/templates/find/findPicker/findPicker.wxml"></import>
+<view class="findconfirm-view">
+    <view class="findconfirmchosetype-gray"></view>
+    <view bindtap="clickTakeSelf" class="findconfirmchosetype-modeview {{choseTypedata.is_show_time==1?'':'is-hidden'}}">
+        <view class="findconfirmchosetype-modeleftview">前台自取</view>
+        <image class="findconfirmchosetype-moderightimage {{choseType=='takeSelf'?'':'is-hidden'}}" src="/images/shop/xuanzhong.png"></image>
+    </view>
+    <view class="{{choseTypedata.is_show_time==1?'':'is-hidden'}}" style="background-color: white;">
+        <view class="chosetype-modeHeightView {{choseType=='takeSelf'?'':'viewheightzero'}}">
+            <view class="findconfirmchosetype-lineview"></view>
+            <view bindtap="clickTakeSelfChoseTime" class="findconfirmchosetype-modeview">
+                <view class="findconfirmchosetype-modeleftview">取餐时间</view>
+                <view class="findconfirmchosetype-moderightview">{{takeSelfTimeData.timeStr}}
+                    <image class="arrow-view" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="chosetype-picrkeHeightView {{choseType=='takeSelf'&&selfShowTime?'':'is-hidden'}}">
+            <view class="findconfirmchosetype-lineview"></view>
+            <view class="picker-view">
+                <template is="findPicker" data="{{firstArr:takeSelfTimeData.dateArr,secondArr:takeSelfTimeData.hourArr,thirdArr:takeSelfTimeData.minArr,pickerTypeDic:takeSelfTimeType,indexs:takeSelfTimeData.indexs}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="findconfirmchosetype-gray"></view>
+    <view bindtap="clickTakeService" class="findconfirmchosetype-modeview {{choseTypedata.is_delivery==1?'':'is-hidden'}}">
+        <view class="findconfirmchosetype-modeleftview">送餐服务</view>
+        <image class="findconfirmchosetype-moderightimage {{choseType=='takeService'?'':'is-hidden'}}" src="/images/shop/xuanzhong.png"></image>
+    </view>
+    <view class="{{choseTypedata.is_delivery==1?'':'is-hidden'}}" style="background-color: white;">
+        <view class="chosetype-modeHeightView {{choseType=='takeService'?'':'viewheightzero'}}">
+            <view class="findconfirmchosetype-lineview"></view>
+            <view bindtap="clickTakeServiceTimeDelivery" class="findconfirmchosetype-modeview">
+                <view class="findconfirmchosetype-modeleftview">就餐地点</view>
+                <view class="findconfirmchosetype-moderightview">{{sendServeDeliveryData.deliveryString}}
+                    <image class="arrow-view" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="chosetype-picrkeHeightView {{choseType=='takeService'&&serverShowType=='delivery'?'':'viewheightzero'}}">
+            <view class="findconfirmchosetype-lineview"></view>
+            <view class="picker-view">
+                <template is="findPicker" data="{{firstArr:sendServeDeliveryData.firstArr,secondArr:sendServeDeliveryData.secondArr,thirdArr:sendServeDeliveryData.thirdArr,pickerTypeDic:sendServeDeliveryType,indexs:sendServeDeliveryData.indexs}}"></template>
+            </view>
+        </view>
+        <view class="chosetype-modeHeightView {{choseType=='takeService'?'':'viewheightzero'}}">
+            <view class="findconfirmchosetype-lineview"></view>
+            <view bindtap="clickTakeServiceTime" class="findconfirmchosetype-modeview">
+                <view class="findconfirmchosetype-modeleftview">取餐时间</view>
+                <view class="findconfirmchosetype-moderightview">{{sendServeTimeData.timeStr}}
+                    <image class="arrow-view" src="/images/common/gerenzhongxin_icon_jiantou.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="chosetype-picrkeHeightView {{choseType=='takeService'&&serverShowType=='time'?'':'is-hidden'}}">
+            <view class="findconfirmchosetype-lineview"></view>
+            <view class="picker-view">
+                <template is="findPicker" data="{{firstArr:sendServeTimeData.dateArr,secondArr:sendServeTimeData.hourArr,thirdArr:sendServeTimeData.minArr,pickerTypeDic:sendServeTimeType,indexs:sendServeTimeData.indexs}}"></template>
+            </view>
+        </view>
+        <view class="findconfirmchosetype-gray"></view>
+    </view>
+    <view bindtap="clickTakeOut" class="findconfirmchosetype-modeview {{choseTypedata.is_takeout==1?'':'is-hidden'}}">
+        <view class="findconfirmchosetype-modeleftview">外卖配送</view>
+        <image class="findconfirmchosetype-moderightimage {{choseType=='takeOut'?'':'is-hidden'}}" src="/images/shop/xuanzhong.png"></image>
+    </view>
+</view>
+<view class="findconfirmchosetype-bottomview">
+    <view bindtap="choseTakeType" class="findconfirmchosetype-bottomview-btn">确认</view>
+</view>

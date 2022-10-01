@@ -1,0 +1,76 @@
+<view class="head">
+    <text class="head-tip">请及时处理失败数据</text>
+</view>
+<button class="btn-contact" openType="contact">有疑问请联系客服</button>
+<view class="body">
+    <scroll-view class="scroll-list" scrollY="true">
+        <view style="height:30rpx;"></view>
+        <view class="item" wx:for="{{list}}" wx:for-index="position" wx:key="id">
+            <block wx:if="{{item.type==1}}">
+                <view class="item-body">
+                    <view class="item-bank-info">
+                        <image class="item-bank-ic" src="{{item.url}}"></image>
+                        <text class="item-bank-name">{{item.bankName+'('+item.last4CardNo+')'}}</text>
+                    </view>
+                    <text class="item-message">{{item.errorMsg}}</text>
+                </view>
+                <view style="height:1rpx;width:100%;background:#E6E5E5;"></view>
+                <button bindtap="onUpdateCredit" class="item-bottom main-color" data-position="{{position}}">去修改</button>
+            </block>
+            <view class="item-body" wx:if="{{item.type==2}}">
+                <view style="margin-bottom:20rpx;">
+                    <view class="item-bank-info">
+                        <image class="item-bank-ic" src="{{item.url}}"></image>
+                        <text class="item-bank-name">{{item.bankName+'('+item.last4CardNo+')'}}</text>
+                    </view>
+                    <text style="margin-left:24rpx;">{{item.errorMsg}}</text>
+                </view>
+                <view class="item-select" hidden="{{item.money>0?false:true}}">
+                    <text style="margin-left:30rpx;">若已经充值，请修改</text>
+                    <text style="color:#4D49E3;flex:1;">剩余额</text>
+                    <text bindtap="onUpdateCredit" class="item-select-button" data-position="{{position}}">去修改</text>
+                </view>
+                <view hidden="{{item.day>0?false:true}}" style="background:#d4d4d4;height:1rpx;"></view>
+                <view class="item-select" hidden="{{item.day>0?false:true}}">
+                    <text style="margin-left:30rpx;">修改</text>
+                    <text style="color:#4D49E3;flex:1;">还款日</text>
+                    <text bindtap="onUpdateRepayDay" class="item-select-button" data-position="{{position}}">去修改</text>
+                </view>
+                <view hidden="{{item.billSum>0?false:true}}" style="background:#d4d4d4;height:1rpx;"></view>
+                <view class="item-select" hidden="{{item.billSum>0?false:true}}">
+                    <text style="margin-left:30rpx;">修改</text>
+                    <text style="color:#4D49E3;flex:1;">账单额</text>
+                    <text bindtap="onUpdateBillSum" class="item-select-button" data-position="{{position}}">去修改</text>
+                </view>
+            </view>
+            <block wx:if="{{item.type==3||item.type==5}}">
+                <view class="item-body">
+                    <view class="item-bank-info">
+                        <image class="item-bank-ic" src="{{item.url}}"></image>
+                        <text class="item-bank-name">{{item.bankName+'('+item.last4CardNo+')'}}</text>
+                    </view>
+                    <text class="item-message">{{item.errorMsg}}</text>
+                </view>
+                <view style="height:1rpx;width:100%;background:#E6E5E5;"></view>
+                <button bindtap="onBindChannel" class="item-bottom main-color" data-position="{{position}}">去绑定</button>
+            </block>
+            <block wx:if="{{item.type==4}}">
+                <view class="item-body">
+                    <text>{{item.errorMsg}}</text>
+                </view>
+                <view style="height:1rpx;width:100%;background:#E6E5E5;"></view>
+                <picker bindchange="bindRegionChange" mode="region">
+                    <button class="item-bottom main-color">去修改</button>
+                </picker>
+            </block>
+        </view>
+    </scroll-view>
+</view>
+<modal bindcancel="cancelResetRegion" bindconfirm="confirmResetRegion" cancelText="取消" confirmText="确定" hidden="{{!showRegionDialog}}" title="提示">
+    <view class="region-body">
+        <text>是否确定定位到</text>
+        <text class="region-address">{{region.province+region.city}}
+</text>
+        <text>系统将按照定位消费该地区的商户</text>
+    </view>
+</modal>

@@ -1,0 +1,105 @@
+.edit {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.intro-title {
+    padding: 0rpx 0 12rpx 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.intro-title .title-1 {
+    width: 6rpx;
+    height: 29rpx;
+    background: #3f51b5;
+    margin-right: 8rpx;
+}
+
+.intro-title .title-2 {
+    font-weight: 700;
+}
+
+.infor {
+    padding: 0rpx 0 20rpx 20rpx;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #999;
+}
+
+.textarea-con {
+    position: relative;
+    background: #fff;
+    border-radius: 6rpx;
+    border: 1px solid #ededed;
+    margin: 0 auto;
+}
+
+.textarea,.textarea-con {
+    width: 710rpx;
+    height: 240rpx;
+}
+
+.textarea {
+    overflow-y: scroll;
+    overflow-y: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 20rpx;
+    border-radius: 6rpx;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.textarea text {
+    word-break: break-all;
+}
+
+.textarea-con .intro {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.textarea-con .intro,.textarea-con .intro .intro-p {
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea-con .intro .intro-p {
+    margin: auto;
+    text-align: center;
+}
+
+.textarea-con .intro .i {
+    align-self: center;
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.textarea-con .intro .txt {
+    margin-top: 10rpx;
+    align-self: center;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #999;
+}
+
+.intro-photo-title {
+    border-left: 6rpx solid #3f51b5;
+    padding-left: 8rpx;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 60rpx;
+    height: 40rpx;
+    font-size: 30rpx;
+    font-weight: 500;
+    line-height: 40rpx;
+    margin-left: 30rpx;
+}

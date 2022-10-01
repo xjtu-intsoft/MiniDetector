@@ -1,0 +1,37 @@
+.loading-data {
+    display: block;
+    padding: 22rpx 278rpx 36rpx;
+    width: 194rpx;
+    height: 94rpx;
+    background: #13131f;
+}
+
+.no-data {
+    position: relative;
+    margin: 46rpx 0;
+    height: 34rpx;
+    color: #787880;
+}
+
+.no-data-left,.no-data-right {
+    position: absolute;
+    top: 16rpx;
+    width: 272rpx;
+    height: 4rpx;
+    background: #262630;
+}
+
+.no-data-left {
+    left: 0;
+}
+
+.no-data-right {
+    right: 0;
+}
+
+.no-data-mid {
+    position: absolute;
+    width: 100%;
+    font-size: 24rpx;
+    text-align: center;
+}

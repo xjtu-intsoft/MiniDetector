@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/detail",
+    "pages/apply",
+    "pages/list",
+    "pages/enroll",
+    "pages/tags",
+    "pages/found",
+    "pages/order",
+    "pages/roll",
+    "pages/rollOut",
+    "pages/sharePic",
+    "pages/reward",
+    "pages/balance",
+    "pages/pay",
+    "pages/server",
+    "pages/payErr",
+    "pages/download",
+    "pages/protocol"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "报名工具助手",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "selectedColor": "#ff5001",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "text": "创建",
+        "iconPath": "img/add_off.png",
+        "selectedIconPath": "img/add_on.png"
+      },
+      {
+        "pagePath": "pages/list",
+        "text": "我的",
+        "iconPath": "img/me_off.png",
+        "selectedIconPath": "img/me_on.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxd6939488c1ba2ae2",
+    "wxa4eebe8cb549b4c8"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

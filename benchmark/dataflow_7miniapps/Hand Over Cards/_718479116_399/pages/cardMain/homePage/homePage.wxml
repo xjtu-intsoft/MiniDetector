@@ -1,0 +1,31 @@
+<view class="container">
+    <view class="pageCon">
+        <view class="pageCon-title">
+            <image bindtap="preview" class="pageCon-title-logo" data-detail="{{qiyeData.logo?qiyeData.logo:'https://img-1255379270.file.myqcloud.com/img/defaultlogo.jpg'}}" mode="aspectFit" src="{{qiyeData.logo?qiyeData.logo:'https://img-1255379270.file.myqcloud.com/img/defaultlogo.jpg'}}"></image>
+            <view class="pageCon-title-detail">
+                <view class="pageCon-title-detail-item">{{qiyeData.name?qiyeData.name:qiyeData.fullname}}</view>
+                <view class="pageCon-title-detail-item" wx:if="{{qiyeData.slogan}}">{{qiyeData.slogan}}</view>
+                <view class="pageCon-title-detail-item" wx:if="{{qiyeData.website}}">{{qiyeData.website}}</view>
+            </view>
+        </view>
+        <view class="pageCon-intro">
+            <view class="pageCon-intro-title">企业介绍</view>
+            <view class="pageCon-intro-Con" style="width:auto;white-space: pre-wrap;">{{qiyeData.intro?qiyeData.intro:'暂时还没有内容'}}</view>
+        </view>
+        <view class="pageCon-mainCp">
+            <view class="pageCon-mainCp-title">主要产品({{qiyeData.products.length}})</view>
+            <view bindtap="toChanpinShow" class="pageCon-mainCp-Con" data-ids="{{item.name}}" data-ind="{{index}}" data-title="查看产品" wx:for="{{qiyeData.products}}" wx:key="{{item}}">
+                <image class="pageCon-mainCp-Con-image" mode="aspectFit" src="{{item.image[0]['thumb_url']}}"></image>
+                <view class="pageCon-mainCp-Con-view">
+            {{item.name}}
+          </view>
+            </view>
+        </view>
+        <view style="padding:76rpx 0;"></view>
+    </view>
+    <form bindsubmit="submit" reportSubmit="true">
+        <view class="bottomButton {{systemInfo.modelX?'bottomButtonDetail':'bottomButtonDetailF'}}" wx:if="{{optionsL.st=='lookSelf'||optionsL.st=='lookSelfS'}}">
+            <button bindtap="toEdit" class="buttonPrimaryBig" data-title="编辑" formType="submit" loading="{{saveCommit['loading']}}">编辑</button>
+        </view>
+    </form>
+</view>

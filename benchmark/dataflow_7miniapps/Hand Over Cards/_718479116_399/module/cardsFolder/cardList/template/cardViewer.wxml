@@ -1,0 +1,15 @@
+<template name="cardViewer">
+    <view class="itemDay" style="{{index==listData.length-1?'overflow:hidden;':';'}}" wx:for="{{listData}}" wx:key="{{index}}">
+        <view class="itemTime">{{item.createResDay}}</view>
+        <view bindtap="_cardItemTap" class="itemCard" data-formtoken="{{i.formtoken}}" data-id="{{i.id}}" data-name="{{i.name}}" data-openid="{{i.openId}}" style="{{d==item.cardList.length-1?'margin-bottom:20rpx;':';'}}" wx:for="{{item.cardList}}" wx:for-index="d" wx:for-item="i" wx:key="{{d}}">
+            <view class="itemCard-left">
+                <image mode="heightFix" src="{{i.jsonUserpic.url?i.jsonUserpic.url+'?mark='+timerMark:''}}"></image>
+            </view>
+            <view class="itemCard-right">
+                <view class="right-ava addBold" wx:if="{{!i.avatarUrl}}">{{i.firstWord}}</view>
+                <image class="right-ava" src="{{i.avatarUrl}}?mark={{timerMark}}" wx:if="{{i.avatarUrl}}"></image>
+                <view class="right-name viewEllipsis">{{i.name}}</view>
+            </view>
+        </view>
+    </view>
+</template>

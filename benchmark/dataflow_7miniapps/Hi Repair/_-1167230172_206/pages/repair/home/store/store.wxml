@@ -1,0 +1,41 @@
+<view class="storeContainer" style="background:{{background}};background-size: cover;">
+    <view class="storeWrap">
+        <view class="storeTitleWrap">
+            <view class="title">
+                {{data.meta.title}}
+                <view class="distance" wx:if="{{items.distance>0?true:false}}">
+                    距离{{items.distance<100?items.distance+'m':items.distance/1000+'km'}} </view>
+            </view>
+            <view bindtap="goMore" class="more">
+                    更多门店
+                    <image class="" src="../../../../img/select.png"></image>
+            </view>
+        </view>
+        <view class="detailWrap">
+            <view class="detailDescWrap">
+                <view class="detailDesc">
+                    <view class="name">
+                        <text>离我最近</text>{{items.name}}</view>
+                    <view class="tese">特色服务：维修丨回收丨保养丨充电丨打印</view>
+                    <view class="time">营业时间：{{items.service_time}}</view>
+                    <view class="time">门店地址：{{items.address}}</view>
+                    <view class="time">公交线路：{{items.bus_info}}</view>
+                </view>
+                <view class="action">
+                    <view bindtap="showPreview" class="tel" data-tel="{{items.tel}}">
+                        <image class="" src="../../../../img/weixin.png"></image>
+                            微信
+                        </view>
+                    <view bindtap="callCenter" class="tel" data-tel="{{items.tel}}">
+                        <image class="" src="../../../../img/call.png"></image>
+                            预约
+                        </view>
+                    <view bindtap="openPhoneLocation" class="tel" data-address="{{items.address}}" data-lat="{{items.lat}}" data-lng="{{items.lng}}" data-name="{{items.name}}">
+                        <image class="" src="../../../../img/nav.png"></image>
+                            导航
+                        </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

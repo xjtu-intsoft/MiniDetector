@@ -1,0 +1,22 @@
+<view class="commonproblemContainer">
+    <view class="commonproblemWrap">
+        <view class="wraptitle">保修与查询</view>
+        <view class="contentWrap borderbottom">
+            <view class="title">如何在 Apple 官网查询维修记录？
+            </view>
+            <view class="ans">您可访问 Apple 官网，技术支持/iPhone /维修选项/查看维修状态，<view>服务支持页面：https://mysupport.apple.com/。</view>
+            </view>
+        </view>
+        <view class="contentWrap borderbottom">
+            <view class="title">维修的官方原厂部件保修多少时间？</view>
+            <view class="ans">
+                更换的官方原厂部件享有Hi维修提供 180 天保修，其他部件原官方保修不受影响，
+                <view>注：以 Apple 官网维修完成日期为起始日期。</view>
+            </view>
+        </view>
+        <view class="contentWrap">
+            <view class="title">维修后出现问题怎么办？</view>
+            <view class="ans">维修的部件均有 180 天质保期，维修后同一故障点出现问题，用户可以联系客服热线 400-017-1010 申请售后。人为损坏、进液、封标脱落、自然磨损、自行拆装、设备变形及其他不可抗力造成的问题不予保修。</view>
+        </view>
+    </view>
+</view>

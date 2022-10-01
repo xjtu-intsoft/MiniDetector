@@ -1,0 +1,28 @@
+<form bindsubmit="bindFormSubmit">
+    <view class="classname ">
+        <view class="f_16 margin_12_10 borde_b1cc padd_tb4">举报</view>
+        <checkbox-group bindchange="checkboxChange">
+            <view class="classname margin_12_10 p_5_6">
+                <view class="f_16">
+                    <image class="ver_center questionmark" src="/images/icon/questionmark.png"></image>
+          您为何要举报此信息
+      </view>
+                <view class="p_10_20">
+                    <view class="f_14 padd_tb4" wx:for="{{items}}" wx:key="*this">
+                        <checkbox name="title" value="{{item.value}}"></checkbox>
+          {{item.value}}
+      </view>
+                    <view class="padd_tb4 padd_b10">
+                        <view class="f_14">举报说明(必填-至少10个字)</view>
+                        <view class="padd_b10">
+                            <textarea class="txre_style f_14 p_6" name="content" placeholder="请输入您要举报的内容"></textarea>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </checkbox-group>
+        <view class="classname">
+            <button formType="submit" style="width:60%; margin-bottom:30px"> 提交 </button>
+        </view>
+    </view>
+</form>

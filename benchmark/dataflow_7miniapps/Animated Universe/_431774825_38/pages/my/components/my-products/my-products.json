@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "has-more-data": "/components/has-more-data/has-more-data"
+    }
+}

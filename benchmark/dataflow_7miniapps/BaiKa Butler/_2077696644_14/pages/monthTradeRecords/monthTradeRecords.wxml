@@ -1,0 +1,4 @@
+<view class="item" wx:for="{{list}}">
+    <text class="item-amount">￥{{item.amount}}</text>
+    <text class="item-time">{{item.time}}</text>
+</view>

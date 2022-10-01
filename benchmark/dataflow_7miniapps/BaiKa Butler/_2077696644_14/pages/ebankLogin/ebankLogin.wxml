@@ -1,0 +1,43 @@
+<import src="../../template/ebankLogin/ebankLogin.wxml"></import>
+<import src="../../template/inputBillSum/inputBill.wxml"></import>
+<view class="head-blank"></view>
+<view class="menu">
+    <text bindtap="choseMenu" class="item-menu {{menuPosition==1?'item-menu-check main-background':''}}" data-position="1">手动输入</text>
+    <text bindtap="choseMenu" class="item-menu {{menuPosition==0?'item-menu-check main-background':''}}" data-position="0">网银输入</text>
+</view>
+<template is="ebankLogin" data="{{ebankLoginInfo:ebankLoginInfo,cardInfo:cardInfo,loginInfo:loginInfo,isShowAgreement:isShowAgreement}}" wx:if="{{menuPosition==0}}"></template>
+<template is="inputBillNumber" data="{{cardInfo:cardInfo,chargeInfo:chargeInfo}}" wx:else></template>
+<form bindsubmit="confirmInputSmsCode">
+    <view class="modal-view" hidden="{{hiddenInputSmsCode}}">
+        <view class="modal-body">
+            <text class="modal-title ">{{needInputSmsCodeTip}}</text>
+            <input class="modal-input-sms" name="smsCode" placeholder="点击此处输入验证码" placeholderStyle="font-size:23rpx;"></input>
+            <view class="modal-bottom">
+                <button bindtap="cancelInputSmsCode" class=" modal-btn">取消</button>
+                <button class="modal-btn green-color" formType="submit">确定</button>
+            </view>
+        </view>
+    </view>
+</form>
+<form bindsubmit="confirmSmsCode">
+    <view class="modal-view" hidden="{{hiddenSmsCode}}">
+        <view class="modal-body">
+            <text class="modal-title">{{needSmsCodeTip}}</text>
+            <input class="modal-input-sms" name="smsCode" placeholder="点击此处输入验证码" placeholderStyle="font-size:23rpx;"></input>
+            <view class="modal-bottom">
+                <button bindtap="cancelSmsCode" class=" modal-btn">取消</button>
+                <button class="modal-btn green-color" formType="submit">确定</button>
+            </view>
+        </view>
+    </view>
+</form>
+<view class="mask" hidden="{{maskHidden}}">
+    <view class="mask-dialog">
+        <image class="mask-img" mode="aspectFit" src="../../images/tips_input_bill.png"></image>
+        <view class="mask-bottom">
+            <button bindtap="onCancelMask" class="btn-mask btn-mask-cancel">确定</button>
+            <view class="mask-bottom-line"></view>
+            <button class="btn-mask btn-mask-contact main-color" openType="contact">联系客服</button>
+        </view>
+    </view>
+</view>

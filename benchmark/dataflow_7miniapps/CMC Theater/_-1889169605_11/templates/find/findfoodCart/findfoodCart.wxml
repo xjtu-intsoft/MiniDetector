@@ -1,0 +1,58 @@
+<template name="findfoodCart">
+    <view catchtouchstart="hiddenCart" class="findfood-mask {{displayAnimation?'':'findfood-show'}}" hidden="{{!display}}"></view>
+    <view catchtouchmove="nothing" class="findfood-upview {{displayAnimation?'findfood-viewup':''}}" hidden="{{!display}}">
+        <view class="findfood-clearcartview">
+            <view catchtap="clearCart" class="findfood-clearview-btn">
+                <image class="findfood-clearview-btnimg" src="/images/shop/canyin_shanchu.png"></image>
+                <view class="findfood-clearview-btntitle">清空购物车</view>
+            </view>
+        </view>
+        <scroll-view scrollY class="findfood-foodlist" scrollIntoView="{{cartFood_id}}" scrollWithAnimation="true">
+            <view class="findfood-foodlist-cell" id="{{item.scroll_id}}" wx:for="{{cartGoods}}" wx:key="findfood-foodlist-cell">
+                <view class="findfood-foodlist-cellview">
+                    <view class="findfood-cellview-nameview-content">
+                        <view class="findfood-cellview-nameview">
+                            <view class="findfood-cellview-viewname">
+                                <view class="findfood-cellview-nametop"></view>
+                                <view class="findfood-cellview-name">{{item.name}}</view>
+                            </view>
+                            <text catchtap="expandClick" class="confirmGoodcell_expand {{item.goods_type==3?'':'is-hidden'}}" data-index="{{index}}">{{item.expand?'收起':'展开'}}</text>
+                        </view>
+                        <text class="{{item.goods_type==3?!item.expand?'findfood-cellview-nameview-goodscontent-desc':'findfood-cellview-nameview-goodscontent-expand':'is-hidden'}}">{{item.content}}</text>
+                    </view>
+                    <view class="findfood-cellview-price">¥{{item.showPrice}}</view>
+                    <view class="findfoodcart-foodcell-chosegoods">
+                        <image bindtap="clickcartgoodsadd" class="findfood-chosegoods-addbtn" data-cartgoods-index="{{index}}" data-fooditem="{{item}}" data-index="{{item.rowIndex}}" data-listid="{{item.cinema_goods_type_id}}" src="/images/addmore/add.png"></image>
+                        <view class="findfood-chosegoods-countlable {{item.buyCount<=0?'is-hidden':''}}">{{item.buyCount}}</view>
+                        <image bindtap="clickcartgoodsdel" class="findfood-chosegoods-delbtn {{item.buyCount<=0?'is-hidden':''}}" data-cartgoods-index="{{index}}" data-fooditem="{{item}}" data-index="{{item.rowIndex}}" data-listid="{{item.cinema_goods_type_id}}" src="/images/addmore/jian.png"></image>
+                    </view>
+                </view>
+                <view class="findfoodcart-foodcell-huimessage {{item.promo_num&&item.promo_num>0&&item.havePromo&&!item.isAddMore?'':'is-hidden'}}">
+                    <image class="findfood-cellview-hui" mode="aspectFit" src="{{item.promoPic}}" style="width: {{item.promoPicW}};"></image>
+                    <text class="findfoodcart-huimessage">限购{{item.promo_num}}份{{item.goods_type==3?'':'，超出数量以原价计算'}}
+                  </text>
+                </view>
+                <view class="findfood-foodlist-addmoreview {{item.havePromo&&item.isAddMore?'':'is-hidden'}}">
+                    <view catchtap="goAddMorePage" class="findfood-foodlist-addmoretop" data-good="{{item}}">
+                        <image class="findfood-foodlist-huiview {{item.havePromo&&item.isAddMore?'':'is-hidden'}}" mode="aspectFit" src="{{item.promoPic}}" style="width: {{item.promoPicW}};"></image>
+                        <view class="findfood-foodlist-addmoremessage">{{item.moreGoods.length>0?'已换购商品':item.promo_msg}}</view>
+                        <view class="findfood-foodlist-addmorebtn">{{item.moreGoods.length>0?'重新选购':'去选购'}}</view>
+                        <image class="findfood-foodlist-addmorearrow" src="/images/addmore/jiajiagou_jiantou.png"></image>
+                    </view>
+                    <view class="findfood-foodlist-moregoods-lineview {{item.moreGoods.length>0?'':'is-hidden'}}"></view>
+                    <view class="findfood-foodlist-moregoods {{item.moreGoods.length>0?'':'is-hidden'}}">
+                        <view class="findfood-foodlist-moregoodcell {{index==item.moreGoods.length-1?'findfood-foodlist-moregoodcell-end':''}}" wx:for="{{item.moreGoods}}" wx:for-item="moreGoodItem" wx:key="findfood-foodlist-moregoodcell">
+                            <view class="findfood-foodlist-moregoodcell-nameview">
+                                <image class="findfood-foodlist-moregoodcell-hui" mode="aspectFit" src="/images/addmore/Tag_jiajiagou_2.png"></image>
+                                <view class="findfood-foodlist-moregoodcell-name">{{moreGoodItem.goods_alias}}</view>
+                            </view>
+                            <view class="findfood-foodlist-moregoodcell-peice">¥{{moreGoodItem.price}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="findfood-foodlist-lineview"></view>
+            </view>
+            <view style="height: 150rpx;"></view>
+        </scroll-view>
+    </view>
+</template>

@@ -1,0 +1,20 @@
+<view class="relate-recommend" style="{{mtStyle||''}}">
+    <view class="relate-recommend-title">
+        <image src="/images/icon_tag.png"></image>
+        <text>{{item.leftText}}</text>
+    </view>
+    <view class="relate-recommend-images">
+        <form bind:submit="clickedTopic" reportSubmit="true" wx:for="{{list}}" wx:key="{{index}}">
+            <input name="target" style="display:none" value="{{item.object_id}}"></input>
+            <input name="type" style="display:none" value="{{item.tag.subject_type}}"></input>
+            <input name="rec_id" style="display:none" value="{{item.rec_id}}"></input>
+            <button class="relate-recommend-item" formType="submit">
+                <image bindload="loadImg" class="relate-recommend-bigImg" data-index="{{index}}" src="{{item.picture.resource_url}}" style="background: {{item.bgColor}}"></image>
+                <view class="relate-recommend-text" wx:if="{{item.tag}}">
+                    <image src="../../images/icon_tag.png"></image>
+                    <text>{{item.tag.tag_name}}</text>
+                </view>
+            </button>
+        </form>
+    </view>
+</view>
