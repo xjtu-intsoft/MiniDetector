@@ -1,4 +1,4 @@
-# Miniapp Consistency Detection System
+# MiniApp Consistency Detection System
 A Consistency Detection System for WeChat Mini-Apps
 
 ## Structure
@@ -7,11 +7,14 @@ The calibration dataset used in this paper includes 7 mini-apps for data flow ca
 The calibration result file is in \_\_log\_\_/label.csv under each mini-app folder.
 
 * /dataset:
-   * /dataset/vocalulary: The vocabularies used in data practice, include data types and data operations.
-   * /dataset/privacy_2136sentences.csv: Sentences for classifier training.
-   * /dataset/wechatAPIs.json: WeChat mini-app APIs, includes source and sink.
-   * /dataset/miniapp: Due to the large volume of all mini-apps, only 2998 mini-apps with privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
    * Because github has a size limit of single file, we upload the dataset at zenodo:???.
+   * vocabulary_datatype.json & vocabulary_dataoperation.json: The vocabularies used in data practice, include data types and data operations.
+   * privacy_2136labeledSentences.csv: Sentences for classifier training.
+   * wechatAPIs_sourceandsink.json: WeChat mini-app APIs, includes source and sink.
+   * MiniApp_PrivacyPolicy_2998: 2998 privacy policies extracted from the miniapp dataset.
+   * MiniApp_Package_2998: 2998 WeChat miniapp packages dataset.
+   * Due to the large volume of all mini-apps, only 2998 mini-apps with privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
+   
 
 * /dfjs:
 The taint analysis data flow tool for wechat-miniapp.
