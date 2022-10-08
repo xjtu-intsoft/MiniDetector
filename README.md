@@ -7,7 +7,7 @@ A Consistency Detection System for WeChat Mini-Apps
   * tuple_306sentences.json: The calibration dataset used in this paper. 306 privacy policy sentences with detailed annotations.
 
 * /dataset:
-   * Because github has a size limit of single file, we upload the dataset at zenodo:???.
+   * Because github has a size limit of single file, we upload the dataset at zenodo:https://doi.org/10.5281/zenodo.7159718.
    * vocabulary_datatype.json & vocabulary_dataoperation.json: The vocabularies used in data practice, include data types and data operations.
    * privacy_2136labeledSentences.csv: Sentences for classifier training.
    * wechatAPIs_sourceandsink.json: WeChat mini-app APIs, includes source and sink.
