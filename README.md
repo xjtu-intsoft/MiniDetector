@@ -2,9 +2,9 @@
 A Consistency Detection System for WeChat Mini-Apps
 
 ## Structure
-* /benchmark: 
-The calibration dataset used in this paper includes 7 mini-apps for data flow calibration and 306 privacy policy sentences with detailed annotations.
-The calibration result file is in \_\_log\_\_/label.csv under each mini-app folder.
+* /benchmark:
+  * dataflow_7miniapps: The calibration dataset used in this paper. 7 mini-apps for data flow calibration. The calibration result file is in \_\_log\_\_/label.csv under each mini-app folder.
+  * tuple_306sentences.json: The calibration dataset used in this paper. 306 privacy policy sentences with detailed annotations.
 
 * /dataset:
    * Because github has a size limit of single file, we upload the dataset at zenodo:???.
@@ -15,13 +15,15 @@ The calibration result file is in \_\_log\_\_/label.csv under each mini-app fold
    * MiniApp_Package_2998: 2998 WeChat miniapp packages dataset.
    * Due to the large volume of all mini-apps, only 2998 mini-apps with privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
    
+* /classifier:
+  * model.py: Train file for sentence classification.
 
 * /dfjs:
 The taint analysis data flow tool for wechat-miniapp.
 The entry file is main.js. Modify the incoming mini-app file directory. After the analysis is completed, a \_\_res\_\_ result file will be generated in the directory.
 
 * /extract:
-We get the privacy policy from the static program code and automated tests.
+Get the privacy policy from the static program code or automated tests.
 
 ## Environment
 For code analysis, we used the NodeJS development environment, version 12.19.0. Abstract syntax trees are parsed using the esprima library. 
