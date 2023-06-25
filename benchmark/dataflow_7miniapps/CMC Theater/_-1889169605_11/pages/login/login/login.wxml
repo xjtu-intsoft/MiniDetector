@@ -1,6 +1,0 @@
-<protocol-dialog bindagree="agree" bindnot_agree="not_agree" class="{{showUserProtocol?'is-hidden':''}}"></protocol-dialog>
-<import src="/templates/newLogin/mineAccountLogin/mineAccountLogin.wxml"></import>
-<import src="/templates/newLogin/mineCodeLogin/mineCodeLogin.wxml"></import>
-<import src="/templates/newLogin/mineCodeInput/mineCodeInput.wxml"></import>
-<import src="/templates/newLogin/mineSafeCode/mineSafeCode.wxml"></import>
-<template is="{{currentTemplate}}" data="{{phoneNum:phoneNum,codeInputNum:codeInputNum,codeInputFirst:codeInputFirst,codeInputStr:codeInputStr,codeInputValue:codeInputValue,showCodeUrl:showCodeUrl,loginCodeUrl:loginCodeUrl,tiemDownText:tiemDownText,codeLoginPhoneNum:codeLoginPhoneNum,accountLoginPhoneNum:accountLoginPhoneNum,accountLoginPassWord:accountLoginPassWord,seatLogin:seatLogin,safeCodeStr:safeCodeStr,showPassWord:showPassWord}}"></template>

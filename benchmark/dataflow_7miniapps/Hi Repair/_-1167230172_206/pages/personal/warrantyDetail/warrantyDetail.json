@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "质保信息",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

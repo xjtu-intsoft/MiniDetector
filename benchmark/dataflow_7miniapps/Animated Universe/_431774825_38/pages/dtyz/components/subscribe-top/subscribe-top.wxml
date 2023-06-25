@@ -1,6 +1,0 @@
-<view class="subscribe-top">
-    <view class="subscribe-top-paragraph">
-        <view class="subscribe-top-topText">{{item.top.text1}}</view>
-        <view class="subscribe-top-bottomText">{{item.top.text2}}</view>
-    </view>
-</view>

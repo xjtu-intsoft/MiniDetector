@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-let wx_api_json = "D:\\WORK\\2022\\mpdf_dev\\dfjs-master\\deps\\dict\\wx_api_modify.json";
+let wx_api_json = "./general/deps/dict/wx_api.json";
 const WX_API_DICT = read_source_api(wx_api_json);
 
 let sourceAPIList = WX_API_DICT.reduce((pre, cur) => cur.type.includes("Source") ? pre.concat(cur.api) : pre, []);
@@ -15,13 +15,16 @@ let encriptApiList = [
     "sha128", "sha256", "sha512",
     "hmac"
 ]
+
 function read_source_api(path) {
     let str = fs.readFileSync(path);
     return JSON.parse(str);
 }
+
 function is_array(obj) {
     return Object.prototype.toString.call(obj) === '[object Array]';
 }
+
 function is_obj(obj) {
     return Object.prototype.toString.call(obj) === '[object Object]' && obj.length == undefined;
 }
@@ -32,25 +35,38 @@ function isEncryptAPI(api) {
 }
 
 // wx.getStorageSync().attr
-let nameCheck = (e, api) => e == api || e.replace(api, "").startsWith(".");
-function isSourceAPI(api) { return sourceAPIList.some(e => nameCheck(e, api)); }
-function isSinkAPI(api) { return sinkAPIList.some(e => nameCheck(e, api)); }
-function getDictItem(api) { return WX_API_DICT.find(e => e.api == api); }
+let nameCheck = (test, api) => test == api || (test.includes(api) && (test.replace(api, "").startsWith(".") || test.replace(api, "").startsWith("(")));
+
+function isSourceAPI(test) {
+    return sourceAPIList.some(e => nameCheck(test, e));
+}
+
+function isSinkAPI(test) {
+    return sinkAPIList.some(e => nameCheck(test, e));
+}
+
+function getDictItem(api) {
+    return WX_API_DICT.find(e => nameCheck(api, e.api));
+}
+
 function getDscp(api) {
     let res = getDictItem(api);
     if (res) return res.info_type_zh;
 }
+
 function classify(api) {
     let res = [];
     if (isSourceAPI(api)) res.push("source");
     if (isSinkAPI(api)) res.push("sink");
     return res.length > 0 ? res.join() : "normal";
 }
+
 function suffix(api) {
+
     let res = {};
     let item = getDictItem(api);
     if (item) {
-        res["__api__"] = item.info_type_zh;
+        res["__api__"] = item.info_type_zh; // api描述
         let retType = [];
         if ('success_callback_parameters' in item && is_array(item['success_callback_parameters']))
             retType.push('success_callback_parameters');
@@ -67,7 +83,9 @@ function suffix(api) {
                             res[sfx] = irasuto;
 
                             if ('sub_attributes' in ret_attr) {
-                                let stack = [[ret_attr, sfx]];
+                                let stack = [
+                                    [ret_attr, sfx]
+                                ];
                                 while (stack.length > 0) {
                                     let pop = stack.pop();
                                     for (let sb_attr of pop[0]['sub_attributes']) {
@@ -89,6 +107,9 @@ function suffix(api) {
     }
     return res;
 }
+
+
+console.log(isSourceAPI("...join"))
 
 module.exports = {
     isSinkAPI,

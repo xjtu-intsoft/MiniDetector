@@ -1,7 +1,0 @@
-<view class="subject-images">
-    <form bind:submit="goStreamImages" reportSubmit="true">
-        <button class="subject-images-content" formType="submit">
-            <image bindload="loadImg" data-index="{{index}}" lazyLoad="true" mode="aspectFill" src="{{item.resource_url}}" style="background: {{item.bgColor}}" wx:if="{{index<=1}}" wx:for="{{item.pictures}}" wx:key="{{index}}"></image>
-        </button>
-    </form>
-</view>

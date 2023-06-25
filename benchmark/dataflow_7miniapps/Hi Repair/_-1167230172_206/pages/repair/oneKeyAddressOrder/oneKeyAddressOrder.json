@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "新地址下单",
-    "enablePullDownRefresh": false,
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

@@ -1,7 +1,0 @@
-{
-    "backgroundTextStyle": "dark",
-    "navigationBarTitleText": "保修与查询",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

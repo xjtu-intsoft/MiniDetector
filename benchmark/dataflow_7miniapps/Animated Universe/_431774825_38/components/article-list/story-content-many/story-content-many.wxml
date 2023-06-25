@@ -1,8 +1,0 @@
-<view class="story-content-many">
-    <tag bind:play="play" style="margin-top:{{margins[0]}}rpx" tags="{{item.tag}}"></tag>
-    <view class="story-content-many-text" style="margin-top:{{margins[1]}}rpx;width:{{width}}rpx">
-        <story-content content="{{item.title}}" rowCount="{{rowCount}}"></story-content>
-    </view>
-    <view class="story-content-many-line" style="margin-top:{{margins[2]}}rpx"></view>
-    <view class="story-content-many-createTime" style="margin-top:{{margins[3]}}rpx">{{item.source}}</view>
-</view>

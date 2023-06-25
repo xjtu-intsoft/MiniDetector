@@ -1,9 +1,0 @@
-<view class="receiveCon">
-    <view class="receive">
-        <view class="receiveText">{{receiveText}}</view>
-        <view class="btnCon">
-            <view bindtap="_leftBtn" class="leftBtn">{{leftText}}</view>
-            <view bindtap="_rightBtn" class="rightBtn">{{rightText}}</view>
-        </view>
-    </view>
-</view>

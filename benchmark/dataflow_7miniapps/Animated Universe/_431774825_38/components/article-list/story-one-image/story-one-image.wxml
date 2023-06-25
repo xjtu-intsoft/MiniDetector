@@ -1,7 +1,0 @@
-<view class="story-one-image">
-    <view bindtap="clickStory" class="story-one-top">
-        <story-content-many class="story-image-title" item="{{item}}" margins="{{item.tag&&item.tag.length?[30,30,206,236]:[0,0,206,236]}}" rowCount="{{item.tag&&item.tag.length?2:3}}" width="402"></story-content-many>
-        <image bindload="loadImg" class="story-one-bigImg" lazyLoad="true" mode="aspectFill" src="{{item.pictures[0].resource_url}}" style="background: {{bgColor}}"></image>
-    </view>
-    <wiki-module bind:goWiki="goWiki" item="{{item}}"></wiki-module>
-</view>

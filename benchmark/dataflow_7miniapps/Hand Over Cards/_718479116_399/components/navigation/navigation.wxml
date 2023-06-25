@@ -1,9 +1,0 @@
-<view class="topNavigation" style="background:{{topBg}};">
-    <view class="topNavigation-item menuButtonNavigation" style="padding-top:{{menuButton['top']}}px;height:{{menuButton['height']}}px;line-height:{{menuButton['height']}}px;">
-        <view bindtap="_minitap" class="topNavigation-home">
-            <image class="img" src="{{iconPath}}" style="{{iconStyle}}"></image>
-        </view>
-        <view class="topNavigation-title topNavigation-title-ios" style="color:{{titleColor}};">{{topTitle}}</view>
-        <view class="topNavigation-home"></view>
-    </view>
-</view>

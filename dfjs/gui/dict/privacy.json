@@ -11,7 +11,7 @@
   }, {
     "category_en": "age",
     "category_zh": "年龄",
-    "except_word": ["image"],
+    "except_word": ["image", "average"],
     "words_set": ["age", "myage", "userAge"]
   }, {
     "category_en": "gender",
@@ -32,7 +32,8 @@
   }, {
     "category_en": "address",
     "category_zh": "住址",
-    "words_set": ["choose_city", "address", "address_id", "place_id", "province", "post_edit_address", "province_id", "township", "captain_ids", "employerAddress", "addressPropertyFlag", "addressFlag", "recycleAddress", "store_addr", "addressid", "address_info", "this_address", "user_city", "user_province", "user_country", "uprovince", "ucity", "ucounty", "order_confirm_address_id", "citysNames", "jfGoodaddress", "USERADDRESS", "addr", "Addr", "currentcity", "city_name", "area_name", "area_id", "cityid", "cityinfo", "dizhi", "morendizhi", "city_code", "dizhilist", "comcityid", "comcityname", "home", "region", "now_city", "oldaddress", "userAddress", "userRegion", "homeCityLocation", "ProvinceList", "provinceDataUrl", "user_home_info", "choosecity", "getCurrentCity", "getcitybylocation", "Dormitory", "getcityitem", "xiaoqu", "AddrId", "getaddrbylocation", "city_list", "location_city_id", "CITY_SELECT_LOAD", "city", "cityChange", "cityCode", "provinceName", "cityName", "countyName", "nationalCode", "postalCode", "addressInfo", "deptCity3code", "nearCities", "airport_select_address", "country", "district", "street", "nation_code", "城市获取", "城市列表", "城市详情", "城市", "省份", "weizhi", "地址", "e.nowAddress.town", "AddressInfo", "addressLocation", "addressData", "addresscode", "addressId", "addressList", "userLocation", "areaCode", "locationInfoVoList", "adressList", "addressname", "city_id", "addresschose", "cities", "citys", "addressnum", "mypos", "adr", "areacode", "areaData", "areaName", "adress", "addressNean", "settlementAddress", "addressObject", "birthAddrCode", "birthAddrZipCode", "currAddrCode", "currAddrZipCode", "hukouAddrCode", "hukouAddrZipCode", "locationCity", "currentCity", "cityInfo", "spsourceCity", "destCity", "sourceCity", "cityChosen", "cityIdArr", "cityPickerValue", "localCity", "citySelectData", "cityDatas", "selcity", "selectedCity", "provinceData", "wx_address_info", "CHOOSED_COUNTRY_NAME", "user_location", "country_cache", "地区", "社区", "街道", "省", "市", "区/县", "县区", "省市", "省市区", "区县", "所在地区", "区域", "门牌号", "楼号门牌", "单元号", "栋座号", "房间号", "详细地址", "取货地址", "居住在", "注册地址", "联系地址", "工作地市", "工作省份", "所在位置", "所在地点", "通讯地址", "公司地址", "所在小区", "小区名称", "街道信息", "收货地址", "上门地址", "服务地址", "配送地址", "邮寄地址", "企业地址", "机构地址", "位置名称", "高考地区", "地区信息", "城市id", "省/市/区", "所在区域", "默认地址", "收货地", "所在省份", "拆分地址", "locationingFailed", "user_modifyAddress", "邮政编码", "邮编", "快递地址", "授权地址", "area.pattern"]
+    "words_set": ["choose_city", "address", "address_id", "place_id", "province", "post_edit_address", "province_id", "township", "captain_ids", "employerAddress", "addressPropertyFlag", "addressFlag", "recycleAddress", "store_addr", "addressid", "address_info", "this_address", "user_city", "user_province", "user_country", "uprovince", "ucity", "ucounty", "order_confirm_address_id", "citysNames", "jfGoodaddress", "USERADDRESS", "addr", "Addr", "currentcity", "city_name", "area_name", "area_id", "cityid", "cityinfo", "dizhi", "morendizhi", "city_code", "dizhilist", "comcityid", "comcityname", "home", "region", "now_city", "oldaddress", "userAddress", "userRegion", "homeCityLocation", "ProvinceList", "provinceDataUrl", "user_home_info", "choosecity", "getCurrentCity", "getcitybylocation", "Dormitory", "getcityitem", "xiaoqu", "AddrId", "getaddrbylocation", "city_list", "location_city_id", "CITY_SELECT_LOAD", "city", "cityChange", "cityCode", "provinceName", "cityName", "countyName", "nationalCode", "postalCode", "addressInfo", "deptCity3code", "nearCities", "airport_select_address", "country", "district", "street", "nation_code", "城市获取", "城市列表", "城市详情", "城市", "省份", "weizhi", "地址", "e.nowAddress.town", "AddressInfo", "addressLocation", "addressData", "addresscode", "addressId", "addressList", "userLocation", "areaCode", "locationInfoVoList", "adressList", "addressname", "city_id", "addresschose", "cities", "citys", "addressnum", "mypos", "adr", "areacode", "areaData", "areaName", "adress", "addressNean", "settlementAddress", "addressObject", "birthAddrCode", "birthAddrZipCode", "currAddrCode", "currAddrZipCode", "hukouAddrCode", "hukouAddrZipCode", "locationCity", "currentCity", "cityInfo", "spsourceCity", "destCity", "sourceCity", "cityChosen", "cityIdArr", "cityPickerValue", "localCity", "citySelectData", "cityDatas", "selcity", "selectedCity", "provinceData", "wx_address_info", "CHOOSED_COUNTRY_NAME", "user_location", "country_cache", "地区", "社区", "街道", "省", "市", "区/县", "县区", "省市", "省市区", "区县", "所在地区", "区域", "门牌号", "楼号门牌", "单元号", "栋座号", "房间号", "详细地址", "取货地址", "居住在", "注册地址", "联系地址", "工作地市", "工作省份", "所在位置", "所在地点", "通讯地址", "公司地址", "所在小区", "小区名称", "街道信息", "收货地址", "上门地址", "服务地址", "配送地址", "邮寄地址", "企业地址", "机构地址", "位置名称", "高考地区", "地区信息", "城市id", "省/市/区", "所在区域", "默认地址", "收货地", "所在省份", "拆分地址", "locationingFailed", "user_modifyAddress", "邮政编码", "邮编", "快递地址", "授权地址", "area.pattern"],
+    "except_word": ["name"]
   }, {
     "category_en": "phone number",
     "category_zh": "电话/手机号码",
@@ -113,7 +114,8 @@
   }, {
     "category_en": "photo",
     "category_zh": "照片",
-    "words_set": ["previewPhoto", "album", "last_photos_category", "uploadimg", "photoAmount", "photoInfo", "albumInfo", "writePhotosAlbum", "profileimg", "photoThumb", "cutphoto", "photo_del_url", "photo_theme_update_url", "photo_info_url", "photo_list_url", "upload_photo", "delete_photo", "savepic", "zhaopian", "ImageUpload", "uploadingImage", "upload_product_pic", "upimg", "upload_img", "saveUserPhotoUrl", "uploadImgUrl", "my_album_list", "getalbum", "PhotosAlbum", "相册", "照片", "albuminfo", "albumData", "photodata", "本地相册", "imagesFilename", "albumsData", "photoLists", "ablumStu", "photo_data_me", "photo_data_peer", "photo_src_me", "photo_src_peer", "album_timeline_upload_photos", "album_timeline_list_delete_feed", "album_timeline_list_delete_user", "fullPhoto", "takePhotoSrc", "上传", "视频", "系统相册", "相册权限", "授权相册", "电子版图片", "上传图片", "图片上传", "上传视频", "视频文件", "手机相册", "jpg", "png", "jpeg", "gif", "ocr", "audio", "flv", "rtmp", "爆照", "MP4", "肩部以上五观清晰头像照"]
+    "words_set": ["previewPhoto", "album", "last_photos_category", "uploadimg", "photoAmount", "photoInfo", "albumInfo", "writePhotosAlbum", "profileimg", "photoThumb", "cutphoto", "photo_del_url", "photo_theme_update_url", "photo_info_url", "photo_list_url", "upload_photo", "delete_photo", "savepic", "zhaopian", "ImageUpload", "uploadingImage", "upload_product_pic", "upimg", "upload_img", "saveUserPhotoUrl", "uploadImgUrl", "my_album_list", "getalbum", "PhotosAlbum", "相册", "照片", "albuminfo", "albumData", "photodata", "本地相册", "imagesFilename", "albumsData", "photoLists", "ablumStu", "photo_data_me", "photo_data_peer", "photo_src_me", "photo_src_peer", "album_timeline_upload_photos", "album_timeline_list_delete_feed", "album_timeline_list_delete_user", "fullPhoto", "takePhotoSrc", "上传", "视频", "系统相册", "相册权限", "授权相册", "电子版图片", "上传图片", "图片上传", "上传视频", "视频文件", "手机相册", "jpg", "png", "jpeg", "gif", "ocr", "audio", "flv", "rtmp", "爆照", "MP4", "肩部以上五观清晰头像照"],
+    "except_word":["name"]
   }, {
     "category_en": "voice",
     "category_zh": "音频",
@@ -125,7 +127,7 @@
   }, {
     "category_en": "file",
     "category_zh": "文件",
-    "words_set": ["getOpenFile", "deleteFile", "getFileInfo", "uploadFile", "submitFile", "httpFileServer","路径"]
+    "words_set": ["getOpenFile", "deleteFile", "getFileInfo", "uploadFile", "File", "httpFileServer","路径"]
   }, {
     "category_en": "wx userinfo",
     "category_zh": "微信用户基本信息，包括用户头像、昵称等",
@@ -137,7 +139,8 @@
   }, {
     "category_en": "icon",
     "category_zh": "头像",
-    "words_set": ["login_user_avatar_url", "avatar_img", "user_avatar", "name_avatar", "touxiang", "avatarUrl", "GetAvatarUrlStatus", "头像", "头图", "微信头像", "用户头像", "本人头像"]
+    "words_set": ["login_user_avatar_url", "avatar_img", "user_avatar", "name_avatar", "touxiang", "avatarUrl", "GetAvatarUrlStatus", "头像", "头图", "微信头像", "用户头像", "本人头像"],
+    "except_word":["name"]
   }, {
     "category_en": "e-mail",
     "category_zh": "电子邮箱",
@@ -180,7 +183,8 @@
   }, {
     "category_en": "organization",
     "category_zh": "工作单位",
-    "words_set": ["companyName", "company_history", "company_remove", "company_removeDepartment", "工作单位", "工作地点", "公司", "企业", "行业", "任职要求", "岗位", "名片", "企业名称", "单位名称", "公司名称", "公司简介", "公司名", "企业名片", "认证名片", "信用代码", "company_id", "company_name", "uindustry", "companyinfo", "companyname", "belongPartyName", "registerCompanyId", "addrCompanyName", "departmentName"]
+    "words_set": ["companyName", "company_history", "company_remove", "company_removeDepartment", "工作单位", "工作地点", "公司", "企业", "行业", "任职要求", "岗位", "名片", "企业名称", "单位名称", "公司名称", "公司简介", "公司名", "企业名片", "认证名片", "信用代码", "company_id", "company_name", "uindustry", "companyinfo", "companyname", "belongPartyName", "registerCompanyId", "addrCompanyName", "departmentName"],
+    "except_word":["name"]
   }, {
     "category_en": "education background",
     "category_zh": "学历",
@@ -207,7 +211,8 @@
   }, {
     "category_en": "transaction records",
     "category_zh": "交易记录",
-    "words_set": ["order", "orderdata", "order_name", "bill", "orderinfo", "myorder", "tradeId", "confirm_order", "get_booking_order_detail", "get_order_info", "get_trade_last_days_data", "get_trade_last_months_data", "getmyorder", "handleOrder"]
+    "words_set": ["order", "orderdata", "order_name", "bill", "orderinfo", "myorder", "tradeId", "confirm_order", "get_booking_order_detail", "get_order_info", "get_trade_last_days_data", "get_trade_last_months_data", "getmyorder", "handleOrder"],
+    "except_word":["name"]
   }, {
     "category_en": "credit",
     "category_zh": "信贷",
@@ -262,7 +267,8 @@
   }, {
     "category_en": "browsing records",
     "category_zh": "浏览记录",
-    "words_set": ["search_history_list", "search_records", "history_list", "read_record", "todayVisitor", "totalVisitor", "searchHistory", "historyRecords", "HistoryList", "historyData", "searchLabelHistory", "historyKeywords", "HistorySearch", "searchHistoryRecord", "query_history", "historical_records", "visitRecord", "getHistoryList", "历史记录", "历史", "History", "addhistory", "historyarr", "hisdata", "足迹", "searchhistory", "historyList", "historyContent", "historySrarch", "historyTag", "desHistory", "refreshHistory", "historyKey", "historyKeyword", "historyArr", "lastLoginTime", "lastMsgTime", "Last__Visit__Time", "searchTime", "finishTime", "searchHistorysKey", "searchKey", "searchData", "searchRecords", "recentSearch", "searchHis", "searchCon", "mysearch", "_history_search", "search_history", "dtsearchkey", "history_city", "histories", "histories_notional", "lishi", "historykeys", "railwayhistory", "user_habit_info", "searchkeywords", "no_watch_search_key", "historySearchResult", "historyKatachiSearchKey", "historyKatachiSearchResult", "historySearchKey", "searchHistoryBounty", "searchHistoryNew", "historyStationList", "inputHistory", "lastMerchant", "lastVisitCache", "lastClickBtn", "lastPage", "wxSearchHisKeys", "HISTORY_KATACHI_SEARCH_KEY", "HISTORY_KATACHI_SEARCH_RESULT", "HISTORY_SEARCH_RESULT", "HISTORY_SEARCH_KEY", "WORD_DETAIL_HISTORY", "history_data", "_history_locations", "om_history_list", "last_cal_user_message", "last_query_user_message", "person_history", "收藏界面", "收藏记录", "历史搜索", "搜索记录", "最近搜索", "该条记录", "输入历史", "记录"]
+    "words_set": ["search_history_list", "search_records", "history_list", "read_record", "todayVisitor", "totalVisitor", "searchHistory", "historyRecords", "HistoryList", "historyData", "searchLabelHistory", "historyKeywords", "HistorySearch", "searchHistoryRecord", "query_history", "historical_records", "visitRecord", "getHistoryList", "历史记录", "历史", "History", "addhistory", "historyarr", "hisdata", "足迹", "searchhistory", "historyList", "historyContent", "historySrarch", "historyTag", "desHistory", "refreshHistory", "historyKey", "historyKeyword", "historyArr", "lastLoginTime", "lastMsgTime", "Last__Visit__Time", "searchTime", "finishTime", "searchHistorysKey", "searchKey", "searchData", "searchRecords", "recentSearch", "searchHis", "searchCon", "mysearch", "_history_search", "search_history", "dtsearchkey", "history_city", "histories", "histories_notional", "lishi", "historykeys", "railwayhistory", "user_habit_info", "searchkeywords", "no_watch_search_key", "historySearchResult", "historyKatachiSearchKey", "historyKatachiSearchResult", "historySearchKey", "searchHistoryBounty", "searchHistoryNew", "historyStationList", "inputHistory", "lastMerchant", "lastVisitCache", "lastClickBtn", "lastPage", "wxSearchHisKeys", "HISTORY_KATACHI_SEARCH_KEY", "HISTORY_KATACHI_SEARCH_RESULT", "HISTORY_SEARCH_RESULT", "HISTORY_SEARCH_KEY", "WORD_DETAIL_HISTORY", "history_data", "_history_locations", "om_history_list", "last_cal_user_message", "last_query_user_message", "person_history", "收藏界面", "收藏记录", "历史搜索", "搜索记录", "最近搜索", "该条记录", "输入历史", "记录"],
+    "except_word": ["age"]
   }, {
     "category_en": "click record",
     "category_zh": "点击记录",
@@ -304,7 +310,7 @@
   }, {
     "category_en": "positioning",
     "category_zh": "定位信息",
-    "words_set": ["_location_info", "user_location", "location_city_id", "location_city", "locatecity", "zuobiao", "location_exp", "locationp", "getlocation", "locationInfo", "curLocation", "ReadLocation", "myLocation", "locationCode", "gps_location", "userLocation", "locationName", "locationZone", "gps", "refreshLocation", "refreshGeo", "getLocationGeo", "getLocation", "getAddress", "定位", "位置", "用户坐标", "定位服务", "获取定位", "地理位置", "用户位置", "location", "坐标", "地理定位", "position", "domin", "mylocation_name", "mylocation_adress", "address_dic", "coordinate", "GEO_LOCATION", "locDatainfo", "获取位置", "位置获取", "定位失败", "手机定位", "导航", "登录地", "后台定位", "位置坐标", "定位权限", "定位中", "地图导航", "地图", "位置授权", "授权地理位置", "定位授权", "授权定位", "地址授权"]
+    "words_set": ["_location_info", "user_location", "location_city_id", "location_city", "locatecity", "zuobiao", "location_exp", "locationp", "getlocation", "locationInfo", "curLocation", "ReadLocation", "myLocation", "locationCode", "gps_location", "userLocation", "locationZone", "gps", "refreshLocation", "refreshGeo", "getLocationGeo", "getLocation", "getAddress", "定位", "位置", "用户坐标", "定位服务", "获取定位", "地理位置", "用户位置", "location", "坐标", "地理定位", "position", "domin", "mylocation", "mylocation_adress", "address_dic", "coordinate", "GEO_LOCATION", "locDatainfo", "获取位置", "位置获取", "定位失败", "手机定位", "导航", "登录地", "后台定位", "位置坐标", "定位权限", "定位中", "地图导航", "地图", "位置授权", "授权地理位置", "定位授权", "授权定位", "地址授权"]
   }, {
     "category_en": "accommodation",
     "category_zh": "住宿信息",
@@ -319,7 +325,8 @@
   "value": [{
     "category_en": "marriage",
     "category_zh": "婚姻",
-    "words_set": ["img_marriage", "img_unmarriage", "userMarriage"]
+    "words_set": ["img_marriage", "img_unmarriage", "userMarriage"],
+    "except_word": ["age"]
   },{
     "category_en": "express",
     "category_zh": "快递",

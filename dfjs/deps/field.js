@@ -28,6 +28,7 @@ const VISIT_TYPE_LIST = [
     "WhileStatement",
     "DoWhileStatement",
     "TryStatement",
+    "SwitchStatement",
     // "BlockStatement",
 ];
 /**
@@ -35,9 +36,9 @@ const VISIT_TYPE_LIST = [
  */
 function toAbsolutePath(root, this_path, that_path) {
     if (root && this_path && that_path) {
-        let this_l = this_path.split("\\");
+        let this_l = this_path.split("/");
         if (that_path.startsWith("/"))
-            return root + that_path.replace(/\//g, "\\");
+            return root + that_path;
         let that_l = that_path.split("/");
         this_l.pop();
         for (let i of that_l) {
@@ -45,13 +46,15 @@ function toAbsolutePath(root, this_path, that_path) {
                 this_l.pop();
             }
         }
-        let a = [...this_l, ...(that_l.filter(e => e != ".." && e != "."))].join("\\") + (that_path.endsWith(".js") ? "" : ".js");
+        let a = [...this_l, ...(that_l.filter(e => e != ".." && e != "."))].join("/") + (that_path.endsWith(".js") ? "" : ".js");
         return a;
     }
 }
 class Field {
     static sp_count = 1;
+    static FieldID = 0;
     constructor(app, file, node, parentField) {
+        this.id = Field.FieldID++;
         this.app = app;
         this.entity_type = "Field";
         this.file = file;
@@ -77,8 +80,7 @@ class Field {
 
         // 文件field
         if (this.node.type == "Script") {
-            // 本文件跳过分析的变量
-            // this.skip_vars = [];
+            // 初始化保留变量
             this.setReservedVar();
 
             // 需要进行ref构建的var列表
@@ -94,29 +96,29 @@ class Field {
      * 初始化保留变量，即wx或js特有的变量
      */
     setReservedVar() {
-        function initAndPushReserved(name) {
+        let initAndPushReserved = (name) => {
             let v = new Var(this.file, this, name, { type: "reserved", id: -(Var.sp_count++) });
             v.reserved = true;
             this.declared_vars.push(v);
             return v;
         }
-        function existCall(name) {
+        let existCall = (name) => {
             return this.node.traverse(e => e.type == "Identifier" && e.parent.type == "CallExpression" && escodegen.generate(e.es_node) == name, true);
         }
 
-        initAndPushReserved.call(this, "wx");
-        initAndPushReserved.call(this, "console");
-        initAndPushReserved.call(this, "require");
+        initAndPushReserved("wx");
+        initAndPushReserved("console");
+        initAndPushReserved("require");
 
-        let moduleVar = initAndPushReserved.call(this, "module");
+        let moduleVar = initAndPushReserved("module");
         let moduleExportsVar = this.getVarEntityFromField({ raw: "module.exports", split: ["module", "exports"] }, true, moduleVar);
-        let exportsVar = initAndPushReserved.call(this, "exports");
+        let exportsVar = initAndPushReserved("exports");
         exportsVar.setObjField(moduleExportsVar[0].obj_field);
 
 
-        existCall.call(this, "Page") && initAndPushReserved.call(this, "Page");
-        existCall.call(this, "App") && initAndPushReserved.call(this, "App");
-        existCall.call(this, "getApp") && initAndPushReserved.call(this, "getApp");
+        existCall("Page") && initAndPushReserved("Page");
+        existCall("App") && initAndPushReserved("App");
+        existCall("getApp") && initAndPushReserved("getApp");
 
     }
     /**
@@ -130,7 +132,7 @@ class Field {
         return cur;
     }
     /**
-     * 返回函数field 或 文件field
+     * 返回函数级别作用域，即函数field 或 文件field
      */
     toFunctionField() {
         let cur = this;
@@ -142,16 +144,22 @@ class Field {
         }
         return cur;
     }
+    /**
+     * 返回需要后续分析的作用域，包括函数、文件、对象定义作用域
+     */
     getPendingResolveField() {
         let cur = this;
         while (cur) {
-            if (["FunctionExpression", "Script", "FunctionDeclaration", "ObjectExpression"].includes(cur.node.type)) {
+            if (["FunctionExpression", "Script", "FunctionDeclaration", "ArrowFunctionExpression", "ObjectExpression"].includes(cur.node.type)) {
                 return cur;
             }
             cur = cur.parentField;
         }
         return cur;
     }
+    /**
+     * 给定实参索引，返回形参
+     */
     getParamVars(argIndex) {
         let paramVars = [];
         let paramIndex = this.node.es_node.id ? argIndex + 1 : argIndex;
@@ -170,14 +178,17 @@ class Field {
         return paramVars;
     }
     /**
-     * 给定形参的var，返回其数据流
+     * 给定形参的var，从缓存返回其数据流
      */
     getParamFlow(paramVar, done) {
+        done || (done = { nodeDone: [], funcDone: [] });
         this.paramFlowCache || (this.paramFlowCache = {});
+        // 先找缓存
         if (paramVar.node.id in this.paramFlowCache) {
             return this.paramFlowCache[paramVar.node.id];
         } else {
             let flow = paramVar.flow(done);
+            // 缓存形参的数据流
             this.paramFlowCache[paramVar.node.id] = flow;
             return flow;
         }
@@ -191,6 +202,19 @@ class Field {
         if (this.app.jsReserved.isReserved(name.raw)) {
             let reservedVar = new Var(this.file, this, name.raw, { type: "--reserved--", id: -(Var.sp_count++) })
             return [reservedVar];
+        }
+        // 将this删去，然后逐层寻找定义
+        if (name.raw.startsWith("this.")) {
+            name = Object.assign(name, { raw: name.raw.replace("this.", ""), split: name.split.slice(1) });
+        }
+        // 如果是对象属性赋值的右值，则跳出对象的所在的作用域找
+        // 用来避免 {
+        //     prop:prop
+        // }
+        // 的情况
+        if (name.inObj && this.parentField) {
+            name.inObj = false;
+            return this.parentField.getVarEntityFromField(name, true, var_entity, branch, branch_id);
         }
         // 找主变量
         var_entity || (var_entity = this.declared_vars.find(e => e.name == name.split[0]));
@@ -232,7 +256,6 @@ class Field {
      */
     createModuleRef() {
         if (this.export_comp.length > 0) {
-            let that = this;
             this.export_comp = this.export_comp
                 .map(e => {
                     let thatObjVar;
@@ -252,18 +275,18 @@ class Field {
                 .filter(e => e.src_var);
 
 
-            function addRefs(tf, sf) {
+            let addRefs = (tf, sf) => {
                 if (tf.refs.length == 0) {
                     sf.refed_by.push(tf);
                     tf.refs.push(sf);
-                    that.app.ref_res.push({
+                    this.app.ref_res.push({
                         this: tf,
                         that: sf
                     });
                 }
             }
 
-            function single_var(this_var, src_var) {
+            let single_var = (this_var, src_var) => {
                 let this_vars = this_var.getObjVarByAssign();
                 let src_vars = src_var.getObjVarWithRefs();
                 for (let this_var of this_vars) {
@@ -276,7 +299,7 @@ class Field {
                 }
 
             }
-            function single_field(this_field, src_field) {
+            let single_field = (this_field, src_field) => {
                 for (let tf of this_field.declared_vars) {
                     for (let sf of src_field.declared_vars) {
                         if (tf.name == sf.name && tf.name != "this") {
@@ -309,14 +332,18 @@ class Field {
      * 对于生成了新的field的节点类型，为了防止无限递归，需要判断node是否是本field的头节点
      */
     _index(node) {
-        let that = this;
         let new_field;
-        // 创建新作用域
-        function createNewFieldAndIndex(node) {
-            new_field = new Field(that.app, that.file, node, that);
+
+        /**
+         * 创建新作用域
+         */
+        let createNewFieldAndIndex = (node) => {
+            new_field = new Field(this.app, this.file, node, this);
             new_field.index();
             return new_field;
         };
+
+
         if (node.type == "ForStatement" || node.type == "ForInStatement"
             || node.type == "ForOfStatement" || node.type == "WhileStatement"
             || node.type == "DoWhileStatement") {
@@ -329,6 +356,9 @@ class Field {
              * 创建新的子field，在子field中调用index
              */
             if (this.node.id == node.id) {
+                /**
+                 * 新增: 访问this.val时，会将this删去,通过val逐层向外寻找定义
+                 */
                 // 在父作用域找不到this定义时，初始化this变量
                 // 避免在
                 // this.setData({
@@ -348,7 +378,7 @@ class Field {
                     }
                 }
             } else {
-                new_field = new Field(that.app, that.file, node, that);
+                new_field = new Field(this.app, this.file, node, this);
                 // 加入var列表，作为obj
                 let objectVar = new Var(this.file, this, "__object__" + String(node.loc.line), node);
                 this.declared_vars.push(objectVar);
@@ -435,7 +465,7 @@ class Field {
             }
 
         } else if (node.type == "BlockStatement"
-            && node.parent && ["IfStatement", "TryStatement"].includes(node.parent.type)
+            && node.parent && ["IfStatement", "TryStatement", "SwitchCase"].includes(node.parent.type)
         ) {
             if (node.id != this.node.id) {
                 createNewFieldAndIndex(node);
@@ -559,11 +589,10 @@ class Field {
                 }
                 var_nodes.push(left_var_item);
             }
-            return {
-                var_nodes: var_nodes,
-            }
+            return { var_nodes };
         }
     }
+
     visitCallExpression(visit, branch, branch_id) {
         // 先对参数依次调用visit
         // 再对callee调用visit
@@ -588,7 +617,7 @@ class Field {
         if (calleeVisitRes) {
             let argVarSet = [];
 
-            function dealInstance(type) {
+            let dealInstance = (type) => {
                 if (escodegen.generate(callee.es_node) == type) {
                     if (argVisitRes.length == 1) {
                         let argVar = argVisitRes[0].visit_res.var_nodes[0];
@@ -602,42 +631,48 @@ class Field {
                 }
             }
 
-            function dealRequire() {
+            let dealRequire = () => {
                 // 处理require
                 // 将一个新的空obj var作为require调用的返回值，在分析结束后，将这个obj var与export出的对象进行比较并添加依赖
                 // 这样做是为了简化require().prop的处理，同时保证本文件不能对require的源进行任何修改
                 if (calleeVisitRes.var_nodes.length > 0 && calleeVisitRes.var_nodes[0].var_entity.name == "require") {
                     if (argVisitRes.length == 1) {
-                        let res = argVisitRes[0].visit_res.var_nodes[0];
-                        if (res && res.var_entity) {
+                        let urlArg = argVisitRes[0].visit_res.var_nodes[0];
+                        if (urlArg && urlArg.var_entity) {
                             let src;
-                            if (res.var_entity.node.type == "Literal") {
-                                src = toAbsolutePath(this.app.root, this.file, res.var_entity.name);
+                            if (urlArg.var_entity.node.type == "Literal") {
+                                src = toAbsolutePath(this.app.root, this.file, urlArg.var_entity.name);
                             } else {
                                 // e.node && e.node.type == "Literal" 防止对branch里的伪var判断报错
-                                let res_var_value = res.var_entity.getRecordValue(e => e.node && e.node.type == "Literal", { branch, branch_id });
-                                if (res_var_value) {
-                                    src = toAbsolutePath(this.app.root, this.file, res_var_value.name);
+                                let urlArgVar = urlArg.var_entity.getRecordValue(e => e.node && e.node.type == "Literal", { branch, branch_id });
+                                if (urlArgVar) {
+                                    src = toAbsolutePath(this.app.root, this.file, urlArgVar.name);
                                 }
                             }
                             if (src) {
                                 this.app.add_file_dep(this.file, src);
                                 let export_res = this.app.toExportsVar(src);
                                 if (export_res) {
+                                    let requireRec = new Rec(visit, this.toFunctionField());
                                     let requireVar = new Var(
                                         this.file,
                                         this,
-                                        "__object__require__" + "<" + res.var_entity.name.replace(this.app.root, "") + ">",
+                                        "__object__require__" + "<" + urlArg.var_entity.name.replace(this.app.root, "") + ">",
                                         { type: "dynamic", id: -(Var.sp_count++) },
                                     );
+
+                                    requireVar.rec_list.push([requireRec]);
+                                    requireVar.setLatestRec([requireRec]);
+
                                     this.getRootField().export_comp.push({
                                         this_var: requireVar,
                                         src_var: export_res
                                     });
+
                                     var_nodes.push({
                                         var_entity: requireVar,
                                         node: visit,
-                                        rec: new Rec(visit, this.toFunctionField())
+                                        rec: requireRec
                                     });
                                 }
                             }
@@ -646,13 +681,14 @@ class Field {
                 }
             }
 
-            function dealGetApp() {
+            let dealGetApp = () => {
                 // 处理getApp
                 // 仿照require 创建一个占位的shadow
                 // 因为getApp引用的部分是确定（唯一）的
                 // 所有只保留一个app instance，在第一次处理getApp的时候求值，后面再遇到就引用这个值
                 if (calleeVisitRes.var_nodes.length > 0 && calleeVisitRes.var_nodes[0].var_entity.name == "getApp") {
                     let getAppVar;
+                    let getAppRec = new Rec(visit, this.toFunctionField());
                     if (this.getRootField().appInstance) {
                         getAppVar = this.getRootField().appInstance;
                     } else {
@@ -664,6 +700,10 @@ class Field {
                                 "__object__getApp",
                                 { type: "dynamic", id: -(Var.sp_count++) },
                             );
+
+                            getAppVar.rec_list.push([getAppRec]);
+                            getAppVar.setLatestRec([getAppRec]);
+
                             this.getRootField().export_comp.push({
                                 this_var: getAppVar,
                                 src_var: appInstance
@@ -677,23 +717,23 @@ class Field {
                     getAppVar && var_nodes.push({
                         var_entity: getAppVar,
                         node: visit,
-                        rec: new Rec(visit, this.toFunctionField())
+                        rec: getAppRec
                     });
                 }
             }
 
-            function dealString() {
+            let dealString = () => {
                 var_nodes.push(...argVisitRes.reduce((pre, cur) =>
                     cur.visit_res.var_nodes && pre.concat(cur.visit_res.var_nodes)
                     , []));
             }
 
-            function dealPushAndUnshift(calleeVar) {
+            let dealPushAndUnshift = (calleeVar) => {
                 let arrVar = calleeVar.obj_var;
                 arrVar && argVarSet.map(e => e.visit_res.var_entity).forEach(e => e.addAssignDep(arrVar, branch, branch_id));
             }
 
-            function dealSetData(calleeVisitResItem) {
+            let dealSetData = (calleeVisitResItem) => {
                 // 因为这个时候page函数还没分析到，所以只能在callee的obj_var里面找data
                 let calleeVar = calleeVisitResItem.var_entity;
                 let found = false;
@@ -703,7 +743,7 @@ class Field {
                         let setDataObjVar = argVarSet[0].visit_res.var_entity;
                         for (let setDataProp of setDataObjVar.obj_field.declared_vars) {
                             for (let pageDataProp of pageDataVar.obj_field.declared_vars) {
-                                let propLatestRec = pageDataProp.getLatestRec(branch, branch_id);
+                                let propLatestRec = pageDataProp.getLatestRecInBranch(branch, branch_id);
                                 if (propLatestRec && setDataProp.name == pageDataProp.name) {
                                     found = true;
                                     // 不适用branchid，直接添加到定义处
@@ -718,10 +758,10 @@ class Field {
                     }
                 }
                 if (found) return;
-                dealDefault.call(this, calleeVisitResItem);
+                dealDefault(calleeVisitResItem);
             }
 
-            function dealObjectAssign(calleeVisitResItem) {
+            let dealObjectAssign = (calleeVisitResItem) => {
                 // arg1 -> arg0, return arg1
                 let calleeVar = calleeVisitResItem.var_entity;
                 if (calleeVar.getFullName == "Object.assign") {
@@ -736,10 +776,10 @@ class Field {
                         }
                     }
                 }
-                dealDefault.call(this, calleeVisitResItem);
+                dealDefault(calleeVisitResItem);
             }
 
-            function dealModify(calleeVar) {
+            let dealModify = (calleeVar) => {
                 let calleeVarParent = calleeVar.obj_var;
                 if (calleeVarParent) {
                     let res = {
@@ -752,7 +792,7 @@ class Field {
                 }
             }
 
-            function dealDefault(calleeVisitResItem) {
+            let dealDefault = (calleeVisitResItem) => {
                 appendCalls = true;
                 let calleeVar = calleeVisitResItem.var_entity;
                 let calleeVisitNode = calleeVisitResItem.node;
@@ -800,13 +840,13 @@ class Field {
                     let calleeVar = calleeVisitResItem.var_entity;
                     switch (calleeVar.name) {
                         case "require":
-                            dealRequire.call(this);
+                            dealRequire();
                             break;
                         case "getApp":
-                            dealGetApp.call(this);
+                            dealGetApp();
                             break;
                         case "Page": {
-                            let pageInstance = dealInstance.call(this, "Page");
+                            let pageInstance = dealInstance("Page");
                             if (pageInstance) {
                                 this.getRootField().pageInstance = pageInstance;
                                 this.getRootField().pageDataInstance = pageInstance.getObjFieldDeclaredVar(e => e.name == "data");
@@ -819,7 +859,7 @@ class Field {
                             break;
                         }
                         case "App": {
-                            let appInstance = dealInstance.call(this, "App");
+                            let appInstance = dealInstance("App");
                             if (appInstance) {
                                 this.getRootField().appInstance = appInstance
 
@@ -839,7 +879,7 @@ class Field {
                         case "push":
                         case "unshift":
                             // 为所有参数构建到calleeVar的obj_var的赋值依赖
-                            dealPushAndUnshift.call(this, calleeVar);
+                            dealPushAndUnshift(calleeVar);
                             break;
                         case "substring":
                         case "pop":
@@ -849,20 +889,20 @@ class Field {
                         case "map":
                         case "reduce":
                             // 直接添加calleeVar的obj_var
-                            dealModify.call(this, calleeVar)
+                            dealModify(calleeVar)
                             break;
                         case "concat":
-                            dealModify.call(this, calleeVar);
+                            dealModify(calleeVar);
                             dealPushAndUnshift(this, calleeVar);
                             break;
                         case "setData":
-                            dealSetData.call(this, calleeVisitResItem);
+                            dealSetData(calleeVisitResItem);
                             break;
                         case "assign":
-                            dealObjectAssign.call(this, calleeVisitResItem);
+                            dealObjectAssign(calleeVisitResItem);
                             break;
                         default:
-                            dealDefault.call(this, calleeVisitResItem);
+                            dealDefault(calleeVisitResItem);
                     }
                 }
             }
@@ -895,34 +935,46 @@ class Field {
                 this.toFunctionField().calls.push(callItem);
             }
 
-            return {
-                var_nodes: var_nodes,
-            };
+            return { var_nodes };
         }
     }
-    visit(visit, branch, branch_id, branch_ids) {
-        let var_nodes = [];
-        var that = this;
+    visit(visit, branch, branch_id, branchIdsForIfStatement, doNotbuildDep) {
+
+        if (visit.id == 9981)
+            console.log(1)
 
         this.app.checkTimeOut();
+        visit.file = this.shortFile;
 
-        function visitIdentifier() {
+        let var_nodes = [];
+
+        let visitIdentifier = () => {
             let name = escodegen.generate(visit.es_node).replace(/['"]/g, "");
-            let var_res = that.getVarEntityFromField({ raw: name, split: [name] }, true);
+            let inObj = false;
+            // 对象属性赋值的右值必须在对象作用域的父作用域定义
+            if (visit.parent && visit.parent.type == "Property" && visit.parent.children[1].id == visit.id) {
+                inObj = true;
+            }
+            let var_res = this.getVarEntityFromField({ raw: name, split: [name], inObj }, true);
+            let backTo = visit.backTo(e => ["AssignmentExpression", "CallExpression"].includes(e.type) || e.type.endsWith("Statement"));
+            let type = "read";
+            if (backTo && backTo.type == "AssignmentExpression" && backTo.children[0].has_descendant(visit)) {
+                // 变量作为左值，不构建其之前的访问记录与该处访问记录之间的数据流
+                type = "left";
+            }
             var_res && var_res.forEach(v => {
-                let new_rec = new Rec(visit, that.toFunctionField());
-                visit.member_variable().id == visit.id && v.addDependence({ type: "read", recs: [new_rec] }, branch, branch_id, branch, branch_id);
+                let new_rec = new Rec(visit, this.toFunctionField());
+                visit.member_variable().id == visit.id && v.addDependence({ type, recs: [new_rec] }, branch, branch_id, branch, branch_id);
                 var_nodes.push({ node: visit, var_entity: v, rec: new_rec });
             });
         }
 
-        function warpNameWithObjectPrefix(str) {
+        let warpNameWithObjectPrefix = (str) => {
             if (str == "require" || str == "getApp") return "__object__" + str;
             if (str.startsWith("new ")) return "__object__new";
             return str;
         }
 
-        visit.file = this.shortFile;
         if (visit.type == "ExpressionStatement" || visit.type == "UnaryExpression"
             || visit.type == "UpdateExpression") {
             return this.visit(visit.children[0], branch, branch_id);
@@ -991,12 +1043,14 @@ class Field {
             }
 
         } else if (visit.type == "Literal") {
-            if (visit.parent.type == "Property" || visit.parent.type == "MemberExpression") {
+            if ((visit.parent.type == "Property" && visit.parent.children[0].id == visit.id)
+                || visit.parent.type == "MemberExpression"
+            ) {
                 visitIdentifier();
             } else {
-                let new_var = new Var(this.file, this, String(visit.attr.value), visit);
+                let newVar = new Var(this.file, this, String(visit.attr.value), visit);
                 let newRec = new Rec(visit, this.toFunctionField());
-                var_nodes.push({ node: visit, var_entity: new_var, rec: newRec });
+                var_nodes.push({ node: visit, var_entity: newVar, rec: newRec });
             }
             return { var_nodes: var_nodes };
 
@@ -1080,21 +1134,46 @@ class Field {
             let res = this.subFields.find(e => e.node.id == visit.id);
             res && res.build(branch, branch_id);
 
+        } else if (visit.type == "SwitchStatement") {
+            this.visit(visit.children[0], branch, branch_id);
+            let cases = visit.children.slice(1);
+            let case_branch_ids = [];
+            for (let c of cases) {
+                // 对每个case，注册一个分支进行分析
+                let case_branch_id = branch.registerBranchUnder(branch_id);
+                case_branch_ids.push(case_branch_id);
+                this.visit(c, branch, case_branch_id);
+            }
+            branch.merge(case_branch_ids);
+
+        } else if (visit.type == "SwitchCase") {
+            for (let c of visit.children) {
+                // blk产生了新的作用域，要求优先找到本作用域的变量，使用build
+                if (c.type == "BlockStatement") {
+                    let blkField = this.subFields.find(sf => sf.node.id == c.id);
+                    if (blkField) {
+                        blkField.build(branch, branch_id);
+                    }
+                } else {
+                    this.visit(c, branch, branch_id);
+                }
+            }
+
         } else if (visit.type == "IfStatement") {
             let test_res = this.visit(visit.children[0], branch, branch_id);
             if (test_res) {
-                let if_branch_ids = branch_ids ? branch_ids : [];
+                let if_branch_ids = branchIdsForIfStatement ? branchIdsForIfStatement : [];
                 // 把出现分支的部分切出来
                 let blks = visit.children.slice(1);
                 for (let blk of blks) {
                     // 如果产生了新的field，就在新field下使用seq分析
                     if (blk.type == "BlockStatement") {
-                        let res_field = this.subFields.find(sf => sf.node.id == blk.id);
-                        if (res_field) {
+                        let blkField = this.subFields.find(sf => sf.node.id == blk.id);
+                        if (blkField) {
                             let if_branch_id = branch.registerBranchUnder(branch_id);
                             if_branch_ids.push(if_branch_id);
                             // 新field的seq必须使用本vist使用的分支，否则会默认使用null分支，merge将使add dep到null分支而将if分支的依赖信息直接更新到var实体上
-                            res_field.build(branch, if_branch_id);
+                            blkField.build(branch, if_branch_id);
                         }
                     } else {
                         // 可能套了if（即else if）
@@ -1111,8 +1190,19 @@ class Field {
                         }
                     }
                 }
+
+                // 至少存在一个没有alternate的ifstatement，即if可能被全部跳过
+                if (blks.length < 2) {
+                    if_branch_ids.push(-1);
+                }
+
                 // 顶层if，执行merge
-                branch_ids || branch.merge(if_branch_ids);
+                if (!branchIdsForIfStatement) {
+                    let lenBefore = if_branch_ids.length;
+                    if_branch_ids = if_branch_ids.filter(e => e > -1);
+                    let noAlt = lenBefore > if_branch_ids.length;
+                    branch.merge(if_branch_ids, { noAlt });
+                }
             }
 
         } else if (visit.type == "TryStatement") {
@@ -1141,11 +1231,13 @@ class Field {
     /**
      * 返回包括本作用域及所有子作用域在内的作用域列表
      */
-    getAllSubFields(res) {
+    getAllSubFields(func, res) {
         res || (res = [this]);
         for (let f of this.subFields) {
-            res.push(f);
-            f.getAllSubFields(res);
+            func
+                ? (func(f) && res.push(f))
+                : res.push(f);
+            f.getAllSubFields(func, res);
         }
         return res;
     }
@@ -1239,13 +1331,14 @@ class Branch {
      */
     getVarOfBranch(var_entity, branch_uid) {
 
-        function createNewVarBranch(var_entity) {
+        let createNewVarBranch = (var_entity) => {
             return {
                 name: var_entity.name,
                 uid: branch_uid,
                 deps: [],
                 rec_list: var_entity.latest_rec ? [var_entity.latest_rec] : [],
-                latest_rec: var_entity.latest_rec
+                latest_rec: var_entity.latest_rec,
+                inherited: true && var_entity.latest_rec
             }
         }
 
@@ -1296,16 +1389,18 @@ class Branch {
      * 如果这些分支的父分支不同，将扔出一个错误
      */
     merge(branch_uids, options) {
-        let that = this;
+        /**
+         * 仅设置latest_rec
+         */
+        let setLatest = (var_entity, tos, parent_branch_uid) => var_entity.setLatestRec(tos, this, parent_branch_uid);
 
-        function set_latest(var_entity, tos, parent_branch_uid) {
-            var_entity.addDependence({ type: "pass", recs: tos }, that, parent_branch_uid);
-            var_entity.setLatestRec(tos, that, parent_branch_uid);
-        }
-
-        function checkMergingUnvistedBranches(allBranches, thisBranch) {
-            return allBranches.length == thisBranch.length
-                && allBranches.map(e => String((e.id >> 2) % 13)).join("") == allBranches.map(e => String((e.id >> 2) % 13)).join("")
+        /**
+         * a,b -> [Rec]
+         * 比较a和b中装的rec是不是一样的
+         */
+        let isSameRecs = (a, b) => {
+            return a.length == b.length
+                && a.map(e => String((e.id ^ 2) % 13)).join("") == a.map(e => String((e.id ^ 2) % 13)).join("");
         }
         if (branch_uids.length > 0) {
             if (!options) options = {};
@@ -1332,34 +1427,40 @@ class Branch {
                 // 将所有分支的依赖节点栈顶归并在一起
                 // 只需要关注分支的依赖节点栈顶节点，因为其他节点已经构建了依赖
                 for (let merging_branch of merging_branches) {
-                    let recsOfOneBranch = merging_branch.rec_list[merging_branch.rec_list.length - 1];
-                    if (recsOfOneBranch) {
-                        recsOfOneBranch = recsOfOneBranch.length ? [...recsOfOneBranch] : [recsOfOneBranch];
+                    let latestRecsOfTheBranch = merging_branch.latest_rec;
+                    if (latestRecsOfTheBranch) {
+                        latestRecsOfTheBranch = latestRecsOfTheBranch.length ? [...latestRecsOfTheBranch] : [latestRecsOfTheBranch];
                         recsOfAllMergingBranch =
-                            checkMergingUnvistedBranches(recsOfAllMergingBranch, recsOfOneBranch)
-                                ? recsOfOneBranch
-                                : [...recsOfAllMergingBranch, ...recsOfOneBranch];
+                            isSameRecs(recsOfAllMergingBranch, latestRecsOfTheBranch)
+                                ? latestRecsOfTheBranch
+                                : [...recsOfAllMergingBranch, ...latestRecsOfTheBranch];
                     }
                     // 将各个分支各自构建的依赖都拷贝到父分支中
                     merging_branch.deps.forEach(d => var_item.var_entity.deps.push(d));
-                    merging_branch.rec_list.forEach(r => var_item.var_entity.rec_list.push(r));
+
+                    let mergingRecList = merging_branch.inherited
+                        ? merging_branch.rec_list.slice(1)
+                        : merging_branch.rec_list;
+                    var_item.var_entity.rec_list.push(...mergingRecList);
+
                     // 将产生的所有rec都拷贝到var实体的rec list中，rec list应该是顺序无关的
                     // var_item.var_entity.rec_list.push(...(merging_branch.rec_list.slice(0, -1)));
                 }
+                // 设置父分支上的latest_rec
                 if (recsOfAllMergingBranch.length > 0) {
                     if (options.do_not_set_latest) {
                         if (
-                            // 副作用声明的，但是强制添加
+                            // 保留变量，强制添加
                             var_item.var_entity.reserved
                             // 同作用域声明的
                             || var_item.var_entity.belonged_field.node.id == options.branch_field.node.id
                             // 子作用域声明的
                             || var_item.var_entity.belonged_field.isSubFieldOf(options.branch_field)
                         ) {
-                            set_latest(var_item.var_entity, recsOfAllMergingBranch, parent_branch_uid);
+                            setLatest(var_item.var_entity, recsOfAllMergingBranch, parent_branch_uid);
                         }
                     } else {
-                        set_latest(var_item.var_entity, recsOfAllMergingBranch, parent_branch_uid);
+                        setLatest(var_item.var_entity, recsOfAllMergingBranch, parent_branch_uid);
                     }
                 }
                 // 删除当前var中被归并的分支
@@ -1386,7 +1487,11 @@ class Var {
         this.node = node;
         if (node)
             this.node.entity = this;
-        this.name = name ? name : "*unknown*";
+        if (name === "") {
+            this.name = "__empty_str__";
+        } else {
+            this.name = name ? name : "__unknown__";
+        }
         this.file = file;
         this.belonged_field = belonged_field;
         this.shortFile = this.file.replace(this.belonged_field.app.root, '').replace(/\\/g, '/');
@@ -1421,9 +1526,6 @@ class Var {
         // 本var创建于obj_var的obj_field中
         this.obj_var;
 
-        // 缓存本function field的参数数据流
-        this.paramCache;
-
     }
     /**
      * 将本var的obj_field设置为给定field，同时更改给定field的fieldVar
@@ -1455,7 +1557,7 @@ class Var {
     /**
      * 返回本var在给定分支下的last rec
      */
-    getLatestRec(branch, branch_id) {
+    getLatestRecInBranch(branch, branch_id) {
         let var_entity = this;
         if (branch_id) {
             var_entity = branch.getVarOfBranch(this, branch_id);
@@ -1506,7 +1608,7 @@ class Var {
     addAssignDep(leftVar, branch, branch_id) {
         if (!leftVar.isIdenticalWith(this) && !leftVar.hasPropOf(this) && !this.hasPropOf(leftVar)) {
             // 上一次read dep的时候添加的dep，使用这个dep能保证dep里to的value被正确记录
-            let leftRec = leftVar.getLatestRec(branch, branch_id);
+            let leftRec = leftVar.getLatestRecInBranch(branch, branch_id);
 
             // 依赖关系
             // 右 -> 左
@@ -1537,7 +1639,7 @@ class Var {
      * 返回本var的所有后续属性
      */
     getPropertiesAfter(branch, branch_id, doCal, done) {
-        function calPropAfter() {
+        let calPropAfter = () => {
             done || (done = []);
             let after = [];
             if (!done.includes(this.node.id)) {
@@ -1559,7 +1661,7 @@ class Var {
             return after;
         }
         return (doCal || !this.propAfter)
-            ? calPropAfter.call(this)
+            ? calPropAfter()
             : this.propAfter;
     }
     refreshPropertiesAfter(branch, branch_id, done) {
@@ -1586,22 +1688,22 @@ class Var {
      * 构建对象依赖，考虑其前序属性和后序属性
      */
     addDependence(info, branch, branch_id) {
-        function addBefore() {
+        let addBefore = () => {
             let before = this.getPropertiesBefore().reduce((pre, cur) => pre.concat(cur), []);
             let beforeInfo = Object.assign({ informing: true }, info);
             before.forEach(v => v.addDependenceSingle(beforeInfo, branch, branch_id));
         }
 
-        function addAfter() {
+        let addAfter = () => {
             let after = this.getPropertiesAfter(branch, branch_id);
             let afterInfo = Object.assign({ informing: true }, info);
             after.forEach(v => v.addDependenceSingle(afterInfo, branch, branch_id));
         }
         if (info.type != "pass") {
             if (info.type != "assign to") {
-                addBefore.call(this);
+                addBefore();
             }
-            addAfter.call(this);
+            addAfter();
         }
         this.addDependenceSingle(info, branch, branch_id);
     }
@@ -1611,34 +1713,31 @@ class Var {
     addDependenceSingle(info, branch, branch_id) {
         let recs_copy = info.type == "read" ? info.recs.map(e => e.shallowCopy()) : info.recs;
         let var_from = branch_id ? branch.getVarOfBranch(this, branch_id) : this;
-        let from = var_from.rec_list[var_from.rec_list.length - 1];
-        let deps = var_from.deps;
+        let from = var_from.latest_rec;
         let rec_list = var_from.rec_list;
-        if (info.type != "pass" && from
+        let deps = var_from.deps;
+        if (!["pass", "left"].includes(info.type) && from
             // 当分支合并时（info.type = pass），不添加依赖，只把记录加入rec list
             // 对reserved的变量，不记录其read类型的依赖，其信息通过call列表进行统计
             && !(this.reserved && info.type == "read")
         ) {
             // 对每个from，都构建一个到to的依赖
             for (let f of from) {
-                if (f)
-                    for (let t of recs_copy) {
-                        if (t) {
-                            let dep = new Dep(info.type, f, t);
-                            // from 不能是 to 的子作用域, from 不是 to 的子节点
-                            if (!t.expr.has_descendant(f.expr) && !f.field.isSubFieldOf(t.field)) {
-                                info.type == "read" && t.after(f);
+                for (let t of recs_copy) {
+                    // from 不能是 to 的子作用域, from 不是 to 的子节点
+                    if (!t.expr.has_descendant(f.expr) && !f.field.isSubFieldOf(t.field)) {
+                        let dep = new Dep(info.type, f, t);
+                        info.type == "read" && t.after(f);
 
-                                // 保存当前的引用快照
-                                // 避免后续引用分析时，使用了错误的引用对象
-                                if (info.type == "to callee") {
-                                    let function_snapshot = info.var_entity.getFunctionFields(branch, branch_id);
-                                    function_snapshot.length > 0 && (dep.function_snapshot = function_snapshot);
-                                }
-                                deps.push(dep);
-                            }
+                        // 保存当前的引用快照
+                        // 避免后续引用分析时，使用了错误的引用对象
+                        if (info.type == "to callee") {
+                            let function_snapshot = info.var_entity.getFunctionFields(branch, branch_id);
+                            function_snapshot.length > 0 && (dep.function_snapshot = function_snapshot);
                         }
+                        deps.push(dep);
                     }
+                }
             }
         }
         // 同一expr对应的rec不会重复加入rec list
@@ -1648,6 +1747,8 @@ class Var {
                 return;
             }
         }
+
+
         if (info.type == "assign to") {
             this.recordAssignTo(info, branch, branch_id);
         } else if (info.type == "to callee") {
@@ -1663,13 +1764,13 @@ class Var {
      */
     recordAssignTo(info, branch, branch_id) {
         let left = info.var_entity;
-        let this_latest = this.getLatestRec(branch, branch_id);
+        let this_latest = this.getLatestRecInBranch(branch, branch_id);
         if (this_latest) {
             info.informing
                 ? this_latest.forEach(e => e.write({ im_assigns_to: [left] }))
                 : this_latest.forEach(e => e.write({ ex_assigns_to: [left] }));
         }
-        let left_latest = left.getLatestRec(branch, branch_id);
+        let left_latest = left.getLatestRecInBranch(branch, branch_id);
         if (left_latest) {
             info.informing
                 ? left_latest.forEach(e => e.write({ im_value: [this] }))
@@ -1683,7 +1784,7 @@ class Var {
 
     }
     recordCallee(args, branch, branch_id) {
-        let this_latest = this.getLatestRec(branch, branch_id);
+        let this_latest = this.getLatestRecInBranch(branch, branch_id);
         if (this_latest) {
             args.forEach(arg => this_latest.forEach(e => e.write({ ex_has_arg: [{ arg }] })));
         }
@@ -1694,13 +1795,13 @@ class Var {
     recordAsArgOf(info, branch, branch_id) {
         let callee = info.var_entity;
         let argIndex = info.arg_index;
-        let thisLatest = this.getLatestRec(branch, branch_id);
+        let thisLatest = this.getLatestRecInBranch(branch, branch_id);
         if (thisLatest) {
             info.informing
                 ? thisLatest.forEach(e => e.write({ im_as_arg_of: [{ callee: callee, arg_index: argIndex }] }))
                 : thisLatest.forEach(e => e.write({ ex_as_arg_of: [{ callee: callee, arg_index: argIndex }] }));
         }
-        let calleeLatest = callee.getLatestRec(branch, branch_id);
+        let calleeLatest = callee.getLatestRecInBranch(branch, branch_id);
         if (calleeLatest && !info.informing) {
             calleeLatest.forEach(e => e.write({ ex_has_arg: [{ argVar: this, argIndex: argIndex }] }))
         }
@@ -1713,7 +1814,7 @@ class Var {
          * objVar: 属性添加的field的fieldVar
          * cur_prop_var: 访问属性的var
          */
-        function getVarFromObjVar(objVar, cur_prop_name) {
+        let getVarFromObjVar = (objVar, cur_prop_name) => {
             let field = objVar.obj_field;
             if (field) {
                 let isNewProp = false;
@@ -1765,7 +1866,9 @@ class Var {
     }
     /**
      * 根据调用关系，查询满足func的var实体
-     */
+     * options.short为true时，返回var
+     * 否则返回结果的array
+    */
     getRecordValue(func, options) {
         let defaultOptions = {
             done: [],
@@ -1855,13 +1958,13 @@ class Var {
             .reduce((pre, cur) => pre.concat(cur.getFunctionFields()), []);
     }
     /**
-     * 返回本var是否相关的参数var
+     * 如果本var与参数相关，返回相关的参数
      */
     getparamRelativeVar() {
         let res = this.paramIndex > -1;
         return res
             ? this
-            // 是否由参数直接赋值
+            // 由参数直接赋值
             : this.getRecordValue(e => e.paramIndex > -1, { short: true });
     }
     /**
@@ -1922,7 +2025,7 @@ class Var {
         /**
          * 截取从该dep之后的dep流列表
          */
-        function DepsAfter(dep) {
+        let DepsAfter = (dep) => {
             let cur = [dep.to.expr.id];
             let res = [dep];
             let s = [];
@@ -1942,11 +2045,10 @@ class Var {
         let depsSet = this.depsSet;
 
         // 本var写其他var，即对本var的读
-        let that = this;
         let readDeps = this.deps.filter(e => e.type == "assign to").map(e => {
             return ({
                 // 排除其他无关的值
-                thisVar: e.to.getAllValue().filter(e => e.node.id == that.node.id),
+                thisVar: e.to.getAllValue().filter(e => e.node.id == this.node.id),
                 thatVar: e.from.getAllAssignsTo(),
                 flow: DepsAfter(e)
             })
@@ -1960,7 +2062,7 @@ class Var {
         /**
          * 截取从该dep之前的dep流列表
          */
-        function DepsBefore(dep) {
+        let DepsBefore = (dep) => {
             let cur = [dep.from.expr.id];
             let res = [dep];
             while (cur.length) {
@@ -1991,7 +2093,6 @@ class Var {
     }
     flow(done) {
         // 如果分析的函数有递归就走不出来了，参数done用来避免此类情况
-        var that = this;
         let res = [];
         // 已经访问过的节点，处理分支合并时节点被访问两次的情况
         let node_done = [];
@@ -2000,7 +2101,7 @@ class Var {
         if (!done) done = { nodeDone: [], funcDone: [] };
 
 
-        function createDependenceSet(var_entity, res, select) {
+        let createDependenceSet = (var_entity, res, select) => {
             if (!res) res = {
                 startsWithNode: {},
                 endsWithNode: {}
@@ -2024,7 +2125,7 @@ class Var {
             return res;
         }
 
-        function forCallDependence(callee, dep, functionField, argIndex, done) {
+        let forCallDependence = (callee, dep, functionField, argIndex, done) => {
             // 先找函数实体，找不到就找跨文件的函数引用
             // 如果找到，将对应参数的依赖加到deps obj中,构建实参到形参的依赖
             // 检查函数是否有返回值，如果有，检查是否有某条依赖的终点指向返回值节点
@@ -2036,7 +2137,7 @@ class Var {
             let paramVars = functionField.getParamVars(argIndex);
             if (paramVars.length == 0) {
                 logger.log("no param in func def", JSON.stringify(functionField.node.loc) + " in " + functionField.file,
-                    "corresponding to arg index", argIndex, "of call", JSON.stringify(dep.to.expr.loc), "in", that.file)
+                    "corresponding to arg index", argIndex, "of call", JSON.stringify(dep.to.expr.loc), "in", this.file)
                 return;
             }
             // 对找到的参数var求数据流
@@ -2044,7 +2145,7 @@ class Var {
                 // 递归求数据流
                 let param_flow_res = functionField.getParamFlow(p, done);
                 // 创建实参到形参的依赖
-                let d = new Dep("arg to param", dep.to, p.rec_list[0][0]);
+                let d = new Dep("arg to param", dep.from, p.rec_list[0][0]);
                 res.push(d);
                 res = res.concat(param_flow_res);
                 // 检查函数返回值
@@ -2066,7 +2167,8 @@ class Var {
                 }
             }
         }
-        function getFunctionFieldOf(callee, dep) {
+
+        let getFunctionFieldOf = (callee, dep) => {
             let res = [];
             // 跨文件引用
             callee.getRecordValue(e => e.refs.length > 0).forEach(e => {
@@ -2103,7 +2205,8 @@ class Var {
             }
             return res;
         }
-        function isSpecialCall(name) {
+
+        let isSpecialCall = (name) => {
             return ["setData", "push", "unshift", "assign"].includes(name);
         }
 
@@ -2127,9 +2230,12 @@ class Var {
                     let dep_to_id = dep.to.expr.id;
                     last.push(dep_to_id);
                     res.push(dep);
+
                     if (dep.type == "assign to") {
                         let left_vars = dep.from.getAllAssignsTo();
+                        // 将所有左值的依赖加入set中
                         left_vars.forEach(e => createDependenceSet(e, depsSet));
+
                     } else if (dep.type == "to callee") {
                         // 使用all as args of 可能带来一些冗余的依赖
                         // this.setData({
@@ -2140,7 +2246,18 @@ class Var {
                         let calleeInfos = dep.from.getAllAsArgOf();
                         for (let callee_info of calleeInfos) {
                             let callee = callee_info.callee;
+                            // 已分析且无结果，跳过
+                            if (callee.noFuncDef) continue;
                             let funcName = callee.getFullName();
+
+                            // 找origin，看是否是加密函数
+                            let originFunc = callee.getOriginVarEntity();
+                            if (originFunc && wx_api.isEncryptAPI(originFunc.getFullName())) {
+                                dep.to.expr.isEncryptAPI = true;
+                                let app = this.belonged_field.app;
+                                app.recordEncryptInSource(app.nowSourcing.getFullName(), dep.to.expr.parent);
+                            }
+
                             if (!callee.reserved) {
                                 // 根据callee 的var实体，找func field定义
                                 let functionFieldRes = getFunctionFieldOf(callee, dep);
@@ -2153,15 +2270,12 @@ class Var {
                                         forCallDependence(callee, dep, functionField, index, done);
                                     }
                                 } else if (!isSpecialCall(callee.name)) {
-                                    // 找origin，看是否是加密函数
-                                    let originFunc = callee.getOriginVarEntity();
-                                    originFunc && wx_api.isEncryptAPI(originFunc.getFullName()) && (dep.to.expr.isEncryptAPI = true);
-
+                                    callee.noFuncDef = true;
 
                                     // 找不到函数定义的to callee依赖可能会重复报 “can not find ...” 因为没有缓存其参数的分析结果
                                     logger.log("dep " + dep.id + " of flowing " + this.node.id +
                                         " <" + escodegen.generate(dep.from.expr.es_node) + ">"
-                                        + ": can not find func def of:", "<" + funcName + ">", callee.file.replace(this.belonged_field.app.root, ""), JSON.stringify(dep.to.expr.loc)
+                                        + ": can not find func def of:", callee.node.id, "<" + funcName + ">", callee.file, JSON.stringify(dep.to.expr.loc)
                                     );
                                     //统计找不到定义的函数
                                     this.belonged_field.app.undefinedFunc.push({
@@ -2224,9 +2338,12 @@ class Rec {
 
         for (let p in info) {
             if (p in this) {
-                if (p == "value") {
+                if (p == "ex_value") {
                     this.assign_rec = undefined;
-                    this[p].push(...info[p].filter(e => !this[p].some(a => a.node && a.node.id == e.node.id)));
+                    // 追加
+                    // this[p].push(...info[p].filter(e => !this[p].some(a => a.node && a.node.id == e.node.id)));
+                    // 重写
+                    this.ex_value = info.ex_value;
                 }
             } else {
                 this[p] = [...info[p]];
@@ -2303,26 +2420,32 @@ class Dep {
                 id: this.to.expr.id,
                 file:this.to.field.file,
             },
+            crossFile: this.fileCross,
+            crossField: this.fieldCross
         }
         if (this.from.expr.fromSource)
             res.from.fromSource = this.from.expr.fromSource;
-        if (wx_api.isSourceAPI(res.from.name))
+        if (wx_api.isSourceAPI(res.from.name)){
             res.from.fromSource = {"api":res.from.name,"loc":res.from.loc,"type":"API:return-value","file":this.from.field.file};
+        }      
+           
         if (wx_api.isSinkAPI(res.to.name))
             res.to.sink = true;
+        if (this.to.expr.isEncryptAPI)
+            res.to.isEncryptAPI = true;
         return res;
     }
 
     addSourceType(sourceInfo, suffix, recorder) {
 
-        function compSuffix(name) {
+        let compSuffix = (name) => {
             for (let s in suffix) {
                 if (name.endsWith(s)) return { from: sourceInfo, ill: suffix[s] };
             }
         }
 
         // 记录api对应的数据流中变量后缀匹配属性
-        function record(api, node, ill) {
+        let record = (api, node, ill) => {
             recorder[api].some(e => e.id == node.id) || recorder[api].push({
                 id: node.id,
                 file: sourceInfo.file,
@@ -2337,15 +2460,15 @@ class Dep {
         let res = compSuffix(fromName);
         if (res) {
             let api = res.from.api;
-            if(recorder){
-                api in recorder || (recorder[api] = []);
-                this.from.expr.sourceType = res;
-                record(api, this.from.expr, res.ill);
-                if (this.type == "assign to") {
-                    this.to.expr.sourceType = res;
-                    // record(api, this.to.expr);
-                }
+            api in recorder || (recorder[api] = []);
+
+            this.from.expr.sourceType = res;
+            record(api, this.from.expr, res.ill);
+            if (this.type == "assign to") {
+                this.to.expr.sourceType = res;
+                // record(api, this.to.expr);
             }
+
         }
         return this;
     }

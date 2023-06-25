@@ -1,6 +1,0 @@
-{
-    "usingComponents": {
-        "tag": "/components/tag/tag",
-        "go-wiki-button": "/components/go-wiki-button/go-wiki-button"
-    }
-}

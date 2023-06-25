@@ -1,7 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "tag": "/components/tag/tag",
-        "wiki-module": "../wiki-module/wiki-module"
-    }
-}

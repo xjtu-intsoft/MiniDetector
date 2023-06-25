@@ -1,9 +1,0 @@
-.story-content {
-    line-height: 48rpx;
-    font-size: 32rpx;
-    text-shadow: 0 0 12rpx rgba(0,0,0,0.5);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-}

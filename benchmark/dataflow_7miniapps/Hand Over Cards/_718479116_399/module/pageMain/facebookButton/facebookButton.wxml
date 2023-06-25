@@ -1,8 +1,0 @@
-<view catchtouchmove="true" class="toathryavyowh" wx:if="{{previewPcprompt}}">
-    <view bindtap="knowledge" class="receiveBg"></view>
-    <view class="content">
-        <view class="receiveStatus">名片领取成功</view>
-        <view class="receiveIntroduce">你可以体验在微信中收发名片，或者继续在网页端为其他员工制作名片</view>
-        <button bindtap="knowledge" class="IKnow">我知道了</button>
-    </view>
-</view>

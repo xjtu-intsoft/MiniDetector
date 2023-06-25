@@ -1,5 +1,0 @@
-<view catch:tap="closeTip" class="dialog-model" wx:if="{{showTip}}"></view>
-<view catch:tap="closeTip" class="dialog-tip" style="top:{{top}}rpx;left:{{left}}rpx" wx:if="{{showTip}}">
-    <text>{{msg}}</text>
-    <view class="dialog-tip-arrow" style="left:{{arrowLeft}}rpx"></view>
-</view>

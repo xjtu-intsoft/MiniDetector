@@ -1,5 +1,0 @@
-<view class="story-big">
-    <view bindtap="goImageDetail" class="story-big-main">
-        <image class="story-big-image" lazyLoad="true" mode="widthFix" src="{{url}}" style="height:{{height}}rpx"></image>
-    </view>
-</view>

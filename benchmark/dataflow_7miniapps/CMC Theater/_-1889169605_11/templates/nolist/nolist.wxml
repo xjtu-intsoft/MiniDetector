@@ -1,6 +1,0 @@
-<template name="nolist">
-    <view class="cinema-nolist">
-        <view class="cinema-nolist-title">今日暂无排片</view>
-        <view bindtap="selectShowDate" class="cinema-nolist-tomorrowbtn" data-date="{{days[1].show_date}}">查看{{days.length>1?days[1].last_show_date:''}}场次</view>
-    </view>
-</template>

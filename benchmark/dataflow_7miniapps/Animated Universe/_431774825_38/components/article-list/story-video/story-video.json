@@ -1,9 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "wiki-module": "../wiki-module/wiki-module",
-        "story-content-many": "../story-content-many/story-content-many",
-        "video-time": "/components/video-time/video-time",
-        "video-volume": "/components/video-volume/video-volume"
-    }
-}

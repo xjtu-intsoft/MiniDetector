@@ -1,6 +1,0 @@
-<template name="fill-tip">
-    <view class="roof-place-tip card-active-tip" style="top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']+8}}px;">
-        <view class="text">点击右上角“…”，选择浮窗，即可在微信任意页发名片</view>
-        <image catch:tap="closeTopTip" class="img" src="/images/newMain/tip-close.png"></image>
-    </view>
-</template>

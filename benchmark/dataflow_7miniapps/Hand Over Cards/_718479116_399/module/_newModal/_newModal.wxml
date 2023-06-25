@@ -1,9 +1,0 @@
-<view bindtouchstart="_ss" class="modal" wx:if="{{modalShow}}">
-    <view bindtap="_ss" class="modal-back"></view>
-    <view class="modal-content">
-        <view class="modal-content-content">{{text}}</view>
-        <view bindtap="_button" class="modal-content-button">
-            <button class="button-main">{{buttonText}}</button>
-        </view>
-    </view>
-</view>

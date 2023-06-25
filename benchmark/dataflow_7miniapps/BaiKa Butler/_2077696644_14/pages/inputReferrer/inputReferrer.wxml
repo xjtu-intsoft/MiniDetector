@@ -1,7 +1,0 @@
-<form bindsubmit="bindReferrer">
-    <view class="bg-code">
-        <input class="input-code " name="phone" placeholder="推荐人手机号"></input>
-        <input hidden="true" name="type" value="1"></input>
-        <button class="main-background btn-refresh white-color" formType="submit">确定</button>
-    </view>
-</form>

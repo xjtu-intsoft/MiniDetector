@@ -167,35 +167,6 @@ class Node {
             return res;
         }
     }
-    traverseback(func, peer = false, stop = []) {
-        // 一直找父节点，直到满足func
-        // peer为true时，每到达一个父节点，搜索其同层节点————新增：感觉这个选项其实没什么用
-        // stop为强制停止节点，用于确定搜索域
-        if (peer) {
-            var q = [this];
-            var res = [];
-            while (q.length > 0) {
-                var sh = q.shift();
-                for (var i in sh.children) {
-                    if (func(i)) {
-                        if (short) return i;
-                        res.push(i);
-                    }
-                }
-                if (stop.includes(sh))
-                    break;
-                else
-                    q.push(sh.parent);
-            }
-            return short ? null : res;
-        } else {
-            var cur = this;
-            while (cur && !func(cur)) {
-                cur = cur.parent;
-            }
-            return cur;
-        }
-    }
     traverse(func, short = false) {
         // BFS遍历子节点
         // 默认返回所有满足func的子节点，short为true返回第一个满足func的子节点
@@ -212,6 +183,13 @@ class Node {
             }
         }
         return short ? null : res;
+    }
+    backTo(func) {
+        let cur = this.parent;
+        while (cur) {
+            if (func(cur)) return cur;
+            cur = cur.parent;
+        }
     }
     has_descendant(node) {
         // node是否存在于该节点的子节点中
@@ -251,7 +229,7 @@ class Node {
         this.sourceType && (res.value.sourceType = this.sourceType);
 
         // source api本身节点和source api的回调参数 type属性会被设置为source
-        res.value.type = this.sourceInfo ? 'source' : wx_api.classify(codeText);
+        res.value.type = wx_api.classify(this.sourceInfo ? this.sourceInfo.value.text : codeText);
 
         // 是否是加密api
         this.isEncryptAPI && (res.isEncryptAPI = true);

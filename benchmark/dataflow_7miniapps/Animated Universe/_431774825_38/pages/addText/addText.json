@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "做表情",
-    "usingComponents": {
-        "image-pop": "/components/image-pop/image-pop"
-    }
-}

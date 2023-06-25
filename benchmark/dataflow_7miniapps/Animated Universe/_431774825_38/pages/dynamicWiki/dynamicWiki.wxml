@@ -1,5 +1,0 @@
-<wiki-top item="{{item}}"></wiki-top>
-<view class="dynamic-wiki-recommendations">
-    <many-images gifnews="{{item}}" item="{{subItem}}" wx:for="{{result.list}}" wx:for-item="subItem" wx:key="{{index}}"></many-images>
-</view>
-<share-buttons bind:shareCicle="shareCicle" source="4"></share-buttons>

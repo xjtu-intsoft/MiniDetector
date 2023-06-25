@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "取消订单",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

@@ -1,6 +1,0 @@
-var getTime = (function(time) {
-    return (time.split(' ')[(0)])
-});
-module.exports = ({
-    getTime: getTime,
-});

@@ -1,7 +1,0 @@
-{
-    "backgroundTextStyle": "dark",
-    "navigationBarTitleText": "选择优惠券",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

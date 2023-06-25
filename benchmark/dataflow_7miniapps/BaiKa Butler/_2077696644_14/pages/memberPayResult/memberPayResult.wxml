@@ -1,8 +1,0 @@
-<view class="pay-countdown" hidden="{{showRefreshButton}}">
-    <text>正在检查支付结果，请稍后</text>
-    <text class="red " style="font-size:36rpx;">{{codeStr}}</text>
-    <text>秒</text>
-</view>
-<view bindtap="onRefresh" class="pay-countdown" hidden="{{!showRefreshButton}}">
-    <text>查询失败，请点击刷新</text>
-</view>

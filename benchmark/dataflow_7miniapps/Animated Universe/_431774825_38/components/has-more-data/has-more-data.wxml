@@ -1,6 +1,0 @@
-<image class="loading-data" hidden="{{!hasMoreData}}" src="/images/loadding.gif"></image>
-<view class="no-data" hidden="{{hasMoreData}}">
-    <view class="no-data-left"></view>
-    <view class="no-data-mid">已靠近本星系边缘</view>
-    <view class="no-data-right"></view>
-</view>

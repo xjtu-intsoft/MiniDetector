@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText": "搜索机型",
-    "enablePullDownRefresh": false,
-    "backgroundTextStyle": "dark",
-    "backgroundColor": "#f7f7f7",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

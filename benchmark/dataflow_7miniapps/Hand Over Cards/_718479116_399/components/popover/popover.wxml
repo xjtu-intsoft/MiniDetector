@@ -1,9 +1,0 @@
-<import src="./wxml/input.wxml"></import>
-<import src="./wxml/tip.wxml"></import>
-<import src="./wxml/intro.wxml"></import>
-<view class="m-popover-container">
-    <view class="m-popover-back"></view>
-    <template is="input-popover" data="{{miniStyle:miniStyle,title:title,value:value,placeholder:placeholder,warnTip:warnTip,inputDisabled:inputDisabled,confirmText:confirmText,cancelText:cancelText,confirmColor:confirmColor,cancelColor:cancelColor,confirmDisabled:confirmDisabled,loading:loading,checkPass:checkPass,sensiteve:sensiteve,mark:mark}}" wx:if="{{type=='input'}}"></template>
-    <template is="tip-popover" data="{{miniStyle:miniStyle,text:text,cancel:cancel,confirm:confirm,confirmText:confirmText,cancelText:cancelText,confirmColor:confirmColor,cancelColor:cancelColor,loading:loading,mark:mark}}" wx:if="{{type=='tip'}}"></template>
-    <template is="intro-popover" data="{{miniStyle:miniStyle,title:title,text:text,cancel:cancel,confirm:confirm,confirmText:confirmText,cancelText:cancelText,confirmColor:confirmColor,cancelColor:cancelColor,loading:loading,mark:mark}}" wx:if="{{type=='intro'}}"></template>
-</view>

@@ -1,1 +1,0 @@
-{"logic":{"main":{"name":"NativeCore","path":"/native.core.js"},"client":{"manifest":{"name":"WeixinPrefetcher","path":"/manifest.js","idKey":1575,"dependencies":["NativeCore"]},"prefetcher":{"name":"WeixinPrefetcher","path":"/prefetcher.js","idKey":1576,"dependencies":["NativeCore"]}}},"minAndroidClientVersion":654316195,"minIosClientVersion":654316195,"version":226840573}

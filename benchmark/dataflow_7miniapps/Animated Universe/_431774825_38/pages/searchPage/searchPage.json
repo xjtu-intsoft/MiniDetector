@@ -1,9 +1,0 @@
-{
-    "usingComponents": {
-        "search-top": "components/search-top/search-top",
-        "search-default": "components/search-default/search-default",
-        "search-no-data": "components/search-no-data/search-no-data",
-        "search-data": "components/search-data/search-data"
-    },
-    "navigationBarTitleText": "搜索表情包"
-}

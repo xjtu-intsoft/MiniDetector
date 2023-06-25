@@ -1,5 +1,0 @@
-<view class="current-view">
-    <icon class="current-icon" color="rgb(201,201,201)" size="93" type="warn"></icon>
-    <view class="current-title">请升级您的系统</view>
-    <view class="current-message">仅支持iOS9及以上系统版本</view>
-</view>

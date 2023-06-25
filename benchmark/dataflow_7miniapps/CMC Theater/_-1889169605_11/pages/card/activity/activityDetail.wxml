@@ -1,1 +1,0 @@
-<web-view class="activity-webview" src="{{activity_url.length>0?activity_url:''}}"></web-view>

@@ -1,7 +1,0 @@
-{
-    "backgroundTextStyle": "dark",
-    "navigationBarTitleText": "信息填写",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

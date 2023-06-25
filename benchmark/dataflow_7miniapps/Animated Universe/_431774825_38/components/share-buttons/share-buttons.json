@@ -1,6 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "common-buttons": "/components/common-buttons/common-buttons"
-    }
-}

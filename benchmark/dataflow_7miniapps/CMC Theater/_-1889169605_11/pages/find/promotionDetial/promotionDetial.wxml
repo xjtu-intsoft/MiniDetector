@@ -1,1 +1,0 @@
-<web-view bindmessage="jsMessage" class="promotion-webview" src="{{promotion_url}}" wx:if="{{promotion_url}}"></web-view>

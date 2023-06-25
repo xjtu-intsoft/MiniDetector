@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "我的活动",
-    "usingComponents": {
-        "activity-win": "/components/activity-win/activity-win"
-    }
-}

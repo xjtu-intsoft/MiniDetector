@@ -1,5 +1,0 @@
-<view catch:tap="_closeFirstInFromHowenter" catch:touchmove="ss" class="full-con">
-    <view class="full-top {{pageFlag?'bigMar':''}}" style="padding-top:{{systemInfo.menuButton['height']+systemInfo.menuButton['top']}}px;padding-bottom:20rpx;">
-        <view class="top-2">点击该名片区域即可预览、编辑名片</view>
-    </view>
-</view>

@@ -1,9 +1,0 @@
-{
-    "navigationBarTitleText": "HI维修-苹果IRP独立维修提供商",
-    "enablePullDownRefresh": false,
-    "navigationBarBackgroundColor": "#ffffff",
-    "disableScroll": true,
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

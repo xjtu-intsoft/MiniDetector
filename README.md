@@ -3,8 +3,13 @@ A Consistency Detection System for WeChat Mini-Apps
 
 ## Structure
 * /benchmark:
-  * dataflow_7miniapps: The calibration dataset used in this paper. 7 mini-apps for data flow calibration. The calibration result file is in \_\_log\_\_/label.csv under each mini-app folder.
-  * tuple_306sentences.json: The calibration dataset used in this paper. 306 privacy policy sentences with detailed annotations.
+  * Dataflow-14MiniApps: The calibration dataset used in this paper. 14 mini-apps for data flow calibration. The calibration result file is in "label.csv" under each mini-app folder.
+  * PrivacyPolicy-40MiniApps: The calibration dataset used in this paper. 40 privacy policies with detailed annotations.
+  * UIText-100MiniApps: 100 mini-apps' layout file and information extraction label.
+  * Consistency-40MiniApps: 40+ mini-apps' code, include the same mini-apps as PrivacyPolicy-40MiniApps.
+
+* /vocabularies:
+    * Two vacabularies, include type and operation.
 
 * /dataset:
    * Because github has a size limit of single file, we upload the dataset at zenodo:https://doi.org/10.5281/zenodo.7159718.
@@ -16,7 +21,9 @@ A Consistency Detection System for WeChat Mini-Apps
    * Due to the large volume of all mini-apps, only 2998 mini-apps with privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
    
 * /classifier:
-  * model.py: Train file for sentence classification.
+  * bert_model.py: Train file for sentence classification using BERT.
+  * bow_model.py: Train file for sentence classification using BoW.
+
 
 * /dfjs:
 The taint analysis data flow tool for wechat-miniapp.

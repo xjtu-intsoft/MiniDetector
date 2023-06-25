@@ -1,8 +1,0 @@
-{
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "authorise": "/components/authorise/authorise",
-        "my-products": "components/my-products/my-products",
-        "activity-win": "/components/activity-win/activity-win"
-    }
-}

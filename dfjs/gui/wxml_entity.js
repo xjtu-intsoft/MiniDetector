@@ -7,18 +7,21 @@ const buildTreeDom = require("./dom.js").buildTreeDom
 
 class Wxml {
     constructor(file_path, app) {
-        this.file_path = path.normalize(file_path)
+        // this.file_path = path.normalize(file_path)
+        this.file_path = file_path;
         this.app = app
 
-        this.relative_path = path.relative(this.app.root, this.file_path)
+        // this.relative_path = path.relative(this.app.root, this.file_path)
 
         this.limited_search_depth = 1
 
         this.flow_res = {
-            file: this.file_path.replace(".wxml",".js"),
+            file: this.file_path.replace(".wxml", ".js"),
             flow_count: 0,
             sources: []
         }
+
+        this.source_type = { file: this.file_path.replace(this.app.root, '').replace(/\\/g, '/'), infoType: [] };
     }
     getDom() {
         //wxml文件->wxml组件树
@@ -38,9 +41,9 @@ class Wxml {
         // 填充剩余事件节点
         let search_depth = 0
         this.dom_root.traverse(n => {
-            if(n.isEvent){
+            if (n.isEvent) {
                 let cur_node = n
-                while(n.fill_string.length === 0 && search_depth <= this.limited_search_depth){
+                while (n.fill_string.length === 0 && search_depth <= this.limited_search_depth) {
                     n.fill_string = this.getParentString(cur_node)
                     search_depth += 1
                     cur_node = cur_node.parent
@@ -48,59 +51,70 @@ class Wxml {
             }
         })
     }
-    getParentString(node){
+    getParentString(node) {
         return node.parent.fill_string
     }
-    source(){
+    source() {
         let uiSource = [];
-        this.getDom();
-        this.dom_root.traverse(n=>{
-            if(n.isEvent){
-                uiSource.push(n.event_info)
-                for(let event_f of n.event_info.eventFunction){
-                    let flowsOfUI = [];
-                    let eventFuncExprLoc= undefined
-                    this.app.jsfiles[this.file_path.replace(".wxml",".js")] &&
-                    this.app.jsfiles[this.file_path.replace(".wxml",".js")].field.subFields.forEach(subField=>{
-                        if(subField.node.type === "ObjectExpression" && subField.node.parent && subField.node.parent.type == "CallExpression"
-                            && subField.node.parent.es_node.callee.name == "Page" && subField.pending){
-                            subField.pending.forEach(p=>{
-                                if(p.node.parent.type==="Property" && p.node.parent.es_node.key.name===event_f){
-                                    p.node.es_node.params.forEach(m=>{
-                                        p.declared_vars.forEach(vn=>{
-                                            if (m.name === vn.name) {
-                                                eventFuncExprLoc = p.node.loc
-                                                vn.node.fromSource = {
-                                                    api: event_f,
-                                                    loc: eventFuncExprLoc,
-                                                    file:this.file_path.replace(".wxml",".js"),
-                                                    text: n.fill_string,
-                                                    type: "UI"
-                                                }
-                                                let flow_res = vn.flow()
-                                                flowsOfUI.push(...flow_res);
-                                            }
-                                        })
-                                    })
-                                }
-                            })
-                        }
-                    })
+        let jsPath = this.file_path.replace('.wxml', '.js');
+        let pageInstance = this.app.getPageInstance(jsPath);
+        if (pageInstance) {
+            this.dom_root.traverse(n => {
+                if (n.isEvent) {
+                    uiSource.push(n.event_info)
 
-                    this.flow_res.sources.push({
-                        source: {
-                            api: event_f,
+                    for (let event_f of n.event_info.eventFunction) {
+                        let flowsOfUI = [];
+                        let eventFuncExprLoc;
+
+                        let prop = pageInstance.obj_field.declared_vars.find(e => e.name == event_f);
+                        if (prop) {
+                            let funcDefs = prop.getFunctionFields();
+                            for (let funcDef of funcDefs) {
+                                let paramList = funcDef.getParams();
+                                for (let vn of paramList) {
+                                    eventFuncExprLoc = vn.node.loc
+                                    vn.node.fromSource = {
+                                        api: event_f,
+                                        loc: eventFuncExprLoc,
+                                        file: this.file_path.replace(".wxml", ".js"),
+                                        text: n.getText(),
+                                        type: "UI"
+                                    }
+                                    let flow_res = vn.flow()
+                                    flowsOfUI.push(...flow_res);
+                                }
+                            }
+                        }
+                        this.flow_res.sources.push({
+                            source: {
+                                api: event_f,
+                                loc: eventFuncExprLoc,
+                                text: n.getText(),
+                                type: "UI"
+                            },
+                            flow: flowsOfUI
+                        });
+                        this.source_type.infoType.push({
+                            api: "PageInstance." + event_f,
                             loc: eventFuncExprLoc,
-                            text: n.fill_string,
-                            type: "UI"
-                        },
-                        flow: flowsOfUI
-                    });
+                            text: n.getText(),
+                        });
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 }
+//
+// let test = new Wxml("D:\\WORK\\2022\\论文相关\\benchmark\\miniapp\\998二手挖机圈\\_-1965603458_27\\pages\\report\\report.wxml", {"root":null})
+// test.getDom()
+// test.dom_root.traverse(n=>{
+//     if(n.isEvent){
+//         console.log(n)
+//     }
+// },)
+
 
 module.exports = {
     Wxml: Wxml

@@ -1,7 +1,0 @@
-{
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "banner": "/components/banner/banner",
-        "subscribe-container": "components/subscribe-container/subscribe-container"
-    }
-}

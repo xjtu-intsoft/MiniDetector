@@ -1,9 +1,0 @@
-{
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    },
-    "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark",
-    "backgroundColor": "#fff",
-    "navigationBarTitleText": "评估结果"
-}

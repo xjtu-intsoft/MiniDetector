@@ -1,6 +1,0 @@
-{
-    "usingComponents": {
-        "banner": "/components/banner/banner",
-        "dtyz-all-item": "components/dtyz-all-item/dtyz-all-item"
-    }
-}

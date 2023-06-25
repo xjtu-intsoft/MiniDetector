@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "回收机型选择",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

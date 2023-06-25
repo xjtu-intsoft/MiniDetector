@@ -1,5 +1,0 @@
-@import "../../__wuBaseWxss__/10.wxss";
-
-.weui-media-box__desc {
-    display: block;
-}

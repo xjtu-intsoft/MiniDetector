@@ -1,4 +1,0 @@
-<view class="video-volume">
-    <image mode="widthFix" src="{{iconsrc}}"></image>
-    <text>{{time}}</text>
-</view>

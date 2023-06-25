@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-        "lucky-wheel": "/miniprogram_npm/mini-luck-draw/lucky-wheel/index",
-        "lucky-grid": "/miniprogram_npm/mini-luck-draw/lucky-grid/index",
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

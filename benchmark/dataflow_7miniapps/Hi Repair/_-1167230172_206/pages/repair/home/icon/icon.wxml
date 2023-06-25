@@ -1,9 +1,0 @@
-<view class="iconContainer" style="background:{{background}};background-size: 100% 100%;">
-    <view class="iconWrap">
-        <view bindtap="jumpPage" class="icon" data-bg="{{item.modal_background}}" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}" data-type="{{item.route_type}}" data-url="{{item.url}}" wx:for="{{data.items}}" wx:key="index">
-            <image class="icon-right" mode="heightFix" src="{{item.avatar}}" wx:if="{{item.avatar!=''}}"></image>
-            <image class="main-image" mode="widthFix" src="{{item.src}}"></image>
-            <text class="" style="color: {{fontcolor}}">{{item.name}}</text>
-        </view>
-    </view>
-</view>

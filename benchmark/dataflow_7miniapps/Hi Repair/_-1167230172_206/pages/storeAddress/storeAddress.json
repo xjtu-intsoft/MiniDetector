@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "Hi维修-维修中心",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

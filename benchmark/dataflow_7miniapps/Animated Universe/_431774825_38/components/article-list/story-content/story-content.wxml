@@ -1,3 +1,0 @@
-<view style="">
-    <view class="story-content" style="-webkit-line-clamp:{{rowCount}}">{{content}}</view>
-</view>

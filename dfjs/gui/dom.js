@@ -1,8 +1,8 @@
 // 此文件为wxml中ast的最小节点
 
 let insensitive_attributes = ["class", "maxlength", "type", "value", "color", "size", "style", "lang", "data-event-opts", "src", "mode"]
-let form_tags = ["button","checkbox","checkbox-group","editor","form","input","picker","picker-view","picker-view",
-    "picker-view-column","radio","radio-group","slider","switch","textarea"]
+let form_tags = ["button", "checkbox", "checkbox-group", "editor", "form", "input", "picker", "picker-view", "picker-view",
+    "picker-view-column", "radio", "radio-group", "slider", "switch", "textarea"]
 const getType = require("./nlp.js").getType;
 
 class DomNode {
@@ -59,67 +59,87 @@ class DomNode {
         }
         return return_first ? null : res;
     }
-    event(){
-        if (this.xml.attribs){
+    event() {
+        if (this.xml.attribs) {
             let opentypeApi = null
             let eventFunction = []
             let data_vars = []
-            Object.keys(this.xml.attribs).forEach(a=>{
-                if(a==="opentype"){
-                    opentypeApi=this.xml.attribs.opentype
+            Object.keys(this.xml.attribs).forEach(a => {
+                if (a === "opentype") {
+                    opentypeApi = this.xml.attribs.opentype
                 }
-                if(a.indexOf("data-")!==-1) {
+                if (a.indexOf("data-") !== -1) {
                     data_vars.push(a.substring(5))
                 }
-                if(a.indexOf("bind")!==-1 || a.indexOf("catch")!==-1){
+                if (a.indexOf("bind") !== -1 || a.indexOf("catch") !== -1) {
                     eventFunction.push(this.xml.attribs[a])
                 }
             })
-            if(opentypeApi || form_tags.indexOf(this.xml.name) !== -1){
-                this.event_info = {"opentypeApi": opentypeApi, "data_vars": data_vars, "eventFunction": eventFunction, "tag":this.xml.name}
+            if (opentypeApi || form_tags.indexOf(this.xml.name) !== -1) {
+                this.event_info = { "opentypeApi": opentypeApi, "data_vars": data_vars, "eventFunction": eventFunction, "tag": this.xml.name }
                 this.isEvent = true
             }
         }
     }
-    text2type(){
-        if(this.isEvent){
-            let tp = []
+    getText(){
+        let checked_string = []
+        if (this.isEvent) {
+            for (const s of this.fill_string) {
+                if (checked_string.indexOf(s) === -1) {
+                    checked_string.push(s)
+                }
+            }
+            for (const e of this.event_info.eventFunction) {
+                if (checked_string.indexOf(e) === -1) {
+                    checked_string.push(e)
+                }
+            }
+        }
+        return checked_string
+    }
+    text2type() {
+        let tp = []
+        let formatStrType = ""
+        if (this.isEvent) {
             let checked_string = []
             for (const s of this.fill_string) {
-                if (checked_string.indexOf(s) === -1){
+                if (checked_string.indexOf(s) === -1) {
                     checked_string.push(s)
-                    getType(s,"overlap",1).forEach(r => {tp.push({"text":s,"type":r.type,"from":"ui-string"})})
+                    getType(s, "overlap", 1).forEach(r => { 
+                        var existTP = false;
+                        var newTP = { "text": s, "type": r.type, "from": "ui-string" };
+                        for(let etp of tp){
+                            if(JSON.stringify(etp) === JSON.stringify(newTP)) {
+                                existTP = true
+                            }
+                        }
+                        if(!existTP) tp.push(newTP);
+                    })
                 }
             }
-            for(const e of this.event_info.eventFunction){
-                if (checked_string.indexOf(e) === -1){
+            for (const e of this.event_info.eventFunction) {
+                if (checked_string.indexOf(e) === -1) {
                     checked_string.push(e)
-                    getType(e,"overlap",1).forEach(r => {tp.push({"text":e,"type":r.type,"from":"event-func"})})
+                    getType(e, "overlap", 1).forEach(r => {
+                        var existTP = false;
+                        var newTP = { "text": e, "type": r.type, "from": "event-func" };    
+                        for(let etp of tp){
+                            if(JSON.stringify(etp) === JSON.stringify(newTP)) {
+                                existTP = true
+                            }
+                        }
+                        if(!existTP)  tp.push(newTP);
+                        })
                 }
             }
-            let formatStrType = []
+            formatStrType = tp.map(r => "text " + "<" + r.text + ">" + " of type " + "<" + r.type + ">" + " from " + "<" + r.from + ">")
+                .join(";")
+        }
+        else {
+            console.log("Error: not event node")
 
-            tp.forEach(r=>{
-                let new_format_record = JSON.stringify(r.text+"#"+r.type+"#"+r.from)
-                if(!formatStrType.includes(new_format_record)) formatStrType.push(new_format_record)
-            })
-            let res = "___"
-            formatStrType.map(r=>{
-                res = res + r + "___"
-            })
-            return res
         }
-        else {
-            console.log("Error: not event node")
-        }
-    }
-    getText(){
-        if(this.isEvent){
-            return this.fill_string
-        }
-        else {
-            console.log("Error: not event node")
-        }
+        return { formatStrType, tp }
     }
 }
 

@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-        "many-images": "components/many-images/many-images",
-        "share-buttons": "/components/share-buttons/share-buttons",
-        "wiki-top": "components/wiki-top/wiki-top"
-    }
-}

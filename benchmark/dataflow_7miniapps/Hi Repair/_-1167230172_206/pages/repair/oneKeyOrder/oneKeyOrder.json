@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "一键下单",
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

@@ -1,8 +1,0 @@
-{
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "has-more-data": "/components/has-more-data/has-more-data",
-        "share-buttons": "/components/share-buttons/share-buttons",
-        "search": "/components/search/search"
-    }
-}

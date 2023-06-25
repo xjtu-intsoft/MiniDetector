@@ -1,7 +1,0 @@
-<view class="search-data">
-    <stream-layout class="stream-layout"></stream-layout>
-    <view class="search-data-footer">
-        <has-more-data hasMoreData="{{hasMoreData}}"></has-more-data>
-    </view>
-    <share-buttons oneButton="true" source="0"></share-buttons>
-</view>

@@ -1,7 +1,0 @@
-<view class="wiki-top">
-    <image bindtap="goImageDetailPage" class="wiki-top-image-big" src="{{item.pictures[0].resource_url}}" style="height:{{item.showHeight}}rpx"></image>
-    <view class="wiki-top-content">
-        <view class="wiki-top-text {{item.dtmdHref?'':'wiki-top-text-noMd'}}">{{item.title}}</view>
-        <video-time dtmdHref="{{item.dtmdHref}}" time="动图秒懂" type="md"></video-time>
-    </view>
-</view>

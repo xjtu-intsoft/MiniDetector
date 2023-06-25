@@ -1,7 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "tag": "/components/tag/tag",
-        "story-content": "../story-content/story-content"
-    }
-}

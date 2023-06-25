@@ -1,9 +1,0 @@
-<view catch:touchmove="ss" class="cardList-con">
-    <view catch:tap="_closeCon" class="con-bg bgAni"></view>
-    <view class="con-scroll {{cardList.animationName}}">
-        <view class="title" style="text-align:{{textAlign}}">{{title}}</view>
-        <scroll-view scrollY class="scroll">
-            <slot name="card"></slot>
-        </scroll-view>
-    </view>
-</view>

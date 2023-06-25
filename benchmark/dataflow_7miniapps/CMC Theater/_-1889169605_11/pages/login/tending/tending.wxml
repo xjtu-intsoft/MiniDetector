@@ -1,8 +1,0 @@
-<view class="tending-view">
-    <view class="tending-mainview">
-        <image class="tending-imageview" src="/images/codeLogin/shengji_image.png"></image>
-        <view class="tending-title">服务升级中，敬请期待</view>
-        <view class="tending-subtitle">预 计 完 成 时 间</view>
-        <view class="tending-message">{{tendingMessage}}</view>
-    </view>
-</view>

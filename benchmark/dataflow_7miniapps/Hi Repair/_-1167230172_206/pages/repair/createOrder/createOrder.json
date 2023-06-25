@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "提交订单",
-    "enablePullDownRefresh": false,
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}

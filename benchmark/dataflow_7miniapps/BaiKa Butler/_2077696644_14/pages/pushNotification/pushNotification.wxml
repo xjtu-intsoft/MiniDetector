@@ -1,5 +1,0 @@
-<image class="bg" mode="widthFix" src="{{officeAccountInfo.url}}"></image>
-<view class="bottom">
-    <image bindtap="onCopy" class="btn" src="../../images/btn_copy.png"></image>
-    <text class="name">{{officeAccountInfo.occaName}}</text>
-</view>

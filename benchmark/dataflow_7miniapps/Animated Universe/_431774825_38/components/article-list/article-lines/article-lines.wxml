@@ -1,9 +1,0 @@
-<view class="article-lines">
-    <view class="article-line-left"></view>
-    <view class="article-lines-text">
-        <image class="article-lines-left-image" mode="aspectFit" src="/images/icon_triangle_down.png"></image>
-        <text>跟上话题</text>
-        <image class="article-lines-right-image" mode="aspectFit" src="/images/icon_triangle_down.png"></image>
-    </view>
-    <view class="article-line-right"></view>
-</view>

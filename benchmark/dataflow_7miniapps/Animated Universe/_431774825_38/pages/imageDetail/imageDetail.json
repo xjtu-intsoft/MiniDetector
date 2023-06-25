@@ -1,8 +1,0 @@
-{
-    "usingComponents": {
-        "relate-recommend": "/components/relate-recommend/relate-recommend",
-        "common-buttons": "/components/common-buttons/common-buttons",
-        "image-pop": "/components/image-pop/image-pop"
-    },
-    "navigationBarTitleText": "图片详情"
-}

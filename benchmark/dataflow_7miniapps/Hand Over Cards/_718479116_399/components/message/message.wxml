@@ -1,6 +1,0 @@
-<view class="m-message mini-class {{typeName}}" style="{{miniStyle}}">
-    <view catchtap="_messageTap" class="m-message-text" data-mark="{{mark}}">{{text}}</view>
-    <image alt="" catchtap="_arrowsTap" class="m-message-arrows" data-mark="{{mark}}" src="{{iconSrc}}" wx:if="{{icon=='arrows'&&iconShow}}"></image>
-    <image alt="" catchtap="_closeTap" class="m-message-close" data-mark="{{mark}}" src="{{iconSrc}}" wx:if="{{icon=='close'&&iconShow}}"></image>
-    <view catchtap="_buttonTap" class="m-message-button" data-mark="{{mark}}" wx:if="{{button}}">{{buttonText}}</view>
-</view>

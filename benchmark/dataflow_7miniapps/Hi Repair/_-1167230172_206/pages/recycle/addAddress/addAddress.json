@@ -1,7 +1,0 @@
-{
-    "navigationBarTitleText": "填写地址",
-    "enablePullDownRefresh": false,
-    "usingComponents": {
-        "luck-draw-dialog": "/component/luckDraw/luckDraw"
-    }
-}
