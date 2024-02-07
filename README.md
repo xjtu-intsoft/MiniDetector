@@ -1,37 +1,42 @@
-# MiniApp Consistency Detection System
-A Consistency Detection System for WeChat Mini-Apps
+# MiniDetector: MiniApp Consistency Detection System
+
+A Consistency Detection System for Mini-Apps
+
+## Overview
+
+This repository contains the MiniDetector system, designed for detecting consistency issues within Mini-Apps. It provides tools for analyzing data flow, extracting entities from privacy policies, and conducting consistency detection.
 
 ## Structure
-* /benchmark:
-  * Dataflow-14MiniApps: The calibration dataset used in this paper. 14 mini-apps for data flow calibration. The calibration result file is in "label.csv" under each mini-app folder.
-  * PrivacyPolicy-40MiniApps: The calibration dataset used in this paper. 40 privacy policies with detailed annotations.
-  * UIText-100MiniApps: 100 mini-apps' layout file and information extraction label.
-  * Consistency-40MiniApps: 40+ mini-apps' code, include the same mini-apps as PrivacyPolicy-40MiniApps.
 
-* /vocabularies:
-    * Two vacabularies, include type and operation.
+* `/baseline`: 
+  Contains the baseline of our approach, including 70 mini-apps (data flow and privacy policy). Due to the size restriction of the GitHub repo, only 5 samples are included. For more samples, please contact us directly.
 
-* /dataset:
-   * Because github has a size limit of single file, we upload the dataset at zenodo:https://doi.org/10.5281/zenodo.7159718.
-   * vocabulary_datatype.json & vocabulary_dataoperation.json: The vocabularies used in data practice, include data types and data operations.
-   * privacy_2136labeledSentences.csv: Sentences for classifier training.
-   * wechatAPIs_sourceandsink.json: WeChat mini-app APIs, includes source and sink.
-   * MiniApp_PrivacyPolicy_2998: 2998 privacy policies extracted from the miniapp dataset.
-   * MiniApp_Package_2998: 2998 WeChat miniapp packages dataset.
-   * Due to the large volume of all mini-apps, only 2998 mini-apps with privacy policies are provided here. If you need the 100,000 mini-app packages, please contact us at wy0724@stu.xjtu.edu.cn.
-   
-* /classifier:
-  * bert_model.py: Train file for sentence classification using BERT.
-  * bow_model.py: Train file for sentence classification using BoW.
+* `/ontology`: 
+  Includes two ontologies, covering types and operations.
 
+* `/dataset`: 
+  As GitHub has a size limit for single files, we have uploaded the dataset to Zenodo: [Dataset Link](https://doi.org/10.5281/zenodo.7159718).
 
-* /dfjs:
-The taint analysis data flow tool for wechat-miniapp.
-The entry file is main.js. Modify the incoming mini-app file directory. After the analysis is completed, a \_\_res\_\_ result file will be generated in the directory.
+* `/dfjs`:
+  Analyzes data flow in Mini-App JavaScript. This tool performs taint analysis for data flow in WeChat mini-apps. The entry file is `main.js`. Modify the incoming mini-app file directory as needed. After the analysis is completed, a `__res__` result file will be generated in the directory.
 
-* /extract:
-Get the privacy policy from the static program code or automated tests.
+* `/eepp`:
+  Entity extraction in privacy policies. 
+  - `llm.py`: Retrieves practical entities from privacy policies.
+  - `extract.py`: Extracts privacy policies from static program code.
+
+* `/cdet`:
+  Consistency detection module.
+
+## How to Use
+
+1. Use `/dfjs` to obtain data flow results.
+2. Use `/eepp` to extract data practices from privacy policies.
+3. Utilize `/cdet` for consistency detection.
 
 ## Environment
-For code analysis, we used the NodeJS development environment, version 12.19.0. Abstract syntax trees are parsed using the esprima library. 
-For the privacy policy analysis, we used Python development environment, version 3.6.13. The basic module of neural network for sentence classification is provided by Keras library.
+
+For code analysis, we utilized the Node.js development environment, version 12.19.0. Abstract syntax trees are parsed using the esprima library. 
+For privacy policy analysis, we employed the Python development environment, version 3.6.13. 
+
+For further inquiries or assistance, feel free to contact us.

@@ -1,0 +1,11 @@
+source_file,source_api,source_loc,sink_file,sink_api,sink_loc,startpoint_type,flow_type
+pages\authBank\authBank.js,bindRegionChange,106,pages\authBank\authBank.js,console.log,107,ui,intra.
+pages\customerServiceWeChat\customerServiceWeChat.js,copyWechat,27,pages\customerServiceWeChat\customerServiceWeChat.js,wx.setClipboardData,28,ui,intra.
+pages\home\home.js,wx.request,320,pages\home\home.js,console.log,329,api.asyn,intra.
+pages\home\home.js,wx.request,320,pages\home\home.js,wx.setStorageSync,334,api.asyn,intra.
+pages\home\home.js,bindRegionChange,766,pages\home\home.js,wx.showModal,768,ui,intra.
+pages\login\login.js,wx.login,81,pages\login\login.js,wx.setStorageSync,23,api.asyn,inter.sf
+pages\login\login.js,onRegister,141,pages\login\login.js,wx.setStorageSync,23,ui,inter.sf
+pages\share\share.js,wx.downloadFile,30,pages\share\share.js,wx.saveImageToPhotosAlbum,36,api.asyn,intra.
+pages\login\login.js,wx.request,2,pages\login\login.js,wx.setStorageSync,23,api.asyn,inter.cf
+pages\login\login.js,wx.request,67,pages\login\login.js,wx.showModal,77,api.asyn,inter.cf
