@@ -13,4 +13,4 @@ target.getUnlabelCsv();
 target.getSource2SinkResult();
 
 var endTime = (new Date()).getTime();
-console.log(endTime - startTime)
+console.log(endTime - startTime) 
