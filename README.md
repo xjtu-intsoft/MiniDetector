@@ -15,7 +15,7 @@ This repository contains the MiniDetector system, designed for detecting consist
   Includes two ontologies, covering types and operations.
 
 * `/dataset`: 
-  As GitHub has a size limit for single files, we have uploaded the dataset to Zenodo: [Dataset Link](https://doi.org/10.5281/zenodo.7159718).
+  As GitHub has a size limit for single files, for more samples, please contact us directly.
 
 * `/dfjs`:
   Analyzes data flow in Mini-App JavaScript. This tool performs taint analysis for data flow in WeChat mini-apps. The entry file is `main.js`. Modify the incoming mini-app file directory as needed. After the analysis is completed, a `__res__` result file will be generated in the directory.
@@ -39,4 +39,8 @@ This repository contains the MiniDetector system, designed for detecting consist
 For code analysis, we utilized the Node.js development environment, version 12.19.0. Abstract syntax trees are parsed using the esprima library. 
 For privacy policy analysis, we employed the Python development environment, version 3.6.13. 
 
-For further inquiries or assistance, feel free to contact us.
+For further inquiries or assistance, feel free to contact us. 
+
+# Contact
+
+Yin Wang, wy0724@stu.xjtu.edu.cn
