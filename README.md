@@ -15,7 +15,7 @@ This repository contains the MiniDetector system, designed for detecting consist
   Includes two ontologies, covering types and operations.
 
 * `/dataset`: 
-  As GitHub has a size limit for single files, for more samples, please contact us directly.
+  As GitHub has a size limit for single files, for more samples, please download from [Google Drive](https://drive.google.com/file/d/1J0bUYwh6puWTtIAEi8423QWLfyMw1Y4U/view?usp=sharing).
 
 * `/dfjs`:
   Analyzes data flow in Mini-App JavaScript. This tool performs taint analysis for data flow in WeChat mini-apps. The entry file is `main.js`. Modify the incoming mini-app file directory as needed. After the analysis is completed, a `__res__` result file will be generated in the directory.
