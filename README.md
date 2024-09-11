@@ -9,7 +9,7 @@ This repository contains the MiniDetector system, designed for detecting consist
 ## Structure
 
 * `/baseline`: 
-  Contains the baseline of our approach, including 70 mini-apps (data flow and privacy policy). Due to the size restriction of the GitHub repo, only 5 samples are included. For more samples, please contact us directly.
+  Contains the baseline of our approach, including 70 mini-apps (data flow and privacy policy). Due to the size restriction of the GitHub repo, only 5 samples are included.
 
 * `/ontology`: 
   Includes two ontologies, covering types and operations.
